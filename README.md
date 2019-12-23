@@ -3,9 +3,9 @@
 ## usersテーブル
 |Column|Type|Options|
 |---------|------|---------|
-|nickname|string|null: false| <!-- nicknameはunique: trueしなくてもよい？ -->
+|nickname|string|null: false| 
 |email|text|null: false, unique: true|
-|password|text|null: false|<!-- user登録時のページ見てないですが、password_confirmationは不要？ -->
+|password|text|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null;false|
@@ -22,13 +22,11 @@
 |address2|string||
 |address_phone_number|integer||
 |introduction|text||
-<!-- 上３つはオプションなしの任意入力って認識でOKですかね -->
 ### Association
 - has_one :card
 - has_one :buyer
 - has_one :seller
 - has_one :comment
-<!-- has_many :commentsではない？ -->
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -37,14 +35,10 @@
 |updated_at|integer|null: false|
 |name|string|null: false|
 |item_description|string|null: false|
-<!-- カラム名はdescriptionでいいんじゃないかな？ -->
 |condition|string|null: false|
 |who_to_cover_shipping_cost|string|null: false|
-<!-- cover_postageとかpostageとか短い方が読みやすいかと -->
 |where_item_dispatched_from|string|null: false|
-<!-- shipping_areaとかreligeonとか、、、？ -->
 |days_till_dispatchment|string|null: false|
-<!-- shipping_dateとか？ -->
 |price|integer|null: false|
 |margin|integer|null: false|
 |profit|integer|null: false|
@@ -69,9 +63,6 @@
 |item_id|integer|null: false, foreign_key: true, index: true|
 ### Association
 - belongs_to 
-<!-- - belongs_to :item アソシエーションはitemでいいのかな？プロフィール画像も含むか？そしたらuserも？ -->
-
-
 
 ## brandsテーブル
 |Column|Type|Options|
@@ -80,7 +71,6 @@
 ### Association
 - has_many :items
 - has_many :groups, through: :brand_groups
-<!-- アソシエーション分からなくなってしまいました。brand_groupsテーブルは中間だからthrough？？ -->
 
 ## brand_groupsテーブル
 |Column|Type|Options|
@@ -97,7 +87,6 @@
 |name|string|null: false|
 ### Association
 - has_many :brands, through: :brand_groups
-<!-- アソシエーション分からなくなってしまいました。brand_groupsテーブルは中間だからthrough？？ -->
 
 ## categoriesテーブル
 |Column|Type|Options|
