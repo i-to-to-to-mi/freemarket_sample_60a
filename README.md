@@ -3,11 +3,9 @@
 ## usersテーブル
 |Column|Type|Options|
 |---------|------|---------|
-|nickname|string|null: false| 
-<!-- nicknameはunique: trueしなくてもよい？ -->
+|nickname|string|null: false| <!-- nicknameはunique: trueしなくてもよい？ -->
 |email|text|null: false, unique: true|
-|password|text|null: false|
-<!-- user登録時のページ見てないですが、password_confirmationは不要？ -->
+|password|text|null: false|<!-- user登録時のページ見てないですが、password_confirmationは不要？ -->
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null;false|
