@@ -27,6 +27,7 @@
 - has_one :buyer
 - has_one :seller
 - has_one :comment
+- has_many: likes
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -34,11 +35,11 @@
 |created_at|integer|null: false|
 |updated_at|integer|null: false|
 |name|string|null: false|
-|item_description|string|null: false|
+|description|string|null: false|
 |condition|string|null: false|
-|who_to_cover_shipping_cost|string|null: false|
-|where_item_dispatched_from|string|null: false|
-|days_till_dispatchment|string|null: false|
+|cover_postage|string|null: false|
+|shipping_area|string|null: false|
+|shipping_date|string|null: false|
 |price|integer|null: false|
 |margin|integer|null: false|
 |profit|integer|null: false|
@@ -47,22 +48,32 @@
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true、index: true|
+|main_image|string|null: false|
+|image_2|string|null: false|
+|image_3|string|none|
+|image_5|string|none|
+|image_6|string|none|
+|image_7|string|none|
+|image_8|string|none|
+|image_9|string|none|
+|image_10|string|none|
+
 ### Association
 - has_one :buyer
 - has_one :seller
 - has_one :category
 - has_one :brand
 - has_many :comments
-- has_many :images
+- has_many: likes
 
-## imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image_id|integer|null: false, primary_key: true|
-|image|string|null: false|
-|item_id|integer|null: false, foreign_key: true, index: true|
-### Association
-- belongs_to 
+## likesテーブル
+|user_id|integer|null: false, uniqueness: {scope: :item_id}|
+|item_id|integer|null: false|
+|created_at|integer|null: false|
+
+###Association
+- belongs_to: user
+- belongs_to: item
 
 ## brandsテーブル
 |Column|Type|Options|
