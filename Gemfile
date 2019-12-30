@@ -71,5 +71,6 @@ group :production do
 end
 
 gem 'devise'
+gem 'rspec-rails'
 
 
