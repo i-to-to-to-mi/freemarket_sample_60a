@@ -62,6 +62,11 @@
     <%= f.select :birth_day, options_for_select((1..31).to_a), :prompt => "--"%>
   </div>
 
+  <div class="field">
+    <%= f.label "アバター実験" %><br />
+    <%= f.file_field :avator %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
