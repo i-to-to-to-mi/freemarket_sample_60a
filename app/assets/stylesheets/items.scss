@@ -99,7 +99,7 @@ a {
         line-height: 36px;
         white-space: nowrap;
         }
-        
+
       .nav-icon {
         max-width: 100%;
         max-height: 100%;
@@ -133,9 +133,63 @@ a {
     &-contents  {
       display: flex;
       position: relative;
+      &--new-register-btn {
+        background-color: red;
+        display: inline-block;
+        border-width: 1px;
+        border-style: solid;
+        border-color: red;
+        border-image: initial;
+        border-radius: 4px;
+        padding: 8px 10px;
+        width: 106px;
+        height: 32px;
+        position: relative; 
+        
+        
+
+        a {
+          
+          color: white;
+          font-size: 14px;
+
+          position: absolute;          /* 位置指定 */
+          top: 50%;                    /* 親要素の半分下にずらす */
+          left: 50%;                   /* 親要素の半分右にずらす */
+          transform: translateY(-50%) translateX(-50%);   /* 要素自体の半分、上と左にずらす */
+          white-space: nowrap;
+          
+        }
+        
+      }
+      &--user-login-btn {
+        background-color: white;
+        display: inline-block;
+        border-width: 1px;
+        border-style: solid;
+        border-color: skyblue;
+        border-image: initial;
+        border-radius: 4px;
+        padding: 8px 10px;
+        margin-left: 8px;
+        width: 77px;
+        height: 32px;
+        position: relative;
+        
+
+        a {
+          color: skyblue;
+          font-size: 14px;
+
+          position: absolute;          /* 位置指定 */
+          top: 50%;                    /* 親要素の半分下にずらす */
+          left: 50%;                   /* 親要素の半分右にずらす */
+          transform: translateY(-50%) translateX(-50%);     /* 要素自体の半分、上と左にずらす */
+          white-space: nowrap;
+            
+        }
+      }
     }
-  }
-}
 
 .toppage__footer-login-contents  {
   display: flex;
@@ -223,6 +277,7 @@ a {
     font-size: 14px;
     height: 32px;
 
-    
+      }
+    }  
   }
-}  
+}
