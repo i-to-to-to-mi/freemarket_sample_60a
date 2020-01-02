@@ -1,0 +1,186 @@
+-# scssに記述
+-# @import "font-awesome-sprockets";
+-# @import "font-awesome";
+
+-# gemに記載→bundle install
+-# gem "font-awesome-sass"
+
+
+%header.header
+  .header-wrapper
+    .toppage__header
+      .toppage__header-contents
+        = link_to root_path do
+          = image_tag 'fmarket_logo_red', alt: 'mercari-logo',
+          class: 'toppage__header-contents--mercari-logo'
+
+        .toppage__header-search
+          %form{ action: '/', method: 'post' }
+            %input{ name: 'seach', class: 'toppage__header-search--search-form',
+            placeholder: '何かお探しですか？' }
+          .toppage__header-search--search-btn
+
+            = icon('fas', 'search', alt: 'search-icon',
+            class: 'toppage__header-search--search-btn')
+
+    .toppage__footer
+      %nav.toppage__footer-nav
+        
+        %ul.toppage__footer-nav-category
+          %h2
+            = link_to root_path do
+              = icon('fas', 'list-ul lg', alt: 'nav-icon',
+              class: 'nav-icon')
+              %span カテゴリーから探す
+          .categories-wrapper
+            %ul.first-category__wrapper
+              -# Categoryテーブルから値取得 parentの値
+              -# コントローラーに記載
+              -# def index
+                  @parents = Category.all.order("id ASC").limit(13)
+                  end
+              %li.first__list
+                -# - @parents.each do |parent|
+                -# = link_to "#{parents.name}", category_path(category), class: 'first__list__item'
+                %ul.second
+                  -# - parent.children.each do |child|
+                    %li.second__list
+                      -# = link_to "#{child.name}", category_path(child), class: 'second__list__item'
+                      %ul.third
+                        -# - child.children.each do |grandchild|
+                          %li.third__list
+                            -# = link_to "#{grandchild.name}", category_path(grandchild), class: 'third__list__item'
+                              
+              %li.first-category__list
+                -# = link_to 'カテゴリー一覧', category_index_path, class: 'first-category__list__item'
+
+              
+
+        %ul.toppage__footer-nav-brand
+          %h2
+            = link_to root_path do
+              = icon('fas', 'tag lg', alt: 'tag-icon',
+              class: 'nav-icon')
+              %span ブランドから探す
+          %ul.brand__wrapper
+            -# コントローラーに記載
+              -# def index
+                  @brands = brand.all
+                  end
+            -# - @brands.each do |brand|
+              %ul.first
+                %li.first__list
+                  -# = link_to brand, '#', class: 'first__list__item'
+            
+                %li.brand
+                  %p ブランド一覧
+      .toppage__footer-contents
+        -# - if user_signed_in?
+        .toppage__footer-contents-wrapper
+          
+          %ul.toppage__footer-login-contents
+            %li.toppage__footer-login-content
+              = link_to root_path do
+                = icon('far', 'heart ', alt: 'heart-icon',
+                class: 'toppage__footer-login-content--heart-icon')
+                %span いいね！一覧
+            %li.toppage__footer-login-content--notice
+              = link_to root_path do
+                = icon('far', 'bell', alt: 'bell-icon',
+                class: 'toppage__footer-login-content--bell-icon')
+                %span お知らせ
+                .toppage__footer-login-content--notice-count
+                  99+
+              %ul.toppage__footer-login-content--notice-lists
+            -#     %li.toppage__footer-login-content--notice-item
+            -#       = link_to root_path do
+            -#         %figure
+            -#           = image_tag '#', alt: 'mercari-logo', class: 'notice-mercari-logo'
+            -#         .toppage__footer-login-content--notice-item-body
+            -#           .notice-item-text 事務局から個別メッセージ「ログイン通知」
+            -#           %time
+            -#             = icon('far', 'clock', alt: 'clock-icon',
+            -#             class: 'toppage__footer-login-content--clock-icon')
+            -#             %span 2 分前
+            -#         = icon 'fas', 'chevron-right'
+            -#     %li.toppage__footer-login-content--notice-item
+            -#       = link_to root_path do
+            -#         %figure
+            -#           = image_tag '#', alt: 'mercari-logo', class: 'notice-mercari-logo'
+            -#         .toppage__footer-login-content--notice-item-body
+            -#           .notice-item-text 【明日まで！】スマホ出品で最大1000ポイントがもらえる
+            -#           %time
+            -#             = icon('far', 'clock', alt: 'clock-icon',
+            -#             class: 'toppage__footer-login-content--clock-icon')
+            -#             %span 16 時間前
+            -#         = icon 'fas', 'chevron-right'
+
+            %li.toppage__footer-login-content--todo
+              = link_to root_path do
+                = icon('fas', 'check', alt: 'bell-icon',
+                class: 'toppage__footer-login-content--check-icon')
+                %span やることリスト
+            -#   %ul.toppage__footer-login-content--todo-list
+            -#     %li
+            -#     現在、やることリストはありません
+
+            %li.toppage__footer-login-content--mypage
+              = link_to root_path do
+                = image_tag 'logo_gray', alt: 'mypage-logo',
+                class: 'toppage__footer-login-content--mypage-header-user-icon'
+                %span マイページ
+              .toppage__footer-login-content--mypage-box
+                .toppage__footer-login-content--mypage-box-content
+                -#   %figure
+                -#     %div
+                -#       = image_tag 'member_photo_noimage.png', alt: 'mypage-logo', width: '60px',
+                -#       class: 'toppage-header-top__footer-login-content--mypage-pulldown-user-icon'
+                -#     %figcaption
+                -#       = current_user.nickname
+                -#   %ul.toppage-top__footer-login-content--mypage-review-listing
+                -#     %li
+                -#       = link_to '評価: 2', '#'
+                -#     %li
+                -#       = link_to "出品数: #{current_user.products.length}", listing_listing_mypage_index_path
+                -#   %ul.toppage-top__footer-login-content--mypage-sales-point
+                -#     %li
+                -#       = link_to '#' do
+                -#         .mypage-list-left 売上金
+                -#         .mypage-list-right
+                -#           ¥0
+                -#           = icon 'fas', 'chevron-right'
+                -#     %li
+                -#       = link_to '#' do
+                -#         .l-left ポイント
+                -#         .l-right
+                -#           P0
+                -#           = icon 'fas', 'chevron-right'
+                -# %ul.toppage-top__footer-login-content--mypage-nav-list
+                -#   %li
+                -#     = link_to listing_listing_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                -#       出品した商品 - 出品中
+                -#       = icon 'fas', 'chevron-right'
+                -#   %li
+                -#     = link_to listing_in_progress_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                -#       出品した商品 - 取引中
+                -#       = icon('fas', 'chevron-right')
+                -#   %li
+                -#     = link_to listing_completed_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                -#       出品した商品 - 売却済み
+                -#       = icon('fas', 'chevron-right')
+                -#   %li
+                -#     = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                -#       購入した商品 - 取引中
+                -#       = icon('fas', 'chevron-right')
+                -#   %li
+                -#     = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
+                -#       購入した商品 - 過去の取引
+                -# = icon('fas', 'chevron-right')
+      -# - else
+      -# .toppage__footer-contents-wrapper
+      -#   .toppage__footer-contents--new-register-btn
+      -#     = link_to '新規会員登録', root_path 
+      -#   .toppage__footer-contents--user-login-btn
+      -#     = link_to 'ログイン', root_path 
+
+        -# = render 'items/footer'
