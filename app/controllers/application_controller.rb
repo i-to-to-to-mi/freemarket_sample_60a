@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       :last_name, :last_name_kana, 
       :birth_year, :birth_month, :birth_day, 
       :introduction, 
-      :avator])
+      :avatar])
   end
 
 
