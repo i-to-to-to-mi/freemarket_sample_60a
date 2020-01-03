@@ -20,25 +20,7 @@
         %a.liked-items__header__links--left{href: "#"} すべてみる
         %a.liked-items__header__links--right{href: "#"}
           = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'liked-items__header__links--right__icon')
-    %ul.liked-items__slider{"data-slick" => "{\"slidesToShow\": 6, \"slidesToScroll\": 6}"}
-      %li.liked-items__slider__item
-        %a.liked-items__slider__item__link{href: "#"}
-          %figure.liked-items__slider__item__figure
-            .liked-items__slider__item__thumbnail
-              %span.liked-items__slider__item__thumbnail__price ￥1000
-              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
-      %li.liked-items__slider__item
-        %a.liked-items__slider__item__link{href: "#"}
-          %figure.liked-items__slider__item__figure
-            .liked-items__slider__item__thumbnail
-              %span.liked-items__slider__item__thumbnail__price ￥1000
-              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
-      %li.liked-items__slider__item
-        %a.liked-items__slider__item__link{href: "#"}
-          %figure.liked-items__slider__item__figure
-            .liked-items__slider__item__thumbnail
-              %span.liked-items__slider__item__thumbnail__price ￥1000
-              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+    %ul.liked-items__sliders
       %li.liked-items__slider__item
         %a.liked-items__slider__item__link{href: "#"}
           %figure.liked-items__slider__item__figure
@@ -264,17 +246,6 @@
                 %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
                 %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
 
-    -# プロフィール編集
-  .profile-edit
-    %h2.profile-edit__heading プロフィール
-    = form_with model: @user, local: true, class: "profile-eidt__form", id: 'profile-eidt__form' do |form|
-      .profile-edit__background
-        %figure.profile-edit__backgorund__figure
-          %image.profile-edit__background__figure__image{:src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
-          = form.text_field :nickname, class: "profile-edit__background__nickname-form", placeholder: "例）AYAセール中"
-      .profile-edit__main
-        = form.text_area :introduction, class: "profile-edit__main__introduction", placeholder: "例）こんにちは⭐︎ご覧いただきありがとうございます！かわいいものやきれいめカジュアル中心に出品しています。服のサイズは主に９号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法に質問ございましたらお気軽にご質問ください。"
-        = form.submit "変更", class: "profile-edit__submit"
-        
+
 
 

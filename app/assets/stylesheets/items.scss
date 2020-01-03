@@ -59,7 +59,7 @@
   width: 1020px;
   margin: 32px auto;
   background-color: white;
-  padding: 24px 0 20px 0;
+  padding: 24px 10px 20px 10px;
 
 
   &__header {
@@ -102,22 +102,22 @@
     }
   }
 
-  &__slider {
-    width: 1620px;
+  &__sliders {
+    width: 1020px;
     height: 170px;
-    padding: 0;
     display: flex;
+    padding: 0 auto;
     position: absolute;
     align-items: center;
-    
+  }
 
-    &__item {
+  &__slider__item {
     width: 146px;
     height: 146px;
     margin: 12px 6px;
 
       &__link {
-        width: 146px;
+        width: 100%;
         height: 146px;
         display: inline-block;
         position: relative;
@@ -125,12 +125,13 @@
       }
       
       &__figure {
-        width: 146px;
+        width: 100%;
         height: 146px;
         position: relative;
       }
       
       &__thumbnail {
+        width: 100%;
         &__price {
           box-align: center;
           align-items: center;
@@ -150,13 +151,15 @@
         &__image {
           z-index: 1;
           object-fit: cover;
-          width: 146px;
+          width: 100%;
           height: 146px;
         }
       }
     }
   }
-}
+
+
+
 
 .popular-categories {
   background-color: white;
@@ -453,82 +456,4 @@
     }
   }
 }
-
-
-// プロフィール編集
-.profile-edit {
-  width: 700px;
-
-  &__heading {
-    font-size: 24px;
-    padding: 8px 24px;
-    margin: 0;
-  }
-
-  &__form {
-    height: 156px;
-    display: block;
-  }
-
-  &__background {
-    background-image: url(user-bg);
-    padding: 72px 16px 24px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-
-    &__figure {
-      display: table;
-       
-      &__image {
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        vertical-align: middle;
-        border-radius: 50%;
-      }
-    }
-
-    &__nickname-form {
-      width: 220px;
-      margin: 0 0 0 8px;
-      vertical-align: middle;
-      height: 48px;
-      padding: 10px 16px 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: #fff;
-      line-height: 1.5;
-      font-size: 16px;
-      display: inline-block;
-    }
-  }
-  &__main {
-    padding: 40px 16px;
-
-    &__introduction {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-height: 206px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: #fff;
-    font-size: 16px;
-    line-height: 1.5;
-    }
-  }
-
-  &__submit {
-    margin: 16px 0 0;
-    background: #ea352d;
-    border: 1px solid #ea352d;
-    color: #fff;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-  }
-}
-
 
