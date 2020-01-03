@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -74,4 +77,5 @@ gem "font-awesome-sass"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+gem 'devise'
 
