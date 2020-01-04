@@ -1,0 +1,54 @@
+.mypage-identification
+  %h2.mypage-identification__head 本人情報の登録
+  = form_with model: @address, local: true, class: "mypage-identification__form", id: 'mypage-identification__form' do |f|
+    .mypage-identification__explanation
+      %p.mypage-identification__explanation--left
+        お客さまの本人情報をご登録ください。
+        %br/
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      %p.mypage-identification__explanation--right
+        %a.mypage-identification__explanation--right--link{href: "#"} 本人確認書類のアップロードについて
+        = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'mypage-identification__explanation--right--link__icon')
+    .mypage-identification__form__group
+      %label.mypage-identification__form__label お名前
+      %p.mypage-identification__form__set-input 山田太郎
+
+    .mypage-identification__form__group
+      %label.mypage-identification__form__label お名前カナ
+      %p.mypage-identification__form__set-input 山田太郎
+
+    .mypage-identification__form__group
+      %label.mypage-identification__form__label 生年月日
+      %p.mypage-identification__form__set-input 1991/11/10
+
+    .mypage-identification__form__group
+      = f.label :postal_code, "郵便番号", class: 'mypage-identification__form__label'
+      %span.mypage-identification__form__arbitrary 任意
+      = f.text_field :postal_code, class: 'mypage-identification__form__input', placeholder: '例）1234567'
+    
+    .mypage-identification__form__group
+      = f.label :Prefectures, "都道府県", class: 'mypage-identification__form__label'
+      %span.mypage-identification__form__arbitrary 任意
+      = f.select :Prefectures, Address.Prefectures.keys, {prompt: '選択してください'}, {class: 'mypage-identification__form__select'}
+
+    .mypage-identification__form__group
+      = f.label :city, "市区町村", class: 'mypage-identification__form__label'
+      %span.mypage-identification__form__arbitrary 任意
+      = f.text_field :city, class: 'mypage-identification__form__input', placeholder: '例）横浜市緑区'
+    
+    .mypage-identification__form__group
+      = f.label :address1, "番地", class: 'mypage-identification__form__label'
+      %span.mypage-identification__form__arbitrary 任意
+      = f.text_field :address1, class: 'mypage-identification__form__input', placeholder: '例 青山1-1-1'
+    
+    .mypage-identification__form__group
+      = f.label :city, "建物名", class: 'mypage-identification__form__label'
+      %span.mypage-identification__form__arbitrary 任意
+      = f.text_field :city, class: 'mypage-identification__form__input', placeholder: '例）柳ビル103'
+    
+    = f.submit "登録する", class: 'mypage-identification__form__submit'
+
+    .mypage-identification__explanation
+      %p.mypage-identification__explanation--right
+        %a.mypage-identification__explanation--right--link{href: "#"} 本人情報の登録について
+        = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'mypage-identification__explanation--right--link__icon')
