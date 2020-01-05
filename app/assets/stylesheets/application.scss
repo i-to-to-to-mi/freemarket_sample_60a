@@ -1,3 +1,10 @@
-@import "./slick";
-@import "./slick-theme";
-@import "./items";
+@import "config/reset";
+@import "slick";
+@import "slick-theme";
+@import "items";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "addresses";
+@import "users";
+@import "credit_card/info"
+
