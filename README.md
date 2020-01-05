@@ -40,6 +40,7 @@
 |address1|string|null: false|
 |address2|string||
 |address_phone_number|integer||
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
