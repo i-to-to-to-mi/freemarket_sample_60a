@@ -4,8 +4,8 @@
 |Column|Type|Options|
 |---------|------|---------|
 |nickname|string|null: false| 
-|email|text|null: false, unique: true|
-|password|text|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null;false|
@@ -25,12 +25,16 @@
 - has_one :address
 
 ## Phoneテーブル
+|Column|Type|Options|
+|---------|------|---------|
 |phone_number|integer|null: false, unique: true|
 |authentication_num|integer|null: false|
 ### Association
 - belongs_to :user
 
 ## Addressテーブル
+|Column|Type|Options|
+|---------|------|---------|
 |postal_code|integer|null: false|
 |Prefectures|string|null: false|
 |city|string|null: false|
@@ -39,7 +43,6 @@
 |address_phone_number|integer||
 ### Association
 - belongs_to :user
-
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -60,15 +63,7 @@
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true、index: true|
-|main_image|string|null: false|
-|image_2|string|null: false|
-|image_3|string|none|
-|image_5|string|none|
-|image_6|string|none|
-|image_7|string|none|
-|image_8|string|none|
-|image_9|string|none|
-|image_10|string|none|
+|image_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_one :buyer
@@ -77,13 +72,21 @@
 - has_one :brand
 - has_many :comments
 - has_many: likes
+- belongs_to: image
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false|
 
 ## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false, uniqueness: {scope: :item_id}|
 |item_id|integer|null: false|
 |created_at|integer|null: false|
 
-###Association
+### Association
 - belongs_to: user
 - belongs_to: item
 
@@ -130,6 +133,7 @@
 - belongs_to :user
 - belongs_to :customer
 - belongs_to :card
+
 
 ## buyersテーブル
 |Column|Type|Options|
