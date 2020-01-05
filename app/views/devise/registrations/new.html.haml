@@ -6,7 +6,6 @@
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
   - if @sns_id.present?
-    - @password = Devise.friendly_token[0,10]
     = hidden_field_tag :sns_auth, true
   - else
     .field
