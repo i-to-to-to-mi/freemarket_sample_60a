@@ -18,7 +18,6 @@
 ### Association
 - has_one :card
 - has_one :buyer
-- has_one :seller
 - has_one :comment
 - has_many :likes
 - has_one :phone
@@ -66,18 +65,21 @@
 |image_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_one :buyer
-- has_one :seller
+- has_many :buyer
 - has_one :category
 - has_one :brand
 - has_many :comments
 - has_many: likes
-- belongs_to: image
+- has_many :images
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
+|item_id|integer|null: false,foreign_key: true|
+
+### Association
+- belongs_to: item
 
 ## likesテーブル
 |Column|Type|Options|
@@ -87,6 +89,8 @@
 |created_at|integer|null: false|
 
 ### Association
+- belongs_to: user
+- belongs_to: item
 - belongs_to: user
 - belongs_to: item
 
@@ -135,16 +139,7 @@
 - belongs_to :card
 
 
-## buyersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-## sellersテーブル
+## user_itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
