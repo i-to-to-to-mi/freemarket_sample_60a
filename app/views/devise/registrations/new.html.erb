@@ -1,0 +1,75 @@
+<h2>新規登録画面だよ</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "ニックネーム" %><br />
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label "苗字" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "苗字のかな" %><br />
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label "お名前" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "お名前のかな" %><br />
+    <%= f.text_field :last_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label "誕生日" %><br />
+    <% this_year = Date.today.year%>
+    <%= f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), :prompt => "--"%>
+  </div>
+
+  <div class="field">
+    <%= f.label "誕生月" %><br />
+    <%= f.select :birth_month, options_for_select((1..12).to_a), :prompt => "--"%>
+  </div>
+
+  <div class="field">
+    <%= f.label "誕生日" %><br />
+    <%= f.select :birth_day, options_for_select((1..31).to_a), :prompt => "--"%>
+  </div>
+
+  <div class="field">
+    <%= f.label "アバター実験" %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

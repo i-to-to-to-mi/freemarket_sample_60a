@@ -1,1 +1,254 @@
-= render 'items/header'
+
+.main
+  .topview
+    .top-view
+      .top-view__title
+        スマホでかんたん
+        %br/
+        フリマアプリ
+      %p.top-view__description
+        メルカリはスマホカメラからすぐに出品できる
+        %br/
+        購入時も安心な独自システムのアプリです
+      .top-view__buttons
+        %a.top-view__buttons__apple{href: "https://apps.apple.com/jp/app/%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA-%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA-%E3%82%B9%E3%83%9E%E3%83%9B%E6%B1%BA%E6%B8%88%E3%83%A1%E3%83%AB%E3%83%9A%E3%82%A4/id667861049?mt=8", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2013-07-22&kind=iossoftware&bubble=ios_apps) no-repeat;width:170px;height:50px;margin:16px; background-size:contain;"} ​
+        %a.top-view__buttons__google{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"}
+          %img{alt: "Google Play で手に入れよう", height: "80px", src: "https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png", width: "195px"}/
+  .liked-items
+    .liked-items__header
+      %h3.liked-items__header__title いいね！した商品
+      .liked-items__header__links
+        %a.liked-items__header__links--left{href: "#"} すべてみる
+        %a.liked-items__header__links--right{href: "#"}
+          = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'liked-items__header__links--right__icon')
+    %ul.liked-items__sliders
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+      %li.liked-items__slider__item
+        %a.liked-items__slider__item__link{href: "#"}
+          %figure.liked-items__slider__item__figure
+            .liked-items__slider__item__thumbnail
+              %span.liked-items__slider__item__thumbnail__price ￥1000
+              %img.liked-items__slider__item__thumbnail__image{alt: "thumbnail", src: "https://static-buyma-com.akamaized.net/imgdata/item/170811/0030462066/69475456/428.jpg"}/
+  .popular-categories
+    %h2.popular-categories__title 人気のカテゴリー
+    %ul.popular-categories__list
+      %li.popular-categories__list__category
+        %a.popular-categories__list__category__link{href: "#category__ladies"} レディース
+      %li.popular-categories__list__category
+        %a.popular-categories__list__category__link{href: "#category__mens"} メンズ
+      %li.popular-categories__list__category
+        %a.popular-categories__list__category__link{href: "#category__electronics"} 家電・スマホ・カメラ
+      %li.popular-categories__list__category
+        %a.popular-categories__list__category__link{href: "#category__toys"} おもちゃ・ホビー・グッズ
+  .category-boxes
+    .category-boxes__box
+      .category-boxes__box__heading
+        %h3.category-boxes__box__heading__title
+          %a#category__ladies レディース新着アイテム
+        .category-boxes__box__heading__links
+          %a.category-boxes__box__heading__links--left{href: "#"} もっとみる
+          %a.category-boxes__box__heading__links--right{href: "#"}
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      %ul.category-items
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+        %li.category-items__item
+          %a.category-items__item__link{href: "#"}
+            %figure.category-items__item__figure
+              %figcaption.category-items__item__figure__caption レディース製品
+              .category-items__item__thumbnail
+                %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
+                %img.category-items__item__thumbnail__image{alt: "thumbnail", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMc0Dqagzk7q2UASZc6DEvaEk6t72pAi58PpdvI-QnuhjRCPyU&s"}/
+  .popular-brand
+    %h2.popular-brand__title 人気のブランド
+    %ul.popular-brand__list
+      %li.popular-brand__list__brand
+        %a.popular-brand__list__brand__link{href: "#brand__channel"} シャネル
+      %li.popular-brand__list__brand
+        %a.popular-brand__list__brand__link{href: "#brand__louisvuitton"} ルイヴィトン
+      %li.popular-brand__list__brand
+        %a.popular-brand__list__brand__link{href: "#brand__supreme"} シュプリーム
+      %li.popular-brand__list__brand
+        %a.popular-brand__list__brand__link{href: "#brand__nike"} ナイキ
+  .brand-boxes
+    .brand-boxes__box
+      .brand-boxes__box__heading
+        %h3.brand-boxes__box__heading__title
+          %a#brand__channel シャネル新着アイテム
+        .brand-boxes__box__heading__links
+          %a.brand-boxes__box__heading__links--left{href: "#"} もっとみる
+          %a.brand-boxes__box__heading__link--right{href: "#"}
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'brand-boxes__box__heading__links--right__icon')
+      %ul.brand-items
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+        %li.brand-items__item
+          %a.brand-items__item__link{href: "#"}
+            %figure.brand-items__item__figure
+              %figcaption.brand-items__item__figure__caption シャネルのアイテム
+              .brand-items__item__thumbnail
+                %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
+                %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+
+
+
+
+
+

@@ -13,21 +13,33 @@
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
+|introduction|text||
+|avatar|string||
+### Association
+- has_one :card
+- has_one :buyer
+- has_one :seller
+- has_one :comment
+- has_many :likes
+- has_one :phone
+- has_one :address
+
+## Phoneテーブル
 |phone_number|integer|null: false, unique: true|
 |authentication_num|integer|null: false|
+### Association
+- belongs_to :user
+
+## Addressテーブル
 |postal_code|integer|null: false|
 |Prefectures|string|null: false|
 |city|string|null: false|
 |address1|string|null: false|
 |address2|string||
 |address_phone_number|integer||
-|introduction|text||
 ### Association
-- has_one :card
-- has_one :buyer
-- has_one :seller
-- has_one :comment
-- has_many: likes
+- belongs_to :user
+
 
 ## itemsテーブル
 |Column|Type|Options|
