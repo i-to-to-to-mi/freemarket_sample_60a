@@ -39,7 +39,7 @@
 |city|string|null: false|
 |address1|string|null: false|
 |address2|string||
-|address_phone_number|integer||
+|address_phone_number|string||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
