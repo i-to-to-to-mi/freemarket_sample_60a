@@ -74,7 +74,7 @@ group :production do
 end
 
 
-gem 'font-awesome-rails'
+# gem 'font-awesome-rails'
 gem "font-awesome-sass"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
