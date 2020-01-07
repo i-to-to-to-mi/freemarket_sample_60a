@@ -16,12 +16,12 @@
 |introduction|text||
 |avatar|string||
 ### Association
-- has_one :card
-- has_one :buyer
-- has_one :comment
-- has_many :likes
-- has_one :phone
-- has_one :address
+- has_one :card,dependent: :destroy
+- has_one :buyer,dependent: :destroy
+- has_one :comment,dependent: :destroy
+- has_many :likes,dependent: :destroy
+- has_one :phone,dependent: :destroy
+- has_one :address,dependent: :destroy
 
 ## Phoneテーブル
 |Column|Type|Options|
@@ -69,8 +69,8 @@
 - has_one :category
 - has_one :brand
 - has_many :comments
-- has_many: likes
-- has_many :images
+- has_many: likes,dependent: :destroy
+- has_many :images,dependent: :destroy
 
 ## imagesテーブル
 |Column|Type|Options|
