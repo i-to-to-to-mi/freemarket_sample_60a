@@ -37,9 +37,9 @@
 |postal_code|integer|null: false|
 |Prefectures|string|null: false|
 |city|string|null: false|
-|address1|string|null: false|
-|address2|string||
-|address_phone_number|string||
+|address|string|null: false|
+|building|string||
+|phone_number|string||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -63,7 +63,6 @@
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true、index: true|
-|image_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :buyer
@@ -90,8 +89,6 @@
 |created_at|integer|null: false|
 
 ### Association
-- belongs_to: user
-- belongs_to: item
 - belongs_to: user
 - belongs_to: item
 
