@@ -16,9 +16,9 @@ class User < ApplicationRecord
   # validates :kana_firstname, :kana_lastname, presence: true, 
   #           # カナのみ可
   #           format: { with: /\A([ァ-ン]|ー)+\z/, message: "is must NOT contain any other characters than alphanumerics." }
-
-  has_one :address
   has_many :sns_credentials
+  has_one :address
+
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

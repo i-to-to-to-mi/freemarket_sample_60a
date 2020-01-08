@@ -9,6 +9,20 @@
   安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。
   %br
   他のお客さまに公開されることはありません。
+  - if @sns_id.present?
+    = hidden_field_tag :sns_auth, true
+  - else
+    .field
+      = f.label :password
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} characters minimum)
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
   .field
     = f.label "ニックネーム"
     %br/

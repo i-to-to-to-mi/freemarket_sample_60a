@@ -10,7 +10,6 @@ devise_scope :user do
 end
   root "items#index"
   get 'users/show'
-  resources :users, only: [:new, :show, :edit, :update]
+  resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  
 end
