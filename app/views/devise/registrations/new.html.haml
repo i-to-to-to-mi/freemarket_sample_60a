@@ -20,58 +20,57 @@
           .profile-register__main--form
             .profile-register__main--form__contents
               .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word ニックネーム
-                %br/
+                .profile-register__main--form__contents--form__word
+                  ニックネーム 
+                  %span.must 必須
                 = f.email_field :nickname, class: "input-default"
               .profile-register__main--form__contents--form
-                メールアドレス
-                %br/
-                = f.email_field :email
+                .profile-register__main--form__contents--form__word
+                  メールアドレス
+                  %span.must 必須
+                = f.email_field :email, class: "input-default"
               .profile-register__main--form__contents--form
-                パスワード
-                - if @minimum_password_length
-                  %em
-                    (#{@minimum_password_length} characters minimum)
-                %br/
-                = f.password_field :password, autocomplete: "new-password"
+                .profile-register__main--form__contents--form__word
+                  パスワード
+                  %span.must 必須 
+                = f.password_field :password, autocomplete: "new-password", class: "input-default"
               .profile-register__main--form__contents--form
-                パスワード（確認）
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "new-password"
+                .profile-register__main--form__contents--form__word
+                  パスワード（確認）
+                  %span.must 必須 
+                = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-default"
               .profile-register__main--form__contents--form
-                = f.label "苗字"
-                %br/
-                = f.text_field :first_name
+                .profile-register__main--form__contents--form__word
+                  お名前（全角）
+                  %span.must 必須
+                = f.text_field :first_name, class: "input-default__half"
+                = f.text_field :last_name, class: "input-default__half"
               .profile-register__main--form__contents--form
-                = f.label "苗字のかな"
-                %br/
-                = f.text_field :first_name_kana
+                .profile-register__main--form__contents--form__word
+                  お名前カナ（全角）
+                  %span.must 必須 
+                = f.text_field :first_name_kana, class: "input-default__half"
+                = f.text_field :last_name_kana, class: "input-default__half"                
               .profile-register__main--form__contents--form
-                = f.label "お名前"
-                %br/
-                = f.text_field :last_name
+                .profile-register__main--form__contents--form__word
+                  %span.form-select
+                    - this_year = Date.today.year
+                    = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), {:prompt => "--"}, {class: "select-wrap"}
+                    %i.fas.fa-chevron-down
+                  %span.select-span 年
+                  %span.form-select
+                    = f.select :birth_month, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap"}
+                    %i.fas.fa-chevron-down
+                  %span.select-span 月
+                  %span.form-select
+                    = f.select :birth_day, options_for_select((1..31).to_a), {:prompt => "--"}, {class: "select-wrap"}
+                    %i.fas.fa-chevron-down
+                  %span.select-span 日
               .profile-register__main--form__contents--form
-                = f.label "お名前のかな"
-                %br/
-                = f.text_field :last_name_kana
-              .profile-register__main--form__contents--form
-                = f.label "誕生日"
-                %br/
-                - this_year = Date.today.year
-                = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), :prompt => "--"
-              .profile-register__main--form__contents--form
-                = f.label "誕生月"
-                %br/
-                = f.select :birth_month, options_for_select((1..12).to_a), :prompt => "--"
-              .profile-register__main--form__contents--form
-                = f.label "誕生日"
-                %br/
-                = f.select :birth_day, options_for_select((1..31).to_a), :prompt => "--"
-              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
                 = f.label "アバター実験"
-                %br/
                 = f.file_field :avatar
           .profile-register__main--form__sending
             = f.submit "次へ進む"
-    .profile-register__footer
+      .profile-register__footer
 

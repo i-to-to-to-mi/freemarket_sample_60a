@@ -1,3 +1,17 @@
+@import "font-awesome";
+
+@mixin input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 8px 0 0;
+  cursor: pointer;
+}
+
 .profile-edit {
   width: 700px;
 
@@ -108,7 +122,6 @@
       }
       &--form {
 // --formがregister-form
-        background-color: red;
         padding: 40px 40px 64px;
         border-top: 1px solid #f5f5f5;
         &__contents {
@@ -116,24 +129,53 @@
           max-width: 343px;
           margin: 0 auto;
           &--form {
-// この--formがform-group            
-          background-color: green;
+// この--formがform-group         
           margin: 40px 0 0;
             &__word {
               font-weight: 600;
-              display: inline-block;
+              .must{
+                color: #fff;
+                padding: 2px 4px;
+                background: #F92931;
+                border-radius: 2px;
+                vertical-align: top;
+                margin: 0 0 0 8px;
+                font-size: 12px;
+              }
+            }
+            .form-select {
+              position: relative;
+
             }
             .input-default {
-              height: 48px;
-              padding: 10px 16px 8px;
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 16px;
+              clear: both;
+              @include input-default;
               width: 100%;
-              margin: 8px 0 0;
             }
+            .input-default__half {
+              @include input-default;
+              width: calc(50% - 6px);
+            }
+            .select-wrap {
+              @include input-default;
+              padding: 0 10px;
+              width: 76px;
+              -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+              -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+              appearance: none; /* 標準のスタイルを無効にする */
+            }
+            .select-span {
+              margin: 0 2px;
+            }
+            .fa-chevron-down {
+              position: absolute;
+              right: 12px;
+              top: 1px;
+              z-index: 2;
+              color: #888;
+              font-size: 15px;
+            }
+   
           }
         }
         &__sending {
