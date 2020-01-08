@@ -40,7 +40,7 @@
     %br/
     = f.text_field :last_name_kana
   .field
-    = f.label "誕生日"
+    = f.label "誕生年"
     %br/
     - this_year = Date.today.year
     = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), :prompt => "--"

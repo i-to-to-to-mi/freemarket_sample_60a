@@ -7,17 +7,17 @@ class User < ApplicationRecord
   validates :nickname, :first_name, :last_name, :birth_year, :birth_month, :birth_day, presence: true
   validates :password, presence: true, length: { minimum: 7 }, 
             # 英数字のみ可
-            format: { with: /\A[a-z0-9]+\z/i, message: "is must NOT contain any other characters than alphanumerics." }
+            format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数字７文字以上で入力してください" }
   validates :email, presence: true, 
             # 重複不可
             uniqueness: { case_sensitive: false }, 
             # 英数字のみ可,@を挟んだemailの形になっているか
-            format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "is must NOT contain any other characters than alphanumerics." }
+            format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "は不正な文字が使われています。たぶん。" }
   validates :last_name_kana, :first_name_kana, presence: true, 
             # カナのみ可
-            format: { with: /\A([ァ-ン]|ー)+\z/, message: "is must NOT contain any other characters than alphanumerics." }
+            format: { with: /\A([ァ-ン]|ー)+\z/, message: "はカタカナで入力してください" }
 
-            has_many :sns_credentials
+  has_many :sns_credentials
   has_one :address
 
 

@@ -3,7 +3,7 @@ class Address < ApplicationRecord
   validates :prefectures, :city, :address ,presence: true
   validates :postal_code,presence: true,
   #            # 郵便番号(ハイフンあり7桁)
-            format: { with: /\A\d{3}-\d{4}\z/, message: "is must NOT contain any other characters than alphanumerics." }
+            format: { with: /\A\d{3}-\d{4}\z/, message: "はハイフンを入れて半角英数字で入力してください" }
   enum prefectures:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
