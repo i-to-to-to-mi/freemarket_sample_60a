@@ -1,4 +1,3 @@
-master
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -8,6 +7,7 @@ master
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 a {
@@ -743,6 +743,119 @@ a {
         width: 188px;
         height: 188px;
       }
+    }
+  }
+}
+
+.footer__wrapper{
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 0px 20px 10px;
+}
+  
+.footer{
+  position: relative;
+  display: flex;
+  color: rgb(255, 255, 255);
+  width: 1020px;
+  margin: 0 auto;
+
+  &__about{
+    padding: 0 10px 0 0;
+    display: block;
+    float: left;
+    margin-top: 18px;
+    width: 50%;
+  }
+  
+  &__title{
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      color:white;
+    }
+  
+  &__small-categories {
+    &__title {
+      margin: 14px 0 0;
+      list-style: none;
+      color:rgb(255, 255, 255);
+    }
+
+    &__link {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+   
+  &__sns-logos{
+      display: flex;
+      margin-top: 30px;
+      height: 50px;
+ 
+  
+    &__icon{
+        margin-right: 20px;
+        width: 30px;
+        font-size: 2em;
+        
+    }
+  }
+
+
+  &__help-guide{
+      padding: 0 10px 0 0;
+      display: block;
+      float: left;
+      margin-top: 18px;
+      width: 50%;
+  }
+  
+  &__rules{
+      padding: 0 10px 0 0;
+      display: block;
+      float: left;
+      margin-top: 18px;
+      width: 50%;
+      // width: 100%;
+      // margin: 30px 0 0;
+      // padding: 0;
+    }
+
+  &__country{
+    padding: 0 10px 0 0;
+    display: block;
+    float: left;
+    margin-top: 18px;
+    width: 50%;
+  }
+
+
+  &__merucari-bar{
+      -webkit-box-align: center;
+      align-items: center;
+      display: flex;
+      width: 1020px;
+      margin: 30px auto 20px;
+   
+    &__banner{
+        margin-right: 10px;
+        width: auto;
+        height: 31px;
+        width: 124px;
+      
+        &__image {
+          height: 31px;
+          width: 124px;
+        }
+    }
+    &__name{
+      text-align: center;
+      padding-left: 15px;
+      color: white;
+      padding-left: 15px;
+      width: 75%;
     }
   }
 }
