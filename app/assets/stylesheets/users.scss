@@ -1,6 +1,9 @@
 @import "font-awesome";
 
 @mixin input-default {
+  top: 50%;
+  left: 0;
+  z-index: 1;
   height: 48px;
   padding: 10px 16px 8px;
   border-radius: 4px;
@@ -10,6 +13,16 @@
   font-size: 16px;
   margin: 8px 0 0;
   cursor: pointer;
+}
+@mixin form-info-text {
+    margin: 8px 0 0;
+    color: #888;
+    line-height: 1.5;
+}
+
+@mixin default-checkbox {
+  width: 20px;
+  height: 20px;
 }
 
 .profile-edit {
@@ -174,6 +187,26 @@
               z-index: 2;
               color: #888;
               font-size: 15px;
+            }
+            .form-info-text__remark {
+              @include form-info-text;
+              color: 888;
+            }
+            .default-checkbox_pass {
+              @include default-checkbox;
+              margin: 16px 0 0;
+              position: relative;
+              z-index: 2;
+              padding: 0 0 0 28px;
+              font-size: 14px;
+              font-weight: 400;
+              vertical-align: middle;
+              cursor: pointer;
+            }
+
+            .form-info-text__pass {
+              @include form-info-text;
+              color: black;
             }
    
           }
