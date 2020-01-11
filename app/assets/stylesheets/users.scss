@@ -25,6 +25,16 @@
   height: 20px;
 }
 
+@mixin must-default {
+  color: #fff;
+  padding: 2px 4px;
+  background: #F92931;
+  border-radius: 2px;
+  vertical-align: top;
+  margin: 0 0 0 8px;
+  font-size: 12px;
+}
+
 .profile-edit {
   width: 700px;
 
@@ -141,33 +151,10 @@
 // --contentsがl-single-content
           max-width: 343px;
           margin: 0 auto;
-          &--form {
-// この--formがform-group         
-          margin: 40px 0 0;
-            &__word {
-              font-weight: 600;
-              .must{
-                color: #fff;
-                padding: 2px 4px;
-                background: #F92931;
-                border-radius: 2px;
-                vertical-align: top;
-                margin: 0 0 0 8px;
-                font-size: 12px;
-              }
-            }
+          &--birth {
+            margin-top: 0;
             .form-select {
               position: relative;
-
-            }
-            .input-default {
-              clear: both;
-              @include input-default;
-              width: 100%;
-            }
-            .input-default__half {
-              @include input-default;
-              width: calc(50% - 6px);
             }
             .select-wrap {
               @include input-default;
@@ -177,9 +164,6 @@
               -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
               appearance: none; /* 標準のスタイルを無効にする */
             }
-            .select-span {
-              margin: 0 2px;
-            }
             .fa-chevron-down {
               position: absolute;
               right: 12px;
@@ -188,6 +172,35 @@
               color: #888;
               font-size: 15px;
             }
+            .select-span {
+              margin: 0 2px;
+            }
+          }
+          &--form {
+// この--formがform-group         
+          margin: 40px 0 0;
+            &__word {
+              font-weight: 600;
+              .must {
+                @include must-default;
+              }
+            }
+            &__birth {
+              margin-top: 0;
+            }
+
+            .input-default {
+              clear: both;
+              @include input-default;
+              width: 100%;
+            }
+            .input-default__half {
+              @include input-default;
+              width: calc(50% - 6px);
+            }
+
+
+
             .form-info-text__remark {
               @include form-info-text;
               color: 888;
@@ -207,6 +220,15 @@
             .form-info-text__pass {
               @include form-info-text;
               color: black;
+            }
+            .caution {
+              font-size: 16px;
+              font-weight: 600;
+            }
+            .guiding {
+              margin: 8px 0 0;
+              padding: 0;
+              line-height: 1.5;
             }
    
           }

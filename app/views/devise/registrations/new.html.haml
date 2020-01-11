@@ -43,8 +43,8 @@
                   %span.must 必須 
                 = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-default", placeholder: "ここは削除する"
               .profile-register__main--form__contents--form
-                %h3 本人確認
-                %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+                %strong.caution 本人確認
+                %p.guiding 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   お名前（全角）
@@ -56,8 +56,12 @@
                   お名前カナ（全角）
                   %span.must 必須 
                 = f.text_field :first_name_kana, class: "input-default__half"
-                = f.text_field :last_name_kana, class: "input-default__half"                
+                = f.text_field :last_name_kana, class: "input-default__half"
               .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                  生年月日（全角）
+                  %span.must 必須 
+              .profile-register__main--form__contents--birth
                 .profile-register__main--form__contents--form__word
                   %span.form-select
                     - this_year = Date.today.year
