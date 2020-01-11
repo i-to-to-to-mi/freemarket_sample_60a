@@ -264,6 +264,14 @@
               .brand-items__item__thumbnail
                 %span.brand-items__item__thumbnail__price{aria: "", label: "3000"} ￥3000
                 %img.brand-items__item__thumbnail__image{alt: "thumbnail", src: "https://s3-ap-northeast-1.amazonaws.com/statics.pen-online.jp/image/upload/news/chanel/chanel_GZcIFJc.jpg"}/
+  .selling-item-box
+    %a.selling-item-box__link{href: "#"}
+      .selling-item-box__contents
+        .selling-item-box__contents__letter
+          出品
+        = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
+
+        
 = render"footer"
 
 
