@@ -1,20 +1,9 @@
--# .profile-edit
--#   %h2.profile-edit__heading プロフィール
--#   = form_with model: @user, local: true, class: "profile-edit__form", id: 'profile-eidt__form' do |form|
--#     .profile-edit__background
--#       %figure.profile-edit__backgorund__figure
--#         %image.profile-edit__background__figure__image{:src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
--#         = form.text_field :nickname, class: "profile-edit__background__nickname-form", placeholder: "例）AYAセール中"
--#     .profile-edit__main
--#       = form.text_area :introduction, class: "profile-edit__main__introduction", placeholder: "例）こんにちは⭐︎ご覧いただきありがとうございます！かわいいものやきれいめカジュアル中心に出品しています。服のサイズは主に９号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法に質問ございましたらお気軽にご質問ください。"
--#       = form.submit "変更", class: "profile-edit__submit"  
-
 .wrapper
   .profile-register
     .profile-register__heading ここ高さ128pxでhead入れるようにあけたぜ
 
     .profile-register__main
-      .profile-register__main--head 会員登録だぜ
+      .profile-register__main--head 会員情報入力
       .profile-register__main--form
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           .profile-register__main--form
@@ -76,11 +65,18 @@
                     = f.select :birth_day, options_for_select((1..31).to_a), {:prompt => "--"}, {class: "select-wrap"}
                     %i.fas.fa-chevron-down
                   %span.select-span 日
+                  %p.form-info-text__remark ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                 = f.label "アバター実験"
                 = f.file_field :avatar
           .profile-register__main--form__sending
-            = f.submit "次へ進む"
+            .profile-register__main--form__sending--top
+              %p「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+            .profile-register__main--form__sending--base
+            = f.submit "次へ進む", class: "default-btn"
+            .profile-register__main--form__sending--text-right 本人情報の登録について
+            .profile-register__main--form__sending--base__policy
+              %p This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
       .profile-register__footer
 

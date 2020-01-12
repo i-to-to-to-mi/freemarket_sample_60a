@@ -140,17 +140,23 @@
       &--head {
         font-size: 22px;
         padding: 32px;
+        font-weight: 600;
         line-height: 1.5;
         text-align: center;
+        border-bottom: 1px solid #f5f5f5;
       }
       &--form {
 // --formがregister-form
         padding: 40px 40px 64px;
-        border-top: 1px solid #f5f5f5;
         &__contents {
 // --contentsがl-single-content
           max-width: 343px;
           margin: 0 auto;
+          .form-info-text__remark {
+            @include form-info-text;
+            font-weight: 300;
+
+          }
           &--birth {
             margin-top: 0;
             .form-select {
@@ -175,6 +181,7 @@
             .select-span {
               margin: 0 2px;
             }
+
           }
           &--form {
 // この--formがform-group         
@@ -197,13 +204,6 @@
             .input-default__half {
               @include input-default;
               width: calc(50% - 6px);
-            }
-
-
-
-            .form-info-text__remark {
-              @include form-info-text;
-              color: 888;
             }
             .default-checkbox_pass {
               @include default-checkbox;
@@ -234,7 +234,49 @@
           }
         }
         &__sending {
-          background-color: blue;
+          max-width: 343px;
+          margin: 0 auto;
+          &--top {
+            margin: 40px 0 0;
+            p {
+              text-align: center;
+              line-height: 1.5;
+            }
+          }
+          &--base {            
+            margin: 24px 0 0;
+            &__policy {
+              margin: 24px 0 0;
+              padding: 8px 16px;
+              background-color: #f5f5f5;
+              p {
+                color: #888888;
+                font-size: 12px;
+                display: block;
+                line-height: 1.5;
+              }
+            }
+          }
+          .default-btn {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            min-height: 1.5em;
+          }
+          &--text-right {
+            margin: 24px 0 0;
+            text-align: right;
+          }
+
         }
       }
     }
