@@ -6,6 +6,10 @@
       .profile-register__main--head 会員情報入力
       .profile-register__main--form
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          - if @sns_id.present?
+          = hidden_field_tag :sns_auth, true
+          - else
           .profile-register__main--form
             .profile-register__main--form__contents
               .profile-register__main--form__contents--form
