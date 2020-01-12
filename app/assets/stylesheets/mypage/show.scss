@@ -1,0 +1,24 @@
+.mypage-container{
+  margin: 24px auto 0;
+  padding-bottom: 40px;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@media screen and (min-width: 770px){
+  /*　画面サイズが770pxからはここを読み込む　*/
+  .mypage-container{
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 1070px){
+  /*　画面サイズが1070pxからはここを読み込む　*/
+  .mypage-container{
+    margin: 40px auto 0;
+    width: 1020px;
+  }
+}
