@@ -1,10 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :user, optional: true
-  validates :prefectures, :city, :address ,presence: true
-  validates :postal_code,presence: true,
-  #            # 郵便番号(ハイフンあり7桁)
-            format: { with: /\A\d{3}-\d{4}\z/, message: "はハイフンを入れて半角英数字で入力してください" }
-  enum prefectures:{
+  enum Prefectures:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
     新潟県:15,富山県:16,石川県:17,福井県:18,山梨県:19,長野県:20,
