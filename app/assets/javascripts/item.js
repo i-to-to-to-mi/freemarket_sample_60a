@@ -1,11 +1,10 @@
 $(function() {
   $('.liked-items__sliders').slick({
-    slidesToShow: 5,
+    slidesToShow: 6,
     arrow: true,
-    slidesToScroll: 5,
+    slidesToScroll: 6,
     variableWidth: true,
-    centerMode: true,
+    centerMode: false,
     centerPadding: '0%',
-
   });
 });
