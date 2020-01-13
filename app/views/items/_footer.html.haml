@@ -5,26 +5,24 @@
         メルカリについて
       %ul.footer__small-categories
         %li.footer__small-categories__title
-          %a.footer__small-categories__link{href: "#"}
-            会社概要
+          = link_to "会社概要", "#", class: "footer__small-categories__link"  
         %li.footer__small-categories__title
-          %a.footer__small-categories__link{href: "#"}
-            採用情報
+          = link_to "採用情報", "#", class: "footer__small-categories__link"  
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          プレリリース
+          = link_to "プレリリース", "#", class: "footer__small-categories__link"  
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          公式ブログ
+          = link_to "公式ブログ", "#", class: "footer__small-categories__link"   
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          メルカリロゴ利用ガイドライン
+          = link_to "メルカリロゴ利用ガイドライン", "#", class: "footer__small-categories__link"   
+          
         .footer__sns-logos
           .footer__sns-logos__twitter
-          %a.footer__small-categories__link{href: "#"}
+          .footer__small-categories__link
+          = link_to do
             = icon('fab', 'twitter', style:'color:white',class:'footer__sns-logos__icon')
           .footer__sns-logos__facebook
-          %a.footer__small-categories__link{href: "#"}
+          .footer__small-categories__link
+          = link_to do
             = icon('fab', 'facebook-square', style:'color:white', class:'footer__sns-logos__icon')
         
     
@@ -33,70 +31,55 @@
         ヘルプ＆ガイド
       %ul.footer__small-categories
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          メルカリガイド
+          = link_to "メルカリガイド", "#", class: "footer__small-categories__link"      
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          らくらくメルカリ便
+          = link_to "らくらくメルカリ便", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          ゆうゆうメルカリ便
+          = link_to "ゆうゆうメルカリ便", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          大型メルカリ便
+          = link_to "大型メルカリ便", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          車体取引ガイド
+          = link_to "車体取引ガイド", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          メルカリあんしん・あんぜん宣言！
+          = link_to "メルカリガイド", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          偽ブランド品撲滅への取り組み
+          = link_to "偽ブランド品撲滅への取り組み", "#", class: "footer__small-categories__link"         
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          メルカリボックス
+          = link_to "メルカリボックス", "#", class: "footer__small-categories__link"
+          
     
     .footer__rules
       %h2.footer__title
         プライバシーと利用規約
       %ul.footer__small-categories
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          プライバシーポリシー
+          = link_to "プライバシーポリシー", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          メルカリ利用規約
+          = link_to "メルカリ利用規約", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          あんしんスマホサポート制度関する利用特約
+          = link_to "あんしんスマホサポート制度関する利用特約", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          コンプライアンスポリシー
+          = link_to "コンプライアンスポリシー", "#", class: "footer__small-categories__link"
         %ul.footer__small-categories
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          個人データの安全管理に係る基本方針
+          = link_to "個人データの安全管理に係る基本方針", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          特定商取引に関する表記
+          = link_to "特定商取引に関する表記", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          資金決済法に基づく表示
+          = link_to "資金決済法に基づく表示", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          法令遵守と犯罪抑止のために
+          = link_to "法令遵守と犯罪抑止のために", "#", class: "footer__small-categories__link"
+          
     
     .footer__country
       %h2.footer__title
         国
       %ul.footer__small-categories
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          日本
+          = link_to "日本", "#", class: "footer__small-categories__link"
         %li.footer__small-categories__title
-        %a.footer__small-categories__link{href: "#"}
-          United States
+          = link_to "United States", "#", class: "footer__small-categories__link"
+          
 
   .footer__merucari-bar
     .footer__merucari-bar__banner
