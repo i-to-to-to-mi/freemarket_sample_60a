@@ -34,11 +34,18 @@
   &__status{
     margin-top: 8px;
     font-size: 0;
-    div{
+    
+    .mypage-content__reviews{
       display: inline-block;
+    
+    span{
+      margin-left: 8px;
       font-size: 16px;
     }
-    div+div{
+
+    }
+    .mypage-content__sell{
+      display: inline-block;
       margin-left: 16px;
     }
     span{
@@ -84,22 +91,9 @@
     li{
       position: relative;
       border-bottom: 1px solid #eee;
-      &:last-child {
-        border: 0;
-      }
+      
     }
-    img{
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      opacity: 1;
-      -webkit-transition: opacity .3s;
-      transition: opacity .3s;
-    }
+    
   }
   &__item-link{
     display: block;
@@ -129,8 +123,7 @@
       position: absolute;
     top: 50%;
     right: 16px;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+    
     }
   }
   &__item-body{
@@ -139,11 +132,7 @@
   &__item-text{
     overflow: hidden;
     display: block;
-    display: -webkit-box;
     max-height: 4.4em;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
     line-height: 1.5;
   }
   &__go-list{
@@ -178,50 +167,7 @@
     font-size: 16px;
     line-height: 72px;
   }
-  &__item-status{
-    display: inline-block;
-    margin: 8px 0 0 0;
-    padding: 5px 6px;
-    border-radius: 2px;
-    font-size: 12px;
-    color: #fff;
-    &--done{
-      background: #888;
-    }
-  }
-  &__chapter-container{
-    background: #fff;
-  }
-  &__payment-list li {
-    padding: 24px 0;
-    border-bottom: 1px solid #eee;
-    form {
-      position: relative;
-    }
-  }
-  &__payment-num {
-    margin: 8px 0 0;
-    font-size: 16px;
-  }
-  &__payment-remove {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 4px 6px;
-    background: #fff;
-    border-radius: 3px;
-    border: 1px solid #ea352d;
-    color: #ea352d;
-  }
-  &__add-card {
-    padding: 24px 0;
-    border-bottom: 1px solid #eee;
-  }
-  &__not-regist a {
-    display: block;
-    margin-top: 40px;
-    text-align: right;
-  }
+  
 }
 
 @media screen and (min-width: 768px){
