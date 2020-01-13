@@ -4,8 +4,8 @@
 |Column|Type|Options|
 |---------|------|---------|
 |nickname|string|null: false| 
-|email|text|null: false, unique: true|
-|password|text|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null;false|
@@ -16,30 +16,33 @@
 |introduction|text||
 |avatar|string||
 ### Association
-- has_one :card
-- has_one :buyer
-- has_one :seller
-- has_one :comment
-- has_many :likes
-- has_one :phone
-- has_one :address
+- has_one :card,dependent: :destroy
+- has_one :buyer,dependent: :destroy
+- has_one :comment,dependent: :destroy
+- has_many :likes,dependent: :destroy
+- has_one :phone,dependent: :destroy
+- has_one :address,dependent: :destroy
 
 ## Phoneテーブル
+|Column|Type|Options|
+|---------|------|---------|
 |phone_number|integer|null: false, unique: true|
 |authentication_num|integer|null: false|
 ### Association
 - belongs_to :user
 
 ## Addressテーブル
+|Column|Type|Options|
+|---------|------|---------|
 |postal_code|integer|null: false|
 |Prefectures|string|null: false|
 |city|string|null: false|
-|address1|string|null: false|
-|address2|string||
-|address_phone_number|integer||
+|address|string|null: false|
+|building|string||
+|phone_number|string||
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -60,30 +63,32 @@
 |buyer_id|integer|null: false, foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
 |brand_id|integer|null: false, foreign_key: true、index: true|
-|main_image|string|null: false|
-|image_2|string|null: false|
-|image_3|string|none|
-|image_5|string|none|
-|image_6|string|none|
-|image_7|string|none|
-|image_8|string|none|
-|image_9|string|none|
-|image_10|string|none|
 
 ### Association
-- has_one :buyer
-- has_one :seller
+- has_many :buyer
 - has_one :category
 - has_one :brand
 - has_many :comments
-- has_many: likes
+- has_many: likes,dependent: :destroy
+- has_many :images,dependent: :destroy
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false|
+|item_id|integer|null: false,foreign_key: true|
+
+### Association
+- belongs_to: item
 
 ## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false, uniqueness: {scope: :item_id}|
 |item_id|integer|null: false|
 |created_at|integer|null: false|
 
-###Association
+### Association
 - belongs_to: user
 - belongs_to: item
 
@@ -131,16 +136,8 @@
 - belongs_to :customer
 - belongs_to :card
 
-## buyersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item
 
-## sellersテーブル
+## user_itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
