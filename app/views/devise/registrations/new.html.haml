@@ -77,13 +77,15 @@
           .profile-register__main--form__sending
             .profile-register__main--form__sending--top
               %span「次へ進む」のボタンを押すことにより、
-              = link_to "利用規約"
+              %a{:href => "#"}
+                利用規約
               %p に同意したものとみなします
             .profile-register__main--form__sending--base
             = f.submit "次へ進む", class: "default-btn"
             .profile-register__main--form__sending--text-right
-              = link_to "本人情報の登録について"
-              %i.fas.fa-chevron-right
+              %a{:href => "#"}
+                本人情報の登録について
+                %i.fas.fa-chevron-right
             .profile-register__main--form__sending--base__policy
               %p This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
       .profile-register__footer
