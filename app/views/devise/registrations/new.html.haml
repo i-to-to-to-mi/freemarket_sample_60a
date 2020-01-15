@@ -8,7 +8,7 @@
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = render "devise/shared/error_messages", resource: resource
           - if @sns_id.present?
-          = hidden_field_tag :sns_auth, true
+            = hidden_field_tag :sns_auth, true
           - else
           .profile-register__main--form
             .profile-register__main--form__contents
@@ -52,7 +52,7 @@
                 = f.text_field :last_name_kana, class: "input-default__half"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  生年月日（全角）
+                  生年月日
                   %span.must 必須 
               .profile-register__main--form__contents--birth
                 .profile-register__main--form__contents--form__word
@@ -76,10 +76,14 @@
                 = f.file_field :avatar
           .profile-register__main--form__sending
             .profile-register__main--form__sending--top
-              %p「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+              %span「次へ進む」のボタンを押すことにより、
+              = link_to "利用規約"
+              %p に同意したものとみなします
             .profile-register__main--form__sending--base
             = f.submit "次へ進む", class: "default-btn"
-            .profile-register__main--form__sending--text-right 本人情報の登録について
+            .profile-register__main--form__sending--text-right
+              = link_to "本人情報の登録について"
+              %i.fas.fa-chevron-right
             .profile-register__main--form__sending--base__policy
               %p This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
       .profile-register__footer
