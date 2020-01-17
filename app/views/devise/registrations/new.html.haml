@@ -1,7 +1,7 @@
 .wrapper
   .profile-register
-    .profile-register__heading ここ高さ128pxでhead入れるようにあけたぜ
-
+    .profile-register__heading
+      = render "register-head"
     .profile-register__main
       .profile-register__main--head 会員情報入力
       .profile-register__main--form
@@ -31,25 +31,20 @@
                 = f.check_box :password, class: "default-checkbox_pass"
                 %span.form-info-text__pass パスワードを表示する
               .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  パスワード（確認）
-                  %span.must 必須 
-                = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-default", placeholder: "ここは削除する"
-              .profile-register__main--form__contents--form
                 %strong.caution 本人確認
                 %p.guiding 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   お名前（全角）
                   %span.must 必須
-                = f.text_field :first_name, class: "input-default__half"
-                = f.text_field :last_name, class: "input-default__half"
+                = f.text_field :first_name, class: "input-default__half", placeholder: "例)山田"
+                = f.text_field :last_name, class: "input-default__half", placeholder: "例)太郎子"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   お名前カナ（全角）
                   %span.must 必須 
-                = f.text_field :first_name_kana, class: "input-default__half"
-                = f.text_field :last_name_kana, class: "input-default__half"
+                = f.text_field :first_name_kana, class: "input-default__half", placeholder: "例)ヤマダ"
+                = f.text_field :last_name_kana, class: "input-default__half", placeholder: "例)タロウコ"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   生年月日
@@ -70,23 +65,42 @@
                     %i.fas.fa-chevron-down
                   %span.select-span 日
                   %p.form-info-text__remark ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                = f.label "アバター実験"
-                = f.file_field :avatar
           .profile-register__main--form__sending
             .profile-register__main--form__sending--top
               %span「次へ進む」のボタンを押すことにより、
-              %a{:href => "#"}
+              = link_to root_path do
                 利用規約
               %p に同意したものとみなします
             .profile-register__main--form__sending--base
             = f.submit "次へ進む", class: "default-btn"
             .profile-register__main--form__sending--text-right
-              %a{:href => "#"}
+              = link_to root_path do
                 本人情報の登録について
                 %i.fas.fa-chevron-right
             .profile-register__main--form__sending--base__policy
-              %p This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+              %p
+                %span This site is protected by reCAPTCHA and the Google
+                = link_to root_path do
+                  Privacy Policy 
+                %span and
+                = link_to root_path do
+                  Terms of Service
+                %span apply.
       .profile-register__footer
+        .register-footer__links
+        %li
+        = link_to root_path do
+          プライバシーポリシー
+        %li
+        = link_to root_path do
+          メルカリ利用規約
+        %li
+        = link_to root_path do
+          特定商取引に関する表記
+        %p
+        = link_to root_path do
+          = image_tag 'logo_white', alt: 'mercari-logo', class: 'bottom-logo'
+        %br
+          © Mercari, Inc.
+
 
