@@ -118,7 +118,7 @@
 //   要素ごとに高さが違う時にこの指定の仕方をするとうまく高さを出してくれます。
   min-height: 100%;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.5;
   background: rgb(245, 245, 245);
   color: rgb(51, 51, 51);
 // profile-registerがsingle-container
@@ -193,6 +193,9 @@
           &--form {
 // この--formがform-group         
           margin: 40px 0 0;
+          p {
+            margin: 8px 0 0;
+          }
             &__word {
               font-weight: 600;
               .must {
@@ -243,6 +246,9 @@
         &__sending {
           max-width: 343px;
           margin: 0 auto;
+          p {
+            margin: 8px 0 0;
+          }
           &--top {
             p {
               text-align: center;

@@ -32,6 +32,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  def sms_confirmation
+  end
+
   protected
 
   def address_params

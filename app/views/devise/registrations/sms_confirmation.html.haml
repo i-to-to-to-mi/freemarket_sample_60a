@@ -1,0 +1,37 @@
+.wrapper
+  .profile-register
+    .profile-register__heading
+      = render "register-head"
+      .signup-bar
+        %ul.progressbar
+          %li.active
+            会員情報
+          %li.active
+            電話番号認証
+          %li
+            お届け先住所入力
+          %li
+            支払い方法
+          %li
+            完了
+    .profile-register__main
+      .profile-register__main--head 電話番号の確認
+      .profile-register__main--form
+        = form_for("#") do |f|
+          .profile-register__main--form__contents
+            .profile-register__main--form__contents--form
+              .profile-register__main--form__contents--form__word
+                携帯電話の番号 
+              = f.text_field :nickname, class: "input-default", placeholder: "携帯電話の番号を入力"
+              %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          .profile-register__main--form__sending
+            .profile-register__main--form__sending--base
+            = f.submit "SMSを送信する", class: "default-btn"
+            %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+            .profile-register__main--form__sending--text-right
+              = link_to root_path do
+                電話番号の確認が必要な理由
+                %i.fas.fa-chevron-right
+      .profile-register__footer
+        = render "register-footer"
+

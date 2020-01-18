@@ -12,38 +12,42 @@
         font-size: 12px;
         position: relative;
         color: #888;
-      }
-		}
-		.progressbar li:after {
-		  width: 12px;
-		  height: 12px;
-		  content: '';
-		  line-height: 30px;
-		  display: block;
-		  text-align: center;
-		  margin: 8px auto 0;
-      border-radius: 50%;
-		  background-color: #888;
-		}
-		.progressbar li:before {
-		  width: 100%;
-		  height: 3px;
-		  content: '';
-		  position: absolute;
-		  background-color: #888;
-      top: 25px;
-      // 棒の左右
-		  left: -50%;
-		  z-index: -1;
-		}
-		.progressbar li:first-child:before {
-		  content: none;
-		}
-		.progressbar li.active {
-		  color:#ea352d;
-		}
-    .progressbar li.active:after {
-		  background-color: #ea352d;
+			}
+			li:after {
+				width: 12px;
+				height: 12px;
+				content: '';
+				line-height: 30px;
+				display: block;
+				text-align: center;
+				margin: 8px auto 0;
+				border-radius: 50%;
+				background-color: #888;
+			}
+			li:before {
+				width: 100%;
+				height: 3px;
+				content: '';
+				position: absolute;
+				background-color: #888;
+				// 棒の高さ
+				top: 30px;
+				// 棒の左右
+				left: -50%;
+				z-index: -1;
+			}
+			li:first-child:before {
+				content: none;
+			}
+			li.active {
+				color:#ea352d;
+			}
+			li.active:after {
+				background-color: #ea352d;
+			}
+			li.active:before {
+				background-color: #ea352d;
+			}
 		}
   }
 

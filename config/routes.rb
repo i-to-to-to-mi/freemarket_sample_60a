@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 devise_scope :user do
   get 'addresses', to: 'users/registrations#new_address'
   post 'addresses', to: 'users/registrations#create_address'
+  get 'sms_confirmation', to: 'users/registrations#sms_confirmation'
+  # postはサーバーサイドにて設定（signupにネストさせる必要があるか要検証）
 end
   root "items#index"
   get 'users/show'
