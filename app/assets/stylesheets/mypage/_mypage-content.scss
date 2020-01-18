@@ -170,9 +170,8 @@
   
 }
 
-@media screen and (min-width: 768px){
-  .mypage-content{
-    float: none;
+.mypage-content{
+    float: right;
     width: 700px;
     &__user-icon {
       height: 200px;
@@ -181,10 +180,5 @@
       padding: 0 16px;
     }
   }
-}
 
-@media screen and (min-width: 1068px){
-  .mypage-content{
-    float: right;
-  }
-}
+

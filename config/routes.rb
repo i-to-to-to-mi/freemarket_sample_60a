@@ -9,8 +9,6 @@ devise_scope :user do
   post 'addresses', to: 'users/registrations#create_address'
 end
   root "items#index"
-  resources :users, :only => [:show, :edit, :update]
-  resources :addresses, :only => [:new, :create]
   resources :mypages
   
   get 'users/show'
