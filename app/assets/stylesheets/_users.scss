@@ -35,6 +35,22 @@
   font-size: 12px;
 }
 
+@mixin btn-base {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  min-height: 1.5em;
+}
+
 .profile-edit {
   width: 700px;
 
@@ -147,7 +163,6 @@
       &--head {
         font-size: 22px;
         padding: 32px;
-        font-weight: 600;
         line-height: 1.5;
         text-align: center;
         border-bottom: 1px solid #f5f5f5;
@@ -159,10 +174,19 @@
 // --contentsがl-single-content
           max-width: 343px;
           margin: 0 auto;
+          text-align: left;
           .form-info-text__remark {
             @include form-info-text;
             font-weight: 300;
 
+          }
+          .default-btn {
+            margin: 24px 00 ;
+            @include btn-base;
+          }
+          h3 {
+            font-size: 16px;
+            font-weight: bold
           }
           &--birth {
             margin-top: 0;
@@ -244,13 +268,28 @@
           }
         }
         &__sending {
+          font-size: 13px;
+          padding: 40px 24px; 
+          text-align: left;
+          height: 128px;
           max-width: 343px;
           margin: 0 auto;
+          h3 {
+            font-size: 16px;
+            font-weight: bold
+          }
           p {
             margin: 8px 0 0;
           }
+          a {
+            margin: 8px 0 0;
+            color: #0099e8;
+            text-decoration: none;
+          }
           &--top {
-            p {
+            margin: 8px 0 0;
+            text-align: left;
+            span {
               text-align: center;
               line-height: 1.5;
             }
@@ -260,7 +299,7 @@
             }
           }
           &--base {            
-            margin: 24px 0 0;
+            margin: 0;
             &__policy {
               margin: 24px 0 0;
               padding: 8px 16px;
@@ -272,6 +311,7 @@
                 color: #888888;
               }
               a {
+                margin: 8px 0 0;
                 font-size: 12px;
                 color: #0099e8;
                 text-decoration: none;
@@ -279,19 +319,7 @@
             }
           }
           .default-btn {
-            display: block;
-            width: 100%;
-            line-height: 48px;
-            font-size: 14px;
-            border: 1px solid transparent;
-            -webkit-transition: all ease-out .3s;
-            transition: all ease-out .3s;
-            cursor: pointer;
-            text-align: center;
-            background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            min-height: 1.5em;
+            @include btn-base;
           }
           &--text-right {
             margin: 24px 0 0;

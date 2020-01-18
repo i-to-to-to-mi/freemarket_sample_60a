@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 devise_scope :user do
   get 'addresses', to: 'users/registrations#new_address'
   post 'addresses', to: 'users/registrations#create_address'
+  # マークアップ用temporary routesです。ここから
   get 'sms_confirmation', to: 'users/registrations#sms_confirmation'
-  # postはサーバーサイドにて設定（signupにネストさせる必要があるか要検証）
+  get 'sms_recieved', to: 'users/registrations#sms_recieved'
+  # ここまで
 end
   root "items#index"
   get 'users/show'

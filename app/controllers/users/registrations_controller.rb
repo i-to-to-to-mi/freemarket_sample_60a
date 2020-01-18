@@ -35,6 +35,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def sms_confirmation
   end
 
+  def sms_recieved
+  end
+
   protected
 
   def address_params
