@@ -160,8 +160,11 @@
       width: 700px;
       margin: 0 auto;
       background: #fff;
-      &--head {
+      h2 {
+        font-weight: bold;
         font-size: 22px;
+      }
+      &--head {
         padding: 32px;
         line-height: 1.5;
         text-align: center;
@@ -269,12 +272,11 @@
         }
         &__sending {
           font-size: 13px;
-          padding: 40px 24px; 
           text-align: left;
-          height: 128px;
           max-width: 343px;
           margin: 0 auto;
           h3 {
+            margin-top: 40px;
             font-size: 16px;
             font-weight: bold
           }
@@ -287,11 +289,12 @@
             text-decoration: none;
           }
           &--top {
-            margin: 8px 0 0;
-            text-align: left;
+            margin-bottom: 40px;
             span {
-              text-align: center;
               line-height: 1.5;
+            }
+            p{
+              text-align: center;
             }
             a {
               color: #0099e8;

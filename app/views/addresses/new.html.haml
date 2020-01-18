@@ -29,7 +29,7 @@
     .mypage-identification__form__group
       = f.label :Prefectures, "都道府県", class: 'mypage-identification__form__label'
       %span.mypage-identification__form__arbitrary 任意
-      = f.select :Prefectures, Address.Prefectures.keys, {prompt: '選択してください'}, {class: 'mypage-identification__form__select'}
+      = f.select :Prefectures, Address.prefectures.keys, {prompt: '選択してください'}, {class: 'mypage-identification__form__select'}
 
     .mypage-identification__form__group
       = f.label :city, "市区町村", class: 'mypage-identification__form__label'
