@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 
-  def yazawa
+  def edit_address
   end
 
   def new_address
