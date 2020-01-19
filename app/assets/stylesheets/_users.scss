@@ -228,6 +228,14 @@
               .must {
                 @include must-default;
               }
+              .select-wrap {
+                @include input-default;
+                padding: 0 10px;
+                width: 100%;
+                -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+                -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+                appearance: none; /* 標準のスタイルを無効にする */
+              }
             }
             &__birth {
               margin-top: 0;
