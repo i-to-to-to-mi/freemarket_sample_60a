@@ -1,0 +1,48 @@
+.mypage-side-bar{
+  margin: 40px auto 0;
+  &__list{
+    li{
+      border-top: 1px solid #eee;
+      &:first-child {
+        border: 0;
+      }
+    }
+  }
+  &__list-item{
+    position: relative;
+    display: block;
+    height: 48px;
+    padding: 16px;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    line-height: 14px;
+    .fa-chevron-right{
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      color: #ccc;
+
+    }
+
+    &--active{
+      background: #eee;
+      font-weight: 600;
+    }
+
+  }
+  &__nav-head{
+    margin-top: 40px;
+    font-size: 16px;
+
+  }
+}
+
+.mypage-side-bar {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  display: block;
+
+}

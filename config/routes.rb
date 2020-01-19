@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
 devise_scope :user do
   get 'addresses', to: 'users/registrations#new_address'
+  get 'yazawa', to: 'users/registrations#yazawa'
   post 'addresses', to: 'users/registrations#create_address'
 end
   root "items#index"
