@@ -215,7 +215,6 @@
             .select-span {
               margin: 0 2px;
             }
-
           }
           &--form {
 // この--formがform-group         
@@ -223,6 +222,16 @@
           p {
             margin: 8px 0 0;
           }
+          .icon_green {
+            display:block;
+            content:"\f1f0";
+            width:100px;
+            height:100px;
+            font-family: "Font Awesome 5 Free";
+            font-weight:900;
+            color: red;
+          }
+
             &__word {
               strong {
                 font-weight: 600;

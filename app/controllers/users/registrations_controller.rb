@@ -38,6 +38,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def sms_recieved
   end
 
+  def tmp_register_credit_card
+  end
+
   protected
 
   def address_params
