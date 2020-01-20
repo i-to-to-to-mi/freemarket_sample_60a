@@ -224,9 +224,15 @@
             margin: 8px 0 0;
           }
             &__word {
-              font-weight: 600;
+              strong {
+                font-weight: 600;
+              }
               .must {
                 @include must-default;
+              }
+              .optional {
+                @include must-default;
+                background-color: grey;
               }
               .select-wrap {
                 @include input-default;

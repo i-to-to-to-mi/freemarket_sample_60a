@@ -27,16 +27,16 @@
             .profile-register__main--form__contents
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  お名前
+                  %strong お名前
                 = f.text_field :nickname, class: "input-default", placeholder: "例) メルカリ太郎"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  メールアドレス
+                  %strong メールアドレス
                   %span.must 必須
                 = f.email_field :email, class: "input-default", placeholder: "PC・携帯どちらでも可"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  パスワード
+                  %strong パスワード
                   %span.must 必須 
                 = f.password_field :password, autocomplete: "new-password", class: "input-default", placeholder: "7文字以上の半角英数字（まだ６文字）"
                 %p.form-info-text__remark ※ 英字と数字の両方を含めて設定してください
@@ -47,19 +47,19 @@
                 %p.guiding 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  お名前（全角）
+                  %strong お名前（全角）
                   %span.must 必須
                 = f.text_field :first_name, class: "input-default__half", placeholder: "例)山田"
                 = f.text_field :last_name, class: "input-default__half", placeholder: "例)太郎子"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  お名前カナ（全角）
+                  %strong お名前カナ（全角）
                   %span.must 必須 
                 = f.text_field :first_name_kana, class: "input-default__half", placeholder: "例)ヤマダ"
                 = f.text_field :last_name_kana, class: "input-default__half", placeholder: "例)タロウコ"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                  生年月日
+                  %strong 生年月日
                   %span.must 必須 
               .profile-register__main--form__contents--birth
                 .profile-register__main--form__contents--form__word
