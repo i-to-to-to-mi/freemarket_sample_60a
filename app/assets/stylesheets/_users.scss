@@ -1,5 +1,3 @@
-@import "font-awesome";
-
 @mixin input-default {
   top: 50%;
   left: 0;
@@ -13,6 +11,9 @@
   font-size: 16px;
   margin: 8px 0 0;
   cursor: pointer;
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+  appearance: none; /* 標準のスタイルを無効にする */
 }
 @mixin form-info-text {
     margin: 8px 0 0;
@@ -193,6 +194,10 @@
           }
           &--birth {
             margin-top: 0;
+            .select-wrap_half {
+              @include input-default;
+              width: calc(40% - 10px);
+            }
             .form-select {
               position: relative;
             }
@@ -222,14 +227,9 @@
           p {
             margin: 8px 0 0;
           }
-          .icon_green {
-            display:block;
-            content:"\f1f0";
-            width:100px;
-            height:100px;
-            font-family: "Font Awesome 5 Free";
-            font-weight:900;
+          .fab {
             color: red;
+            font-size: 30px;
           }
 
             &__word {
@@ -247,9 +247,6 @@
                 @include input-default;
                 padding: 0 10px;
                 width: 100%;
-                -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
-                -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
-                appearance: none; /* 標準のスタイルを無効にする */
               }
             }
             &__birth {

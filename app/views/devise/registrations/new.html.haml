@@ -62,21 +62,20 @@
                   %strong 生年月日
                   %span.must 必須 
               .profile-register__main--form__contents--birth
-                .profile-register__main--form__contents--form__word
-                  %span.form-select
-                    - this_year = Date.today.year
-                    = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), {:prompt => "--"}, {class: "select-wrap"}
-                    %i.fas.fa-chevron-down
-                  %span.select-span 年
-                  %span.form-select
-                    = f.select :birth_month, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap"}
-                    %i.fas.fa-chevron-down
-                  %span.select-span 月
-                  %span.form-select
-                    = f.select :birth_day, options_for_select((1..31).to_a), {:prompt => "--"}, {class: "select-wrap"}
-                    %i.fas.fa-chevron-down
-                  %span.select-span 日
-                  %p.form-info-text__remark ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+                %span.form-select
+                  - this_year = Date.today.year
+                  = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), {:prompt => "--"}, {class: "select-wrap"}
+                  %i.fas.fa-chevron-down
+                %span.select-span 年
+                %span.form-select
+                  = f.select :birth_month, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap"}
+                  %i.fas.fa-chevron-down
+                %span.select-span 月
+                %span.form-select
+                  = f.select :birth_day, options_for_select((1..31).to_a), {:prompt => "--"}, {class: "select-wrap"}
+                  %i.fas.fa-chevron-down
+                %span.select-span 日
+                %p.form-info-text__remark ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .profile-register__main--form__sending
             .profile-register__main--form__sending--top
               %span「次へ進む」のボタンを押すことにより、

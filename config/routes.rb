@@ -11,6 +11,7 @@ devise_scope :user do
   get 'sms_confirmation', to: 'users/registrations#sms_confirmation'
   get 'sms_recieved', to: 'users/registrations#sms_recieved'
   get 'tmp_register_credit_card', to: 'users/registrations#tmp_register_credit_card'
+  get 'complete', to: 'users/registrations#complete'
   # ここまで
 end
   root "items#index"

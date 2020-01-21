@@ -24,6 +24,36 @@
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   %strong カード番号
+                  %span.must 必須
                 = f.text_field :nickname, class: "input-default", placeholder: "半角数字のみ"
-                %i.fab.fa-cc-amex
                 %i.fab.fa-cc-visa
+                %i.fab.fa-cc-mastercard
+                %i.fab.fa-cc-jcb
+                %i.fab.fa-cc-diners-club
+                %i.fab.fa-cc-discover
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                  %strong 有効期限
+                  %span.must 必須
+              .profile-register__main--form__contents--birth
+                %span.form-select
+                  - this_year = Date.today.year
+                  = f.select :birth_day, options_for_select((this_year..2029).to_a), {:prompt => "--"}, {class: "select-wrap_half"}
+                  %i.fas.fa-chevron-down
+                %span.select-span 年
+                %span.form-select
+                  = f.select :birth_day, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap_half"}
+                  %i.fas.fa-chevron-down
+                %span.select-span 月
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                  %strong セキュリティーコード
+                  %span.must 必須
+                  = f.text_field :email, class: "input-default", placeholder: "カード背面４桁もしくは３桁の番号"
+                .profile-register__main--form__sending--text-right
+                  = link_to root_path do
+                    カード裏面の番号とは？
+                .profile-register__main--form__sending--base
+                  = f.submit "次へ進む", class: "default-btn"
+    .profile-register__footer
+      = render "register-footer"

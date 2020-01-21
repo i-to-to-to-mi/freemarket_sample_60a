@@ -41,6 +41,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def tmp_register_credit_card
   end
 
+  def complete
+  end
+
   protected
 
   def address_params
