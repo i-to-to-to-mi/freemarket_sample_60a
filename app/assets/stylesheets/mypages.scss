@@ -1,0 +1,70 @@
+
+
+.mypage-container{
+  margin: 24px auto 0;
+  padding-bottom: 40px;
+  
+}
+.mypage-content {
+  width: 700px;
+  height: 179px;
+}
+.mypage-content-logout {
+  padding: 64px;
+}
+.signup-box {
+    
+  margin: auto;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  display: block;
+  width: 320px;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+
+}
+.signup__btn {
+  color: white;
+  text-align: center;
+}
+
+.selling-item-box {
+  bottom: 32px;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  width: 160px;
+  position: fixed;
+  text-align: center;
+  z-index: 2;
+  background-color: rgb(234, 53, 45);
+  border-radius: 50%;
+  
+  &__contents {
+    padding-top: 32px;
+
+
+    &__letter {
+      font-size: 22px;
+      color: rgb(255, 255, 255);
+    }
+
+    &__camera {
+      width: 60px;
+      height: 54px;
+      margin-top: 8px;
+      color: rgb(255, 255, 255);
+      margin: 5px auto 0px;
+      font-size: 4em;
+    }
+  } 
+}
+
+
+.mypage-container{
+    margin: 40px auto 0;
+    width: 1020px;
+    height: 1292px;
+  }
+
