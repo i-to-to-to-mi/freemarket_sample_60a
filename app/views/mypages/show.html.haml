@@ -7,12 +7,11 @@
     = render 'side-bar'
 
     .selling-item-box
-      %a.selling-item-box__link{href: "#"}
+      = link_to "/", class: "selling-item-box__link" do
         .selling-item-box__contents
-          .selling-item-box__contents__letter
-            出品
+          .selling-item-box__contents__letter 出品
+            
           = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
 
-  
   = render 'items/footer'
   
