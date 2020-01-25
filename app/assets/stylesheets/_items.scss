@@ -190,8 +190,7 @@ a {
 .toppage__footer-login-contents  {
   display: flex;
   height: 44px;
-  // 私のブラウザだと改行されてしまうのですがみなさんのところはこれが入っていても1行で見れておりますでしょうか？
-  // width: 546px;
+  width: 546px;
   line-height: 32px;
   position: relative;
 
