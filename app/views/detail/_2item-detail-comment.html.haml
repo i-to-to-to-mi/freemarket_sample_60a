@@ -7,5 +7,5 @@
     .message-form
       = form_with model:@user,local: true do |form|
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = form.text_area :nickname, class: "textarea-default", size: "30x10"
+        = form.text_area :nickname, class: "textarea-default"
         = form.submit "コメントする", class: "submit-detail"

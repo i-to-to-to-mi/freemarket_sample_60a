@@ -40,17 +40,17 @@
             %div
               .user-ratings
                 %i.icon-good
-                  = icon('fas', 'kiss-wink-heart', style:'color:fuchsia',class:'fa-1x')
+                  = icon('fas', 'kiss-wink-heart')
                 %span
                 11
               .user-ratings
                 %i.icon-nomal
-                  = icon('fas', 'meh', style:'color:orange',class:'fa-1x')
+                  = icon('fas', 'meh')
                 %span
                 14
               .user-ratings
                 %i.icon-bad
-                = icon('fas', 'dizzy', style:'color:blue',class:'fa-1x')
+                  = icon('fas', 'dizzy')
                 %span
                 1
         %tr
@@ -108,6 +108,7 @@
       送料込み
   = link_to '購入画面に進む','#',class: 'item-buy-button '
   -# = link_to '売り切れました','#',class: 'item-sold-button '
+  -# 売り切れじに表示するボタン部分です。現在if文での条件分岐を行なっていないためコメントアウトしています
   .item-description-box
     %p.item-description-box__inner 
       こちらで譲って頂きましたが別の物を購入した為出品します。

@@ -97,13 +97,24 @@ section {
     }
     .user-ratings{
       display:inline-block;
+      .icon-good{
+        i{
+        color:fuchsia;
+        }
+      }
       .icon-nomal{
         display: inline-block;
         margin: 8px 0 0 16px;
+        i{
+        color:orange;
+        }
       }
       .icon-bad{
         display: inline-block;
         margin: 8px 0 0 16px;
+        i{
+        color:blue;
+        }
       }
     }
   }
@@ -384,6 +395,18 @@ section {
         height: 44px;
         border-radius: 4px;
         line-height: 44px;
+        i.fab.fa-facebook{
+            color:#385185;
+          }
+        i.fab.fa-twitter{
+            color:#5d9dc9;
+          }
+        i.fab.fa-line{
+            color:green;
+          }
+        i.fab.fa-pinterest{
+          color:#aa262a;
+          }
         }
       }
     }
@@ -447,6 +470,9 @@ section {
             color: #000;
             .gray-heart{
               font-size: 17px;
+              color: #ccc;
+            }
+            i.far.fa-heart{
               color: #ccc;
             }
           }
