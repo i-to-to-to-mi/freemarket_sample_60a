@@ -1,3 +1,66 @@
+@mixin input-default {
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 8px 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+  appearance: none; /* 標準のスタイルを無効にする */
+}
+@mixin form-info-text {
+    margin: 8px 0 0;
+    color: #888;
+    line-height: 1.5;
+}
+
+@mixin default-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+@mixin must-default {
+  color: #fff;
+  padding: 2px 4px;
+  background: #F92931;
+  border-radius: 2px;
+  vertical-align: top;
+  margin: 0 0 0 8px;
+  font-size: 12px;
+}
+
+@mixin btn-base {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  min-height: 1.5em;
+.wrapper {
+  background-color: rgb(245, 245, 245);
+}
+
+.profile-box {
+  display: flex;
+  margin: 40px auto;
+  width: 1020px;
+  background-color: rgb(245, 245, 245);
+}
+
 .profile-edit {
   width: 700px;
 
@@ -61,6 +124,7 @@
     line-height: 1.5;
     }
   }
+}
 
   &__submit {
     margin: 16px 0 0;
@@ -71,5 +135,264 @@
     width: 100%;
     line-height: 48px;
     font-size: 14px;
+  }
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  background: rgb(245, 245, 245);
+  color: rgb(51, 51, 51);
+  .profile-register {
+    padding: 0 0 220px;
+    &__heading {
+      font-size: 24px;
+      padding: 40px 24px;
+      margin: 0;
+      text-align: center;
+      height: 128px;
+      .logo {
+        float: left;
+        margin-left: 20%;
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+      }
+    }
+    &__main {
+      display: block;
+      width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      h2 {
+        font-weight: bold;
+        font-size: 22px;
+      }
+      &--head {
+        padding: 32px;
+        line-height: 1.5;
+        text-align: center;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      &--form {
+        padding: 0px 40px 64px;
+        &__contents {
+          max-width: 343px;
+          margin: 0 auto;
+          text-align: left;
+          .form-info-text__remark {
+            @include form-info-text;
+            font-weight: 300;
+
+          }
+          .default-btn {
+            margin: 24px 00 ;
+            @include btn-base;
+          }
+          h3 {
+            font-size: 16px;
+            font-weight: bold
+          }
+          &--birth {
+            margin-top: 0;
+            .select-wrap_half {
+              @include input-default;
+              width: calc(40% - 10px);
+            }
+            .form-select {
+              position: relative;
+            }
+            .select-wrap {
+              @include input-default;
+              padding: 0 10px;
+              width: 76px;
+              -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+              -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+              appearance: none; /* 標準のスタイルを無効にする */
+            }
+            .fa-chevron-down {
+              position: absolute;
+              right: 12px;
+              top: 1px;
+              z-index: 2;
+              color: #888;
+              font-size: 15px;
+            }
+            .select-span {
+              margin: 0 2px;
+            }
+          }
+          &--form {
+// この--formがform-group         
+          margin: 40px 0 0;
+          p {
+            margin: 8px 0 0;
+          }
+          .fab {
+            color: red;
+            font-size: 30px;
+          }
+
+            &__word {
+              strong {
+                font-weight: 600;
+              }
+              .must {
+                @include must-default;
+              }
+              .optional {
+                @include must-default;
+                background-color: grey;
+              }
+              .select-wrap {
+                @include input-default;
+                padding: 0 10px;
+                width: 100%;
+              }
+            }
+            &__birth {
+              margin-top: 0;
+            }
+
+            .input-default {
+              clear: both;
+              @include input-default;
+              width: 100%;
+            }
+            .input-default__half {
+              @include input-default;
+              width: calc(50% - 6px);
+            }
+            .default-checkbox_pass {
+              @include default-checkbox;
+              margin: 16px 0 0;
+              position: relative;
+              z-index: 2;
+              padding: 0 0 0 28px;
+              font-size: 14px;
+              font-weight: 400;
+              vertical-align: middle;
+              cursor: pointer;
+            }
+
+            .form-info-text__pass {
+              @include form-info-text;
+              color: black;
+            }
+            .caution {
+              font-size: 16px;
+              font-weight: 600;
+            }
+            .guiding {
+              margin: 8px 0 0;
+              padding: 0;
+              line-height: 1.5;
+            }
+   
+          }
+        }
+        &__sending {
+          font-size: 13px;
+          text-align: left;
+          max-width: 343px;
+          margin: 0 auto;
+          h3 {
+            margin-top: 40px;
+            font-size: 16px;
+            font-weight: bold
+          }
+          p {
+            margin: 8px 0 0;
+          }
+          a {
+            margin: 8px 0 0;
+            color: #0099e8;
+            text-decoration: none;
+          }
+          &--top {
+            margin-bottom: 40px;
+            span {
+              line-height: 1.5;
+            }
+            p{
+              text-align: center;
+            }
+            a {
+              color: #0099e8;
+              text-decoration: none;
+            }
+          }
+          &--base {            
+            margin: 0;
+            &__policy {
+              margin: 24px 0 0;
+              padding: 8px 16px;
+              background-color: #f5f5f5;
+              line-height: 1.5;
+              display: block;
+              span {
+                font-size: 12px;
+                color: #888888;
+              }
+              a {
+                margin: 8px 0 0;
+                font-size: 12px;
+                color: #0099e8;
+                text-decoration: none;
+              }
+            }
+          }
+          .default-btn {
+            @include btn-base;
+          }
+          &--text-right {
+            margin: 24px 0 0;
+            text-align: right;
+            a {
+              color: #0099e8;
+              text-decoration: none;
+            }
+            .fa-chevron-right {
+              color: #0099e8;
+              display: inline-block;
+              cursor: pointer;
+            }
+          }
+
+        }
+      }
+    }
+    &__footer {
+      width: 456px;
+      height: 220px;
+      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      padding: 40px 0;
+      text-align: center;
+      font-size: 12px;
+      li {
+        display: inline-block;
+      }
+      .bottom-logo {
+        width: 80px;
+        height: 65px;
+      }
+      p {
+        margin: 40px auto 0;
+      }
+      k {
+        margin: 8px 0 0;
+        small {
+          font-size: 13px;
+        }
+      }
+    }
   }
 }

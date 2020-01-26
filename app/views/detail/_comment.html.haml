@@ -1,0 +1,49 @@
+%li.clearfix
+  %figure
+    %div
+      = link_to do
+        = image_tag 'brand-item.jpg', alt: 'brand-item'
+    %figcaption.bold 
+      = link_to do
+        ニックネーム  
+    = icon('fas', 'caret-down',class:"comment-mark")
+  .comment-body
+    .comment-body__text
+      はじめまして。コメント失礼いたします。
+      %br
+      購入を考えているのですが、こちらの商品はお値下げ可能でしょうか？
+      %br
+      よろしくお願いいたします。
+    .comment-body__icon
+      %time.comment-body__icon__left
+        = icon('far', 'clock')
+        %span 10時間前
+      .comment-body__icon__right
+        = icon('far', 'flag')
+
+
+
+%li.clearfix
+  %figure
+    %div
+      = link_to do
+        = image_tag 'brand-item.jpg', alt: 'brand-item'
+    %figcaption.bold 
+      = link_to do
+        まりこ  
+    = link_to "#",class:"comment-seller" do
+      出品者
+    = icon('fas', 'caret-down',class:"comment-mark")
+  .comment-body
+    .comment-body__text
+      お問い合わせありがとうございます！
+      %br
+      3500円まででしたら可能です。
+      %br
+      ご検討下さいませ。
+    .comment-body__icon
+      %time.comment-body__icon__left
+        = icon('far', 'clock')
+        %span 10時間前
+      .comment-body__icon__right
+        = icon('far', 'flag')

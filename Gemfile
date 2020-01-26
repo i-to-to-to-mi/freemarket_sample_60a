@@ -74,7 +74,6 @@ group :production do
 end
 
 
-# gem 'font-awesome-rails'
 gem "font-awesome-sass"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -89,3 +88,4 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem "pry-rails"
 gem 'rails-i18n'
+gem 'font_awesome_rails'

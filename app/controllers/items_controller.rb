@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-  
-
   def index
   end
 
@@ -17,6 +15,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  
+  def show
+    @user = User.new
+  end
 
   private
   def item_params
