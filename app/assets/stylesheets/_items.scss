@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 a {
@@ -11,7 +12,7 @@ a {
 
 .header{
   background-color: white;
-  width: 1440px;
+  width: 100%;
   height: 100px; 
 }
 
@@ -328,7 +329,6 @@ a {
 }
 
 .liked-items {
-  height: 210px;
   width: 1020px;
   margin: 32px auto;
   background-color: white;
@@ -338,11 +338,12 @@ a {
   &__header {
     width: 956px;
     height: 28px;
-    padding: 0 32px 12px 32px;
+    padding: 0 0px 12px 0px;
     background-color: white;
 
     &__title {
       font-size: 20px;
+      line-height: 20px;
       color: #333333;
       width: 160px;
       float: left;
@@ -353,12 +354,13 @@ a {
     &__links {
       float: right;
       background-color: white;
+      display: flex;
 
       &--left {
         color: #0095EE;
         font-size: 14px;
         text-decoration: none;
-        line-height: 1.4em;
+        vertical-align: middle;
         text-align: right;
         word-break: normal;
       }
@@ -369,19 +371,31 @@ a {
           color: #0095EE;
           font-size: 14px;
           padding: 5px 16px 5px 5px;
-          display: inline-block;
+          margin-left: 4px;
+        
         }
       }
     }
   }
+
+
+
+  .slick-slider {
+    margin: 0px auto;
+    width: 93%;
+
+  }
+
+
+
 
   &__sliders {
     width: 1020px;
     height: 170px;
     display: flex;
     padding: 0 auto;
-    position: absolute;
     align-items: center;
+
   }
 
   &__slider__item {
@@ -439,6 +453,7 @@ a {
   padding: 65px 0 30px 0;
   position: relative;
   top: 0;
+  clear: both;
 
   &__title {
     font-size: 28px;
@@ -649,11 +664,15 @@ a {
           font-size: 14px;
           padding: 5px 16px 5px 5px;
           display: inline-block;
-          padding: 0;
         }
 
         &--right {
-          
+          text-decoration: none;
+          color: #0095EE;
+          font-size: 14px;
+          padding: 5px 16px 5px 5px;
+          display: inline-block;
+
           &__icon {
             text-decoration: none;
             color: #0095EE;
@@ -726,6 +745,148 @@ a {
         width: 188px;
         height: 188px;
       }
+    }
+  }
+}
+
+.selling-item-box {
+  bottom: 32px;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  width: 160px;
+  position: fixed;
+  text-align: center;
+  z-index: 2;
+  background-color: rgb(234, 53, 45);
+  border-radius: 50%;
+  
+  &__contents {
+    padding-top: 32px;
+
+
+    &__letter {
+      font-size: 22px;
+      color: rgb(255, 255, 255);
+    }
+
+    &__camera {
+      width: 60px;
+      height: 54px;
+      margin-top: 8px;
+      color: rgb(255, 255, 255);
+      margin: 5px auto 0px;
+      font-size: 4em;
+    }
+  } 
+}
+
+.footer__wrapper{
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 0px 20px 10px;
+}
+  
+.footer{
+  position: relative;
+  display: flex;
+  color: rgb(255, 255, 255);
+  width: 1020px;
+  margin: 0 auto;
+
+  &__about{
+    padding: 0 10px 0 0;
+    display: block;
+    float: left;
+    margin-top: 18px;
+    width: 50%;
+  }
+  
+  &__title{
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      color:white;
+    }
+  
+  &__small-categories {
+    &__title {
+      margin: 14px 0 0;
+      list-style: none;
+      color:rgb(255, 255, 255);
+    }
+
+    &__link {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+   
+  &__sns-logos{
+      display: flex;
+      margin-top: 30px;
+      height: 50px;
+ 
+  
+    &__icon{
+        margin-right: 20px;
+        width: 30px;
+        font-size: 2em;
+        
+    }
+  }
+
+
+  &__help-guide{
+      padding: 0 10px 0 0;
+      display: block;
+      float: left;
+      margin-top: 18px;
+      width: 50%;
+  }
+  
+  &__rules{
+      padding: 0 10px 0 0;
+      display: block;
+      float: left;
+      margin-top: 18px;
+      width: 50%;
+    }
+
+  &__country{
+    padding: 0 10px 0 0;
+    display: block;
+    float: left;
+    margin-top: 18px;
+    width: 50%;
+  }
+
+
+  &__merucari-bar{
+      -webkit-box-align: center;
+      align-items: center;
+      display: flex;
+      width: 1020px;
+      margin: 30px auto 20px;
+   
+    &__banner{
+        margin-right: 10px;
+        width: auto;
+        height: 31px;
+        width: 124px;
+      
+        &__image {
+          height: 31px;
+          width: 124px;
+        }
+    }
+    &__name{
+      text-align: center;
+      padding-left: 15px;
+      color: white;
+      padding-left: 15px;
+      width: 75%;
     }
   }
 }

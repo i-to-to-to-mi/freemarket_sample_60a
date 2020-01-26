@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
 devise_scope :user do
   get 'addresses', to: 'users/registrations#new_address'
+  get 'edit_address', to: 'users/registrations#edit_address'
   post 'addresses', to: 'users/registrations#create_address'
   # マークアップ用temporary routesです。ここから
   get 'sms_confirmation', to: 'users/registrations#sms_confirmation'
@@ -18,4 +19,5 @@ end
   get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
+  resources :items, only: [:show]
 end

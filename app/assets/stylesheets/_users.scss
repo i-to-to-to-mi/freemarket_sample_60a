@@ -50,6 +50,15 @@
   border: 1px solid #ea352d;
   color: #fff;
   min-height: 1.5em;
+.wrapper {
+  background-color: rgb(245, 245, 245);
+}
+
+.profile-box {
+  display: flex;
+  margin: 40px auto;
+  width: 1020px;
+  background-color: rgb(245, 245, 245);
 }
 
 .profile-edit {
@@ -115,6 +124,7 @@
     line-height: 1.5;
     }
   }
+}
 
   &__submit {
     margin: 16px 0 0;
@@ -128,21 +138,17 @@
   }
 }
 
-// wrapperがメルカリのBodyと同じ働き
 .wrapper {
   position: relative;
   width: 100%;
-//   要素ごとに高さが違う時にこの指定の仕方をするとうまく高さを出してくれます。
   min-height: 100%;
   font-size: 14px;
   line-height: 1.5;
   background: rgb(245, 245, 245);
   color: rgb(51, 51, 51);
-// profile-registerがsingle-container
   .profile-register {
     padding: 0 0 220px;
     &__heading {
-      // 作業進んだら一部、部分テンプレートすること
       font-size: 24px;
       padding: 40px 24px;
       margin: 0;
@@ -172,10 +178,8 @@
         border-bottom: 1px solid #f5f5f5;
       }
       &--form {
-// --formがregister-form
         padding: 0px 40px 64px;
         &__contents {
-// --contentsがl-single-content
           max-width: 343px;
           margin: 0 auto;
           text-align: left;
@@ -362,7 +366,6 @@
       }
     }
     &__footer {
-      // 作業進んだら一部、部分テンプレートすること
       width: 456px;
       height: 220px;
       margin: 0 auto;
