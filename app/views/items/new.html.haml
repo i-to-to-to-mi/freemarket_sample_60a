@@ -1,8 +1,8 @@
 .sell-wrapper
   .sell-header
-    = link_to root_path, class: "sell-header__lonk" do
-      = image_tag 'fmarket_logo_red.svg', alt: 'mercari-logo',
-          class: 'sell-header__logo'
+    -# = link_to root_path, class: "sell-header__lonk" do
+    -#   = image_tag 'fmarket_logo_red.svg', alt: 'mercari-logo',
+    -#       class: 'sell-header__logo'
 
   .sell-main
     .sell-main__container
@@ -13,7 +13,7 @@
           %span.form-require 必須
           %p.sell-main__image-upload__head__explanation 最大１０枚までアップロードできます
           .sell-main__image-upload__dropbox
-            = form_tag(attachments_path, class: 'dropzone', id: 'upload-dropzone') do
+            = form_tag("#", class: 'dropzone', id: 'upload-dropzone') do
               .sell-main__image-upload__dropbox__file
                 = file_field_tag('attachment[file]')
                 %pre.sell-main__image-upload__dropbox__exp ドラッグアンドドロップ %br/ またはクリックしてファイルをアップロード
