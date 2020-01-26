@@ -20,9 +20,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
-
   def create_address
-    # @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
@@ -33,22 +32,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-
-  def edit_address
-  end
-
-  def new_address
-    @address = Address.new
-  end
-
   protected
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :building,)
+    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :building, :phone_number)
   end
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   end
 end
-
