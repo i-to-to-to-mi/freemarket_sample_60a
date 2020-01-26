@@ -33,6 +33,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
+  def sms_confirmation
+  end
+
+  def sms_recieved
+  end
+
+  def tmp_register_credit_card
+  end
+
+  def complete
+  end
+
+  def register_address
+  end
 
   def edit_address
   end
