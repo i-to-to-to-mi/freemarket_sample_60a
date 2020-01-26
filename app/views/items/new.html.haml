@@ -1,0 +1,145 @@
+.sell-wrapper
+  .sell-header
+    = link_to root_path, class: "sell-header__lonk" do
+      = image_tag 'fmarket_logo_red.svg', alt: 'mercari-logo',
+          class: 'sell-header__logo'
+
+  .sell-main
+    .sell-main__container
+      %h2.sell-main__title 商品の情報を入力
+      = form_with model: @item do |f|
+        .sell-main__image-upload
+          %h3.sell-main__image-upload__head 出品画像
+          %span.form-require 必須
+          %p.sell-main__image-upload__head__explanation 最大１０枚までアップロードできます
+          .sell-main__image-upload__dropbox
+            = form_tag(attachments_path, class: 'dropzone', id: 'upload-dropzone') do
+              .sell-main__image-upload__dropbox__file
+                = file_field_tag('attachment[file]')
+                %pre.sell-main__image-upload__dropbox__exp ドラッグアンドドロップ %br/ またはクリックしてファイルをアップロード
+                
+              
+              
+  -#       .sell-main__box
+  -#         .sell-main__form
+  -#           = f.label :name, "商品名", class: "sell-main__form__label"
+  -#           %span.form__neccesary 必須
+  -#           = f.text_field :name, class: 'sell-main__form__input', placeholder: '商品名（必須40文字まで）'
+  -#         .sell-main__form
+  -#           = f.label :description, "商品の説明", class: "sell-main__form__label"
+  -#             %span.sell-main__form__neccesary 必須
+  -#           = f.text_area :description, class: 'sell-main__form__input__textarea', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+
+  -#       .sell-main__box
+  -#         %h3.sell-main__title 商品の詳細
+  -#         .sell-main__form__box 
+  -#           .sell-main__form
+  -#             = f.label :category, "カテゴリー", class: "sell-main__form__label"
+  -#             %span.sell-main__form__neccesary 必須
+  -#             = f.select :category, @category_parent_array, {}, {class: 'sell-main__form__select', id: 'parent_category'}
+  -#               %i.fas.fa-chevron-down.sell-main__form__select__arrow
+  -#           .sell-main__form
+  -#             = f.label :condition, "商品の状態", class: "sell-main__form__label"
+  -#             %span.sell-main__form__neccesary 必須
+  -#             = f.select :condition, ['新品未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い' ], {include_blank: '選択ボックス'}, class: 'sell-main__form__select'  
+  -#               %i.fas.fa-chevron-down.sell-main__form__select__arrow
+
+  -#       .sell-main__box
+  -#         %h3.sell-main__title 配送について
+  -#         = link_to "?", "#", class: "form__question" 
+  -#         .sell-main__form-box 
+  -#           .sell-main__form
+  -#             = f.label :cover_postage, "配送料の負担", class: "sell-main__form__label"
+  -#             %span.sell-main__form__neccesary 必須
+  -#             = f.select :cover_postage, ['送料込み（出品者負担）', '着払い（購入者負担）'], {include_blank: '選択ボックス'}, class: 'sell-main__form__select'  
+  -#             = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
+
+  -#           .sell-main__form
+  -#             = f.label :shopping_area, "発送元の地域", class: "sell-main__form__label"
+  -#             %span.sell-main__form__neccesary 必須
+  -#             = f.select :shopping_area, Item.prefectures.keys, {prompt: '選択してください'}, {class: 'sell-main__form__select'}
+  -#             = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
+          
+  -#           .sell-main__form
+  -#             = f.label :shopping_date, "配送料の負担", class: "sell-main__form__label"
+  -#             %span.sell-main__form__neccesary 必須
+  -#             = f.select :shopping_date, ['1~2日で発送', '2~３日で発送', '4〜７日で発送'], {include_blank: '選択ボックス'}, class: 'sell-main__form__select'  
+  -#             = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
+
+                        
+        .sell-main__box
+          %h3.sell-main__title 販売価格（300〜9,999,999)
+          = link_to "?", "#", class: "form__question" 
+          .sell-main__small-box
+            %ul.sell-main__sales-price
+              %li.sell-main__price-form sell-main__price-form--top
+              .sell-main__price-form-label-box
+                = f.label :price, "価格", class: "sell-main__price-form__label-box__label"
+                %span.sell-main__form__neccesary 必須
+              .sell-main__price-from__input-box
+                = f.text_field :price, class: 'sell-main__price-form__input-box',name: "price", placeholder: '例）300', id: "price"
+
+              %li.sell-main__price-form sell-main__price-form--middle
+              .sell-main__price-form-label-box
+                %p.sell-main__price-form-label 販売手数料（１０％）
+              .sell-main__price-from__input-box
+                %input#margin-price{type: "text", name:"margin-price",   value: ""}>/
+
+
+              
+              %li.sell-main__price-form sell-main__price-form--bottom
+              .sell-main__price-form-label-box
+                %p.sell-main__price-form-label 販売利益
+              .sell-main__price-from__input-box
+                %input#profit-price{type: "text", name: "profit-price", value: ""}>/
+
+
+  -#       .sell-main__button-box
+  -#         .sell-main__bottom-caution
+  -#           %p.sell-main__button-box--description
+  -#             = link_to "禁止されている出品", "#", class: "sell-main__button-box--description--link"
+  -#           %p.sell-main__button-box--description 、
+  -#           %p.sell-main__button-box--description
+  -#             = link_to "行為", "#", class: "sell-main__button-box--description--link" 
+  -#           %p.sell-main__button-box--description を必ずご確認ください。
+  -#           %p.sell-main__button-box--description またブランド品でシリアルナンバー等がある場合はご記載ください。
+  -#           %p.sell-main__button-box--description   
+  -#             = link_to "偽ブランドの販売", "#", class: "sell-main__button-box--description--link"
+  -#           %p.sell-main__button-box--description は犯罪であり処罰される可能性があります。
+  -#           %p.sell-main__button-box--description また、出品をもちまして
+  -#           %p.sell-main__button-box--description   
+  -#             = link_to "加盟店規約", "#", class: "sell-main__button-box--description--link"
+  -#           %p.sell-main__button-box--description に同意したことになります
+      
+  -#         = f.submit "出品する", class: "sell-main__form__submit"
+  -#         = link_to "もどる", root_path, calss: "sell-main__form__back-button" 
+
+  -# .sell-footer
+  -#   .sell-footer__navigation
+  -#     %ul.sell-footer__links
+  -#       %li.sell-footer__link
+  -#         = link_to "プライバシーポリシー", "#", class="sell-footer__link"
+  -#       %li.sell-footer__link
+  -#         = link_to "メルカリ利用規約", "#", class="sell-footer__link"
+  -#       %li.sell-footer__link
+  -#         = link_to "特定商取引に関する表記", "#", class="sell-footer__link"
+
+  -#   .sell-footer__merucari-bar
+  -#     .sell-footer__merucari-bar__banner
+  -#       = link_to root_path do
+  -#         = image_tag 'logo_white.svg', alt: 'mercari-logo',
+  -#           class: 'footer__mercari-bar__banner__image'
+  -#       %span.sell-footer__merucari-bar__name
+  -#         © Mercari, Inc.
+
+
+
+
+
+
+
+
+
+
+
+
