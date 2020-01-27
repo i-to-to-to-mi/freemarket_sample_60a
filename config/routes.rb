@@ -17,6 +17,8 @@ devise_scope :user do
   # ここまで
 end
   root "items#index"
+  resources :mypages, only: [:show]
+  
   get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
