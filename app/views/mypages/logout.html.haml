@@ -1,0 +1,22 @@
+.mypage-main-container
+  = render 'items/header'
+  
+  = render 'mypages/bread-crumbs'
+  %main.mypage-container
+    .mypage-content 
+      .mypage-content-logout
+        .signup-box
+          = link_to destroy_user_session_path, method: 'delete', class: 'signup__btn' do
+            ログアウト
+    = render 'side-bar'
+
+    .selling-item-box
+      %a.selling-item-box__link{href: "#"}
+        .selling-item-box__contents
+          .selling-item-box__contents__letter
+            出品
+          = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
+
+  
+  = render 'items/footer'
+  
