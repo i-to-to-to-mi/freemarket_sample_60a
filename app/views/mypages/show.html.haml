@@ -1,0 +1,17 @@
+.mypage-main-container
+  = render 'items/header'
+  
+  = render 'mypages/bread-crumbs'
+  %main.mypage-container
+    = render 'content'
+    = render 'side-bar'
+
+    .selling-item-box
+      = link_to "/", class: "selling-item-box__link" do
+        .selling-item-box__contents
+          .selling-item-box__contents__letter 出品
+            
+          = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
+
+  = render 'items/footer'
+  
