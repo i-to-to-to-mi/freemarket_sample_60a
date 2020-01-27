@@ -23,26 +23,24 @@
       top: 50%;
       right: 16px;
       color: #ccc;
-      
+
     }
-    
+
     &--active{
       background: #eee;
       font-weight: 600;
     }
-    
   }
   &__nav-head{
     margin-top: 40px;
     font-size: 16px;
-    
   }
 }
 
 .mypage-side-bar {
-    float: left;
-    width: 280px;
-    margin: 0 40px 0 0;
-    display: block;
-  
-  }
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  display: block;
+
+}

@@ -12,7 +12,7 @@ a {
 
 .header{
   background-color: white;
-  width: 1440px;
+  width: 100%;
   height: 100px; 
 }
 
@@ -32,7 +32,7 @@ a {
         display: flex;
         justify-content: space-between;
         width: 100%;
-          &--mercari-logo {
+          &--freemarket-logo {
             width: 134px;
             box-align: center;
             margin-right: 45px;
@@ -290,7 +290,7 @@ a {
 .topview {
   padding: 20px 40px;
   margin: 0 auto;
-  background-image: url(top_slide1);
+  background-image: image-url("top_slide1.jpg");
   background-size: cover;
 }
 

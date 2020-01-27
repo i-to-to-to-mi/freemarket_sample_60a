@@ -1,0 +1,28 @@
+.wrapper
+  .profile-register
+    .profile-register__heading
+      = render "register-head"
+      .signup-bar
+        %ul.progressbar
+          %li.active
+            会員情報
+          %li.active
+            電話番号認証
+          %li.active
+            お届け先住所入力
+          %li.active
+            支払い方法
+          %li.active
+            完了
+    .profile-register__main
+      %h2.profile-register__main--head
+        登録完了
+      .profile-register__main--head
+        %p ありがとうございます。
+        %p 会員登録が完了しました。
+      .profile-register__main--form__contents
+        = link_to root_path, class: "default-btn" do
+          メルカリをはじめる
+      = render "layouts/topview"
+    .profile-register__footer
+      = render "register-footer"
