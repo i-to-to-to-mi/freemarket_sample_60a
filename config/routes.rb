@@ -22,5 +22,5 @@ end
   get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  resources :items, only: [:show]
+  resources :items
 end
