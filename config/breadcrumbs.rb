@@ -15,6 +15,7 @@ end
 # end
 
 # 商品詳細ページ
+# カテゴリやコントローラの設定が完了していないためfindでidを指定して表示できるようにしています
 crumb :item do |item|
   link "#{item.name}", item_path(item)
   parent :root
