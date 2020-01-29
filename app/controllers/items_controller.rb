@@ -5,6 +5,5 @@ class ItemsController < ApplicationController
   def show
     @user = User.new
     @item = Item.find(1)
-    # @item = Item.find(params[:id])
   end
 end
