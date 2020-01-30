@@ -1,0 +1,52 @@
+.sell-wrapper
+  .sell-header
+    = link_to root_path do
+      = image_tag 'fmarket_logo_red.svg', alt: 'mercari-logo',
+          class: 'sell-header__logo'
+
+  .sell-main
+    = render 'form'
+  -#     .sell-main__button-box
+  -#       .sell-main__bottom-caution
+  -#         %p.sell-main__button-box--description
+  -#           = link_to "禁止されている出品", "#", class: "sell-main__button-box--description--link"
+  -#         %p.sell-main__button-box--description 、
+  -#         %p.sell-main__button-box--description
+  -#           = link_to "行為", "#", class: "sell-main__button-box--description--link" 
+  -#         %p.sell-main__button-box--description を必ずご確認ください。
+  -#         %p.sell-main__button-box--description またブランド品でシリアルナンバー等がある場合はご記載ください。
+  -#         %p.sell-main__button-box--description   
+  -#           = link_to "偽ブランドの販売", "#", class: "sell-main__button-box--description--link"
+  -#         %p.sell-main__button-box--description は犯罪であり処罰される可能性があります。
+  -#         %p.sell-main__button-box--description また、出品をもちまして
+  -#         %p.sell-main__button-box--description   
+  -#           = link_to "加盟店規約", "#", class: "sell-main__button-box--description--link"
+  -#         %p.sell-main__button-box--description に同意したことになります
+    
+  -#       = f.submit "出品する", class: "sell-main__form__submit"
+  -#       = link_to "もどる", root_path, calss: "sell-main__form__back-button" 
+
+  -# .sell-footer
+  -#   .sell-footer__navigation
+  -#     %ul.sell-footer__links
+  -#       %li.sell-footer__link
+  -#         = link_to "プライバシーポリシー", "#", class: "sell-footer__link"
+  -#       %li.sell-footer__link
+  -#         = link_to "メルカリ利用規約", "#", class: "sell-footer__link"
+  -#       %li.sell-footer__link
+  -#         = link_to "特定商取引に関する表記", "#", class: "sell-footer__link"
+
+  -#   .sell-footer__merucari-bar
+  -#     .sell-footer__merucari-bar__banner
+  -#       = link_to root_path do
+  -#         = image_tag 'logo_white.svg', alt: 'mercari-logo',
+  -#         class: 'footer__mercari-bar__banner__image'
+  -#       %span.sell-footer__merucari-bar__name © Mercari, Inc.
+
+
+
+
+
+
+
+
