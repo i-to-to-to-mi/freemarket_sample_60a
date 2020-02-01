@@ -18,6 +18,7 @@ devise_scope :user do
 end
   root "items#index"
   resources :mypages, only: [:show]
+  get 'logout', to: 'mypages#logout'
   
   get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
