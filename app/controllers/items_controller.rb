@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(total_item_info)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: '住所を登録しました'
     else
       render :new
     end

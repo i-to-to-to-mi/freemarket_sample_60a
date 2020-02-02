@@ -1,4 +1,41 @@
 class Item < ApplicationRecord
+  include AASM
+
+  aasm do
+  # 状態の説明
+
+  # 出品中(selling)
+
+  # 出品停止中(pending)
+
+  # 取引中(dealing)
+
+  # 売却済み(completed)
+    state :selling, :initial => true
+    state :pending, :dealing, :completed
+
+ 
+    # 出品中＝＞出品停止中
+
+    event :stop_sales do
+      transitions :from => :selling, :to => :pending
+    end
+
+
+    # 出品中＝＞取引中
+    event :sold do
+      transitions :from => :selling, :to => :dealing
+    end
+
+
+    # 取引中＝＞売却済み
+    event :closing do
+      transitions :from => :dealing, :to => :completed
+    end
+
+  end
+
+
   has_many :images
   accepts_nested_attributes_for :images
   enum prefectures:{
