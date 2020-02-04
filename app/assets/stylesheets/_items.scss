@@ -1038,10 +1038,14 @@ a {
 }
 
       // ドロップボックス
-.drop-box{
+.dropzone-container {
+  display: flex;
   position: relative;
-
-.drop-upload {
+  box-sizing: border-box;
+  // display: block;
+  width: 620px;
+}
+.dropzone-area{
   background-color:#f5f5f5;
   border: dashed 1px #ccc;
   color:#333;
@@ -1051,6 +1055,11 @@ a {
   padding: 40px;
   position: relative;
   text-align: center;
+  width: 100%;
+  margin: 0 0 0 auto;
+  p{
+    cursor: pointer;
+  }
 }
 .preview{
   width:100px;
@@ -1064,19 +1073,50 @@ a {
   font-size: 14px;
   display: block;
   font-weight: bold;
+  }
   img{
-    width:100px;
-    height: 100px;
+    width:114px;
+    height: 114px;
     border: solid 1px #ccc;
     cursor: pointer;
     height: auto;
-    margin: 0 10px;
+    margin: 0 10px 0 0;
     }
-  }
+form{
+  display: block;
 }
 
-.drop-upload input {
+.dropzone-box input {
   display: none;
+}
+.btn_wrapper{
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  margin:auto;
+  width:114px;
+  .btn.edit{
+      display: inline-block;
+      width: 50%;
+      background: #f5f5f5;
+      line-height: 44px;
+      text-align: center;
+      margin-left: -4px;
+    }
+  .btn.delete{
+    display: inline-block;
+    width: 50%;
+    background: #f5f5f5;
+    line-height: 44px;
+    text-align: center;
+    }
+  }
+
+#preview{
+  display: flex;
+}
+#preview2{
+  display: flex;
 }
 // ドロップボックス終わり
 

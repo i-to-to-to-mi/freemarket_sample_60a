@@ -5,32 +5,71 @@
 
   .sell-main
     .sell-main__container
-      = form_with model: @item,local: true, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
-        %h2.sell-main__top__title 商品の情報を入力
+      %h2.sell-main__top__title 商品の情報を入力
+      = form_with model: @item do |f|
         .sell-main__image
-          %label.sell-main__image-upload__head 出品画像
-          %span.form-require 必須
+          .sell-main__image-upload
+            %h3.sell-main__image-upload__head 出品画像
+            %span.form-require 必須
           %p.sell-main__image-upload__head__explanation 最大10枚までアップロードできます
+
           -# ドロップボックススタート
-          = f.fields_for :item_images do |image|
-            .dropzone-container
-              #preview
-              -# １〜５枚目プレビュー表示
-              .dropzone-area
-                = image.label :image, class: "dropzone-box", for: "upload-image" do
-                  .input_area
-                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                  %p
-                    ドラッグアンドドロップ
-                    %br またはクリックしてファイルをアップロード
-            .dropzone-container2
-              #preview2
-              -# ６〜１０枚目プレビュー表示
-              .dropzone-area2
-                = image.label :image, class: "dropzone-box", for: "upload-image" do
-                  .input_area
-                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                    %p
+          -# サーバーサイドで実装・確認の部分はコメントアウトしております。
+          %form
+            .drop-box
+              .drop-upload
+                ドラッグアンドドロップ 
+                %br またはクリックしてファイルをアップロード
+                %input{name: "image", type: "file"}/
+                .preview
+          %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+          :javascript
+            let drop_file = null;
+            $('.drop-upload').on('drop', (e) => {
+              e.preventDefault();
+              // ドロップファイルを記憶
+              drop_file = e.originalEvent.dataTransfer.files[0];
+              
+              // プレビュー
+              const reader = new FileReader();
+              $image_item = $(e.target).find('.preview');
+              reader.onload = (e) => {
+                $image_item.html($('<img>').attr('src', e.target.result));
+              }
+              reader.readAsDataURL(drop_file);
+            })
+            
+            // ドロップフォーム以外にドロップされたときページが画像になるのを防ぐ
+            $(document).on('drop', (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            });
+            $(document).on('dragenter', (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            });
+            $(document).on('dragover', (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            });
+
+            // 送信ボタンがおされたとき
+            $('form').on('submit', (e) => {
+              console.log(drop_file); // file オブジェクト
+              try {
+                const form_data = new FormData( $(e.target).get()[0] );
+
+                // ファイルが選択されてなかったらドロップファイルを送信
+                if(!$('[type="file"]').val()) {
+                  $(e.target).find('[type="file"]').get()[0].files = e.originalEvent.dataTransfer.files;
+                  form_data.append($(e).attr('name'), drop_file);
+                }
+
+                // ここでform_data を submit したい
+              } catch(e) {}
+              return false;
+            });
+          -# ここでドロップボックス終了
 
         .sell-main__box
           .sell-main__form
