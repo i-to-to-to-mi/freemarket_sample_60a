@@ -1215,12 +1215,27 @@ p.sell-main__price-form-label{
   font-size: 16px;
   width: 150px;
   margin:0;
+  text-align: right;
 }
 input#margin-price{
   border: none;
+  height: 48px;
+  padding: 10px 16px 8px;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 150px;
+  margin:0;
+  text-align: right;
 }
 input#profit-price{
   border: none;
+  height: 48px;
+  padding: 10px 16px 8px;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 150px;
+  margin:0;
+  text-align: right;
 }
 input.sell-main__form__submit{
   margin: 40px 0 0;
