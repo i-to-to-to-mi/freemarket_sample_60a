@@ -13,7 +13,7 @@
           %p.sell-main__image-upload__head__explanation 最大10枚までアップロードできます
           -# ドロップボックススタート
           = f.fields_for :item_images do |image|
-            .dropzone-container
+            .dropzone-container.clearfix
               #preview
               -# １〜５枚目プレビュー表示
               .dropzone-area
@@ -23,15 +23,16 @@
                   %p
                     ドラッグアンドドロップ
                     %br またはクリックしてファイルをアップロード
-            .dropzone-container2
+            .dropzone-container2.clearfix
               #preview2
               -# ６〜１０枚目プレビュー表示
               .dropzone-area2
-                = image.label :image, class: "dropzone-box", for: "upload-image" do
-                  .input_area
-                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                    %p
-
+                = image.label :image, class: "dropzone-box", for: "upload-image2" do
+                  .input_area2
+                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image2", class: "upload-image2", 'data-image': 0
+                  %p
+                    ドラッグアンドドロップ
+                    %br またはクリックしてファイルをアップロード 
         .sell-main__box
           .sell-main__form
             = f.label :name, "商品名", class: "sell-main__form__label"

@@ -1042,7 +1042,6 @@ a {
   display: flex;
   position: relative;
   box-sizing: border-box;
-  // display: block;
   width: 620px;
 }
 .dropzone-area{
@@ -1061,6 +1060,7 @@ a {
     cursor: pointer;
   }
 }
+
 .preview{
   width:100px;
   height: 100px;
@@ -1102,6 +1102,10 @@ form{
       line-height: 44px;
       text-align: center;
       margin-left: -4px;
+      color: #0095EE;
+    }
+    .btn.edit:hover{
+    text-decoration: underline;
     }
   .btn.delete{
     display: inline-block;
@@ -1109,15 +1113,64 @@ form{
     background: #f5f5f5;
     line-height: 44px;
     text-align: center;
+    color: #0095EE;
+    }
+    .btn.delete:hover{
+      text-decoration: underline;
     }
   }
 
 #preview{
   display: flex;
 }
+i.fa.fa-camera{
+  font-size: 60px;
+  cursor: pointer;
+  margin:0 auto;
+}
 #preview2{
   display: flex;
+  position: relative;
 }
+
+.dropzone-container2 {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  width: 620px;
+  margin-top: 10px;
+}
+.dropzone-area2{
+  background-color:#f5f5f5;
+  border: dashed 1px #ccc;
+  color:#333;
+  vertical-align: middle;
+  padding: 20px;
+  cursor: pointer;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: 0 10px 0 auto;
+  display:none;
+  p{
+    cursor: pointer;
+  }
+}
+
+.preview2{
+  width:100px;
+  height: 100px;
+  position: absolute;
+  top: 35%;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  line-height: 0.5;
+  font-size: 14px;
+  display: block;
+  font-weight: bold;
+  }
 // ドロップボックス終わり
 
 textarea#item_description.sell-main__form__input__textarea{
