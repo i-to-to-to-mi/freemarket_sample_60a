@@ -121,9 +121,9 @@ $(document).on('turbolinks:load', function(){
       if(images.length == 9) {
         dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
       }
-      // if(images.length == 8) {
-      //   dropzone2.find('i').replaceWith('<p>ココをクリックしてください</p>')
-      // }
+      if(images.length == 8) {
+        dropzone2.find('i').replaceWith('<p>ドラッグアンドドロップ <br>またはクリックしてファイルをアップロード</p>')
+      }
     } else {
       dropzone.css({
         'display': 'block'
@@ -141,8 +141,8 @@ $(document).on('turbolinks:load', function(){
         'display': 'none'
       })
     }
-    // if(images.length == 3) {
-    //   dropzone.find('i').replaceWith('<p>ドラッグアンドドロップ またはクリックしてファイルをアップロード</p>')
-    // }
+    if(images.length == 3) {
+      dropzone.find('i').replaceWith('<p>ドラッグアンドドロップ<br> またはクリックしてファイルをアップロード</p>')
+    }
   })
 });
