@@ -1,0 +1,99 @@
+.buy-container
+  %header.buy-header
+    %h1
+      = link_to root_path do
+        = image_tag 'fmarket_logo_red.svg'
+  %main.buy-main
+    %section.buy-content
+      %h2.buy-content__head 購入内容の確認
+      %section.buy-content__item
+        .buy-content__item__inner
+          .buy-item-box
+            %h3.buy-item__image
+              = image_tag 'category-item.jpg'
+            
+            .buy-item-detail
+              %p.buy-item-detail__name
+                カーディガン ポンチタイトストレッチスカートベージュサイズ１
+              %p.buy-item-detail__price
+                %span
+                  ¥6,000
+              
+                %span.item-shipping__fee
+                  （税込）送料込み
+      %section.buy-content__price
+        .buy-content__price-inner
+          .buy-form            
+            %ul.buy-price__table
+              %li.buy-price
+                .buy-price__cell-label
+                  支払い金額
+                .buy-price__cell
+                  %span.buy-pay
+                    ¥6,000  
+
+            %ul.buy-point__table
+              %li.user-point
+                .buy-use-point
+                  %input{disabled: "disabled", type: "checkbox"}/
+                  %i.icon-check
+                  %label ポイントを使用 (所持ポイント: P0)
+
+
+            %section.buy-user__info
+              .buy-content__inner
+                .buy-content__container
+                  %h1.payment-method__container-left
+                    支払い方法
+                  = link_to root_path, class: "payment-method__container-right" do
+                    %span
+                      変更する
+                
+                %p.buy-user-info-text
+                  クレジットカード
+                  %br/
+                  ************6541
+                  %br/
+                  有効期限 06 / 24  
+                %figure.buy-card__logo  
+                  %img{alt: "master-card", height: "20", src: "https://cdn-ak.f.st-hatena.com/images/fotolife/c/cardmics/20160717/20160717144815.gif", width: "34"}/
+
+
+                    
+            %section.buy-user__info
+              .buy-content__inner
+                .buy-content__container
+                  %h3.l-left
+                    配送先
+                  = link_to root_path, class: "l-right" do
+                    %span
+                      変更する
+                %address.buy-user-info-text
+                  %p
+                    〒112-0012
+                    %br/
+                    東京都 **区
+                    ** *-**-**
+                    %br/
+                    斉藤 佑子
+
+
+            %section.buy-user__info
+              %button.confirm-btn{type: "submit"}
+                購入する
+  %footer.buy-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to root_path do 
+            プライバシーポリシー
+        %li
+          = link_to root_path do
+            メルカリ利用規約
+        %li
+          = link_to root_path do 
+            特定商取引に関する表記
+    = link_to root_path, class: "single-footer-logo" do
+      = image_tag 'logo_gray.svg', alt: 'mercari', height: '65', width: '80'
+    %p
+      %small © Mercari, Inc.

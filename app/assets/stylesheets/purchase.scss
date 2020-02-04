@@ -1,3 +1,309 @@
-// Place all the styles related to the purchase controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.buy-container{
+  padding: 0 0 220px;
+  background: #f5f5f5;
+
+  .buy-header{
+    height: 128px;
+    text-align: center;
+    
+    h1 {
+      display: inline-block;
+      margin: 40px 0 0;
+
+    }
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin-right: 8px;
+      
+    }
+    img {
+      width: 185px;
+      height: 49px;
+    }      
+  }
+  
+  .buy-main{
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    .buy-content{
+      width: 700px;
+      margin: 0 auto;
+      background: #fff;
+    
+      &__head {
+        font-size: 22px;
+        padding: 32px;
+        line-height: 1.5;
+        text-align: center;
+        font-weight: bold;
+      
+      }
+
+      &__item {
+        margin: 0;
+        text-align: center;
+        padding: 32px 16px;
+        border-top: 1px solid #f5f5f5;
+
+        &__inner {
+          max-width: 343px;
+          margin: 0 auto;
+          display: block;
+          
+          .buy-item-box {
+            display: flex;
+
+            .buy-item__image {
+              height: 80px;
+              width: 80px;
+              min-width: 80px;
+              justify-content: center;
+
+              img {
+                width: auto;
+                max-height: 80px;
+                margin: 0;
+              }
+            }
+
+            .buy-item-detail {
+              margin-left: 16px;
+
+              &__name {
+                font-size: 14px;
+                margin: 0;
+                padding: 0 0 8px;
+                line-height: 1.5;
+                text-align: left;
+              }
+
+              &__price {
+                margin: 0;
+                text-align: left;
+                font-size: 15px;
+                font-weight: 600;
+              }
+            }
+
+
+          }
+        }
+      }
+    &__price {
+      padding-bottom: 48px;
+      text-align: center;
+      padding: 32px 16px;
+      display: block;
+
+      &-inner {
+        max-width: 343px;
+        margin: 0 auto;
+
+        .buy-form {
+          .buy-price__table {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            .buy-price {
+              font-size: 30px;
+              margin: 0;
+              display: table;
+             
+              width: 100%;
+              height: 30px;
+              .buy-price__cell-label {
+                text-align: left;
+                font-size: 18px;
+                display: table-cell;
+                padding: 0;
+                font-weight: 600;
+                width: 175px;
+              }
+              .buy-price__cell {
+                display: table-cell;
+                padding: 0;
+                text-align: right;
+                font-weight: 600;
+                
+                span {
+                  margin: 0;
+                  padding: 0;
+                  text-align: right;
+                  height: 38px;
+                  font-size: 30px;
+                }
+              }
+            }
+          }
+
+          .buy-point__table {
+            color: #888;
+            margin: 24px 0 32px;
+            padding: 0;
+            .buy-use-point {
+              text-align: left;
+              position: relative;
+              font-size: 0;
+              margin: 0;
+              padding: 0;
+              display: block;
+              .icon-check {
+                color: #ccc;
+                background: #ccc;
+                position: absolute;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                border: 1px solid #ccc;
+                font-size: 10px;
+                
+              }
+              label {
+                position: relative;
+                z-index: 2;
+                padding: 0 0 0 28px;
+                font-size: 14px;
+                font-weight: 400;
+                vertical-align: middle;
+                display: inline-block;
+                color: #888;
+              }
+            }
+          }
+          .buy-user__info {
+            padding: 32px 0;
+            text-align: left;
+            .buy-content__inner {
+              display: block;
+              .buy-content__container {
+                width: 343px;
+                height: 16px;
+                .payment-method__container-left {
+                  margin: 0;
+                  font-size: 14px;
+                  float: left;
+                  font-weight: bold;
+                }
+                .payment-method__container-right {
+                  display: block;
+                  text-align: right;
+                  float: right;
+                  span {
+                    color: #0099e8;
+                  }
+                  
+                }
+              }
+              .buy-user-info-text {
+                padding: 0;
+                line-height: 1.5;
+                text-align: left;
+                margin: 8px 0 0;
+                font-size: 14px;
+                
+                
+              }
+
+            }
+            
+            
+          }
+          .buy-user__info {
+            padding: 32px 0;
+            text-align: left;
+            .buy-content__inner {
+              
+              max-width: 343px;
+              margin: 0 auto;
+              .buy-content__container {
+                .l-left {
+                  margin: 0;
+                  font-size: 14px;     
+                  float: left;
+                  font-weight: bold; 
+                }
+                .l-right {
+                  float: right;
+                  text-align: right;
+                  span {
+                    color: #0099e8;
+                  }
+                }
+              }
+              .buy-user-info-text {
+                display: block;
+                text-align: left;
+                margin: 8px 0 0;
+                font-size: 14px;
+                line-height: 1.4;
+              }
+            }
+          }
+          .buy-user__info{
+            .confirm-btn {
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: #fff;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+      
+    }  
+
+    }
+    
+
+  }
+  .buy-footer {
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    
+    padding: 40px 0;
+    text-align: center;
+    nav {
+      .clearfix {
+      
+        display: block;
+        li {
+          margin: 0;
+          display: inline-block;
+          
+          padding: 0;
+          a {
+            font-size: 12px;
+            display: block;
+            padding: 0 5px;
+          }
+        }
+      }
+    }
+    .single-footer-logo {
+      display: block;
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+    }
+    p {
+      small {
+        font-size: 13px;
+      }
+    }
+    
+  }
+
+}
+  

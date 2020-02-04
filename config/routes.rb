@@ -24,4 +24,5 @@ end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
   resources :items, only: [:show]
+  resources :purchase, only: [:show] 
 end
