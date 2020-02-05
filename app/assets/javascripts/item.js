@@ -1,4 +1,5 @@
 $(function() {
+  console.log("itemjs")
   $('.liked-items__sliders').slick({
     slidesToShow: 6,
     arrow: true,
@@ -40,8 +41,9 @@ $(document).on('turbolinks:load', ()=> {
     e.preventDefault();
   });
 
-  // 送信ボタンがおされたとき
+  送信ボタンがおされたとき
   $('form').on('submit', (e) => {
+    console.log("imtejs_form")
     console.log(drop_file); // file オブジェクト
     try {
       const form_data = new FormData( $(e.target).get()[0] );

@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_075158) do
+ActiveRecord::Schema.define(version: 2020_02_04_162319) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "postal_code", null: false
-    t.integer "Prefectures", null: false
+    t.string "postal_code", null: false
+    t.string "prefectures", null: false
     t.string "city", null: false
-    t.string "address1", null: false
-    t.string "address2"
-    t.integer "address_phone_number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.string "phone_number"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -33,19 +33,20 @@ ActiveRecord::Schema.define(version: 2020_02_01_075158) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description", null: false
+    t.text "description", null: false
+    t.string "category", null: false
     t.string "condition", null: false
     t.string "cover_postage", null: false
     t.integer "shipping_area", null: false
     t.string "shipping_date", null: false
     t.integer "price", null: false
-    t.integer "margin", null: false
     t.integer "profit", null: false
-    t.integer "category_id", null: false
-    t.integer "brand_id", null: false
-    t.integer "seller_id", null: false
-    t.integer "buyer_id"
-    t.string "aasm_state"
+    t.integer "margin", null: false
+    t.string "brand"
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,5 +81,7 @@ ActiveRecord::Schema.define(version: 2020_02_01_075158) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
 end

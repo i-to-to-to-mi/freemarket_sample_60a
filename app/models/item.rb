@@ -1,4 +1,23 @@
 class Item < ApplicationRecord
+  # validation
+  validates :name, length: { in: 1..40}, presence: true
+  validates :description, length: { in: 1..1000}, presence: true
+  validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999}
+
+  #profitとmarginの計算式
+  
+  def profit
+    price * 0.9
+  end
+
+  def margin
+    price * 0.1
+  end
+
+  def set_extra_information
+  {:profit => profit, :margin => margin}
+  end
+
   include AASM
 
   aasm do
@@ -35,9 +54,10 @@ class Item < ApplicationRecord
 
   end
 
-
   has_many :images
   accepts_nested_attributes_for :images
+  has_many :users
+
   enum prefectures:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
@@ -49,17 +69,9 @@ class Item < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
   }
 
-  def profit
-    price * 0.9
-  end
 
-  def margin
-    price * 0.1
-  end
+  
 
-  def set_extra_information
-  {:profit => profit, :margin => margin}
-  end
 end
 
 

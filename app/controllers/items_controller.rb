@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items= Item.includes(:images).order('created_at DESC')
+    # @user = User.find(params[:user_id])
   end
 
   def new
@@ -9,10 +10,12 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(total_item_info)
     if @item.save
-      redirect_to root_path, notice: '住所を登録しました'
+      redirect_to root_path, notice: '出品完了しました'
     else
+      flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
       render :new
     end
   end
@@ -32,7 +35,7 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :description, :condition, :cover_postage, :shipping_area, :shipping_date, :profit, :category_id, :item_id, :seller_id, :brand_id, images_attributes: [:src])
+    params.require(:item).permit(:name, :description, :condition, :cover_postage, :shipping_area, :shipping_date, :category, images_attributes: [:src]).merge(seller_id: current_user.id)
   end
 
   def total_item_info

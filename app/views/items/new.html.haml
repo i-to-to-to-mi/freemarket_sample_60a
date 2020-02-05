@@ -6,27 +6,6 @@
 
   .sell-main
     = render 'form'
-    .sell-main__box
-      .sell-main__button-box
-        .sell-main__bottom-caution
-          %p.sell-main__button-box--description
-            = link_to "禁止されている出品", "#", class: "sell-main__button-box--description--link"
-          %p.sell-main__button-box--description 、
-          %p.sell-main__button-box--description
-            = link_to "行為", "#", class: "sell-main__button-box--description--link" 
-          %p.sell-main__button-box--description を必ずご確認ください。
-          %br
-          %p.sell-main__button-box--description またブランド品でシリアルナンバー等がある場合はご記載ください。
-          %p.sell-main__button-box--description   
-            = link_to "偽ブランドの販売", "#", class: "sell-main__button-box--description--link"
-          %p.sell-main__button-box--description は犯罪であり処罰される可能性があります。
-          %br
-          %p.sell-main__button-box--description また、出品をもちまして
-          %p.sell-main__button-box--description   
-            = link_to "加盟店規約", "#", class: "sell-main__button-box--description--link"
-          %p.sell-main__button-box--description に同意したことになります
-      %input.sell-main__form__submit{type: "submit", value:"出品する"}
-      = link_to "もどる", root_path, class: "sell-main__form__back-button" 
 
 .sell-footer
   -# .sell-footer__navigation
