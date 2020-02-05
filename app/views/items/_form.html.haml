@@ -104,17 +104,17 @@
               %span.form-neccesary 必須
             .sell-main__price-from__input-box
               ¥
-              = f.text_field :price, class: 'sell-main__price-form__input-box',name: "price", placeholder: '例）300', id: "price"
-          .sell-line
-            %li.sell-main__sales-price
-              %p.sell-main__price-form-label 販売手数料（１０％）
-              .sell-main__price-from__input-box
-                %input#margin-price{type: "text", name:"margin",   value: ""}>/
-          %li.sell-main__sales-price
-            .sell-main__price-form-label-box
-              %p.sell-main__price-form-label 販売利益
-            .sell-main__price-from__input-box
-              %input#profit-price{type: "text", name: "profit", value: ""}>/
+              = f.number_field :price, class: 'sell-main__price-form__input-box', placeholder: '例）300', id: "price"
+          -# .sell-line
+          -#   %li.sell-main__sales-price
+          -#     %p.sell-main__price-form-label 販売手数料（１０％）
+          -#     .sell-main__price-from__input-box
+          -#       %input#margin-price{type: "text", name:"margin",   value: ""}>/
+          -# %li.sell-main__sales-price
+          -#   .sell-main__price-form-label-box
+          -#     %p.sell-main__price-form-label 販売利益
+          -#   .sell-main__price-from__input-box
+          -#     %input#profit-price{type: "text", name: "profit", value: ""}>/
 
     .sell-main__box
       .sell-main__button-box

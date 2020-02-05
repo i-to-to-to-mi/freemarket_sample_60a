@@ -1,10 +1,15 @@
 class Item < ApplicationRecord
+
   # validation
   validates :name, length: { in: 1..40}, presence: true
   validates :description, length: { in: 1..1000}, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999}
 
   #profitとmarginの計算式
+
+  def self.set_extra_information
+    {:profit => profit, :margin => margin}
+  end
   
   def profit
     price * 0.9
@@ -14,9 +19,7 @@ class Item < ApplicationRecord
     price * 0.1
   end
 
-  def set_extra_information
-  {:profit => profit, :margin => margin}
-  end
+
 
   include AASM
 
