@@ -3,6 +3,7 @@
     = link_to root_path, class: "sell-header__lonk" do
       = image_tag 'fmarket_logo_red.svg', alt: 'mercari-logo',class: 'sell-header__logo'
 
+  -# 画像投稿部分大枠
   .sell-main
     .sell-main__container
       = form_with model: @item,local: true, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
@@ -11,10 +12,11 @@
           %label.sell-main__image-upload__head 出品画像
           %span.form-require 必須
           %p.sell-main__image-upload__head__explanation 最大10枚までアップロードできます
+
           -# ドロップボックススタート
           = f.fields_for :item_images do |image|
             .dropzone-container.clearfix
-              #preview
+              #preview.view
               -# １〜５枚目プレビュー表示
               .dropzone-area
                 = image.label :image, class: "dropzone-box", for: "upload-image" do
@@ -23,8 +25,10 @@
                   %p
                     ドラッグアンドドロップ
                     %br またはクリックしてファイルをアップロード
+
+            -# 下段のBOX最初はnoneしているJSによって５枚目の画像が入ると表示する設定
             .dropzone-container2.clearfix
-              #preview2
+              #preview2.view
               -# ６〜１０枚目プレビュー表示
               .dropzone-area2
                 = image.label :image, class: "dropzone-box", for: "upload-image2" do
@@ -33,6 +37,8 @@
                   %p
                     ドラッグアンドドロップ
                     %br またはクリックしてファイルをアップロード 
+
+        -# 商品詳細入力欄
         .sell-main__box
           .sell-main__form
             = f.label :name, "商品名", class: "sell-main__form__label"
@@ -61,6 +67,7 @@
                 = f.select :condition, ['新品未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い' ], {include_blank: '---'}, class: 'sell-main__form__select'
                 %i.fas.fa-chevron-down.sell-main__form__select__arrow
 
+        -# 商品の配送先について
         .sell-main__box
           .sell-main__box__inner
             .sell-main-title-top
@@ -85,7 +92,7 @@
                 = f.select :shopping_date, ['1~2日で発送', '2~３日で発送', '4〜７日で発送'], {include_blank: '---'}, class: 'sell-main__form__select'  
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
 
-                        
+        -# 価格の入力欄
         .sell-main__box
           .sell-main__box__inner
             .sell-main-title-top
@@ -110,6 +117,7 @@
                 .sell-main__price-from__input-box
                   %input#profit-price{type: "text", name: "profit-price", value: ""}>/
 
+        -# 注意事項について
         .sell-main__box
           .sell-main__button-box
             .sell-main__bottom-caution
@@ -132,8 +140,8 @@
           %input.sell-main__form__submit{type: "submit", value:"出品する"}
           = link_to "もどる", root_path, class: "sell-main__form__back-button" 
 
+  -# 欄外のフッター部分
   .sell-footer
-    -# .sell-footer__navigation
     %ul.sell-footer__links
       %li
         = link_to "プライバシーポリシー", "#", class: "sell-footer__link"
@@ -146,7 +154,7 @@
       .sell-footer__merucari-bar__banner
         = link_to root_path do
           = image_tag 'logo_white.svg', alt: 'mercari-logo',class: 'footer__mercari-bar__banner__image'
-      %span.sell-footer__merucari-bar__name © Mercari, Inc.
+      %span.sell-footer__merucari-bar__name © Fmarket, Inc.
 
 
 
