@@ -48,4 +48,24 @@
   text-align: center;
   color: #0095EE;
 }
+@mixin form-select {
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  @include border;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 8px 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+  appearance: none; /* 標準のスタイルを無効にする */
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+}
 

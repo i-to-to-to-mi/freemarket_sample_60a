@@ -83,7 +83,7 @@
               .sell-main__form
                 = f.label :shopping_area, "発送元の地域", class: "sell-main__form__label"
                 %span.form-neccesary 必須
-                = f.select :shopping_area, Address.prefectures.keys, {prompt: '選択してください'}, {class: 'sell-main__form__select'}
+                = f.collection_select :prefecture_id, Prefecture.all, :id, :name,prompt: "--"
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
             
               .sell-main__form

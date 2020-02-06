@@ -223,24 +223,7 @@ input#item_name.sell-main__form__input{
 .sell-main__form{
   position:relative;
   &__select{
-    top: 50%;
-    left: 0;
-    z-index: 1;
-    height: 48px;
-    padding: 10px 16px 8px;
-    border-radius: 4px;
-    @include border;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
-    margin: 8px 0 0;
-    cursor: pointer;
-    -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
-    -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
-    appearance: none; /* 標準のスタイルを無効にする */
-    padding: 0 10px;
-    width: 100%;
-    position: relative;
+  @include form-select;
   }
   i.fas.fa-chevron-down.sell-main__form__select__arrow{
     position: absolute;//子のポジション指定
@@ -252,6 +235,9 @@ input#item_name.sell-main__form__input{
     font-size: 18px;
     }
   }
+}
+#item_prefecture_id{
+  @include form-select;
 }
 
 li.sell-main__sales-price{
