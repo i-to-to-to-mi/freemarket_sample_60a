@@ -44,22 +44,6 @@
         display: flex;
       }
     }
-  &__dropbox {
-    display: block;
-    width: 620px;
-    margin: 16px auto 0;
-    @include background;
-    border-style: dotted;
-    &__exp {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      right: 16px;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.5;
-      }
-    }
   }
   &__box {
     padding: 40px;
