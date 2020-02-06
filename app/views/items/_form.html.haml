@@ -104,7 +104,7 @@
               %span.form-neccesary 必須
             .sell-main__price-from__input-box
               ¥
-              = f.text_field :price, class: 'sell-main__price-form__input-box',name: "price", placeholder: '例）300', id: "price"
+              = f.number_field :price, class: 'sell-main__price-form__input-box',name: "price", placeholder: '例）300', id: "price"
           .sell-line
             %li.sell-main__sales-price
               %p.sell-main__price-form-label 販売手数料（１０％）

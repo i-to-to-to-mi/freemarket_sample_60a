@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
+    @user = User.find_by(params[:user_id])
     @items= Item.includes(:images).order('created_at DESC')
-    # @user = User.find(params[:user_id])
+    
   end
 
   def new
@@ -10,9 +11,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @item = Item.new(total_item_info)
-    if @item.save
+    @item = Item.new(item_params)
+    @item.margin = @item.price*0.1
+    @item.profit = @item.price*0.9
+
+    if @item.save!
       redirect_to root_path, notice: '出品完了しました'
     else
       flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
@@ -35,13 +38,14 @@ class ItemsController < ApplicationController
 private
 
   def item_params
-    params.require(:item).permit(:name, :description, :condition, :cover_postage, :shipping_area, :shipping_date, :category, images_attributes: [:src]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, 
+      :condition, :cover_postage, :shipping_area, :shipping_date, :price, :margin, :profit,
+      :category, images_attributes: [:src]).merge(seller_id: current_user.id)
+    end
+  
+    def total_item_info
+      item_params.merge(@item.set_extra_information)
+    end
   end
-
-  def total_item_info
-    item_params.merge(@item.set_extra_information)
-  end
-end
-
 
 
