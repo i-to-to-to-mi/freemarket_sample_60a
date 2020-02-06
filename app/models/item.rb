@@ -59,7 +59,7 @@ class Item < ApplicationRecord
 
   has_many :images
   accepts_nested_attributes_for :images
-  has_many :users
+  belongs_to :user, optional: true
 
   enum prefectures:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

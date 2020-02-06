@@ -1,8 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+
   def new
     @user = User.new
   end
+  
   def create
     if params[:sns_auth] == 'true'
       pass = Devise.friendly_token[0,20]
@@ -22,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create_address
-    # @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
