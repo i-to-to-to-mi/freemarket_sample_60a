@@ -11,7 +11,6 @@ $(document).on('turbolinks:load', function(){
   // １段目の記述
   $(dropzone).on('change', 'input[type= "file"].upload-image',function(event) {
     event.preventDefault();
-    console.log("1")
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
@@ -100,7 +99,6 @@ $(document).on('turbolinks:load', function(){
   
   $(dropzone2).on('change', 'input[type= "file"].upload-image2',function(event) {
     event.preventDefault();
-    console.log("2")
     var file = $(this).prop('files')[0];
     var reader = new FileReader();
     inputs.push($(this));
