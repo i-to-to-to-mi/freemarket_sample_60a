@@ -1,8 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+
   def new
     @user = User.new
   end
+
   def create
     if params[:sns_auth] == 'true'
       pass = Devise.friendly_token[0,20]

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @user = User.find_by(params[:user_id])
     @items= Item.includes(:images).order('created_at DESC')
@@ -14,6 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.margin = @item.price*0.1
     @item.profit = @item.price*0.9
+    @item.seller_id = current_user.id
 
     if @item.save!
       redirect_to root_path, notice: '出品完了しました'
@@ -39,8 +41,7 @@ private
 
   def item_params
     params.require(:item).permit(:name, :description, 
-      :condition, :cover_postage, :shipping_area, :shipping_date, :price, :margin, :profit,
-      :category, images_attributes: [:src]).merge(seller_id: current_user.id)
+      :condition, :cover_postage, :shipping_area, :shipping_date, :price, :margin, :profit, :seller_id, :category, images_attributes: [:src])
     end
   
     def total_item_info
