@@ -44,6 +44,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def tmp_register_credit_card
   end
 
+  def tmp_signup
+  end
+
   def complete
   end
 
@@ -51,6 +54,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit_address
+  end
+
+
+  def tmp_address
   end
 
   def new_address
