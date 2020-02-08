@@ -44,6 +44,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def tmp_register_credit_card
   end
 
+  def tmp_signup
+  end
+
   def complete
   end
 
@@ -53,6 +56,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit_address
   end
 
+
+  def tmp_address
+  end
+
   def new_address
     @address = Address.new
   end
@@ -60,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :building,)
+    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :building, :phone_number)
   end
 
   def configure_sign_up_params

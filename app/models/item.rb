@@ -1,8 +1,5 @@
 class Item < ApplicationRecord
-  include AASM
 
-  aasm do
-  end
   # validation
   validates :name, length: { in: 1..40}, presence: true
   validates :description, length: { in: 1..1000}, presence: true
@@ -21,7 +18,6 @@ class Item < ApplicationRecord
   def margin
     price * 0.1
   end
-
 
   include AASM
 
