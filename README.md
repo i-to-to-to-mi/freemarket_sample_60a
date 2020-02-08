@@ -56,6 +56,8 @@
 |shipping_area|string|null: false|
 |shipping_date|string|null: false|
 |price|integer|null: false|
+|margin|integer|null: false|
+|profit|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, primary_key: true, index: true|
 |buyer_id|integer|null: false, foreign_key: true|
