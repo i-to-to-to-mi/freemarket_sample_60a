@@ -7,6 +7,11 @@ crumb :mypages do
   link "マイページ", mypage_path
 end
 
+# ログアウト
+crumb :logout do
+  link "ログアウト", logout_path
+end
+
 # ビューページを実装したらコメントアウトを外します
 # # プロフィール
 # crumb :profile do
@@ -20,3 +25,4 @@ crumb :item do |item|
   link "#{item.name}", item_path(item)
   parent :root
 end
+
