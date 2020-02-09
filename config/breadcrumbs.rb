@@ -9,7 +9,7 @@ end
 
 # ログアウト
 crumb :logout do
-  link "ログアウト", logout_path
+  link "ログアウト", logout_mypages_path
 end
 
 # ビューページを実装したらコメントアウトを外します
