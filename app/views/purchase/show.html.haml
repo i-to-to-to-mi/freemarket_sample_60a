@@ -11,14 +11,12 @@
           .buy-item-box
             %h3.buy-item__image
               = image_tag 'category-item.jpg'
-            
             .buy-item-detail
               %p.buy-item-detail__name
                 カーディガン ポンチタイトストレッチスカートベージュサイズ１
               %p.buy-item-detail__price
                 %span
                   ¥6,000
-              
                 %span.item-shipping__fee
                   （税込）送料込み
       %section.buy-content__price
@@ -31,15 +29,12 @@
                 .buy-price__cell
                   %span.buy-pay
                     ¥6,000  
-
             %ul.buy-point__table
               %li.user-point
                 .buy-use-point
                   %input{disabled: "disabled", type: "checkbox"}/
                   %i.icon-check
                   %label ポイントを使用 (所持ポイント: P0)
-
-
             %section.buy-user__info
               .buy-content__inner
                 .buy-content__container
@@ -48,7 +43,6 @@
                   = link_to root_path, class: "payment-method__container-right" do
                     %span
                       変更する
-                
                 %p.buy-user-info-text
                   クレジットカード
                   %br/
@@ -57,9 +51,6 @@
                   有効期限 06 / 24  
                 %figure.buy-card__logo  
                   = image_tag "https://cdn-ak.f.st-hatena.com/images/fotolife/c/cardmics/20160717/20160717144815.gif", alt: "master-card", height: "20", width: "34"
-
-
-                    
             %section.buy-user__info
               .buy-content__inner
                 .buy-content__container
@@ -76,8 +67,6 @@
                     ** *-**-**
                     %br/
                     斉藤 佑子
-
-
             %section.buy-user__info
               %button.confirm-btn{type: "submit"}
                 購入する
