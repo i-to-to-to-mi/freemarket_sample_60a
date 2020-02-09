@@ -18,8 +18,11 @@ devise_scope :user do
 end
   root "items#index"
   resources :mypages, only: [:show]
-  get 'logout', to: 'mypages#logout'
-  
+  resources "mypages",only: :logout, path: '' do
+    collection do
+      get 'logout'
+    end
+  end
   get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
