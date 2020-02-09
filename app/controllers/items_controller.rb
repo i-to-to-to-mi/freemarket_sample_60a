@@ -4,6 +4,6 @@ class ItemsController < ApplicationController
   
   def show
     @user = User.new
+    @item = Item.find(1)
   end
-
 end

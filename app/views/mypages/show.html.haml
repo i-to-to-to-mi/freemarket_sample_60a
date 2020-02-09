@@ -1,7 +1,7 @@
 .mypage-main-container
   = render 'items/header'
-  
-  = render 'mypages/bread-crumbs'
+  - breadcrumb :mypages
+  = render "layouts/breadcrumbs_white"
   %main.mypage-container
     = render 'content'
     = render 'side-bar'

@@ -5,5 +5,6 @@
   = render "detail/3nav-item-link"
   = render "detail/4sns-logo-container"
   = render "detail/5other-items-in-user"
-  = render "detail/6brand-tag-bottom"
+  - breadcrumb :item,@item
+  = render "layouts/breadcrumbs"
 = render "footer"
