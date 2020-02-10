@@ -68,4 +68,7 @@
   width: 100%;
   position: relative;
 }
-
+@mixin center{
+  margin:0 auto;
+  text-align: center;
+}

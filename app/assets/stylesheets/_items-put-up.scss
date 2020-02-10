@@ -177,7 +177,7 @@ i.fa.fa-camera{
 }
 // ドロップボックス終わり
 
-textarea#item_description.sell-main__form__input__textarea{
+#item_description{
   display: block;
   width: 100%;
   max-width: 100%;
@@ -190,7 +190,7 @@ textarea#item_description.sell-main__form__input__textarea{
   margin: 8px 0 0;
 }
 
-input#item_name.sell-main__form__input{
+#item_name{
   height: 48px;
   padding: 10px 16px 8px;
   border-radius: 4px;
@@ -201,10 +201,12 @@ input#item_name.sell-main__form__input{
   width: 100%;
   margin: 8px 0 0;
 }
-.sell-main__button-box--description{
-  display:inline;
-}
-.sell-main__form{
+
+.sell-main{
+  &__button-box--description{
+    display:inline;
+  }
+  &__form{
   position:relative;
   &__select{
   @include form-select;
@@ -217,6 +219,7 @@ input#item_name.sell-main__form__input{
     color: #888;
     transform: translate(0, -50%);//translate(X方向の移動距離, Y方向の移動距離)
     font-size: 18px;
+      }
     }
   }
 }
@@ -224,59 +227,23 @@ input#item_name.sell-main__form__input{
   @include form-select;
 }
 
-li.sell-main__sales-price{
+.sell-main{
+&__sales-price{
   display: flex;
   justify-content: space-between
-}
-.sell-line{
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  font-weight: normal;
-}
-.sell-main__price-form-label-box{
-  line-height: 48px;
-  font-weight: bold;
-}
-p.sell-main__price-form-label{
-  line-height: 48px;
-}
-
-.sell-main__small-box{
-  width: 380px;
-  display: block;
-}
-.sell-main__price-form__input-box{
-  height: 48px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  @include border;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  width: 150px;
-  margin:0;
-  text-align: right;
-}
-input#margin-price{
-  @include price;
-}
-input#profit-price{
-  @include price;
-}
-input.sell-main__form__submit{
-  margin: 40px 0 0;
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: #fff;
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-  &__input{
-    width: 100%;
-    margin: 8px 0 0;
+  }
+  &__price-form-label{
+    line-height: 48px;
+  }
+  &__price-form-label-box{
+    line-height: 48px;
+    font-weight: bold;
+  }
+  &__small-box{
+    width: 380px;
+    display: block;
+  }
+  &__price-form__input-box{
     height: 48px;
     padding: 10px 16px 8px;
     border-radius: 4px;
@@ -284,27 +251,63 @@ input.sell-main__form__submit{
     background: #fff;
     line-height: 1.5;
     font-size: 16px;
+    width: 150px;
+    margin:0;
+    text-align: right;
+  }
+  &__form__submit{
+    margin: 40px 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    &__input{
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      @include border;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+  }
+  &__form__back-button{
+    width: 45%;
+    margin: 24px auto 0;
+    background: #aaa;
+    @include border;
+    color: #fff;
+    display:block;
+    text-align: center;
+    line-height: 48px;
+    font-size: 14px;
+  }
+  &__bottom-caution{
+    a:hover{
+      text-decoration: underline;
+    }
+    a{
+      color: #0099e8;
+    }
   }
 }
-.sell-main__form__back-button{
-  width: 45%;
-  margin: 24px auto 0;
-  background: #aaa;
-  @include border;
-  color: #fff;
-  display:block;
-  text-align: center;
-  line-height: 48px;
-  font-size: 14px;
+.sell-line{
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
 }
-
-.sell-main__bottom-caution{
-  a:hover{
-    text-decoration: underline;
-  }
-  a{
-    color: #0099e8;
-  }
+input#margin-price{
+  @include price;
+}
+input#profit-price{
+  @include price;
 }
 
 .form-require {
@@ -333,29 +336,26 @@ input.sell-main__form__submit{
   }
 
 .sell-footer{
+  @include center;
   width: 456px;
   height: 220px;
-  margin: 0 auto;
   padding: 40px 0;
-  text-align: center;
-}
-
-ul.sell-footer__links{
-  margin:0 auto;
-  text-align: center;
+&__links{
+  @include center;
   display: flex;
   li{
     display: inline-block;
     margin: 0 0 0 16px;
     a{
     font-size: 12px;
+      }
     }
   }
-}
-.sell-footer__fmart-bar__banner{
-  @include preview-img;
-  margin: 40px auto 0;
-}
-img{
-  @include preview-img;
+  &__fmart-bar__banner{
+    @include preview-img;
+    margin: 40px auto 0;
+  }
+  img{
+    @include preview-img;
+  }
 }
