@@ -774,11 +774,19 @@ a {
     &__camera {
       width: 60px;
       height: 54px;
-      margin: 8px auto 0;
+      margin: -10px 10px 0;
       color: rgb(255, 255, 255);
       font-size: 4em;
     }
   } 
+}
+
+i.fas.fa-camera {
+  width: 60px;
+  height: 54px;
+  margin: 5px auto 0;
+  color: rgb(255, 255, 255);
+  font-size: 4em;
 }
 
 .footer__wrapper{

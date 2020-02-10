@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
 
   # validation
+  validates :name, :description,:condition, :cover_postage, :shipping_area, :shipping_date, :price, :seller_id , :category, presence: true
   validates :name, length: { in: 1..40}, presence: true
   validates :description, length: { in: 1..1000}, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999}
