@@ -1,5 +1,4 @@
 $(function() {
-  console.log("itemjs")
   $('.liked-items__sliders').slick({
     slidesToShow: 6,
     arrow: true,
