@@ -89,3 +89,6 @@ gem "omniauth-rails_csrf_protection"
 gem "pry-rails"
 gem 'rails-i18n'
 gem "gretel"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'active_hash'
