@@ -24,18 +24,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
-  def show
-  end                                                                                                                                                                                                                                                                                                                                                                 
-
 private
 
   def item_params
@@ -44,9 +32,6 @@ private
     :category, images_attributes: [:src])
   end
 
-  def total_item_info
-    item_params.merge(@item.set_extra_information)
-  end
 end
 
 
