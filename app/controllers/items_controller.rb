@@ -24,6 +24,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @user = User.new
+    @item = Item.find(1)
+  end
+
 private
 
   def item_params
@@ -31,8 +36,4 @@ private
     :condition, :cover_postage, :shipping_area, :shipping_date, :price, :margin, :profit, :seller_id,
     :category, images_attributes: [:src])
   end
-
 end
-
-
-
