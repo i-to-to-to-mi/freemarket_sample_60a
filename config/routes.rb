@@ -28,4 +28,5 @@ end
   resources :addresses, only: [:new, :create]
   resources :items, only: [:show]
   resources :purchase, only: [:show] 
+  resources :items, only: [:show, :new, :create]
 end

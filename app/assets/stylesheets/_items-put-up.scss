@@ -1,0 +1,361 @@
+@import "mixin.scss";
+// 商品出品ページ
+.sell-wrapper {
+  @include background;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+}
+.sell-header {
+  height: 128px;
+  text-align: center;
+  &__logo{
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+    margin: 40px 0 0;
+  }
+}
+.sell-main {
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+  }
+  &__top__title {
+    padding: 32px 16px;
+    font-size: 22px; 
+    text-align: center;
+    font-weight: bold;
+  }
+  &__image{
+    border-top: 1px solid #eee;
+    width: 100%;
+    padding: 40px;
+  }
+  &__image-upload {
+    display:flex;
+    &__head {
+      font-size: 16px;
+      font-weight: bold;
+      &__explanation {
+        margin: 8px 0 15px;
+        line-height: 1.5;
+        font-size: 14px;
+        display: flex;
+      }
+    }
+  }
+  &__box {
+    padding: 40px;
+    border-top: 1px solid #ccc;
+  }
+.sell-another-box{
+  padding:0 40px 40px 40px
+}
+  &__form-box{
+    width: 400px;
+    margin: 0;
+    }
+  &__input  {
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    @include border;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    &__textarea {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-height: 104px;
+      padding: 10px;
+      @include border;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  &__select {
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    @include border;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    &__arrow {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      z-index: 2;
+      color: #888;
+      font-size: 8px;
+    }
+  }
+}
+.sell-main__box__inner{
+  display: flex;
+  justify-content: space-between
+}
+.sell-main-title-top{
+  display: flex;
+}
+.sell-main__title{
+  color: #888;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+// ドロップボックス
+.clearfix {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  width: 620px;
+  margin-top: 10px;
+}
+.dropzone-area{
+  @include dropzone;
+  p{
+    cursor: pointer;
+  }
+}
+img{
+  @include border;
+  width:114px;
+  height: 114px;
+  cursor: pointer;
+  height: auto;
+  margin: 0 10px 0 0;
+  }
+form{
+  display: block;
+}
+
+.dropzone-box input {
+  display: none;
+}
+.btn_wrapper{
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  margin:auto;
+  width:114px;
+  .btn.edit{
+    @include btn;
+    margin-left: -4px;
+  }
+  .btn.edit:hover{
+    text-decoration: underline;
+  }
+  .btn.delete{
+    @include btn;
+  }
+  .btn.delete:hover{
+    text-decoration: underline;
+  }
+}
+.view{
+  display: flex;
+}
+i.fa.fa-camera{
+  font-size: 60px;
+  cursor: pointer;
+  margin:0 auto;
+}
+.dropzone-area2{
+  @include dropzone;
+  display:none;
+  p{
+    cursor: pointer;
+  }
+}
+// ドロップボックス終わり
+
+#item_description{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  @include border;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+#item_name{
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  @include border;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.sell-main{
+  &__button-box--description{
+    display:inline;
+  }
+  &__form{
+  position:relative;
+  &__select{
+  @include form-select;
+  }
+  i.fas.fa-chevron-down.sell-main__form__select__arrow{
+    position: absolute;//子のポジション指定
+    right: 25px;//右25px空ける
+    top: 70%;//上から70%の位置へ
+    z-index: 2;//親の下へ潜り揉まないようにする
+    color: #888;
+    transform: translate(0, -50%);//translate(X方向の移動距離, Y方向の移動距離)
+    font-size: 18px;
+      }
+    }
+  }
+}
+#item_prefecture_id{
+  @include form-select;
+}
+
+.sell-main{
+&__sales-price{
+  display: flex;
+  justify-content: space-between
+  }
+  &__price-form-label{
+    line-height: 48px;
+  }
+  &__price-form-label-box{
+    line-height: 48px;
+    font-weight: bold;
+  }
+  &__small-box{
+    width: 380px;
+    display: block;
+  }
+  &__price-form__input-box{
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    @include border;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 150px;
+    margin:0;
+    text-align: right;
+  }
+  &__form__submit{
+    margin: 40px 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    &__input{
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      @include border;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+  }
+  &__form__back-button{
+    width: 45%;
+    margin: 24px auto 0;
+    background: #aaa;
+    @include border;
+    color: #fff;
+    display:block;
+    text-align: center;
+    line-height: 48px;
+    font-size: 14px;
+  }
+  &__bottom-caution{
+    a:hover{
+      text-decoration: underline;
+    }
+    a{
+      color: #0099e8;
+    }
+  }
+}
+.sell-line{
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
+}
+input#margin-price{
+  @include price;
+}
+input#profit-price{
+  @include price;
+}
+
+.form-require {
+  @include red-btn;
+  margin-left: 8px;
+  padding: 2px 4px;
+  vertical-align: top;
+}
+.form-neccesary {
+  @include red-btn;
+  margin: 4px 0 4px 8px;
+  padding: 2px;
+}
+
+.form__question {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4px;
+  }
+
+.sell-footer{
+  @include center;
+  width: 456px;
+  height: 220px;
+  padding: 40px 0;
+&__links{
+  @include center;
+  display: flex;
+  li{
+    display: inline-block;
+    margin: 0 0 0 16px;
+    a{
+    font-size: 12px;
+      }
+    }
+  }
+  &__fmart-bar__banner{
+    @include preview-img;
+    margin: 40px auto 0;
+  }
+  img{
+    @include preview-img;
+  }
+}
