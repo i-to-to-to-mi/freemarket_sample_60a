@@ -23,10 +23,9 @@ end
       get 'logout'
     end
   end
-  get 'users/show'
+  # get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  resources :items, only: [:show]
   resources :purchase, only: [:show] 
   resources :items, only: [:show, :new, :create]
 end
