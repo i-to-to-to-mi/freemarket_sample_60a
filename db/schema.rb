@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_02_05_162135) do
-=======
-ActiveRecord::Schema.define(version: 2020_01_24_032147) do
->>>>>>> 4d921f733bb71b4957c47f7cb4474757b7cebac9
+ActiveRecord::Schema.define(version: 2020_02_12_164608) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -31,11 +27,6 @@ ActiveRecord::Schema.define(version: 2020_01_24_032147) do
     t.string "src"
     t.bigint "item_id"
     t.index ["item_id"], name: "index_images_on_item_id"
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_032147) do
     t.string "category", null: false
     t.string "condition", null: false
     t.string "cover_postage", null: false
-    t.integer "shipping_area", null: false
+    t.integer "prefecture_id", null: false
     t.string "shipping_date", null: false
     t.integer "price", null: false
     t.integer "profit", null: false
