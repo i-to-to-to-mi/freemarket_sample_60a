@@ -68,8 +68,10 @@
                     %br/
                     斉藤 佑子
             %section.buy-user__info
-              %button.confirm-btn{type: "submit"}
-                購入する
+              -# %button.confirm-btn{type: "submit"}
+              = form_tag(action: :pay, method: :post) do
+                %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": "pk_test_139876f8f4b3de0fa3d6a167"}
+              
   %footer.buy-footer
     %nav
       %ul.clearfix
