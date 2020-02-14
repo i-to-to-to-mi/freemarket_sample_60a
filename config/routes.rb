@@ -18,6 +18,7 @@ devise_scope :user do
 end
   root "items#index"
   resources :mypages, only: [:show,:edit,:logout]
+  # エラーで表示がされなかったためコメントアウトしておりますサーバー確認時不要であれば削除いただけますでしょうか
   # resources "mypages",only: :logout, path: '' do
   #   collection do
   #     get 'logout'
