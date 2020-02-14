@@ -8,7 +8,7 @@
   margin: 0 10px 0 auto;
 .breadcrumbs-list {
     width:200px;
-    margin-left: 0;
+    margin-left: 2px;
   }
 }
 
@@ -33,11 +33,11 @@
     box-sizing: border-box;
     position: relative;
 .credit-info--body--content--detaiil{
-  width:500px;
+  width:620px;
   height:60px;
   a{
     display: block;
-    margin: 5px 0 0;
+    margin: 40px 0 0;
     text-align: right;
     span{
     color: #0095EE;
@@ -78,6 +78,7 @@
       font-weight: bold;
       max-width: 320px;
       margin: 0 auto;
+      font-size: 16px;
     }
     &--content {
       &--number {
