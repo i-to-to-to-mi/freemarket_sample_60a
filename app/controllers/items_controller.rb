@@ -13,11 +13,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.update(price: params[:price], profit_price: params[:profit_price], margin_price: params[:margin_price])
     @item.seller_id = current_user.id
-    @item.price = @item.price.to_i
-    @item.margin_price = @item.margin_price.to_i
-    @item.profit_price = @item.profit_price.to_i
-    if @item.save!
+    if @item.save
       redirect_to root_path, notice: '出品完了しました'
     else
       flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
