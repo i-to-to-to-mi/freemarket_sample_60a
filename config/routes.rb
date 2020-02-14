@@ -17,12 +17,12 @@ devise_scope :user do
   # ここまで
 end
   root "items#index"
-  resources :mypages, only: [:show]
-  resources "mypages",only: :logout, path: '' do
-    collection do
-      get 'logout'
-    end
-  end
+  resources :mypages, only: [:show,:edit,:logout]
+  # resources "mypages",only: :logout, path: '' do
+  #   collection do
+  #     get 'logout'
+    # end
+  # end
   # get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]

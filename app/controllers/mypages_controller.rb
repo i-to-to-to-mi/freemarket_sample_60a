@@ -6,4 +6,6 @@ class MypagesController < ApplicationController
   def logout
   end
 
+  def edit
+  end
 end
