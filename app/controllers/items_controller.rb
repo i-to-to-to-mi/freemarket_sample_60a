@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :new]
 
   def index
     @user = User.find_by(params[:user_id])
@@ -9,14 +9,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @item.margin = @item.price.to_i*0.1
-    @item.profit = @item.price.to_i*0.9
   end
 
   def create
     @item = Item.new(item_params)
-
     @item.seller_id = current_user.id
+    @item.price = @item.price.to_i
+    @item.margin_price = @item.margin_price.to_i
+    @item.profit_price = @item.profit_price.to_i
     if @item.save!
       redirect_to root_path, notice: '出品完了しました'
     else
@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # ここもおそらく後々before_action :authenticate_user!, only: に加えるべき
     @user = User.new
     @item = Item.find(1)
   end
@@ -34,7 +35,7 @@ private
 
   def item_params
     params.require(:item).permit(:name, :description, 
-    :condition, :cover_postage, :prefecture_id, :shipping_date, :price, :margin, :profit, :seller_id,
+    :condition, :cover_postage, :prefectures, :shipping_date, :price, :margin_price, :profit_price, :seller_id,
     :category, images_attributes: [:src])
   end
 end

@@ -10,24 +10,24 @@ $(function() {
     //入力値が数値では無い場合の処理
     if(!price){
       //計算結果表示のinput内を削除
-      $('input[name=margin-price]').val('-');
-      $('input[name=profit-price]').val('-');
+      $('input[name=margin_price]').val('-');
+      $('input[name=profit_price]').val('-');
       return false;
     };
    
     if(price < 300){
-      $('input[name=margin-price]').val('-');
-      $('input[name=profit-price]').val('-');
+      $('input[name=margin_price]').val('-');
+      $('input[name=profit_price]').val('-');
       return false;
     };
 
     if(price > 9999999){
-      $('input[name=margin-price]').val('-');
-      $('input[name=profit-price]').val('-');
+      $('input[name=margin_price]').val('-');
+      $('input[name=profit_price]').val('-');
       return false;
     };
 
-    $('input[name=margin-price]').val(price * 0.1);
-    $('input[name=profit-price]').val(price * 0.9);
+    $('input[name=margin_price]').val(price * 0.1);
+    $('input[name=profit_price]').val(price * 0.9);
   });
 });
