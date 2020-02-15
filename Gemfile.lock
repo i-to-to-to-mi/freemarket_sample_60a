@@ -381,7 +381,6 @@ DEPENDENCIES
   factory_bot_rails
   fog-aws
   font-awesome-sass
-  font_awesome_rails
   gretel
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.5)
