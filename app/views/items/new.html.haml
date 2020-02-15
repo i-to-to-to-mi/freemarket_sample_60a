@@ -81,15 +81,15 @@
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
 
               .sell-main__form
-                = f.label :shopping_area, "発送元の地域", class: "sell-main__form__label"
+                = f.label :shipping_area, "発送元の地域", class: "sell-main__form__label"
                 %span.form-neccesary 必須
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name,prompt: "--"
+                = f.collection_select :prefectures, Prefecture.all, :name, :name,prompt: "--"
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
             
               .sell-main__form
-                = f.label :shopping_date, "配送料の負担", class: "sell-main__form__label"
+                = f.label :shipping_date, "配送料の負担", class: "sell-main__form__label"
                 %span.form-neccesary 必須
-                = f.select :shopping_date, ['1~2日で発送', '2~３日で発送', '4〜７日で発送'], {include_blank: '---'}, class: 'sell-main__form__select'  
+                = f.select :shipping_date, ['1~2日で発送', '2~３日で発送', '4〜７日で発送'], {include_blank: '---'}, class: 'sell-main__form__select'  
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
 
         -# 価格の入力欄
@@ -101,21 +101,21 @@
             %ul.sell-main__small-box
               %li.sell-main__sales-price
                 .sell-main__price-form-label-box
-                  = f.label :price, "価格", class: "sell-main__price-form__label-box__label"
+                  = f.label "価格", class: "sell-main__price-form__label-box__label"
                   %span.form-neccesary 必須
                 .sell-main__price-from__input-box
                   ¥
-                  = f.text_field :price, class: 'sell-main__price-form__input-box',name: "price", placeholder: '例）300', id: "price"
+                  = f.number_field :price, class: 'sell-main__price-form__input-box',name: :price, placeholder: '例）300', id: "price"
               .sell-line
                 %li.sell-main__sales-price
                   %p.sell-main__price-form-label 販売手数料（１０％）
                   .sell-main__price-from__input-box
-                    %input#margin-price{type: "text", name:"margin-price",   value: ""}>/
+                    %input#margin_price{type: "text", name:"margin_price",   value: ""}>/
               %li.sell-main__sales-price
                 .sell-main__price-form-label-box
                   %p.sell-main__price-form-label 販売利益
                 .sell-main__price-from__input-box
-                  %input#profit-price{type: "text", name: "profit-price", value: ""}>/
+                  %input#profit_price{type: "text", name: "profit_price", value: ""}>/
 
         -# 注意事項について
         .sell-main__box
@@ -137,8 +137,9 @@
               %p.sell-main__button-box--description   
                 = link_to "加盟店規約", "#", class: "sell-main__button-box--description--link"
               %p.sell-main__button-box--description に同意したことになります
-          %input.sell-main__form__submit{type: "submit", value:"出品する"}
-          = link_to "もどる", root_path, class: "sell-main__form__back-button" 
+          - if user_signed_in?   
+            %input.sell-main__form__submit{type: "submit", value:"出品する"}
+            = link_to "もどる", root_path, class: "sell-main__form__back-button" 
 
   -# 欄外のフッター部分
   .sell-footer

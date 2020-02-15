@@ -53,16 +53,16 @@
 |description|string|null: false|
 |condition|string|null: false|
 |cover_postage|string|null: false|
-|shipping_area|string|null: false|
+|shipping_area|integer|null: false|
 |shipping_date|string|null: false|
 |price|integer|null: false|
 |margin|integer|null: false|
 |profit|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, primary_key: true, index: true|
-|buyer_id|integer|null: false, foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|
-|brand_id|integer|null: false, foreign_key: true、index: true|
+|brand_id|integer|null: false, foreign_key: true, index: true|
 
 ### Association
 - has_many :buyer

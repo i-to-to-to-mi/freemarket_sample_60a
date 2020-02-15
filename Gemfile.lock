@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.0.6)
+      concurrent-ruby (~> 1.0)
     actioncable (5.2.4.1)
       actionpack (= 5.2.4.1)
       nio4r (~> 2.0)
@@ -362,6 +364,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   active_hash
   bootsnap (>= 1.1.0)
   byebug
@@ -378,6 +381,7 @@ DEPENDENCIES
   factory_bot_rails
   fog-aws
   font-awesome-sass
+  font_awesome_rails
   gretel
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.5)
