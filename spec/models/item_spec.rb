@@ -7,8 +7,8 @@ RSpec.describe Item, type: :model do
   end
   
     describe '#create' do
-    #1,name,description, condition, cover_postage, shipping_area, shipping_date, category, imageが存在すれば登録できること
-      it "is valid with a name, description, condition, cover_postage, shipping_area, shipping_date, category, image" do
+    #1,name,description, condition, cover_postage, prefectures, shipping_date, category, imageが存在すれば登録できること
+      it "is valid with a name, description, condition, cover_postage, prefectures, shipping_date, category, image" do
         item = build(:item)
         expect(item).to be_valid
       end
@@ -49,11 +49,11 @@ RSpec.describe Item, type: :model do
         expect(item.errors[:cover_postage]).to include("を入力してください")
       end
 
-      #7. shipping_areaが空では登録できないこと
-      it "is invalid without a shipping_area" do
-        item = build(:item, shipping_area: nil)
+      #7. prefecturesが空では登録できないこと
+      it "is invalid without a prefectures" do
+        item = build(:item, prefectures: nil)
         item.valid?
-        expect(item.errors[:shipping_area]).to include("を入力してください")
+        expect(item.errors[:prefectures]).to include("を入力してください")
       end
 
       #8. shipping_dateが空では登録できないこと
