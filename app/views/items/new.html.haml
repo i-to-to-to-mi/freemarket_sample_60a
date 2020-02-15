@@ -137,8 +137,9 @@
               %p.sell-main__button-box--description   
                 = link_to "加盟店規約", "#", class: "sell-main__button-box--description--link"
               %p.sell-main__button-box--description に同意したことになります
-          %input.sell-main__form__submit{type: "submit", value:"出品する"}
-          = link_to "もどる", root_path, class: "sell-main__form__back-button" 
+          - if user_signed_in?   
+            %input.sell-main__form__submit{type: "submit", value:"出品する"}
+            = link_to "もどる", root_path, class: "sell-main__form__back-button" 
 
   -# 欄外のフッター部分
   .sell-footer

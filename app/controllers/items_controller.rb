@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
 
   def index
-    @user = User.find_by(params[:user_id])
     @items= Item.includes(:images).order('created_at DESC')  
   end
 
