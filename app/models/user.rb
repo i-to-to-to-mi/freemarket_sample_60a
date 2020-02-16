@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   has_many :sns_credentials
   has_one :address
+  has_many :items
 
 
   def self.from_omniauth(auth)

@@ -1,4 +1,3 @@
-@import "mixin.scss";
 // 商品出品ページ
 .sell-wrapper {
   @include background;
@@ -223,7 +222,7 @@ i.fa.fa-camera{
     }
   }
 }
-#item_prefecture_id{
+#item_prefectures{
   @include form-select;
 }
 
@@ -303,10 +302,10 @@ i.fa.fa-camera{
   border-bottom: 1px solid #ccc;
   font-weight: normal;
 }
-input#margin-price{
+input#margin_price{
   @include price;
 }
-input#profit-price{
+input#profit_price{
   @include price;
 }
 
