@@ -1,0 +1,81 @@
+.wrapper
+  .profile-register
+    .profile-register__heading
+      = render "devise/registrations/register-head"
+      .signup-bar
+        %ul.progressbar
+          %li.active
+            会員情報
+          %li
+            電話番号認証
+          %li
+            お届け先住所入力
+          %li
+            支払い方法
+          %li
+            完了
+    .profile-register__main
+      %h2.profile-register__main--head
+        支払い方
+      .profile-register__main--form
+        -#ビューのみの記述のためこちらはコメントアウトしてます 
+        -# = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| -# createアクションのパスを指定
+        = form_with do |f| 
+          .profile-register__main--form
+            .profile-register__main--form__contents
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                %b
+                  = f.label :カード番号, class: 'label'
+                  %span.form-neccesary 必須
+                = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                %b
+                  = f.label :カード会社, class: 'label'
+                  %span.form-neccesary 必須
+                  -# 設定していないのでコメントアウト
+                -# = f.select :card_company, Creditcard.card_companies.keys, {}, {class: 'input-number'}
+                = f.select :card_company, [], {}, {class: 'input-number'}
+                %ul.signup__card--list
+                  %li.icon--visa
+                    = image_tag("visa.png", id:"icon--visa")
+                  %li.icon--master
+                    = image_tag("master-card.png", id:"icon--master")
+                  %li.icon--saison
+                    = image_tag("saison-card.png", id:"icon--saison")
+                  %li.icon--jcb
+                    = image_tag("jcb.png", id:"icon--jcb")
+                  %li.icon--americanexpress
+                    = image_tag("american_express.png", id:"icon--americanexpress")
+                  %li.icon--diners
+                    = image_tag("dinersclub.png", id:"icon--diners")
+                  %li.icon--discover
+                    = image_tag("discover.png", id:"icon--discover")
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                %b
+                  = f.label :有効期限, class: 'label'
+                  %span.form-neccesary 必須
+              %span.form-select
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'select-wrap'
+                %i.fas.fa-chevron-down
+                %span.text 月
+              %span.form-select
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'select-wrap'
+                %i.fas.fa-chevron-down
+                %span.text 年
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                %b
+                  = f.label :セキュリティコード, class: 'label'
+                  %span.form-neccesary 必須
+                = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+              .profile-register__link
+                = link_to do
+                  .form__question ?
+                  カード裏面の番号とは？
+              .profile-register__main--form__contents--form__word#card_token
+              = f.submit '次へ進む', class: 'item-buy-button', id: 'token_submit'
+      .profile-register__footer
+        = render "devise/registrations/register-footer"

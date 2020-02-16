@@ -85,7 +85,7 @@
                 %span.form-neccesary 必須
                 = f.collection_select :prefectures, Prefecture.all, :name, :name,prompt: "--"
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
-            
+          
               .sell-main__form
                 = f.label :shipping_date, "配送料の負担", class: "sell-main__form__label"
                 %span.form-neccesary 必須
