@@ -80,22 +80,22 @@
           発送元・お届け先住所変更
           = icon 'fas', 'chevron-right'
       %li
-        = link_to root_path, class: 'mypage-side-bar__list-item' do
+        = link_to "/tmp_register_credit_card", class: 'mypage-side-bar__list-item' do
           支払い方法
           = icon 'fas', 'chevron-right'
       %li
-        = link_to '#', class: 'mypage-side-bar__list-item' do
+        = link_to "/users/password/new", class: 'mypage-side-bar__list-item' do
           メール/パスワード
           = icon 'fas', 'chevron-right'
       %li
-        = link_to root_path, class: 'mypage-side-bar__list-item' do
+        = link_to "/register_address", class: 'mypage-side-bar__list-item' do
           本人情報
           = icon 'fas', 'chevron-right'
       %li
-        = link_to '#', class: 'mypage-side-bar__list-item' do
+        = link_to '/sms_confirmation', class: 'mypage-side-bar__list-item' do
           電話番号の確認
           = icon 'fas', 'chevron-right'
       %li
-        = link_to mypage_path, class: 'mypage-side-bar__list-item' do
+        = link_to users_path, class: 'mypage-side-bar__list-item' do
           ログアウト
           = icon 'fas', 'chevron-right'
