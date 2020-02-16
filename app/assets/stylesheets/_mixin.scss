@@ -1,0 +1,107 @@
+// items/new.html
+// 商品出品ページ
+@mixin dropzone{
+  background-color:#f5f5f5;
+  border: dashed 1px #ccc;
+  color:#333;
+  vertical-align: middle;
+  padding: 20px;
+  cursor: pointer;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: 0 10px 0 auto;
+  }
+
+@mixin preview-img {
+  width: 80px;
+  height: 65px;
+}
+@mixin background {
+  background-color: rgb(245, 245, 245);
+}
+@mixin border {
+  border: 1px solid #ccc;
+}
+@mixin red-btn{
+  background-color: #ea352d;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 2px;
+}
+@mixin price {
+  border: none;
+  height: 48px;
+  padding: 10px 16px 8px;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 150px;
+  margin:0;
+  text-align: right;
+}
+@mixin btn {
+  display: inline-block;
+  width: 50%;
+  background: #f5f5f5;
+  line-height: 44px;
+  text-align: center;
+  color: #0095EE;
+}
+@mixin form-select {
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  @include border;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 8px 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+  appearance: none; /* 標準のスタイルを無効にする */
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+}
+@mixin center{
+  margin:0 auto;
+  text-align: center;
+}
+
+// creditページ
+@mixin select-wrap {
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 8px 0 0;
+  cursor: pointer;
+  width: 40%;
+  -webkit-appearance: none;
+  -moz-appearance: none; 
+  appearance: none;
+}
+@mixin chevron-down {
+  .fa-chevron-down {
+    position: absolute;
+    right: 40px;
+    top: 1px;
+    z-index: 2;
+    color: #888;
+    font-size: 15px;
+  }
+  .select-span {
+    margin: 0 2px;
+  }
+}

@@ -1,103 +1,63 @@
-.wrapper
-  .profile-register
-    .profile-register__heading
-      = render "register-head"
-      .signup-bar
-        %ul.progressbar
-          %li.active
-            会員情報
-          %li
-            電話番号認証
-          %li
-            お届け先住所入力
-          %li
-            支払い方法
-          %li
-            完了
-    .profile-register__main
-      %h2.profile-register__main--head
-        会員情報入力
-      .profile-register__main--form
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "devise/shared/error_messages", resource: resource
-          - if @sns_id.present?
-            = hidden_field_tag :sns_auth, true
-          - else
-          .profile-register__main--form
-            .profile-register__main--form__contents
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  %strong お名前
-                = f.text_field :nickname, class: "input-default", placeholder: "例) メルカリ太郎"
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  %strong メールアドレス
-                  %span.must 必須
-                = f.email_field :email, class: "input-default", placeholder: "PC・携帯どちらでも可"
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  %strong パスワード
-                  %span.must 必須 
-                = f.password_field :password, autocomplete: "new-password", class: "input-default", placeholder: "7文字以上の半角英数字（まだ６文字）"
-                %p.form-info-text__remark ※ 英字と数字の両方を含めて設定してください
-                = f.check_box :password, class: "default-checkbox_pass"
-                %span.form-info-text__pass パスワードを表示する
-              .profile-register__main--form__contents--form
-                %strong.caution 本人確認
-                %p.guiding 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  %strong お名前（全角）
-                  %span.must 必須
-                = f.text_field :first_name, class: "input-default__half", placeholder: "例)山田"
-                = f.text_field :last_name, class: "input-default__half", placeholder: "例)太郎子"
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  %strong お名前カナ（全角）
-                  %span.must 必須 
-                = f.text_field :first_name_kana, class: "input-default__half", placeholder: "例)ヤマダ"
-                = f.text_field :last_name_kana, class: "input-default__half", placeholder: "例)タロウコ"
-              .profile-register__main--form__contents--form
-                .profile-register__main--form__contents--form__word
-                  %strong 生年月日
-                  %span.must 必須 
-              .profile-register__main--form__contents--birth
-                %span.form-select
-                  - this_year = Date.today.year
-                  = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), {:prompt => "--"}, {class: "select-wrap"}
-                  %i.fas.fa-chevron-down
-                %span.select-span 年
-                %span.form-select
-                  = f.select :birth_month, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap"}
-                  %i.fas.fa-chevron-down
-                %span.select-span 月
-                %span.form-select
-                  = f.select :birth_day, options_for_select((1..31).to_a), {:prompt => "--"}, {class: "select-wrap"}
-                  %i.fas.fa-chevron-down
-                %span.select-span 日
-                %p.form-info-text__remark ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          .profile-register__main--form__sending
-            .profile-register__main--form__sending--top
-              %span「次へ進む」のボタンを押すことにより、
-              = link_to root_path do
-                利用規約
-              %p に同意したものとみなします
-            .profile-register__main--form__sending--base
-            = f.submit "次へ進む", class: "default-btn"
-            .profile-register__main--form__sending--text-right
-              = link_to root_path do
-                本人情報の登録について
-                %i.fas.fa-chevron-right
-            .profile-register__main--form__sending--base__policy
-              %p
-                %span This site is protected by reCAPTCHA and the Google
-                = link_to root_path do
-                  Privacy Policy 
-                %span and
-                = link_to root_path do
-                  Terms of Service
-                %span apply.
-      .profile-register__footer
-        = render "register-footer"
+%h2 新規登録画面だよ
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  - if @sns_id.present?
+    = hidden_field_tag :sns_auth, true
+  - else
+    .field
+      = f.label :password
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} characters minimum)
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+  .field
+    = f.label "ニックネーム"
+    %br/
+    = f.text_field :nickname
+  .field
+    = f.label "苗字"
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label "苗字のかな（カタカナ）"
+    %br/
+    = f.text_field :first_name_kana
+  .field
+    = f.label "お名前"
+    %br/
+    = f.text_field :last_name
+  .field
+    = f.label "お名前のかな（カタカナ）"
+    %br/
+    = f.text_field :last_name_kana
+  .field
+    = f.label "誕生年"
+    %br/
+    - this_year = Date.today.year
+    = f.select :birth_year, options_for_select((1900..this_year).to_a.sort.reverse), :prompt => "--"
+  .field
+    = f.label "誕生月"
+    %br/
+    = f.select :birth_month, options_for_select((1..12).to_a), :prompt => "--"
+  .field
+    = f.label "誕生日"
+    %br/
+    = f.select :birth_day, options_for_select((1..31).to_a), :prompt => "--"
+  .field
+    = f.label "アバター実験"
+    %br/
+    = f.file_field :avatar
+  .actions
+    = f.submit "Next"
+= render "devise/shared/links" 
 
 

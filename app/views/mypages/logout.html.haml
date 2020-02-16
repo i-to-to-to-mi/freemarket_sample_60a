@@ -1,7 +1,7 @@
 .mypage-main-container
   = render 'items/header'
-  
-  = render 'mypages/bread-crumbs'
+  - breadcrumb :logout
+  = render 'layouts/breadcrumbs'
   %main.mypage-container
     .mypage-content 
       .mypage-content-logout

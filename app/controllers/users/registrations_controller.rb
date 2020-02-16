@@ -1,8 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+
   def new
     @user = User.new
   end
+
   def create
     if params[:sns_auth] == 'true'
       pass = Devise.friendly_token[0,20]
@@ -22,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create_address
-    # @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
@@ -42,6 +44,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def tmp_register_credit_card
   end
 
+  def tmp_signup
+  end
+
   def complete
   end
 
@@ -51,6 +56,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def edit_address
   end
 
+
+  def tmp_address
+  end
+
   def new_address
     @address = Address.new
   end
@@ -58,7 +67,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :building,)
+    params.require(:address).permit(:postal_code, :prefectures, :city, :address, :building, :phone_number)
   end
 
   def configure_sign_up_params

@@ -67,7 +67,7 @@ a {
           right: 5px;
           top: 5px;
         }
-       }
+      }
     }
   }
 
@@ -176,7 +176,6 @@ a {
         a {
           color: skyblue;
           font-size: 14px;
-
           position: absolute;          /* 位置指定 */
           top: 50%;                    /* 親要素の半分下にずらす */
           left: 50%;                   /* 親要素の半分右にずらす */
@@ -198,7 +197,7 @@ a {
     padding: 0 14px;
     display: inline-block;
   }
-   a {
+  a {
     color: black;
     box-align: center;
     align-items: center;
@@ -247,7 +246,6 @@ a {
     width: 32px;
     height:32px;
     border-radius: 50%;
-   
   }
   
   &--notice-count {
@@ -262,17 +260,14 @@ a {
     line-height: 20px;
     font-size: 11px;
     color: white;
-      
   }
   
   &--mypage {
-    
     box-align: center;
     align-items: center;
     display: flex;
     font-size: 14px;
     height: 32px;
-
       }
     }  
   }
@@ -315,13 +310,10 @@ a {
       margin-bottom: 24px;
       line-height: 28px;
     }
-
     &__buttons {
-
       &__apple {
         display: inline-block;
       }
-
       &__google {
         display: inline-block;
       }
@@ -378,31 +370,22 @@ a {
     }
   }
 
-
-
   .slick-slider {
     margin: 0px auto;
     width: 93%;
-
   }
-
-
-
-
   &__sliders {
     width: 1020px;
     height: 170px;
     display: flex;
     padding: 0 auto;
     align-items: center;
-
   }
 
   &__slider__item {
     width: 146px;
     height: 146px;
     margin: 12px 6px;
-
       &__link {
         width: 100%;
         height: 146px;
@@ -410,13 +393,11 @@ a {
         position: relative;
         text-decoration: none;
       }
-      
       &__figure {
         width: 100%;
         height: 146px;
         position: relative;
       }
-      
       &__thumbnail {
         width: 100%;
         &__price {
@@ -762,7 +743,8 @@ a {
   border-radius: 50%;
   
   &__contents {
-    padding-top: 32px;
+    padding: 32px auto 0;
+
 
 
     &__letter {
@@ -773,12 +755,19 @@ a {
     &__camera {
       width: 60px;
       height: 54px;
-      margin-top: 8px;
+      margin: -10px 10px 0;
       color: rgb(255, 255, 255);
-      margin: 5px auto 0px;
       font-size: 4em;
     }
   } 
+}
+
+i.fas.fa-camera {
+  width: 60px;
+  height: 54px;
+  margin: 5px auto 0;
+  color: rgb(255, 255, 255);
+  font-size: 4em;
 }
 
 .footer__wrapper{
@@ -869,7 +858,7 @@ a {
       display: flex;
       width: 1020px;
       margin: 30px auto 20px;
-   
+  
     &__banner{
         margin-right: 10px;
         width: auto;
@@ -889,4 +878,407 @@ a {
       width: 75%;
     }
   }
+}
+
+
+// 商品出品ページ
+.sell-wrapper {
+  background-color: rgb(245, 245, 245);
+  font-size: 14px;
+  // line-height: 1;
+  color: rgb(51, 51, 51);
+}
+
+.sell-header {
+  height: 128px;
+  text-align: center;
+  &__logo{
+  width: 185px;
+  height: 49px;
+  line-height: 49px;
+  margin: 40px 0 0;
+  }
+}
+
+.sell-main {
+  &__container {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+  }
+
+  &__top__title {
+      padding: 32px 16px;
+      font-size: 22px; 
+      text-align: center;
+      font-weight: bold;
+  }
+  &__image{
+    border-top: 1px solid #eee;
+    width: 100%;
+    padding: 40px;
+  }
+
+  &__image-upload {
+      display:flex;
+
+      &__head {
+          font-size: 16px;
+          font-weight: bold;
+
+          &__explanation {
+              margin: 8px 0 15px;
+              line-height: 1.5;
+              font-size: 14px;
+              display: flex;
+          }
+      }
+
+      &__dropbox {
+          display: block;
+          width: 620px;
+          margin: 16px auto 0;
+          background-color: rgb(245, 245, 245);
+          border-style: dotted;
+
+          &__exp {
+              position: absolute;
+              top: 50%;
+              left: 16px;
+              right: 16px;
+              text-align: center;
+              font-size: 14px;
+              line-height: 1.5;
+          }
+      }
+  }
+
+  &__box {
+      padding: 40px;
+      border-top: 1px solid #ccc;
+  }
+  .sell-another-box{
+    padding-left: 40px;
+    padding-bottom: 40px;
+    padding-right: 40px;
+  }
+  &__form-box{
+    // float: right;
+    width: 400px;
+    margin: 0;
+      }
+
+      &__input  {
+      width: 100%;
+      margin: 8px 0 0;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+
+          &__textarea {
+              display: block;
+              width: 100%;
+              max-width: 100%;
+              min-height: 104px;
+              padding: 10px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              line-height: 1.5;
+          }
+
+      &__select {
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+
+          &__arrow {
+              position: absolute;
+              right: 16px;
+              top: 50%;
+              z-index: 2;
+              color: #888;
+              font-size: 8px;
+          }
+        }
+      }
+.sell-main__box__inner{
+  display: flex;
+  justify-content: space-between
+}
+.sell-main-title-top{
+  display: flex;
+}
+.sell-main__title{
+  color: #888;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+      // ドロップボックス
+.drop-box{
+  position: relative;
+
+.drop-upload {
+  background-color:#f5f5f5;
+  border: dashed 1px #ccc;
+  color:#333;
+  vertical-align: middle;
+  padding: 20px;
+  cursor: pointer;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+}
+.preview{
+  width:100px;
+  height: 100px;
+  position: absolute;
+  top: 35%;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  line-height: 0.5;
+  font-size: 14px;
+  display: block;
+  font-weight: bold;
+  img{
+    width:100px;
+    height: 100px;
+    border: solid 1px #ccc;
+    cursor: pointer;
+    height: auto;
+    margin: 0 10px;
+    }
+  }
+}
+
+.js-label {
+  
+}
+
+.js-file {
+  display: none;
+}
+
+// ドロップボックス終わり
+
+textarea#item_description.sell-main__form__input__textarea{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+input#item_name.sell-main__form__input{
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 100%;
+    margin: 8px 0 0;
+}
+
+
+.sell-main__button-box--description{
+  display:inline;
+}
+
+.sell-main__form{
+  position:relative;
+  &__select{
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    margin: 8px 0 0;
+    cursor: pointer;
+    -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+    -moz-appearance: none; /* ベンダープレフィックス(Firefox用) */
+    appearance: none; /* 標準のスタイルを無効にする */
+    padding: 0 10px;
+    width: 100%;
+    position: relative;
+  }
+  i.fas.fa-chevron-down.sell-main__form__select__arrow{
+    position: absolute;//子のポジション指定
+    right: 25px;//右25px空ける
+    top: 70%;//上から70%の位置へ
+    z-index: 2;//親の下へ潜り揉まないようにする
+    color: #888;
+    transform: translate(0, -50%);//translate(X方向の移動距離, Y方向の移動距離)
+    font-size: 18px;
+    }
+  }
+}
+
+li.sell-main__sales-price{
+  display: flex;
+  justify-content: space-between
+}
+.sell-line{
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
+}
+.sell-main__price-form-label-box{
+  line-height: 48px;
+  font-weight: bold;
+}
+p.sell-main__price-form-label{
+  line-height: 48px;
+}
+
+.sell-main__small-box{
+  width: 380px;
+  display: block;
+}
+.sell-main__price-form__input-box{
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 150px;
+  margin:0;
+}
+input#margin_price{
+  border: none;
+}
+input#profit_price{
+  border: none;
+}
+input.sell-main__form__submit{
+  margin: 40px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  &__input{
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+}
+.sell-main__form__back-button{
+  width: 45%;
+  margin: 24px auto 0;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  display:block;
+  text-align: center;
+  line-height: 48px;
+  font-size: 14px;
+}
+
+.sell-main__bottom-caution{
+  a:hover{
+    text-decoration: underline;
+  }
+  a{
+    color: rgba(0, 153, 255, 0.911);
+  }
+}
+
+.form-require {
+  background-color: #ea352d;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+.form-neccesary {
+  background-color: #ea352d;
+  margin: 4px 0 4px 8px;
+  padding: 2px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.form__question {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4px;
+  }
+
+.sell-footer{
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+}
+
+ul.sell-footer__links{
+  margin:0 auto;
+  text-align: center;
+  display: flex;
+  li{
+    display: inline-block;
+    margin: 0 0 0 16px;
+    a{
+    font-size: 12px;
+    }
+  }
+}
+
+.sell-footer__merucari-bar__banner{
+  margin:0 auto;
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
+}
+img{
+width: 80px;
+height: 65px;
 }
