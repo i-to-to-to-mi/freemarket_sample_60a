@@ -2,7 +2,7 @@
   %nav.mypage-side-bar__nav
     %ul.mypage-side-bar__list
       %li
-        = link_to root_path, class: 'mypage-side-bar__list-item mypage-side-bar__list-item--active' do
+        = link_to mypage_path, class: 'mypage-side-bar__list-item mypage-side-bar__list-item--active' do
           マイページ
           = icon 'fas', 'chevron-right'
       %li
@@ -87,10 +87,11 @@
         = link_to '#', class: 'mypage-side-bar__list-item' do
           メール/パスワード
           = icon 'fas', 'chevron-right'
-      %li
-        = link_to root_path, class: 'mypage-side-bar__list-item' do
-          本人情報
+      %li.mypage-side-bar__list-item--identity-information
+        = link_to "/edit_address" do
           = icon 'fas', 'chevron-right'
+          class: 'mypage-side-bar__list-item'
+          %span 本人情報
       %li
         = link_to '#', class: 'mypage-side-bar__list-item' do
           電話番号の確認
