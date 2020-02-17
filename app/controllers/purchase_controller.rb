@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
   def show
   end
 
-  # require 'payjp'
+  require 'payjp'
 
   # def index
   #   card = Card.where(user_id: current_user.id).first
@@ -20,15 +20,15 @@ class PurchaseController < ApplicationController
   # end
 
   def pay
-    # card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_a0029dc5466705b77c5d7bab"
-    Payjp::Charge.create(
-    amount: 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
-    card: params['payjp-token'], # フォームを送信すると生成されるトークン
-    # customer: card.customer_id, #顧客ID
-    currency: 'jpy', #日本円
-  )
-  redirect_to action: 'done' #完了画面に移動
+  #   card = Card.where(user_id: current_user.id).first
+  #   Payjp.api_key = "sk_test_a0029dc5466705b77c5d7bab"
+  #   Payjp::Charge.create(
+  #   amount: 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
+  #   card: params['payjp-token'], # フォームを送信すると生成されるトークン
+  #   # customer: card.customer_id, #顧客ID
+  #   currency: 'jpy', #日本円
+  # )
+  # redirect_to action: 'done' #完了画面に移動
   end
 
 end

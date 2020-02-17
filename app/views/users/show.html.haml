@@ -19,8 +19,8 @@
         支払い方
       .profile-register__main--form
         -#ビューのみの記述のためこちらはコメントアウトしてます 
-        -# = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| -# createアクションのパスを指定
-        = form_with do |f| 
+        = form_with url: root_path, method: :post, html: { name: "inputForm" } do |f|
+          -#  createアクションのパスを指定
           .profile-register__main--form
             .profile-register__main--form__contents
               .profile-register__main--form__contents--form

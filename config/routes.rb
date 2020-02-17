@@ -30,7 +30,7 @@ end
   # resources "mypages",only: :logout, path: '' do
   #   collection do
   #     get 'logout'
-    # end
+  #   end
   # end
   # get 'users/show'
   resources :users, only: [:index,:new, :show, :edit, :update]
@@ -55,5 +55,14 @@ end
   end
   resources :purchase, only: [:show] 
   resources :items, only: [:show, :new, :create]
+
+  # カード登録ルーティング
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 
 end
