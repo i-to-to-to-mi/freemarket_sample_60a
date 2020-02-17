@@ -19,7 +19,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
-    render :new_address
+    render :sms_confirmation
+  end
+
+  def sms_confirmation
+  end
+
+  def sms_recieved
   end
 
 
@@ -36,16 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in(:user, @user)
   end
 
-  def sms_confirmation
-  end
-
-  def sms_recieved
-  end
-
   def tmp_register_credit_card
-  end
-
-  def tmp_signup
   end
 
   def complete
