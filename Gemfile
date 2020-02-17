@@ -93,3 +93,4 @@ gem 'font_awesome_rails'
 gem "aasm"
 gem "gretel"
 gem 'active_hash'
+
