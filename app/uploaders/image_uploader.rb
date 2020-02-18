@@ -5,15 +5,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick   #コメントアウトを外す
   process resize_to_fit: [100, 100]    # この記述は追記
 
-  storage :file
-  # storage :fog
+  # fog はS3保存
+  # fileはローカル保存
+  # storage :file
+  storage :fog
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  include CarrierWave::MiniMagick  
+  # include CarrierWave::MiniMagick  
 
-  process resize_to_fit: [100, 100] 
+  # process resize_to_fit: [100, 100] 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:

@@ -527,7 +527,11 @@ a {
   padding: 0;
 
   &__item {
-    width: 20%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    width: 100%;
 
     &__link {
       display: inline-block;

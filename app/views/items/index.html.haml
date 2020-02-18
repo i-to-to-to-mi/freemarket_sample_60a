@@ -111,98 +111,8 @@
           .category-boxes__box__heading__links--right
           = link_to do
             = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      = render "ladies"
 
-      %ul.category-items
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image'            
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
-        %li.category-items__item
-          .category-items__item__link
-            = link_to do
-              %figure.category-items__item__figure
-                %figcaption.category-items__item__figure__caption レディース製品
-                .category-items__item__thumbnail
-                  %span.category-items__item__thumbnail__price{aria: "", label: "2000"} ￥2000
-                  = image_tag 'category-item.jpg', alt: 'category-item',
-                  class: 'category-items__item__thumbnail__image' 
   .popular-brand
     %h2.popular-brand__title 人気のブランド
     %ul.popular-brand__list
@@ -324,7 +234,8 @@
           %p.selling-item-box__contents__letter 出品
     -# ここから下２行は出品した商品がトップページに反映されるのを確認するための仮置き記述です
   .contents
-    = render @items    
+    -# = render @items    
+    -# = render "item"   
 
 = render"footer"
 
