@@ -40,6 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
+    render :tmp_register_credit_card
   end
 
   def tmp_register_credit_card

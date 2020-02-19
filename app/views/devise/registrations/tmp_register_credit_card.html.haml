@@ -54,6 +54,7 @@
                   = link_to root_path do
                     カード裏面の番号とは？
                 .profile-register__main--form__sending--base
-                  = f.submit "次へ進む", class: "default-btn"
+                  = link_to complete_path, class: "default-btn" do
+                    次へ進む
     .profile-register__footer
       = render "register-footer"

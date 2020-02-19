@@ -18,15 +18,16 @@
       %h2.profile-register__main--head
         電話番号の確認
       .profile-register__main--form
-        .profile-register__main--head
-          .profile-register__main--form__contents
-            .profile-register__main--form__contents--form
-              .profile-register__main--form__contents--form__word
-                携帯電話の番号 
-              = text_field :sms_phone, class: "input-default", placeholder: "携帯電話の番号を入力"
-              %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-              = link_to sms_recieved_path, class: "default-btn" do
-                SMSを送信する 
+        = form_for("#") do |f|
+          .profile-register__main--head
+            .profile-register__main--form__contents
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                  携帯電話の番号 
+                = f.text_field :sms_phone, class: "input-default", placeholder: "携帯電話の番号を入力"
+                %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+                = link_to sms_recieved_path, class: "default-btn" do
+                  SMSを送信する 
                 ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
             .profile-register__main--form__sending--text-right
               = link_to root_path do

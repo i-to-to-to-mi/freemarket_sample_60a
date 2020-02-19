@@ -17,16 +17,18 @@
     .profile-register__main
       %h2.profile-register__main--head
         電話番号認証
+      
       .profile-register__main--form
-        .profile-register__main--head
-          .profile-register__main--form__contents
-            .profile-register__main--form__contents--form
-              .profile-register__main--form__contents--form__word
-                認証番号 
-              = text_field :sms_number, class: "input-default", placeholder: "認証番号を入力"
-              %p SMSで届いた認証番号を入力してください
-            = link_to addresses_path, class: "default-btn" do
-              認証して完了
+        = form_for("#") do |f|
+          .profile-register__main--head
+            .profile-register__main--form__contents
+              .profile-register__main--form__contents--form
+                .profile-register__main--form__contents--form__word
+                  認証番号
+                = f.text_field :sms_number, class: "input-default", placeholder: "認証番号を入力"
+                %p SMSで届いた認証番号を入力してください
+              = link_to addresses_path, class: "default-btn" do
+                認証して完了
           .profile-register__main--head
             .profile-register__main--form__contents
               .profile-register__main--form__contents--form
