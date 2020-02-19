@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick   #コメントアウトを外す
-  process resize_to_fit: [100, 100]    # この記述は追記
+  process resize_to_fit: [300, 300]    # この記述は追記
 
   # fog はS3保存
   # fileはローカル保存
