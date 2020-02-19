@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
-  # before_action :authenticate_user!, only: [:create, :new]
+  before_action :authenticate_user!, only: [:create, :new]
 
   def index
-    @items= Item.includes(:images).order('created_at DESC')  
+    @items= Item.includes(:images).order('created_at DESC') 
     @ladies = Item.where(seller_id:1..199).order("created_at DESC").limit(10)
   end
 
@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.update(price: params[:price], profit_price: params[:profit_price], margin_price: params[:margin_price])
-    binding.pry
     if @item.valid? && params[:item_images].present?
       @item.save
       params[:item_images][:image].each do |image|

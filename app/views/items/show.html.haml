@@ -10,6 +10,7 @@
           = image_tag "#{@item.images[0].src}", alt: 'brand-item'
         .box-photo__thumbnail
           .box-photo__thumbnail__top
+            -# 複数画像の投稿までは現時点で実装していないです。
             %div
               = image_tag "#{@item.images[0].src}", alt: 'brand-item'
             %div
@@ -95,7 +96,7 @@
               配送元地域
             %td
               = link_to do
-                未定
+                = @item.prefectures
           %tr
             %th
               発送日の目安

@@ -469,9 +469,10 @@ a {
 .category-boxes {
   width: 1020px;
   margin: 0 auto;
+  padding: 42px 0px 100px;
 
   &__box {
-    padding: 42px 0px 100px;
+    
 
     &__heading {
       margin-bottom: 6px;

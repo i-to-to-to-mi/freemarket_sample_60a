@@ -1,9 +1,0 @@
-.content
-  %p= @items.name
-  %p
-    -# = @items.price
-    円
-  - @items.each do |item|
-    = image_tag "#{item.images[0].src}"
-    -# = image_tag image.src.url
-  
