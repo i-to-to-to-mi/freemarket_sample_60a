@@ -28,6 +28,16 @@ class ItemsController < ApplicationController
     @item = Item.find(1)
   end
 
+ def destroy
+    @item = Item.find(1)
+    if @item.destroy
+      flash[:delete] = "商品を削除しました"
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
 private
 
   def item_params

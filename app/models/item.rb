@@ -42,7 +42,7 @@ class Item < ApplicationRecord
 
   end
 
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   belongs_to :user, optional: true
   extend ActiveHash::Associations::ActiveRecordExtensions
