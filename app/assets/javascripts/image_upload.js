@@ -91,7 +91,7 @@ $(document).on('turbolinks:load', function(){
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="product_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
+    var new_image = $(`<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
     input_area.prepend(new_image);
   });
 
@@ -141,7 +141,7 @@ $(document).on('turbolinks:load', function(){
       })
       return;
     }
-    var new_image = $(`<input multiple= "multiple" name="product_images[image][]" class="upload-image2" data-image= ${images.length} type="file" id="upload-image2">`);
+    var new_image = $(`<input multiple= "multiple" name="item_images[image][]" class="upload-image2" data-image= ${images.length} type="file" id="upload-image2">`);
     input_area2.prepend(new_image);
   });
   // 削除の記述

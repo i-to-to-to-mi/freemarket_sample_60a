@@ -23,17 +23,17 @@ devise_scope :user do
   # ここまで
 end
   root "items#index"
-  resources :mypages, only: [:show,:edit,:logout]
-  # エラーで表示がされなかったためコメントアウトしておりますサーバー確認時不要であれば削除いただけますでしょうか
-  # resources "mypages",only: :logout, path: '' do
-  #   collection do
-  #     get 'logout'
-    # end
-  # end
-  # get 'users/show'
+  resources :mypages, only: [:show,:edit] do
+    collection do
+      get 'logout'
+    end
+  end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
   resources :purchase, only: [:show] 
-  resources :items, only: [:show, :new, :create]
-
+  resources :items, only: [:show, :new, :create] do
+    collection do
+      get 'get_image', defaults: { format: 'json' }
+    end
+  end
 end
