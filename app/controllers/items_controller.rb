@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :destroy]
   before_action :authenticate_user!, only: [:create, :new]
 
   def index
@@ -30,8 +30,8 @@ class ItemsController < ApplicationController
   def show
   end
 
- def destroy
-    @item = Item.find(1)
+  def destroy
+    @item = Item.find(params[:id])
     if @item.destroy
       flash[:delete] = "商品を削除しました"
       redirect_to root_path
