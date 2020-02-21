@@ -1,8 +1,0 @@
-.content
-  %p= item.name
-  %p
-    = item.price
-    円
-  - item.images.each do |image|
-    = image_tag image.src.url
-    -# = link_to '削除', item_path(item), method: :delete

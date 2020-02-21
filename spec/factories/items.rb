@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    id              {1}
     name            {"タンス"}
     description      {"かわいいよ"}
     condition            {"非常に良い"}
@@ -8,6 +9,8 @@ FactoryBot.define do
     shipping_date            {"入金から３日以内"}
     category           {"家具"}
     price              {3333}
+    profit_price       {3333}
+    margin_price       {3333}
     seller_id          {5}   
   end
 end
