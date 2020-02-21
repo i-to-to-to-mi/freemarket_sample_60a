@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 2020_02_14_124749) do
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
