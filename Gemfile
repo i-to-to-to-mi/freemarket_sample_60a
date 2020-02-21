@@ -92,4 +92,4 @@ gem 'rails-i18n'
 gem "aasm"
 gem "gretel"
 gem 'active_hash'
-
+gem 'recaptcha', require: "recaptcha/rails"

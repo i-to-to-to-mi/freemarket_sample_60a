@@ -1,17 +1,30 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.wrapper
+  .profile-register
+    .profile-register__heading
+      = link_to root_path do
+        = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',class: 'logo_center'
+    .profile-register__main
+      .profile-register__main--head
+        アカウントをお持ちでない方はこちら
+        .profile-register__main--form__contents
+          = link_to new_user_registration_path, class: "default-btn" do
+            新機会員登録
+        .profile-register__main--form__contents
+          = link_to user_facebook_omniauth_authorize_path, method: :post, target: :_blank, class: "default-btn-facebook" do
+            Facebookで登録する
+        .profile-register__main--form__contents
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, target: :_blank, class: "default-btn-google" do
+            = image_tag 'google-logo.png',class: 'google-logo'
+            Googleで登録する
+        .profile-register__main--form__contents
+        %br
+        %br
+        .profile-register__main--form__contents
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .profile-register__main--form__contents--form
+              = f.text_field :email, class: "input-default", placeholder: "例) メル田カリ子"
+            .profile-register__main--form__contents--form
+              = f.password_field :password, autocomplete: "new-password", class: "input-default", id: "js-password", placeholder: "7文字以上の半角英数字（まだ６文字）", type: "password"
+            .profile-register__main--form__contents--form
+              = flash[:recaptcha_error]
+              = recaptcha_tags
