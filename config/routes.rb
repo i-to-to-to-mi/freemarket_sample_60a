@@ -31,7 +31,7 @@ end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
   resources :purchase, only: [:show] 
-  resources :items, only: [:show, :new, :create] do
+  resources :items, only: [:show, :new, :create, :edit, :destroy] do
     collection do
       get 'get_image', defaults: { format: 'json' }
     end
