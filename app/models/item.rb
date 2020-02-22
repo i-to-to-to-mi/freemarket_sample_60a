@@ -1,7 +1,8 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to :seller, class_name:"User"
+  belongs_to :seller, class_name:"User", foreign_key: 'seller_id'
+  belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
