@@ -7,31 +7,31 @@
     .item-main-box
       .box-photo
         .box-photo__photo
-        -#   = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -# .box-photo__thumbnail
-        -#   .box-photo__thumbnail__top
-        -#     -# 複数画像の投稿までは現時点で実装していないです。
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#   .box-photo__thumbnail__bottom
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        -#     %div
-        -#       = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+          = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+        .box-photo__thumbnail
+          .box-photo__thumbnail__top
+            -# 複数画像の投稿までは現時点で実装していないです。
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+          .box-photo__thumbnail__bottom
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+            %div
+              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
       %table.box__detail-table
         %tbody
           %tr
