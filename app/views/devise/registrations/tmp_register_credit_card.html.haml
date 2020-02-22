@@ -18,14 +18,15 @@
       %h2.profile-register__main--head
         支払い方法
       .profile-register__main--form
-        = form_for("#") do |f|
+        -# = form_for(pay_card_index_path, id: 'charge-form',  name: "inputForm") do |f|
+        = form_with url: pay_card_index_path, name: 'inputForm', id: 'inputForm' do |f|
           .profile-register__main--form
             .profile-register__main--form__contents
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   %strong カード番号
                   %span.must 必須
-                = f.text_field :nickname, class: "input-default", placeholder: "半角数字のみ"
+                = f.text_field :card_number, class: "input-default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
                 %i.fab.fa-cc-visa
                 %i.fab.fa-cc-mastercard
                 %i.fab.fa-cc-jcb
@@ -38,22 +39,25 @@
               .profile-register__main--form__contents--birth
                 %span.form-select
                   - this_year = Date.today.year
-                  = f.select :birth_day, options_for_select((this_year..2029).to_a), {:prompt => "--"}, {class: "select-wrap_half"}
+                  = f.select :exp_year, options_for_select((this_year..2029).to_a), {:prompt => "--"}, {class: "select-wrap_half"}
                   %i.fas.fa-chevron-down
                 %span.select-span 年
                 %span.form-select
-                  = f.select :birth_day, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap_half"}
+                  = f.select :exp_month, options_for_select((1..12).to_a), {:prompt => "--"}, {class: "select-wrap_half"}
                   %i.fas.fa-chevron-down
                 %span.select-span 月
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   %strong セキュリティーコード
                   %span.must 必須
-                  = f.text_field :email, class: "input-default", placeholder: "カード背面４桁もしくは３桁の番号"
+                  = f.text_field :cvc, class: "input-default", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", id: "cvc"
                 .profile-register__main--form__sending--text-right
                   = link_to root_path do
                     カード裏面の番号とは？
                 .profile-register__main--form__sending--base
-                  = f.submit "次へ進む", class: "default-btn"
+                  #card_token
+                  = f.submit "追加する", class: "default-btn", id: "token_submit", name: "submit"
     .profile-register__footer
       = render "register-footer"
+
+

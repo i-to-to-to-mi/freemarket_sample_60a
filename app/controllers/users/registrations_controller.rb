@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  require "payjp"
 
   def new
     @user = User.new
@@ -42,8 +43,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def tmp_register_credit_card
+    # Payjp.api_key = "sk_test_a0029dc5466705b77c5d7bab"
+    # if params['payjp-token'].blank?
+    #   # redirect_to action: "new"
+    #   customer = Payjp::Customer.create(
+    #     card: params['payjp-token']      
+    #     )
+    #   @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    # else
+    #   customer = Payjp::Customer.create(
+    #   card: params['payjp-token']      
+    #   ) 
+    #   @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+    #   if @card.save
+    #     redirect_to action: "show"
+    #   else
+    #     redirect_to action: "tmp_register_credit_card"
+    #   end
+    # end
   end
 
+  
   def tmp_signup
   end
 

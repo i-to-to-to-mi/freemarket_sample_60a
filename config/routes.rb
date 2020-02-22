@@ -65,4 +65,16 @@ end
     end
   end
 
+  resources :registrations do
+    collection do
+      post 'show', to: 'card#show'
+      post 'tmp_register_credit_card', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+      get 'card_new', to: 'card#new'
+    end
+  end
+
+  
+  
+
 end

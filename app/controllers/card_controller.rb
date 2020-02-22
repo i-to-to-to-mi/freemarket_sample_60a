@@ -10,14 +10,11 @@ class CardController < ApplicationController
   def pay #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = "sk_test_a0029dc5466705b77c5d7bab"
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to tmp_register_credit_card_path
     else
       customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: current_user.email, #なくてもOK
       card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
@@ -42,7 +39,7 @@ class CardController < ApplicationController
   def show #Cardのデータpayjpに送り情報を取り出します
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to action: "new" 
+      redirect_to tmp_register_credit_card_path
     else
       Payjp.api_key = "sk_test_a0029dc5466705b77c5d7bab"
       customer = Payjp::Customer.retrieve(card.customer_id)
