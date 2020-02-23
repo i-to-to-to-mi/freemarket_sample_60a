@@ -30,6 +30,7 @@ end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
+  resources :card, only: [:new]
   resources :purchase, only: [:show] 
   resources :items, only: [:show, :new, :create] do
     collection do
