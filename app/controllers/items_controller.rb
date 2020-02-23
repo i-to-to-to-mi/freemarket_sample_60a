@@ -4,8 +4,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :edit, :show, :destroy]
 
   def index
+    # indexから転記
+    # @parents = Category.all.order("id ASC").limit(13)
     @items= Item.includes(:images).order('created_at DESC') 
     @ladies = Item.where(seller_id:1..199).order("created_at DESC").limit(10)
+    # ブランド未作成のためコメントアウト
+    # @brands = brand.all
   end
 
   def new

@@ -26,15 +26,11 @@
               %span カテゴリーから探す
           .categories-wrapper
             %ul.first-category__wrapper
-              -# Categoryテーブルから値取得 parentの値
-              -# コントローラーに記載
-              -# def index
-                  @parents = Category.all.order("id ASC").limit(13)
-                  end
               %li.first__list
-                -# - @parents.each do |parent|
+                - @parents.each do |parent|
+                  = parent.name
                 -# = link_to "#{parents.name}", category_path(category), class: 'first__list__item'
-                %ul.second
+                %ul.second  
                   -# - parent.children.each do |child|
                     %li.second__list
                       -# = link_to "#{child.name}", category_path(child), class: 'second__list__item'
@@ -55,10 +51,6 @@
               class: 'nav-icon')
               %span ブランドから探す
           %ul.brand__wrapper
-            -# コントローラーに記載
-              -# def index
-                  @brands = brand.all
-                  end
             -# - @brands.each do |brand|
               %ul.first
                 %li.first__list
