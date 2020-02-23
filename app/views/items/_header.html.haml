@@ -25,41 +25,17 @@
               class: 'nav-icon')
               %span カテゴリーから探す
           .categories-wrapper
-            %ul.first-category__wrapper
-              %li.first__list
-                - @parents.each do |parent|
-                  = parent.name
-                -# = link_to "#{parents.name}", category_path(category), class: 'first__list__item'
-                %ul.second  
-                  -# - parent.children.each do |child|
-                    %li.second__list
-                      -# = link_to "#{child.name}", category_path(child), class: 'second__list__item'
-                      %ul.third__list
-                        -# - child.children.each do |grandchild|
-                          %li.third__list
-                            -# = link_to "#{grandchild.name}", category_path(grandchild), class: 'third__list__item'
-                              
-              %li.first-category__list
-                -# = link_to 'カテゴリー一覧', category_index_path, class: 'first-category__list__item'
-
-              
-
+          -# カテゴリーの記述がまだなのでコメントアウト
+          -# = render partial: "category-brand/category"
         %ul.toppage__footer-nav-brand
           %h2
             = link_to root_path do
               = icon('fas', 'tag lg', alt: 'tag-icon',
               class: 'nav-icon')
               %span ブランドから探す
-          %ul.brand__wrapper
-            -# - @brands.each do |brand|
-              %ul.first
-                %li.first__list
-                  -# = link_to brand, '#', class: 'first__list__item'
-            
-                %li.brand
-                  %p ブランド一覧
+              -# burandの記述がまだなのでコメントアウト
+              -# = render partial: "category-brand/brand"
       .toppage__footer-contents
-        -# - if user_signed_in?
         .toppage__footer-contents-wrapper
           
           %ul.toppage__footer-login-contents
@@ -160,11 +136,4 @@
                 -#     = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
                 -#       購入した商品 - 過去の取引
                 -# = icon('fas', 'chevron-right')
-      -# - else
-      -# .toppage__footer-contents-wrapper
-      -#   .toppage__footer-contents--new-register-btn
-      -#     = link_to '新規会員登録', root_path 
-      -#   .toppage__footer-contents--user-login-btn
-      -#     = link_to 'ログイン', root_path 
 
-        -# = render 'items/footer'

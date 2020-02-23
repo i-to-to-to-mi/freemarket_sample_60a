@@ -1,0 +1,15 @@
+%ul.first-category__wrapper
+  %li.first__list
+    - @parents.each do |parent|
+      = parent.name
+    -# = link_to "#{parents.name}", category_path(category), class: 'first__list__item'
+    %ul.second  
+      - parent.children.each do |child|
+        %li.second__list
+          -# = link_to "#{child.name}", category_path(child), class: 'second__list__item'
+          %ul.third__list
+            - child.children.each do |grandchild|
+              %li.third__list
+                -# = link_to "#{grandchild.name}", category_path(grandchild), class: 'third__list__item'
+                  %li.first-category__list
+                -# = link_to 'カテゴリー一覧', category_index_path, class: 'first-category__list__item'
