@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
     if @item.valid? && params[:item_images].present?
       @item.save
       params[:item_images][:image].each do |image|
-      @item.images.create(src: image, item_id: @item.id)
-    end
+        @item.images.create(src: image, item_id: @item.id)
+      end
       redirect_to root_path, notice: '出品完了しました'
     else
       flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
@@ -59,9 +59,28 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-
-    if @item.update(item_params)
-      redirect_to root_path
+    @item.update(
+      name: item_params[:name],
+      description: item_params[:description],
+      category: item_params[:category],
+      condition: item_params[:condition],
+      cover_postage: item_params[:cover_postage],
+      shipping_date: item_params[:shipping_date],
+      price: params[:price],
+      profit_price: params[:profit_price],
+      margin_price: params[:margin_price],
+      # brand:,
+      seller_id: item_params[:seller_id],
+      # buyer_id: ,
+      # aasm_state: params[:aasm_state],
+      prefectures: item_params[:prefectures]
+    )
+    if @item.valid? && params[:item_images].present?
+      @item.save
+      params[:item_images][:image].each do |image|
+        @item.images.create(src: image, item_id: @item.id)
+      end
+      redirect_to("/")
     else
       flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
       render :edit
@@ -135,10 +154,10 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
 
-  def registered_image_params
-    params.require(:registered_images_ids).permit({ids: []})
-  end
-  def new_image_params
-    params.require(:new_images).permit({images: []})
-  end
+  # def registered_image_params
+  #   params.require(:registered_images_ids).permit({ids: []})
+  # end
+  # def new_image_params
+  #   params.require(:new_images).permit({images: []})
+  # end
 end
