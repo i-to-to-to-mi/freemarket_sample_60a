@@ -1,6 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  prepend_before_action :check_captcha, only: [:create]
 
   def new
     @user = User.new
@@ -69,16 +68,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
-
-  private
-  
-  def check_captcha
-       unless verify_recaptcha
-         self.resource = resource_class.new sign_up_params
-         resource.validate # Look for any other validation errors besides Recaptcha
-         respond_with resource
-       end
   end
 
 end
