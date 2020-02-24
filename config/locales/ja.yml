@@ -192,6 +192,10 @@ ja:
     precision:
       format:
         delimiter: ''
+  recaptcha:
+    errors:
+      verification_failed: '選択してくださいよ。'
+      recaptcha_unreachable: 'ロボットでしょ？'
   support:
     array:
       last_word_connector: "、"
