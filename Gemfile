@@ -91,8 +91,10 @@ gem "omniauth-rails_csrf_protection"
 gem "pry-rails"
 gem 'rails-i18n'
 
-gem 'font_awesome_rails'
+gem 'font-awesome-rails'
 gem "aasm"
 gem "gretel"
 gem 'active_hash'
 
+gem "gon"
+gem "aws-sdk"

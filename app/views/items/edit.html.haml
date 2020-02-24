@@ -1,1 +1,170 @@
-= render partial: 'form'  
+.sell-wrapper
+  .sell-header
+    = link_to root_path, class: "sell-header__lonk" do
+      = image_tag 'fmarket_logo_red.svg', alt: 'mercari-logo',class: 'sell-header__logo'
+
+  -# 画像投稿部分大枠
+  .sell-main
+    .sell-main__container
+      = form_with model: @item,local: true, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+        %h2.sell-main__top__title 商品の情報を入力
+        .sell-main__image
+          %label.sell-main__image-upload__head 出品画像
+          %span.form-require 必須
+          %p.sell-main__image-upload__head__explanation 最大10枚までアップロードできます
+
+          -# ドロップボックススタート
+          = f.fields_for :item_images do |image|
+            .dropzone-container.clearfix
+              #preview.view
+              -# １〜５枚目プレビュー表示
+              .dropzone-area
+                = image.label :image, class: "dropzone-box", for: "upload-image" do
+                  .input_area
+                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  %p
+                    ドラッグアンドドロップ
+                    %br またはクリックしてファイルをアップロード
+
+            -# 下段のBOX最初はnoneしているJSによって５枚目の画像が入ると表示する設定
+            .dropzone-container2.clearfix
+              #preview2.view
+              -# ６〜１０枚目プレビュー表示
+              .dropzone-area2
+                = image.label :image, class: "dropzone-box", for: "upload-image2" do
+                  .input_area
+                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image2", class: "upload-image2", 'data-image': 0
+                  %p
+                    ドラッグアンドドロップ
+                    %br またはクリックしてファイルをアップロード 
+
+        -# 商品詳細入力欄
+        .sell-main__box
+          .sell-main__form
+            = f.label :name, "商品名", class: "sell-main__form__label"
+            %span.form-neccesary 必須
+          = f.text_field :name, class: 'sell-main__form__input', placeholder: '商品名（必須40文字まで）'
+        .sell-another-box
+          .sell-main__form
+            = f.label :description, "商品の説明", class: "sell-main__form__label"
+            %span.form-neccesary 必須
+          = f.text_area :description, class: 'sell-main__form__input__textarea', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+
+        .sell-main__box
+          .sell-main__box__inner
+            %h3.sell-main__title 商品の詳細
+            .sell-main__form-box 
+              .sell-main__form
+                = f.label :category, "カテゴリー", class: "sell-main__form__label"
+                %span.form-neccesary 必須
+                = f.select :category, ['レディース','メンズ', "ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ","その他"], {include_blank: '---'}, {class: 'sell-main__form__select', id: 'parent_category'}
+                -# カテゴリの設定をしていない為コメントアウト
+                -# = f.select :category, @category_parent_array, {}, {class: 'sell-main__form__select', id: 'parent_category'}
+                %i.fas.fa-chevron-down.sell-main__form__select__arrow
+              .sell-main__form
+                = f.label :condition, "商品の状態", class: "sell-main__form__label"
+                %span.form-neccesary 必須
+                = f.select :condition, ['新品未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い' ], {include_blank: '---'}, class: 'sell-main__form__select'
+                %i.fas.fa-chevron-down.sell-main__form__select__arrow
+
+        -# 商品の配送先について
+        .sell-main__box
+          .sell-main__box__inner
+            .sell-main-title-top
+              %h3.sell-main__title 配送について
+              = link_to "?", "#", class: "form__question" 
+            .sell-main__form-box 
+              .sell-main__form
+                = f.label :cover_postage, "配送料の負担", class: "sell-main__form__label"
+                %span.form-neccesary 必須
+                = f.select :cover_postage, ['送料込み（出品者負担）', '着払い（購入者負担）'], {include_blank: '---'}, class: 'sell-main__form__select'  
+                = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
+
+              .sell-main__form
+                = f.label :shipping_area, "発送元の地域", class: "sell-main__form__label"
+                %span.form-neccesary 必須
+                = f.collection_select :prefectures, Prefecture.all, :name, :name,prompt: "--"
+                = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
+          
+              .sell-main__form
+                = f.label :shipping_date, "配送料の負担", class: "sell-main__form__label"
+                %span.form-neccesary 必須
+                = f.select :shipping_date, ['1~2日で発送', '2~３日で発送', '4〜７日で発送'], {include_blank: '---'}, class: 'sell-main__form__select'  
+                = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
+
+        -# 価格の入力欄
+        .sell-main__box
+          .sell-main__box__inner
+            .sell-main-title-top
+              %h3.sell-main__title 販売価格（300〜9,999,999)
+              = link_to "?", "#", class: "form__question" 
+            %ul.sell-main__small-box
+              %li.sell-main__sales-price
+                .sell-main__price-form-label-box
+                  = f.label "価格", class: "sell-main__price-form__label-box__label"
+                  %span.form-neccesary 必須
+                .sell-main__price-from__input-box
+                  ¥
+                  = f.number_field :price, class: 'sell-main__price-form__input-box',name: :price, placeholder: '例）300', id: "price"
+              .sell-line
+                %li.sell-main__sales-price
+                  %p.sell-main__price-form-label 販売手数料（１０％）
+                  .sell-main__price-from__input-box
+                    %input#margin_price{type: "text", name:"margin_price",   value: ""}>/
+              %li.sell-main__sales-price
+                .sell-main__price-form-label-box
+                  %p.sell-main__price-form-label 販売利益
+                .sell-main__price-from__input-box
+                  %input#profit_price{type: "text", name: "profit_price", value: ""}>/
+
+        -# 注意事項について
+        .sell-main__box
+          .sell-main__button-box
+            .sell-main__bottom-caution
+              %p.sell-main__button-box--description
+                = link_to "禁止されている出品", "#", class: "sell-main__button-box--description--link"
+              %p.sell-main__button-box--description 、
+              %p.sell-main__button-box--description
+                = link_to "行為", "#", class: "sell-main__button-box--description--link" 
+              %p.sell-main__button-box--description を必ずご確認ください。
+              %br
+              %p.sell-main__button-box--description またブランド品でシリアルナンバー等がある場合はご記載ください。
+              %p.sell-main__button-box--description   
+                = link_to "偽ブランドの販売", "#", class: "sell-main__button-box--description--link"
+              %p.sell-main__button-box--description は犯罪であり処罰される可能性があります。
+              %br
+              %p.sell-main__button-box--description また、出品をもちまして
+              %p.sell-main__button-box--description   
+                = link_to "加盟店規約", "#", class: "sell-main__button-box--description--link"
+              %p.sell-main__button-box--description に同意したことになります
+          - if user_signed_in?   
+            %input.sell-main__form__submit{type: "submit", value:"編集する"}
+            = link_to "もどる", root_path, class: "sell-main__form__back-button" 
+
+  -# 欄外のフッター部分
+  .sell-footer
+    %ul.sell-footer__links
+      %li
+        = link_to "プライバシーポリシー", "#", class: "sell-footer__link"
+      %li
+        = link_to "Fmart利用規約", "#", class: "sell-footer__link"
+      %li
+        = link_to "特定商取引に関する表記", "#", class: "sell-footer__link"
+
+    .sell-footer__fmart-bar
+      .sell-footer__fmart-bar__banner
+        = link_to root_path do
+          = image_tag 'logo_white.svg', alt: 'mercari-logo',class: 'footer__mercari-bar__banner__image'
+      %span.sell-footer__fmart-bar__name © Fmarket, Inc.
+
+
+
+
+
+
+
+
+
+
+
+
