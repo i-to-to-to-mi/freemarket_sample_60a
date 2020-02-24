@@ -21,7 +21,7 @@
               .dropzone-area
                 = image.label :image, class: "dropzone-box", for: "upload-image" do
                   .input_area
-                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                    = image.file_field :src, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                   %p
                     ドラッグアンドドロップ
                     %br またはクリックしてファイルをアップロード
@@ -32,8 +32,8 @@
               -# ６〜１０枚目プレビュー表示
               .dropzone-area2
                 = image.label :image, class: "dropzone-box", for: "upload-image2" do
-                  .input_area
-                    = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image2", class: "upload-image2", 'data-image': 0
+                  .input_area2
+                    = image.file_field :src, multiple: true, name: 'item_images[image][]', id: "upload-image2", class: "upload-image2", 'data-image': 0
                   %p
                     ドラッグアンドドロップ
                     %br またはクリックしてファイルをアップロード 
