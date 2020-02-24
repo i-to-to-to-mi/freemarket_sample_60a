@@ -179,6 +179,82 @@ section {
     }
   }
 
+  .t_delete{
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #aaa;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: .4s;
+  }
+  .t_overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+  }
+  .t_modalWindow{
+    width: 600px;
+    position: fixed;
+    background: #FFF;
+    display: none;
+    z-index: 2;
+    text-align: center;
+    span{
+      width: 470px;
+      height: 24px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__content{
+      height: 240px;
+      padding: 50px 0 10px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    &__buttons{
+      width: 600px;
+      display: flex;
+      &__btn{
+        flex-direction: row;
+        width: 50%;
+        height: 65px;
+        color: #0099e8;
+        line-height: 65px;
+        text-align: center;
+        &--cxl{
+          flex-direction: row;
+          width: 50%;
+          height: 65px;
+          border-right: 1px solid #f5f5f5;
+          line-height: 65px;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  .t_modalWindow__buttons__btn{
+    flex-direction: row;
+    width: 50%;
+    height: 65px;
+    border-right: 1px solid #f5f5f5;
+    line-height: 65px;
+    text-align: center;
+    cursor: pointer;
+    a{
+      text-decoration: none;
+    }
+  }
+
   .item-description-box{
     line-height: 1.5;
     &__inner{
