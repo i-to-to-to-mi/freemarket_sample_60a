@@ -113,6 +113,42 @@
             = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
       = render "ladies"
 
+    .category-boxes__box
+      .category-boxes__box__heading
+        %h3.category-boxes__box__heading__title
+          %a#category__ladies メンズ新着アイテム
+        .category-boxes__box__heading__links
+          = link_to "もっとみる", "#", class: "category-boxes__box__heading__links--left" 
+          .category-boxes__box__heading__links--right
+          = link_to do
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      = render "mens"
+
+    .category-boxes__box
+      .category-boxes__box__heading
+        %h3.category-boxes__box__heading__title
+          %a#category__ladies 家電・スマホ・カメラ新着アイテム
+        .category-boxes__box__heading__links
+          = link_to "もっとみる", "#", class: "category-boxes__box__heading__links--left" 
+          .category-boxes__box__heading__links--right
+          = link_to do
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      = render "electronics"   
+    
+
+
+    .category-boxes__box
+      .category-boxes__box__heading
+        %h3.category-boxes__box__heading__title
+          %a#category__ladies おもちゃ・ホビー・グッズ新着アイテム
+        .category-boxes__box__heading__links
+          = link_to "もっとみる", "#", class: "category-boxes__box__heading__links--left" 
+          .category-boxes__box__heading__links--right
+          = link_to do
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      = render "toys"
+
+
   .popular-brand
     %h2.popular-brand__title 人気のブランド
     %ul.popular-brand__list

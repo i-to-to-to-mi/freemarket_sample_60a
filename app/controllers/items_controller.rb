@@ -4,7 +4,10 @@ class ItemsController < ApplicationController
 
   def index
     @items= Item.includes(:images).order('created_at DESC') 
-    @ladies = Item.where(seller_id:1..199).order("created_at DESC").limit(10)
+    @ladies = Item.where(category: "レディース").order("created_at DESC").limit(10)
+    @mens = Item.where(category: "メンズ").order("created_at DESC").limit(10)
+    @electronics = Item.where(category: "家電・スマホ・カメラ").order("created_at DESC").limit(10)
+    @toys= Item.where(category: "おもちゃ・ホビー・グッズ").order("created_at DESC").limit(10)
   end
 
   def new
