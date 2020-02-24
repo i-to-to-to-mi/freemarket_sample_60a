@@ -16,10 +16,10 @@
             完了
     .profile-register__main
       %h2.profile-register__main--head
-        支払い方
+        支払い方法
       .profile-register__main--form
         -#ビューのみの記述のためこちらはコメントアウトしてます 
-        = form_with url: root_path, method: :post, html: { name: "inputForm" } do |f|
+        = form_with url: pay_card_index_path, id: 'inputForm', method: :post do |f|
           -#  createアクションのパスを指定
           .profile-register__main--form
             .profile-register__main--form__contents
@@ -31,12 +31,12 @@
                 = f.text_field :card_number, type: 'text', class: 'input-number', placeholder: '半角数字のみ', maxlength: "16"
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
-                %b
-                  = f.label :カード会社, class: 'label'
-                  %span.form-neccesary 必須
+                -# %b
+                  -# = f.label :カード会社, class: 'label'
+                  %span.form-neccesary
                   -# 設定していないのでコメントアウト
                 -# = f.select :card_company, Creditcard.card_companies.keys, {}, {class: 'input-number'}
-                = f.select :card_company, [], {}, {class: 'input-number'}
+                -# = f.select :card_company, [], {}, {class: 'input-number'}
                 %ul.signup__card--list
                   %li.icon--visa
                     = image_tag("visa.png", id:"icon--visa")
