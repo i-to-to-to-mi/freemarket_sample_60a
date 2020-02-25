@@ -50,6 +50,7 @@
   border: 1px solid #ea352d;
   color: #fff;
   min-height: 1.5em;
+  border-radius: 2px;
 .wrapper {
   background-color: rgb(245, 245, 245);
 }
@@ -138,6 +139,20 @@
   }
 }
 
+@mixin sign_in-logo {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: 16px;
+  top: 25%;
+}
+
+@mixin login-btn {
+  position: relative;
+  margin: 24px 00 ;
+  @include btn-base;
+}
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -160,6 +175,10 @@
         width: 185px;
         height: 49px;
         line-height: 49px;
+      }
+      .logo_center {
+        @extend .logo;
+        margin-left: calc(50% - 100px) ;
       }
     }
     &__main {
@@ -186,11 +205,31 @@
           .form-info-text__remark {
             @include form-info-text;
             font-weight: 300;
-
           }
           .default-btn {
-            margin: 24px 00 ;
-            @include btn-base;
+            @include login-btn;
+            .far {
+              @include sign_in-logo;
+              color: white;
+            }
+          }
+          .default-btn-facebook {
+            @include login-btn;
+            border-style: none;
+            background-color: #3b5998;
+            .fab {
+              @include sign_in-logo;
+              color: white;
+            }
+          }
+          .default-btn-google {
+            @include login-btn;
+            background-color: white;
+            color: black;
+            border-color: black;
+            .google-logo {
+              @include sign_in-logo;
+            }
           }
           h3 {
             font-size: 16px;

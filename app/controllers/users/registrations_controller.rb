@@ -19,20 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
-    render :new_address
-  end
-
-
-  def create_address
-    @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new(address_params)
-    unless @address.valid?
-      flash.now[:alert] = @address.errors.full_messages
-      render :new_address and return
-    end
-    @user.build_address(@address.attributes)
-    @user.save
-    sign_in(:user, @user)
+    render :sms_confirmation
   end
 
   def sms_confirmation
@@ -41,16 +28,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def sms_recieved
   end
 
+
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_address(@address.attributes)
+    @user.save
+    sign_in(:user, @user)
+    render :tmp_register_credit_card
+  end
+
   def tmp_register_credit_card
   end
 
-  def tmp_signup
-  end
-
   def complete
-  end
-
-  def register_address
   end
 
   def edit_address
@@ -73,5 +69,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   end
+
 end
 
