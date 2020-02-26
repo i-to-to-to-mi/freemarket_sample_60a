@@ -8,24 +8,14 @@
           = form_with url: delete_card_index_path,local: true, method: :post, id: "deleteForm" do |f|
             %figure
               %input{ type: "hidden", name: "card_id", value: "" }
-              -# コントローラの定義がまだのためコメントアウトしております
-              -# = image_tag "#{@card_src}", width: '30', height: '20', alt: @card_brand, id: "card_image"
               = image_tag "visa.png", width: '50', height: '30', alt: @card_brand, id: "card_image"
               = f.submit "削除する", class: "dlt-btn"
             .credit-info--body--content--number
-              -# コントローラの定義がまだのためコメントアウトしております
               = "**** **** **** " + @default_card_information.last4
-               
             .credit-info--body--content--data
-              -# コントローラ未設定の為コメントアウトです
               - exp_month = @default_card_information.exp_month.to_s
               - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
               = exp_month + " / " + exp_year
-              
-              -# 上記の削除に関連する記述のため残しております
-              -# = form_tag(delete_credit_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-              -#   %input{ type: "hidden", name: "card_id", value: "" }
-              -#     %button 削除する
         .credit-info--body--content--detaiil
           = link_to do
             %span 支払い方法について

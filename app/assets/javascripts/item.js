@@ -66,6 +66,7 @@ $(document).on('turbolinks:load', ()=> {
   //   return false;
   // });
   // ここまで
+  
 // -# ここでドロップボックス終了
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {

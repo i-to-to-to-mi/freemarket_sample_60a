@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # カード登録ルーティング
   resources :card, only: [:new, :edit, :show] do
   collection do
-    post 'show', to: 'card#show'
     post 'pay', to: 'card#pay'
     post 'delete', to: 'card#delete'
   end
@@ -32,7 +31,7 @@ devise_scope :user do
   # マークアップ用temporary routesです。ここから
   get 'sms_confirmation', to: 'users/registrations#sms_confirmation'
   get 'sms_recieved', to: 'users/registrations#sms_recieved'
-  get 'tmp_register_credit_card', to: 'card#pay'
+  # get 'tmp_register_credit_card', to: 'card#pay'
   get 'complete', to: 'users/registrations#complete'
   get 'register_address', to: 'users/registrations#register_address'
   get 'tmp_signup', to: 'users/registrations#tmp_signup'  
@@ -52,29 +51,7 @@ end
   end
   post "/", to: "purchase#pay"
   resources :items, only: [:show, :new, :create]
-  
-  resources :card, only: [:new, :show] do
-    collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
-    end
-  end
   resources :purchase, only: [:show] 
   resources :items, only: [:show, :new, :create]
-
- 
-
-  resources :registrations do
-    collection do
-      post 'show', to: 'card#show'
-      post 'tmp_register_credit_card', to: 'card#pay'
-      post 'delete', to: 'card#delete'
-      get 'card_new', to: 'card#new'
-    end
-  end
-
-  
-  
 
 end
