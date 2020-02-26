@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :ensure_correct_user]
   before_action :authenticate_user!, only: [:create, :new]
+  # のちにeditもensure_correct_userに追加（by　金田さん）
+  before_action :ensure_correct_user, only: [:destroy]
 
   def index
     @items= Item.includes(:images).order('created_at DESC') 
@@ -42,6 +44,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def ensure_correct_user
+    if @item.seller_id != current_user.id
+      redirect_to item_path
+      flash[:delete] = "権限がありません"
+    else
+      destroy
+    end
+  end
+
   def get_image
     @images = Item.find(params[:item_id]).src
   end
@@ -66,7 +77,8 @@ private
       .merge(seller_id: current_user.id)
   end
 
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
