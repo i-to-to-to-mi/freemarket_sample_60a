@@ -14,7 +14,7 @@ class CardController < ApplicationController
   def pay #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = "sk_test_a0029dc5466705b77c5d7bab"
     if params['payjp-token'].blank?
-      redirect_to action; "new"
+      redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
       card: params['payjp-token'],
@@ -46,4 +46,5 @@ class CardController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_id)
     @default_card_information = customer.cards.retrieve(card.card_id)
   end
+  
 end
