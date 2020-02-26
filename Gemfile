@@ -95,3 +95,4 @@ gem "aasm"
 gem "gretel"
 gem 'active_hash'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'ancestry'
