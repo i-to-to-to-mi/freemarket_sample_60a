@@ -45,6 +45,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
+  gem 'faker'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -77,20 +79,17 @@ end
 gem "font-awesome-sass"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
-
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem "pry-rails"
 gem 'rails-i18n'
-
-# gem 'font_awesome_rails'
 gem "aasm"
 gem "gretel"
 gem 'active_hash'
 gem 'payjp'
+gem 'recaptcha', require: "recaptcha/rails"

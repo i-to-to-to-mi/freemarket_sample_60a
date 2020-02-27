@@ -33,12 +33,15 @@ devise_scope :user do
   get 'sms_recieved', to: 'users/registrations#sms_recieved'
   # get 'tmp_register_credit_card', to: 'card#pay'
   get 'complete', to: 'users/registrations#complete'
-  get 'register_address', to: 'users/registrations#register_address'
-  get 'tmp_signup', to: 'users/registrations#tmp_signup'  
+
   # ここまで
 end
   root "items#index"
-  resources :mypages, only: [:show,:edit,:logout]
+  resources :mypages, only: [:show,:edit] do
+    collection do
+      get 'logout'
+    end
+  end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
   resources :items, only: [:show]
@@ -52,6 +55,9 @@ end
   post "/", to: "purchase#pay"
   resources :items, only: [:show, :new, :create]
   resources :purchase, only: [:show] 
-  resources :items, only: [:show, :new, :create]
-
+  resources :items, only: [:show, :new, :create, :edit, :destroy] do
+    collection do
+      get 'get_image', defaults: { format: 'json' }
+    end
+  end
 end

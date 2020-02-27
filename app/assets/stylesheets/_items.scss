@@ -469,9 +469,10 @@ a {
 .category-boxes {
   width: 1020px;
   margin: 0 auto;
+  padding: 42px 0px 100px;
 
   &__box {
-    padding: 42px 0px 100px;
+    
 
     &__heading {
       margin-bottom: 6px;
@@ -527,7 +528,11 @@ a {
   padding: 0;
 
   &__item {
-    width: 20%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    width: 100%;
 
     &__link {
       display: inline-block;
