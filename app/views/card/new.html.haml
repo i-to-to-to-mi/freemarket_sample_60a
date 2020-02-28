@@ -1,1 +1,12 @@
-= render "users/show"
+.wrapper
+  .profile-register
+    .profile-register__heading
+      = render "devise/registrations/register-head"
+    .profile-register__main
+      %h2.profile-register__main--head
+        支払い方法
+      .profile-register__main--form
+        = form_with url: pay_card_index_path, id: 'inputForm', method: :post do |f|
+          = render partial: "layouts/card_content", locals: { f: f }
+      .profile-register__footer
+        = render "devise/registrations/register-footer"

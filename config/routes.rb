@@ -21,17 +21,13 @@ end
 
 devise_scope :user do
   get 'addresses', to: 'users/registrations#new_address'
-  # マークアップ用temporary routesです。アドレスを登録する画面（edit_addressと見た感じ変わらん）。ここから（なぜあるのか謎っw）
   get 'tmp_address', to: 'users/registrations#tmp_address'
-  # ここまで
-  # マークアップ用temporary routesです。アドレスを登録する画面。ここから
   get 'edit_address', to: 'users/registrations#edit_address'
-  # ここまで
   post 'addresses', to: 'users/registrations#create_address'
-  # マークアップ用temporary routesです。ここから
   get 'sms_confirmation', to: 'users/registrations#sms_confirmation'
   get 'sms_recieved', to: 'users/registrations#sms_recieved'
-  # get 'tmp_register_credit_card', to: 'card#pay'
+  get 'register_credit_card', to: 'users/registrations#register_credit_card'
+  post 'register_credit_card', to: 'users/registrations#register_credit_card'
   get 'complete', to: 'users/registrations#complete'
 
   # ここまで
