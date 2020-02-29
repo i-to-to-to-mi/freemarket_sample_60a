@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+
   before_action :authenticate_user!, only: [:create, :new, :update, :edit]
+  before_action :set_item, only: [:show, :destroy]
 
   def index
     @items= Item.includes(:images).order('created_at DESC') 
@@ -119,6 +120,15 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    if @item.destroy
+      flash[:delete] = "商品を削除しました"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def get_image

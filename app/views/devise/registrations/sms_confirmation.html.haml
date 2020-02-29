@@ -24,10 +24,11 @@
               .profile-register__main--form__contents--form
                 .profile-register__main--form__contents--form__word
                   携帯電話の番号 
-                = f.text_field :nickname, class: "input-default", placeholder: "携帯電話の番号を入力"
+                = f.text_field :sms_phone, class: "input-default", placeholder: "携帯電話の番号を入力"
                 %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-              = f.submit "SMSを送信する", class: "default-btn"
-              %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+                = link_to sms_recieved_path, class: "default-btn" do
+                  SMSを送信する 
+                ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
             .profile-register__main--form__sending--text-right
               = link_to root_path do
                 電話番号の確認が必要な理由

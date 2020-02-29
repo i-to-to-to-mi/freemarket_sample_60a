@@ -1,5 +1,24 @@
-= link_to 'メールアドレスで登録', new_user_registration_path
-%br
-= link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post, target: :_blank
-%br
-= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, target: :_blank
+.wrapper
+  .profile-register
+    .profile-register__heading
+      = link_to root_path do
+        = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',class: 'logo_center'
+    .profile-register__main
+      %h2.profile-register__main--head
+        新規会員登録
+      .profile-register__main--form__contents
+        = link_to new_user_registration_path, class: "default-btn" do
+          %i.far.fa-envelope.fa-2x
+          メールアドレスで登録する
+      .profile-register__main--form__contents
+        = link_to user_facebook_omniauth_authorize_path, method: :post, target: :_blank, class: "default-btn-facebook" do
+          %i.fab.fa-facebook-square.fa-2x
+          Facebookで登録する
+      .profile-register__main--form__contents
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, target: :_blank, class: "default-btn-google" do
+          = image_tag 'google-logo.png',class: 'google-logo'
+          Googleで登録する
+      .profile-register__main--form__contents
+      %br
+    .profile-register__footer
+      = render "devise/registrations/register-footer"

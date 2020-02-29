@@ -18,8 +18,7 @@ devise_scope :user do
   get 'sms_recieved', to: 'users/registrations#sms_recieved'
   get 'tmp_register_credit_card', to: 'users/registrations#tmp_register_credit_card'
   get 'complete', to: 'users/registrations#complete'
-  get 'register_address', to: 'users/registrations#register_address'
-  get 'tmp_signup', to: 'users/registrations#tmp_signup'  
+
   # ここまで
 end
   root "items#index"
@@ -31,7 +30,7 @@ end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
   resources :purchase, only: [:show] 
-  resources :items, only: [:show, :new, :create, :edit, :update] do
+  resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'get_image', defaults: { format: 'json' }
     end
