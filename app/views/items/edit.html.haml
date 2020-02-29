@@ -6,7 +6,7 @@
   -# 画像投稿部分大枠
   .sell-main
     .sell-main__container
-      = form_with model: @item,local: true, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+      = form_with model: @item,local: true, html: {class: "edit__item dropzone", id: "item-dropzone"} do |f|
         %h2.sell-main__top__title 商品の情報を入力
         .sell-main__image
           %label.sell-main__image-upload__head 出品画像
@@ -14,14 +14,14 @@
           %p.sell-main__image-upload__head__explanation 最大10枚までアップロードできます
 
           -# ドロップボックススタート
-          = f.fields_for :item_images do |image|
+          = f.fields_for :images, @item.images.first do |image|
             .dropzone-container.clearfix
               #preview.view
               -# １〜５枚目プレビュー表示
               .dropzone-area
-                = image.label :image, class: "dropzone-box", for: "upload-image" do
+                = image.label :src, class: "dropzone-box", for: "upload-image" do
                   .input_area
-                    = image.file_field :src, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                    = image.file_field :src, multiple: true, name: 'images[src][]', id: "upload-image", class: "upload-image", 'data-image': 0
                   %p
                     ドラッグアンドドロップ
                     %br またはクリックしてファイルをアップロード
@@ -31,7 +31,7 @@
               #preview2.view
               -# ６〜１０枚目プレビュー表示
               .dropzone-area2
-                = image.label :image, class: "dropzone-box", for: "upload-image2" do
+                = image.label :src, class: "dropzone-box", for: "upload-image2" do
                   .input_area2
                     = image.file_field :src, multiple: true, name: 'item_images[image][]', id: "upload-image2", class: "upload-image2", 'data-image': 0
                   %p

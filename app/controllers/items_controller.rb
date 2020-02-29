@@ -29,15 +29,13 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @images = @item.images
-
     gon.item = @item
-    gon.item_images = @item.images
+    gon.images = @item.images
 
     require 'base64'
     require 'aws-sdk'
 
-    gon.item_images_binary_datas = []
+    gon.images_binary_datas = []
 
     if Rails.env.production?
       client = Aws::S3::Client.new(
@@ -47,79 +45,76 @@ class ItemsController < ApplicationController
                              )
       @item.images.each do |image|
         binary_data = client.get_object(bucket: 'freemarketsample60a', key: image.src.file.path).body.read
-        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+        gon.images_binary_datas << Base64.strict_encode64(binary_data)
       end
     else
       @item.images.each do |image|
-        binary_data = File.read(image.src.file.path)
-        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+        binary_data = File.read(image.src.file.file)
+        gon.images_binary_datas << Base64.strict_encode64(binary_data)
       end
     end
   end
 
   def update
     @item = Item.find(params[:id])
-    @item.update(
-      name: item_params[:name],
-      description: item_params[:description],
-      category: item_params[:category],
-      condition: item_params[:condition],
-      cover_postage: item_params[:cover_postage],
-      shipping_date: item_params[:shipping_date],
-      price: params[:price],
-      profit_price: params[:profit_price],
-      margin_price: params[:margin_price],
-      # brand:,
-      seller_id: item_params[:seller_id],
-      # buyer_id: ,
-      # aasm_state: params[:aasm_state],
-      prefectures: item_params[:prefectures]
-    )
-    if @item.valid? && params[:item_images].present?
-      @item.save
-      params[:item_images][:image].each do |image|
-        @item.images.create(src: image, item_id: @item.id)
-      end
-      redirect_to("/")
-    else
-      flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
-      render :edit
-    end
-
-    # # 登録済画像のidの配列を生成
-    # ids = @item.images.map{|image| image.id }
-
-    # # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
-    # exist_ids = registered_image_params[:ids].map(&:to_i)
-
-    # # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
-    # exist_ids.clear if exist_ids[0] == 0
-
-    # if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
-
-    #   # 登録済画像のうち削除ボタンをおした画像を削除
-    #   unless ids.length == exist_ids.length
-    #   # 削除する画像のidの配列を生成
-    #     delete_ids = ids - exist_ids
-    #     delete_ids.each do |id|
-    #       @item.images.find(id).destroy
-    #     end
+    # @item.update(
+    #   name: item_params[:name],
+    #   description: item_params[:description],
+    #   category: item_params[:category],
+    #   condition: item_params[:condition],
+    #   cover_postage: item_params[:cover_postage],
+    #   shipping_date: item_params[:shipping_date],
+    #   price: params[:price],
+    #   profit_price: params[:profit_price],
+    #   margin_price: params[:margin_price],
+    #   seller_id: item_params[:seller_id],
+    #   prefectures: item_params[:prefectures]
+    # )
+    # if @item.valid? && params[:item_images].present?
+    #   @item.save
+    #   params[:item_images][:image].each do |image|
+    #     @item.images.create(src: image, item_id: @item.id)
     #   end
-
-    #   # 新規登録画像があればcreate
-    #   unless new_image_params[:images][0] == " "
-    #     new_image_params[:images].each do |image|
-    #       @item.images.create(src: image, item_id: @item.id)
-    #     end
-    #   end
-
-    #   flash[:notice] = '編集が完了しました'
-    #   redirect_to item_path(@item), data: {turbolinks: false}
-
+    #   redirect_to("/")
     # else
-    #   flash[:alert] = '未入力項目があります'
-    #   redirect_back(fallback_location: root_path)
+    #   flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
+    #   render :edit
     # end
+
+    # 登録済画像のidの配列を生成
+    ids = @item.images.map{|image| image.id }
+  
+    # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
+    exist_ids = registered_image_params[:ids].map(&:to_i)
+    
+    # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
+    exist_ids.clear if exist_ids[0] == 0
+    
+    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
+
+      # 登録済画像のうち削除ボタンをおした画像を削除
+      unless ids.length == exist_ids.length
+      # 削除する画像のidの配列を生成
+        delete_ids = ids - exist_ids
+        delete_ids.each do |id|
+          @item.images.find(id).destroy
+        end
+      end
+
+      # 新規登録画像があればcreate
+      unless new_image_params[:images][0] == " "
+        new_image_params[:images].each do |image|
+          @item.images.create(src: image, item_id: @item.id)
+        end
+      end
+
+      flash[:notice] = '編集が完了しました'
+      redirect_to item_path(@item), data: {turbolinks: false}
+
+    else
+      flash[:alert] = '未入力項目があります'
+      redirect_back(fallback_location: root_path)
+    end
 
   end
 
@@ -154,10 +149,10 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
 
-  # def registered_image_params
-  #   params.require(:registered_images_ids).permit({ids: []})
-  # end
-  # def new_image_params
-  #   params.require(:new_images).permit({images: []})
-  # end
+  def registered_image_params
+    params.require(:registered_images_ids).permit({ids: []})
+  end
+  def new_image_params
+    params.require(:new_images).permit({images: []})
+  end
 end
