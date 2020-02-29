@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new, :update, :edit]
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:update, :edit, :show, :destroy]
 
   def index
     @items= Item.includes(:images).order('created_at DESC') 
@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     gon.item = @item
     gon.images = @item.images
 
@@ -57,8 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-
     # 登録済画像のidの配列を生成
     ids = @item.images.map{|image| image.id }
   
