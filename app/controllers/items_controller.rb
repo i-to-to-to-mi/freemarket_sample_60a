@@ -57,29 +57,6 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    # @item.update(
-    #   name: item_params[:name],
-    #   description: item_params[:description],
-    #   category: item_params[:category],
-    #   condition: item_params[:condition],
-    #   cover_postage: item_params[:cover_postage],
-    #   shipping_date: item_params[:shipping_date],
-    #   price: params[:price],
-    #   profit_price: params[:profit_price],
-    #   margin_price: params[:margin_price],
-    #   seller_id: item_params[:seller_id],
-    #   prefectures: item_params[:prefectures]
-    # )
-    # if @item.valid? && params[:item_images].present?
-    #   @item.save
-    #   params[:item_images][:image].each do |image|
-    #     @item.images.create(src: image, item_id: @item.id)
-    #   end
-    #   redirect_to("/")
-    # else
-    #   flash[:alert] = '編集に失敗しました。必須項目を確認してください。'
-    #   render :edit
-    # end
 
     # 登録済画像のidの配列を生成
     ids = @item.images.map{|image| image.id }

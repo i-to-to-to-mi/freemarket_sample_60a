@@ -35,80 +35,8 @@ $(window).on("turbolinks:load", function() {
     // 登録済画像のビューをimagesに格納
     images.push(img)
     registered_images_ids.push(image.id)
-    console.log("プレビュー後のimage_id：" + registered_images_ids)
     })
     
-
-
-  //   // 画像が４枚以下のとき
-  // if (images.length <= 4) {
-  //   $('#preview').empty();
-  //   $.each(images, function(index, image) {
-  //     image.data('image', index);
-  //     preview.append(image);
-  //   })
-  //   dropzone.css({
-  //     'width': `calc(100% - (20% * ${images.length}))`
-  //   })
-  //   dropzone2.css({
-  //     display: 'none'
-  //   })
-
-  //   // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
-  // } else if (images.length == 5) {
-  //   $("#preview").empty();
-  //   $.each(images, function(index, image) {
-  //     image.data("image", index);
-  //     preview.append(image);
-  //   });
-  //   dropzone2.css({
-  //     display: "block"
-  //   });
-  //   dropzone.css({
-  //     display: "none"
-  //   });
-  //   preview2.empty();
-
-  //   // 画像が６枚以上のとき
-  // } else if (images.length >= 6) {
-  //   // １〜５枚目の画像を抽出
-  //   var pickup_images1 = images.slice(0, 5);
-
-  //   // １〜５枚目を１段目に表示
-  //   $('#preview').empty();
-  //   $.each(pickup_images1, function(index, image) {
-  //     image.data('image', index);
-  //     preview.append(image);
-  //   })
-
-  //   // ６枚目以降の画像を抽出
-  //   var pickup_images2 = images.slice(5);
-
-  //   // ６枚目以降を２段目に表示
-  //   $.each(pickup_images2, function(index, image) {
-  //     image.data('image', index + 5);
-  //     preview2.append(image);
-  //   })
-
-  //   dropzone.css({
-  //     'display': 'none'
-  //   })
-  //   appendzone.css({
-  //     'display': 'block'
-  //   })
-  //   dropzone2.css({
-  //     'display': 'block',
-  //     'width': `calc(100% - (20% * ${images.length - 5}))`
-  //   })
-
-  //   // 画像が１０枚になったら枠を消す
-  //   if (images.length == 10) {
-  //     dropzone2.css({
-  //       display: "none"
-  //     });
-  //   }
-  // }
-
   // 画像が５枚以上のとき
   if(images.length >= 5) {
     $("#preview").empty();
@@ -171,57 +99,6 @@ $(window).on("turbolinks:load", function() {
     reader.readAsDataURL(file);
     images.push(img);
 
-    // // 画像が４枚以下のとき
-    // if (images.length <= 4) {
-    //   $('#preview').empty();
-    //   $.each(images, function(index, image) {
-    //     image.data('image', index);
-    //     preview.append(image);
-    //   })
-    //   dropzone.css({
-    //     'width': `calc(100% - (20% * ${images.length}))`
-    //   })
-
-    //   // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
-    // } else if (images.length == 5) {
-    //   $("#preview").empty();
-    //   $.each(images, function(index, image) {
-    //     image.data("image", index);
-    //     preview.append(image);
-    //   });
-    //   dropzone.css({
-    //     display: "none"
-    //   });
-    //   preview2.empty();
-
-    //   // 画像が６枚以上のとき
-    // } else if (images.length >= 6) {
-
-    //   // 配列から６枚目以降の画像を抽出
-    //   var pickup_images = images.slice(5);
-    //   $.each(pickup_images, function(index, image) {
-    //     image.data("image", index + 5);
-    //     preview2.append(image);
-    //     dropzone2.css({
-    //       width: `calc(100% - (20% * ${images.length - 5}))`
-    //     });
-    //   });
-
-    //   // // 画像が１０枚になったら枠を消す
-    //   // if (images.length == 10) {
-    //   //   dropzone2.css({
-    //   //     display: "none"
-    //   //   });
-    //   // }
-    // }
-    // // 画像が１０枚のとき
-    // if(images.length == 10) {
-    //   dropzone2.css({
-    //     'display': 'none'
-    //   })
-    //   return;
-    // }
-
    // 画像が５枚以上のとき
    if(images.length >= 5) {
     $("#preview").empty();
@@ -262,12 +139,10 @@ $(window).on("turbolinks:load", function() {
       `<input multiple= "multiple" name="images[src][]" class="upload-image${images.length}" data-image= ${images.length} type="file" id="upload-image" style="display:none;">`
     );
     input_area.append(new_image);
-    console.log(" 画像追加後のimage_id：" + images.length)
   });
 
 
   // 削除ボタン
-  // $("#edit_item .item__img__dropzone, #edit_item .item__img__dropzone2").on('click', '.btn_delete', function() {
 
   $(document).on('click', '.delete', function() {
     // 削除ボタンを押した画像を取得
@@ -281,13 +156,10 @@ $(window).on("turbolinks:load", function() {
 
     // 対象の画像を削除した新たな配列を生成
     images.splice(target_image_num, 1);
-    console.log(" 画像削除のdata-image番号：" + target_image_num)
 
     // target_image_numが登録済画像の数以下の場合は登録済画像データの配列から削除、それより大きい場合は新たに追加した画像データの配列から削除
     if (target_image_num < registered_images_ids.length) {
       registered_images_ids.splice(target_image_num, 1);
-      console.log(" 画像削除ごのimage_idの配列：" + registered_images_ids)
-      console.log(" 画像削除のimage_id配列個数：" + registered_images_ids.length)
     } else {
       new_image_files.splice((target_image_num - registered_images_ids.length), 1);
     }
@@ -303,7 +175,6 @@ $(window).on("turbolinks:load", function() {
     if (images.length <= 4) {
       $('#preview').empty();
       $.each(images, function(index, image) {
-        // image.data('image', index);
         image.attr('data-image', index);
         preview.append(image);
       })
