@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # カード登録ルーティング
-  resources :card, only: [:new, :edit, :show] do
+  resources :card, only: [:new, :show] do
   collection do
     post 'pay', to: 'card#pay'
     post 'delete', to: 'card#delete'
@@ -39,7 +39,6 @@ end
   # resources :items, only: [:show]
   resources :purchase, only: [:show] do
     collection do
-      get 'show', to: 'purchase#show'
       post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
