@@ -91,10 +91,10 @@ gem "omniauth-rails_csrf_protection"
 gem "pry-rails"
 gem 'rails-i18n'
 
-gem 'font-awesome-rails'
+gem "gon"
+gem "aws-sdk"
 gem "aasm"
 gem "gretel"
 gem 'active_hash'
+gem 'recaptcha', require: "recaptcha/rails"
 
-gem "gon"
-gem "aws-sdk"

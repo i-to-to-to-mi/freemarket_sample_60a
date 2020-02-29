@@ -3,7 +3,7 @@
   = render 'mypages/side-bar'
   .mypage-identification
   %h2.mypage-identification__head 本人情報の登録
-  = form_for @address do |f|
+  = form_for "#" do |f|
     = render "devise/shared/error_messages", resource: @address
     .mypage-identification__explanation
       %p.mypage-identification__explanation--left
