@@ -2,16 +2,41 @@ class ItemsController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new, :update, :edit]
   before_action :set_item, only: [:update, :edit, :show, :destroy]
+  before_action :set_category, only: [:new]
 
   def index
-    @items= Item.includes(:images).order('created_at DESC') 
-    @ladies = Item.where(seller_id:1..199).order("created_at DESC").limit(10)
+    @ladies = Item.where(category_id:1.14..211).order("created_at DESC").limit(10)
   end
 
   def new
-    @item = Item.new
-    @item.images.new
+    if user_signed_in?
+      @item = Item.new
+      @item.images.new
+
+        #セレクトボックスの初期値設定
+        @category_parent_array = ["---"]
+        #データベースから、親カテゴリーのみ抽出し、配列化
+        Category.where(ancestry: nil).each do |parent|
+          @category_parent_array << parent.name
+        end
+    else
+      redirect_to root_path
+    end
   end
+
+    # 以下全て、formatはjsonのみ
+    # 親カテゴリーが選択された後に動くアクション
+  def category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  # 子カテゴリーが選択された後に動くアクション
+  def category_grandchildren
+  #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
 
   def create
     @item = Item.new(item_params)
@@ -39,10 +64,10 @@ class ItemsController < ApplicationController
 
     if Rails.env.production?
       client = Aws::S3::Client.new(
-                             region: 'ap-northeast-1',
-                             access_key_id: Rails.application.credentials.aws[:access_key_id],
-                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-                             )
+      region: 'ap-northeast-1',
+      access_key_id: Rails.application.credentials.aws[:access_key_id],
+      secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+      )
       @item.images.each do |image|
         binary_data = client.get_object(bucket: 'freemarketsample60a', key: image.src.file.path).body.read
         gon.images_binary_datas << Base64.strict_encode64(binary_data)
@@ -105,7 +130,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def get_image
+  def image
     @images = Item.find(params[:item_id]).src
   end
 
@@ -124,19 +149,29 @@ class ItemsController < ApplicationController
       :margin_price, 
       :profit_price, 
       :seller_id,
-      :category, 
+      :category_id, 
       images_attributes: [:src,:id])
       .merge(seller_id: current_user.id)
   end
 
   def set_item
-      @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
+    @grandchild = Category.find(@item[:category_id])
+    @child = @grandchild.parent
+    @parent = @child.parent
     end
 
   def registered_image_params
     params.require(:registered_images_ids).permit({ids: []})
   end
+
   def new_image_params
     params.require(:new_images).permit({images: []})
   end
+
+  def set_category
+    @category = Category.where(ancestry: nil)
+  end
 end
+

@@ -1,0 +1,18 @@
+-if user_signed_in?
+  =render "items/header"
+-else
+  =render "items/header-unlogin"
+- breadcrumb :categories
+= render "layouts/breadcrumbs_white"
+.wrapper
+  .categrory__container
+    .categrory__section
+      %h2.categrory__section--title カテゴリー一覧
+      %ul.categrory__section--nav
+        - @parents.each do |parent|
+          %li.categrory__section--nav-parent
+            = link_to parent.name, "category-#{parent.id}", id: "scroll"
+
+    = render "list"
+
+  =render "items/footer"

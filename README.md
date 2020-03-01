@@ -58,7 +58,7 @@
 |price|integer|null: false|
 |margin|integer|null: false|
 |profit|integer|null: false|
-|category_id|integer|null: false, foreign_key: true|
+|category_id|integer|foreign_key: true|
 |item_id|integer|null: false, primary_key: true, index: true|
 |buyer_id|integer|foreign_key: true|
 |seller_id|integer|null: false, foreign_key: true|

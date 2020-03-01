@@ -1,0 +1,17 @@
+.list__section
+  .category__box
+    - @parents.each do |parent|
+      .category__box--title
+        %h3.title--name{id: "root_category-#{parent.id}"}
+          = parent.name
+      .category-inner-box
+        %p
+          = link_to "すべて", "category/#/", class: "parent--all"
+        - parent.children.each do |child|
+          .mini-title{id: "root_category-#{child.id}"}
+            = child.name
+          .clearfix.list__child--box
+            = link_to "すべて", "category/#/", class: "list__child--box__subtitle"
+            - child.children.each do |grandchild|
+              .list__child--box__subtitle{id: "category/#{grandchild.id}/"}
+                = link_to grandchild.name

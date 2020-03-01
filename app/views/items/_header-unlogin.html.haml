@@ -20,13 +20,13 @@
         
         %ul.toppage__footer-nav-category
           %h2
-            = link_to root_path do
+            = link_to categories_path do
               = icon('fas', 'list-ul lg', alt: 'nav-icon',
               class: 'nav-icon')
               %span カテゴリーから探す
           .categories-wrapper
           -# カテゴリーの記述がまだなのでコメントアウト
-          -# = render partial: "category-brand/category"
+          -# = render partial: "category/category"
         %ul.toppage__footer-nav-brand
           %h2
             = link_to root_path do
@@ -34,7 +34,7 @@
               class: 'nav-icon')
               %span ブランドから探す
               -# burandの記述がまだなのでコメントアウト
-              -# = render partial: "category-brand/brand"
+              -# = render partial: "brand"
       .toppage__footer-contents
         .toppage__footer-contents-wrapper
           .toppage__footer-contents--new-register-btn
