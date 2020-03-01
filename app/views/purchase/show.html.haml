@@ -40,7 +40,7 @@
                 .buy-content__container
                   %h1.payment-method__container-left
                     支払い方法
-                  = link_to edit_card_index_path, class: "payment-method__container-right" do
+                  = link_to edit_card_path(current_user), class: "payment-method__container-right" do
                     %span
                       変更する
                 %p.buy-user-info-text
