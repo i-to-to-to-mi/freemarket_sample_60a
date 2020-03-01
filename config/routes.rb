@@ -35,6 +35,7 @@ end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
+  resources :searches, only: [:index] 
   resources :purchase, only: [:show] do
     collection do
       post 'pay', to: 'purchase#pay'
