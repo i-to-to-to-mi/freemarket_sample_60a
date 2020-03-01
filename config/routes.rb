@@ -35,7 +35,6 @@ end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  # resources :items, only: [:show]
   resources :purchase, only: [:show] do
     collection do
       post 'pay', to: 'purchase#pay'
@@ -43,11 +42,10 @@ end
     end
   end
   post "/", to: "purchase#pay"
-  # resources :items, only: [:show, :new, :create]
-  # resources :purchase, only: [:show] 
-  resources :items, only: [:show, :new, :create, :edit, :destroy] do
+  resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'get_image', defaults: { format: 'json' }
     end
   end
+
 end

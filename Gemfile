@@ -93,3 +93,8 @@ gem "gretel"
 gem 'active_hash'
 gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"
+gem "gon"
+gem "aws-sdk"
+
+
+
