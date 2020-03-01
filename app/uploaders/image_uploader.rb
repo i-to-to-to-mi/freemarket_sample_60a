@@ -8,7 +8,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # fog はS3保存
   # fileはローカル保存
   # storage :file
-  storage :fog
+  # storage :fog
+   if Rails.env.development? || Rails.env.test?
+     storage :file
+   else
+     storage :fog
+   end
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
