@@ -45,8 +45,13 @@ class Item < ApplicationRecord
     event :closing do
       transitions :from => :dealing, :to => :completed
     end
-
   end
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?', "%#{search}%"])
+  end
+
 end
 
 

@@ -6,12 +6,12 @@
           = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',
           class: 'toppage__header-contents--freemarket-logo'
 
-        .toppage__heviader-search
-          %form{ action: '/', method: 'post' }
-            %input{ name: 'seach', class: 'toppage__header-search--search-form',
-            placeholder: '何かお探しですか？' }
+        .toppage__header-search
+          .fuzzy_search
+            = form_tag(searches_path,method: :get) do
+              = text_field_tag :search, "",placeholder:"何かお探しですか？"
+              = submit_tag 'search', :name => nil
           .toppage__header-search--search-btn
-
             = icon('fas', 'search', alt: 'search-icon',
             class: 'toppage__header-search--search-btn')
 

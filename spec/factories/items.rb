@@ -13,4 +13,5 @@ FactoryBot.define do
     margin_price       {3333}
     seller_id          {5}   
   end
+  
 end

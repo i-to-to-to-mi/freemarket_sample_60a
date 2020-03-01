@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
     @images = Item.find(params[:item_id]).src
   end
 
-
 private
 
   def item_params
@@ -63,7 +62,9 @@ private
       .merge(seller_id: current_user.id)
   end
 
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+
 end
