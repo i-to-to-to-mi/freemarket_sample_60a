@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:new]
 
   def index
-    @ladies = Item.where(category_id:1.14..211).order("created_at DESC").limit(10)
+    @ladies = Item.where(category_id:14..211).order("created_at DESC").limit(10)
+    @men = Item.where(category_id:212..356).order("created_at DESC").limit(10)
+
   end
 
   def new

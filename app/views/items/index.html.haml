@@ -116,6 +116,18 @@
             = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
       = render "categories/ladies"
 
+  .category-boxes
+    .category-boxes__box
+      .category-boxes__box__heading
+        %h3.category-boxes__box__heading__title
+          %a#category__ladies メンズ新着アイテム
+        .category-boxes__box__heading__links
+          = link_to "もっとみる", "#", class: "category-boxes__box__heading__links--left" 
+          .category-boxes__box__heading__links--right
+          = link_to do
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      = render "categories/men"
+
   .popular-brand
     %h2.popular-brand__title 人気のブランド
     %ul.popular-brand__list
