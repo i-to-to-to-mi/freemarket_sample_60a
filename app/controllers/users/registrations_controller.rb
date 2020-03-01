@@ -48,7 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   
   def register_credit_card
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = 'sk_test_a0029dc5466705b77c5d7bab'
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
