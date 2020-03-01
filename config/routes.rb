@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   # カード登録ルーティング
-  resources :card, only: [:new, :show] do
+  resources :card, only: [:new, :show, :edit] do
   collection do
     post 'pay', to: 'card#pay'
     post 'delete', to: 'card#delete'
-    get 'edit', to: 'card#edit'
+    get 'ser_card', to: 'card#set_card'
+    
   end
 end
 

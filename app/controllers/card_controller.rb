@@ -1,10 +1,10 @@
 class CardController < ApplicationController
 
   require "payjp"
+  before_action :set_card, only: [:new, :delete, :edit]
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "edit" unless card.blank?
+    redirect_to action: "edit" unless @card.blank?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -24,22 +24,25 @@ class CardController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-    else
+    
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
+      unless @card.blank?
     end
       redirect_to action: "new"
   end
 
   def edit #Cardのデータpayjpに送り情報を取り出します
-    card = Card.where(user_id: current_user.id).first
+    
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
+  end
+
+  def set_card
+    @card = Card.where(user_id: current_user.id).first
   end
   
 end
