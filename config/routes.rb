@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   collection do
     post 'pay', to: 'card#pay'
     post 'delete', to: 'card#delete'
-    get 'ser_card', to: 'card#set_card'
-    
   end
 end
 
