@@ -5,7 +5,7 @@ class CardController < ApplicationController
 
   def new
     
-    redirect_to action: "edit" unless @card.blank?
+    redirect_to edit_card_path(current_user) unless @card.blank?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -16,7 +16,7 @@ class CardController < ApplicationController
       customer = Payjp::Customer.create(card: params['payjp-token'])
       card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
         if card.save
-          redirect_to action: "edit"
+          redirect_to edit_card_path(current_user)
         else
           redirect_to action: "pay"
           notice[:delete] = "なんかちげー"

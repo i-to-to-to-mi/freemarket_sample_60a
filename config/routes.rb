@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     post 'pay', to: 'card#pay'
     post 'delete', to: 'card#delete'
     get 'ser_card', to: 'card#set_card'
-    get 'edit', to: 'card#edit'
+    
   end
 end
 
