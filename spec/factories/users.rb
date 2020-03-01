@@ -14,6 +14,8 @@ FactoryBot.define do
     password_confirmation {"00000000"}
   end
 end
+
+  
 # FactoryBot.define do
 
 #   factory :user do
