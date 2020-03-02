@@ -1292,8 +1292,8 @@ PLATFORMS
 DEPENDENCIES
   aasm
   active_hash
-  aws-sdk
   ancestry
+  aws-sdk
   bootsnap (>= 1.1.0)
   byebug
   capistrano
