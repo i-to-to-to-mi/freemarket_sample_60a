@@ -4,7 +4,7 @@ end
 
 # マイページ
 crumb :mypages do
-  link "マイページ", mypage_path
+  link "マイページ", mypage_path(id: current_user.id)
 end
 
 # ログアウト
