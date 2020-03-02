@@ -2,12 +2,11 @@ class ItemsController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :new, :update, :edit]
   before_action :set_item, only: [:update, :edit, :show, :destroy]
-  before_action :set_category, only: [:new]
+  before_action :set_category, only: [:new,:index,:show]
 
   def index
     @ladies = Item.where(category_id:14..211).order("created_at DESC").limit(10)
     @men = Item.where(category_id:212..356).order("created_at DESC").limit(10)
-
   end
 
   def new
@@ -173,7 +172,7 @@ class ItemsController < ApplicationController
   end
 
   def set_category
-    @category = Category.where(ancestry: nil)
+    @parents = Category.all.order("id ASC").limit(13)
   end
 end
 

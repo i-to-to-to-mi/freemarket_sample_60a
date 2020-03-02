@@ -17,16 +17,15 @@
 
     .toppage__footer
       %nav.toppage__footer-nav
-        
         %ul.toppage__footer-nav-category
           %h2
             = link_to categories_path do
               = icon('fas', 'list-ul lg', alt: 'nav-icon',
               class: 'nav-icon')
               %span カテゴリーから探す
-          .categories-wrapper
-          -# カテゴリーの記述がまだなのでコメントアウト
-          -# = render partial: "category/category"
+            .category-down-list
+              = render partial: "categories/category"
+
         %ul.toppage__footer-nav-brand
           %h2
             = link_to root_path do

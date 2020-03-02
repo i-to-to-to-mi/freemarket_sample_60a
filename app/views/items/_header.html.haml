@@ -17,17 +17,14 @@
 
     .toppage__footer
       %nav.toppage__footer-nav
-        
         %ul.toppage__footer-nav-category
           %h2
             = link_to categories_path do
               = icon('fas', 'list-ul lg', alt: 'nav-icon',
               class: 'nav-icon')
               %span カテゴリーから探す
-          .categories-wrapper
-          -# カテゴリーの記述がまだなのでコメントアウト
-          -# = render partial: "category/category"
-
+            .category-down-list
+              = render partial: "categories/category"
         %ul.toppage__footer-nav-brand
           %h2
             = link_to root_path do
@@ -52,89 +49,16 @@
                 %span お知らせ
                 .toppage__footer-login-content--notice-count
                   99+
-              %ul.toppage__footer-login-content--notice-lists
-            -#     %li.toppage__footer-login-content--notice-item
-            -#       = link_to root_path do
-            -#         %figure
-            -#           = image_tag '#', alt: 'freemarket-logo', class: 'notice-freemarket-logo'
-            -#         .toppage__footer-login-content--notice-item-body
-            -#           .notice-item-text 事務局から個別メッセージ「ログイン通知」
-            -#           %time
-            -#             = icon('far', 'clock', alt: 'clock-icon',
-            -#             class: 'toppage__footer-login-content--clock-icon')
-            -#             %span 2 分前
-            -#         = icon 'fas', 'chevron-right'
-            -#     %li.toppage__footer-login-content--notice-item
-            -#       = link_to root_path do
-            -#         %figure
-            -#           = image_tag '#', alt: 'freemarket-logo', class: 'notice-freemarket-logo'
-            -#         .toppage__footer-login-content--notice-item-body
-            -#           .notice-item-text 【明日まで！】スマホ出品で最大1000ポイントがもらえる
-            -#           %time
-            -#             = icon('far', 'clock', alt: 'clock-icon',
-            -#             class: 'toppage__footer-login-content--clock-icon')
-            -#             %span 16 時間前
-            -#         = icon 'fas', 'chevron-right'
-
             %li.toppage__footer-login-content--todo
               = link_to root_path do
-                = icon('fas', 'check', alt: 'bell-icon',
-                class: 'toppage__footer-login-content--check-icon')
+                = icon('fas', 'check', alt: 'bell-icon',class: 'toppage__footer-login-content--check-icon')
                 %span やることリスト
-            -#   %ul.toppage__footer-login-content--todo-list
-            -#     %li
-            -#     現在、やることリストはありません
 
             %li.toppage__footer-login-content--mypage
               = link_to "/mypages/:id" do
-                = image_tag 'logo_gray.svg', alt: 'mypage-logo',
-                class: 'toppage__footer-login-content--mypage-header-user-icon'
+                = image_tag 'logo_gray.svg', alt: 'mypage-logo',class: 'toppage__footer-login-content--mypage-header-user-icon'
                 %span マイページ
-              .toppage__footer-login-content--mypage-box
-                .toppage__footer-login-content--mypage-box-content
-                -#   %figure
-                -#     %div
-                -#       = image_tag 'member_photo_noimage.png', alt: 'mypage-logo', width: '60px',
-                -#       class: 'toppage-header-top__footer-login-content--mypage-pulldown-user-icon'
-                -#     %figcaption
-                -#       = current_user.nickname
-                -#   %ul.toppage-top__footer-login-content--mypage-review-listing
-                -#     %li
-                -#       = link_to '評価: 2', '#'
-                -#     %li
-                -#       = link_to "出品数: #{current_user.products.length}", listing_listing_mypage_index_path
-                -#   %ul.toppage-top__footer-login-content--mypage-sales-point
-                -#     %li
-                -#       = link_to '#' do
-                -#         .mypage-list-left 売上金
-                -#         .mypage-list-right
-                -#           ¥0
-                -#           = icon 'fas', 'chevron-right'
-                -#     %li
-                -#       = link_to '#' do
-                -#         .l-left ポイント
-                -#         .l-right
-                -#           P0
-                -#           = icon 'fas', 'chevron-right'
-                -# %ul.toppage-top__footer-login-content--mypage-nav-list
-                -#   %li
-                -#     = link_to listing_listing_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
-                -#       出品した商品 - 出品中
-                -#       = icon 'fas', 'chevron-right'
-                -#   %li
-                -#     = link_to listing_in_progress_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
-                -#       出品した商品 - 取引中
-                -#       = icon('fas', 'chevron-right')
-                -#   %li
-                -#     = link_to listing_completed_mypage_index_path, class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
-                -#       出品した商品 - 売却済み
-                -#       = icon('fas', 'chevron-right')
-                -#   %li
-                -#     = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
-                -#       購入した商品 - 取引中
-                -#       = icon('fas', 'chevron-right')
-                -#   %li
-                -#     = link_to '#', class: 'toppage-header-top__footer-login-content--mypage-nav-list-item' do
-                -#       購入した商品 - 過去の取引
-                -# = icon('fas', 'chevron-right')
+            .toppage__footer-login-content--mypage-box
+              .toppage__footer-login-content--mypage-box-content
+                
 
