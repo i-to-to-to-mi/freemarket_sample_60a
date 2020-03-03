@@ -1,16 +1,18 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to :seller, class_name:"User"
+  belongs_to :seller, class_name:"User", foreign_key: 'seller_id'
+  belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
 
   # validation
-  validates :name, :description,:condition, :cover_postage, :prefectures, :shipping_date, :price, :seller_id , :category, presence: true
+  validates :name, :description,:condition, :cover_postage, :prefectures, :shipping_date, :price, :seller_id ,:category_id,presence: true
   validates :name, length: { in: 1..40}, presence: true
   validates :description, length: { in: 1..1000}, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999}
+  validates :category_id, numericality: { only_integer: true }
 
   include AASM
 
@@ -27,7 +29,7 @@ class Item < ApplicationRecord
     state :selling, :initial => true
     state :pending, :dealing, :completed
 
- 
+
     # 出品中＝＞出品停止中
 
     event :stop_sales do
@@ -51,7 +53,5 @@ class Item < ApplicationRecord
     return Item.all unless search
     Item.where(['name LIKE ?', "%#{search}%"])
   end
-
 end
-
 

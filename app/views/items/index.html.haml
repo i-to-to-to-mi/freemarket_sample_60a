@@ -1,4 +1,7 @@
-= render "header"
+-if user_signed_in?
+  =render "header"
+-else
+  =render "header-unlogin"
 .main
   = render "layouts/topview"
   .liked-items
@@ -111,7 +114,18 @@
           .category-boxes__box__heading__links--right
           = link_to do
             = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
-      = render "ladies"
+      = render partial: "categories/ladies"
+  .category-boxes
+    .category-boxes__box
+      .category-boxes__box__heading
+        %h3.category-boxes__box__heading__title
+          %a#category__ladies メンズ新着アイテム
+        .category-boxes__box__heading__links
+          = link_to "もっとみる", "#", class: "category-boxes__box__heading__links--left" 
+          .category-boxes__box__heading__links--right
+          = link_to do
+            = icon('fas', 'chevron-right', alt: 'chevron-right',class: 'category-boxes__box__heading__links--right__icon')
+      = render "categories/men"
 
   .popular-brand
     %h2.popular-brand__title 人気のブランド
@@ -227,11 +241,10 @@
                   = image_tag 'brand-item.jpg', alt: 'brand-item',
                   class: 'brand-items__item__thumbnail__image' 
   .selling-item-box
-    %a.selling-item-box__link{href: "#"}
-      .selling-item-box__contents
-        = link_to new_item_path, class: "selling-item-box__contents__letter" do
-          = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
-          %p.selling-item-box__contents__letter 出品
+    .selling-item-box__contents
+      = link_to new_item_path ,class: "selling-item-box__contents__letter" do
+        = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
+        %p.selling-item-box__contents__letter 出品
   .contents
 
 = render"footer"

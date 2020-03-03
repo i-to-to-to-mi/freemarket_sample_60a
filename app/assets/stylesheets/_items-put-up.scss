@@ -97,6 +97,8 @@
     }
   }
 }
+
+
 .sell-main__box__inner{
   display: flex;
   justify-content: space-between
@@ -200,6 +202,51 @@ i.fa.fa-camera{
   width: 100%;
   margin: 8px 0 0;
 }
+.product_category-select__box {
+  position: relative;
+  
+}
+  i.fas.fa-chevron-down.sell-main__form__select__arrow{
+    position: relative;//子のポジション指定
+    right: -360px;//右25px空ける
+    top: -24px;//上から70%の位置へ
+    z-index: 2;//親の下へ潜り揉まないようにする
+    color: #888;
+    transform: translate(0, -50%);//translate(X方向の移動距離, Y方向の移動距離)
+    font-size: 18px;
+      }
+  
+
+    select#child_category.sell-main__form-children__select {
+    display:inline;
+    position:relative;
+    @include form-select;
+  }
+    i.fas.fa-chevron-down.sell-main__form__select__arrow{
+      position: relative;//子のポジション指定
+      right: -360px;//右25px空ける
+      top: -24px;//上から70%の位置へ
+      z-index: 2;//親の下へ潜り揉まないようにする
+      color: #888;
+      transform: translate(0, -50%);//translate(X方向の移動距離, Y方向の移動距離)
+      font-size: 18px;
+        }
+
+  select#grandchild_category.sell-main__form-children__select{
+    display:inline-block;
+    position:relative;
+    @include form-select;
+  }
+  i.fas.fa-chevron-down.sell-main__form__select__arrow{
+    position: relative;//子のポジション指定
+    right: -360px;//右25px空ける
+    top: -24px;//上から70%の位置へ
+    z-index: 2;//親の下へ潜り揉まないようにする
+    color: #888;
+    transform: translate(0, -50%);//translate(X方向の移動距離, Y方向の移動距離)
+    font-size: 18px;
+      }
+
 
 .sell-main{
   &__button-box--description{
@@ -221,6 +268,11 @@ i.fa.fa-camera{
       }
     }
   }
+}
+
+
+#item_category_id{
+  @include form-select;
 }
 #item_prefectures{
   @include form-select;
