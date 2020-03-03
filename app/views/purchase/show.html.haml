@@ -10,15 +10,15 @@
         .buy-content__item__inner
           .buy-item-box
             %h3.buy-item__image
-              = image_tag 'category-item.jpg'
+              = image_tag "#{@item.images[0].src}"
             .buy-item-detail
               %p.buy-item-detail__name
-                カーディガン ポンチタイトストレッチスカートベージュサイズ１
+                = @item.name
               %p.buy-item-detail__price
                 %span
-                  ¥6,000
+                  = @item.price
                 %span.item-shipping__fee
-                  （税込）送料込み
+                  円（税込）送料込み
       %section.buy-content__price
         .buy-content__price-inner
           .buy-form            
@@ -28,7 +28,8 @@
                   支払い金額
                 .buy-price__cell
                   %span.buy-pay
-                    ¥6,000  
+                    ¥
+                    = @item.price  
             %ul.buy-point__table
               %li.user-point
                 .buy-use-point
