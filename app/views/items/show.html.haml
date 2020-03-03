@@ -109,9 +109,10 @@
         (税込)
       %span.item-price-box.fee
         送料込み
-    -# = link_to '購入画面に進む','#',class: 'item-buy-button '
-    -# = link_to '売り切れました','#',class: 'item-sold-button '
-    -# 売り切れじに表示するボタン部分です。現在if文での条件分岐を行なっていないためコメントアウトしています
+      -if @item.buyer_id.present?   
+        = link_to '売り切れました','#',class: 'item-sold-button '
+      -else
+        = link_to '購入画面に進む', purchase_path(@item.id),class: 'item-buy-button '
     .t_delete 
       この商品を削除する  
     .t_overlay

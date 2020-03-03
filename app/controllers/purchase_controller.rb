@@ -18,9 +18,10 @@ class PurchaseController < ApplicationController
 
   def pay
     card = Card.where(user_id: current_user.id).first
+    item = Item.first
     Payjp.api_key = 'sk_test_a0029dc5466705b77c5d7bab'
     Payjp::Charge.create(
-    amount: 6000,
+    amount: item.price,
     customer: card.customer_id, #顧客ID
     currency: 'jpy',
   )
@@ -31,5 +32,7 @@ class PurchaseController < ApplicationController
   @item= Item.first
   customer = Payjp::Customer.retrieve(card.customer_id)
   @default_card_information = customer.cards.retrieve(card.card_id)
+  @item_buyer= Item.first
+  @item_buyer.update( buyer_id: current_user.id)
   end
 end
