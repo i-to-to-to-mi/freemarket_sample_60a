@@ -1,0 +1,42 @@
+%header.header
+  .header-wrapper
+    .toppage__header
+      .toppage__header-contents
+        = link_to root_path do
+          = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',
+          class: 'toppage__header-contents--freemarket-logo'
+
+        .toppage__heviader-search
+          %form{ action: '/', method: 'post' }
+            %input{ name: 'seach', class: 'toppage__header-search--search-form',
+            placeholder: '何かお探しですか？' }
+          .toppage__header-search--search-btn
+
+            = icon('fas', 'search', alt: 'search-icon',
+            class: 'toppage__header-search--search-btn')
+
+    .toppage__footer
+      %nav.toppage__footer-nav
+        %ul.toppage__footer-nav-category
+          %h2
+            = link_to categories_path do
+              = icon('fas', 'list-ul lg', alt: 'nav-icon',
+              class: 'nav-icon')
+              %span カテゴリーから探す
+            .category-down-list
+              = render partial: "categories/category"
+
+        %ul.toppage__footer-nav-brand
+          %h2
+            = link_to root_path do
+              = icon('fas', 'tag lg', alt: 'tag-icon',
+              class: 'nav-icon')
+              %span ブランドから探す
+              -# burandの記述がまだなのでコメントアウト
+              -# = render partial: "brand"
+      .toppage__footer-contents
+        .toppage__footer-contents-wrapper
+          .toppage__footer-contents--new-register-btn
+            = link_to '新規会員登録', new_user_path 
+          .toppage__footer-contents--user-login-btn
+            = link_to 'ログイン', user_session_path

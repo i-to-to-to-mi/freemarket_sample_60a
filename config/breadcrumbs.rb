@@ -7,6 +7,11 @@ crumb :mypages do
   link "マイページ", mypage_path(id: current_user.id)
 end
 
+# カテゴリー
+crumb :categories do
+  link "カテゴリー", categories_path
+end
+
 # ログアウト
 crumb :logout do
   link "ログアウト", logout_mypages_path

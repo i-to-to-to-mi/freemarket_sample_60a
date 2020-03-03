@@ -95,6 +95,4 @@ gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"
 gem "gon"
 gem "aws-sdk"
-
-
-
+gem 'ancestry'
