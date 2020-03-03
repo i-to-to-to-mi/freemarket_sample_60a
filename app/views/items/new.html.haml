@@ -58,7 +58,7 @@
                 = f.label :category, "カテゴリー", class: "sell-main__form__label"
                 %span.form-neccesary 必須
               .product_category-select__box
-                = f.select :category, @category_parent_array, {:prompt => "---"}, {class: 'sell-main__form__select', id: 'parent_category'}
+                = f.select :category, @category_parent_array, {include_blank: '---'}, {class: 'sell-main__form__select', id: 'parent_category'}
                 %i.fas.fa-chevron-down.sell-main__form__select__arrow
               .sell-main__form
                 = f.label :condition, "商品の状態", class: "sell-main__form__label"
