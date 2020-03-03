@@ -157,7 +157,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-    @item = Item.find(params[:id])
     @grandchild = Category.find(@item[:category_id])
     @child = @grandchild.parent
     @parent = @child.parent
