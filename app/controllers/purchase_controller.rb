@@ -3,7 +3,6 @@ class PurchaseController < ApplicationController
 
   def show
     card = Card.where(user_id: current_user.id).first
-    
     @item= Item.first
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -27,5 +26,10 @@ class PurchaseController < ApplicationController
   )
   redirect_to action: 'done' #完了画面に移動
   end
-
+  def done
+  card = Card.where(user_id: current_user.id).first
+  @item= Item.first
+  customer = Payjp::Customer.retrieve(card.customer_id)
+  @default_card_information = customer.cards.retrieve(card.card_id)
+  end
 end
