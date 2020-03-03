@@ -3,7 +3,7 @@ class PurchaseController < ApplicationController
 
   def show
     card = Card.where(user_id: current_user.id).first
-    @item= Item.first
+    @item = Item.find(params[:id])
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to controller: "card", action: "new"
@@ -18,7 +18,7 @@ class PurchaseController < ApplicationController
 
   def pay
     card = Card.where(user_id: current_user.id).first
-    item = Item.first
+    item = Item.find(params[:id])
     Payjp.api_key = 'sk_test_a0029dc5466705b77c5d7bab'
     Payjp::Charge.create(
     amount: item.price,
@@ -29,10 +29,10 @@ class PurchaseController < ApplicationController
   end
   def done
   card = Card.where(user_id: current_user.id).first
-  @item= Item.first
+  @item = Item.find(params[:id])
   customer = Payjp::Customer.retrieve(card.customer_id)
   @default_card_information = customer.cards.retrieve(card.card_id)
-  @item_buyer= Item.first
+  @item_buyer= Item.find(params[:id])
   @item_buyer.update( buyer_id: current_user.id)
   end
 end
