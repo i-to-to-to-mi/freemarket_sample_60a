@@ -43,9 +43,12 @@ end
     end
   end
   post "/", to: "purchase#pay"
+  resources :categories, only: [:index]
   resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
     collection do
-      get 'get_image', defaults: { format: 'json' }
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+      get 'image', defaults: { format: 'json' }
     end
   end
 

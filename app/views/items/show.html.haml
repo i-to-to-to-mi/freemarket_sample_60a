@@ -61,15 +61,15 @@
               カテゴリ
             %td
               = link_to do
-                %div レディース
+                = @parent.name
               = link_to do
                 .sub-category
                   = icon('fas', 'chevron-right')
-                  バッグ
+                  = @child.name
               = link_to do
                 .sub-sub-category
                   = icon('fas', 'chevron-right')
-                  ショルダーバッグ
+                  = @grandchild.name
           %tr
             %th
               ブランド
