@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :update, :edit]
   before_action :set_item, only: [:update, :edit, :show, :destroy]
   before_action :set_category, only: [:new,:index,:show]
+  before_action :ensure_identical_user, only: [:edit, :destroy, :update]
 
   def index
     @ladies = Item.where(category_id:14..211).order("created_at DESC").limit(10)
@@ -105,12 +106,12 @@ class ItemsController < ApplicationController
         end
       end
 
-      flash[:notice] = '編集が完了しました'
       redirect_to item_path(@item), data: {turbolinks: false}
+      flash[:notice] = '編集が完了しました'
 
     else
-      flash[:alert] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
+      flash[:alert] = '未入力項目があります'
     end
 
   end
@@ -124,15 +125,6 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end
-  end
-
-  def ensure_correct_user
-    if @item.seller_id != current_user.id
-      redirect_to item_path
-      flash[:delete] = "権限がありません"
-    else
-      destroy
     end
   end
 
@@ -178,5 +170,13 @@ class ItemsController < ApplicationController
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
   end
+
+  def ensure_identical_user
+    if @item.seller_id != current_user.id
+      redirect_to item_path
+      flash[:delete] = "不正アクセスは許しません！！！"
+    end
+  end
+
 end
 
