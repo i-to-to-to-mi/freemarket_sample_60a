@@ -1,3 +1,32 @@
-// Place all the styles related to the searches controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  .search {
+    display: flex;
+    &-left {
+      background-color: rgba(166, 156, 221, 0.945);
+      margin: 0 40px 0 0;
+      height: 1600px;
+      width: 280px;
+      .drop_downs {
+        position: static;
+        display: block;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding: 16px;
+        .large-word {
+          font-size: 16px;
+          display: block;
+        }
+      }
+    }
+    &-right {
+      background-color: rgba(221, 156, 156, 0.945);  
+      .search-result-head {
+        font-size: 22px;
+        margin: 0 0 8px;
+      }
+    }
+}
+}
