@@ -56,12 +56,16 @@
                   
                 %address.buy-user-info-text
                   %p
-                    〒112-0012
+                    〒
+                    =@user.address.postal_code
                     %br/
-                    東京都 **区
-                    ** *-**-**
+                    =@user.address.prefectures
+                    =@user.address.city
+                    =@user.address.address
+                    =@user.address.building
                     %br/
-                    斉藤 佑子
+                    =@user.first_name 
+                    =@user.last_name
             %section.buy-user__info
              
   %footer.buy-footer
