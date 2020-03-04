@@ -25,7 +25,7 @@ class PurchaseController < ApplicationController
     customer: card.customer_id, #顧客ID
     currency: 'jpy',
   )
-  redirect_to action: 'done' #完了画面に移動
+  redirect_to done_purchase_index_path(id:item.id) #完了画面に移動
   end
   def done
   card = Card.where(user_id: current_user.id).first

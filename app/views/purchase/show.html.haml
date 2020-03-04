@@ -72,7 +72,8 @@
                     %br/
                     斉藤 佑子
             %section.buy-user__info
-              = form_tag(action: :pay, method: :post) do
+              = form_tag(action: :pay, method: :post, id:@item.id) do
+
                 %button 購入する
               
               
