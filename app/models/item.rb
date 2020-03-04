@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to :seller, class_name:"User"
   has_many :images, dependent: :destroy
+  belongs_to :brand, optional: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
 
