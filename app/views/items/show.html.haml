@@ -10,28 +10,53 @@
           = image_tag "#{@item.images[0].src}", alt: 'brand-item'
         .box-photo__thumbnail
           .box-photo__thumbnail__top
-            -# 複数画像の投稿までは現時点で実装していないです。
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+          -if @item.images[1].present?
+            %div.brand-item
+              = image_tag "#{@item.images[1].src}", alt: 'brand-item'
+          - else
+            = image_tag "no_image.png", alt: 'brand-item'
+          -if @item.images[2].present?
+          %div.brand-item
+            = image_tag "#{@item.images[2].src}", alt: 'brand-item'
+          - elseif
+            = image_tag "no_image.png", alt: 'brand-item'
+          -if @item.images[3].present?
+          %div.brand-item
+            = image_tag "#{@item.images[3].src}", alt: 'brand-item'
+          - elseif
+            = image_tag "no_image.png", alt: 'brand-item'
           .box-photo__thumbnail__bottom
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+        -if @item.images[4].present?
+        %div.brand-item
+          = image_tag "#{@item.images[4].src}", alt: 'brand-item'
+        - elseif
+          = image_tag "no_image.png", alt: 'brand-item'
+        -if @item.images[5].present?
+        %div.brand-item
+          = image_tag "#{@item.images[5].src}", alt: 'brand-item'
+        - elseif
+          = image_tag "no_image.png", alt: 'brand-item'
+        -if @item.images[6].present?
+        %div.brand-item
+          = image_tag "#{@item.images[6].src}", alt: 'brand-item'
+        - elseif
+          = image_tag "no_image.png", alt: 'brand-item'
+        -if @item.images[7].present?
+        %div.brand-item
+          = image_tag "#{@item.images[7].src}", alt: 'brand-item'
+        - elseif
+          = image_tag "no_image.png", alt: 'brand-item'
+        -if @item.images[8].present?
+        %div.brand-item
+          = image_tag "#{@item.images[8].src}", alt: 'brand-item'
+        - elseif
+          = image_tag "no_image.png", alt: 'brand-item'
+        -if @item.images[9].present?
+        %div.brand-item
+          = image_tag "#{@item.images[9].src}", alt: 'brand-item'
+        - elseif
+          = image_tag "no_image.png", alt: 'brand-item'
+        
       %table.box__detail-table
         %tbody
           %tr

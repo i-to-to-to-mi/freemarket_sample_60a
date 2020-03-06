@@ -43,16 +43,8 @@ section {
         &__top{
           display: flex;
           box-sizing: border-box;
-        div{  
-          width: 60px;
-          height: 60px;
-          img{
-            filter: blur(1px);
-            width: 60px;
-            height: 60px;
-            }
-          }
         }
+        
         &__bottom{
           display: flex;
         div{
@@ -67,6 +59,18 @@ section {
         }
       }
     }
+
+    div.brand-item{  
+      width: 60px;
+      height: 60px;
+      img{
+        top:0;
+        filter: blur(1px);
+        width: 60px;
+        height: 60px;
+        }
+      }
+
   table{
     box-sizing: border-box;
     width: 300px;
