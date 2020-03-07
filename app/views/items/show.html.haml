@@ -7,31 +7,9 @@
     .item-main-box
       .box-photo
         .box-photo__photo
-          = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        .box-photo__thumbnail
-          .box-photo__thumbnail__top
-            -# 複数画像の投稿までは現時点で実装していないです。
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-          .box-photo__thumbnail__bottom
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-            %div
-              = image_tag "#{@item.images[0].src}", alt: 'brand-item'
+          - @item.images.each_with_index do |image, i|
+            = image_tag "#{image.src}"
+        
       %table.box__detail-table
         %tbody
           %tr
@@ -52,7 +30,7 @@
                   %span
                   14
                 .user-ratings
-                  %i.icon-bad
+                  %i.icon-bad 
                     = icon('fas', 'dizzy')
                   %span
                   1
