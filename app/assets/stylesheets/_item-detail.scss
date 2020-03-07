@@ -30,41 +30,18 @@ section {
       margin-right: 20px;
       &__photo{
         width: 300px;
-        height: 300px;
-        img{
-        width: 300px;
-        height: 300px;
+        height: 420px;
+        font-size: 0;
+        img:nth-child(1){
+          width: 300px;
+          height: 300px;
         }
-      }
-      &__thumbnail{
-        box-sizing: border-box;
-        width: 300px;
-        height: 120px;
-        display: flex;
-        
-        &__bottom{
-          display: flex;
-        div{
-          width: 60px;
-          height: 60px;
-          img{
-            filter: blur(1px);
-            width: 60px;
-            height: 60px;
-            }
-          }
+        img{
+        @include item;
         }
       }
     }
-
-    div.brand-item{  
-      width: 60px;
-      height: 60px;
-      img{
-        width: 60px;
-        height: 60px;
-        }
-      }
+  
 
   table{
     box-sizing: border-box;

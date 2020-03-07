@@ -7,45 +7,8 @@
     .item-main-box
       .box-photo
         .box-photo__photo
-          = image_tag "#{@item.images[0].src}", alt: 'brand-item'
-        .box-photo__thumbnail
-          -if @item.images[1].present?
-            %div.brand-item
-              = image_tag "#{@item.images[1].src}", alt: 'brand-item'
-          - else
-          -if @item.images[2].present?
-            %div.brand-item
-              = image_tag "#{@item.images[2].src}", alt: 'brand-item'
-          - else
-          -if @item.images[3].present?
-            %div.brand-item
-              = image_tag "#{@item.images[3].src}", alt: 'brand-item'
-          - else
-          .box-photo__thumbnail__bottom
-          -if @item.images[4].present?
-            %div.brand-item
-              = image_tag "#{@item.images[4].src}", alt: 'brand-item'
-          - else
-          -if @item.images[5].present?
-            %div.brand-item
-              = image_tag "#{@item.images[5].src}", alt: 'brand-item'
-          - else
-          -if @item.images[6].present?
-            %div.brand-item
-              = image_tag "#{@item.images[6].src}", alt: 'brand-item'
-          - else
-          -if @item.images[7].present?
-            %div.brand-item
-              = image_tag "#{@item.images[7].src}", alt: 'brand-item'
-          - else
-          -if @item.images[8].present?
-            %div.brand-item
-              = image_tag "#{@item.images[8].src}", alt: 'brand-item'
-          - else
-          -if @item.images[9].present?
-            %div.brand-item
-              = image_tag "#{@item.images[9].src}", alt: 'brand-item'
-          - else
+          - @item.images.each_with_index do |image, i|
+            = image_tag "#{image.src}"
         
       %table.box__detail-table
         %tbody
@@ -67,7 +30,7 @@
                   %span
                   14
                 .user-ratings
-                  %i.icon-bad
+                  %i.icon-bad 
                     = icon('fas', 'dizzy')
                   %span
                   1
