@@ -1,0 +1,194 @@
+.wrapper{
+  @include background;
+  margin-top: 0;
+}
+
+.categrory__container {
+  margin: 0 auto 40px auto;
+  width: 700px;
+  background: transparent;
+  
+
+  .categrory__section {
+    line-height: 45px;
+
+    &--title {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 8px 0;
+    }
+
+    &--nav {
+      width: 700px;
+      height: 250px;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 14px 0 0;
+      list-style: none;
+      margin: 8px 2% 0 0;
+
+      &-parent {
+        background-color: #fff;
+        border-radius: 4px;
+        height: 40px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        padding: 0 30px;
+        margin: 5px;
+        font-size: 16px;
+        line-height: 40px;
+        cursor: pointer;
+
+        a {
+          color: #333;
+          display: block;
+        }
+
+        &:hover {
+          background-color: #ea352d;
+
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .list__section {
+    margin: 30px auto;
+
+    .category__box {
+      border-radius: 4px;
+      margin-bottom: 40px;
+
+
+      &--title {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 7px 30px 0 30px;
+        height: 35px;
+        background-color: #ea352d;
+        .title--name {
+          font-size: 22px;
+          color: white;
+          margin-top: -5px;
+        }
+      }
+      .category-inner-box{
+        padding: 24px 30px 10px 30px;
+        display:block;
+        box-sizing: border-box;
+        background-color: white;
+        position: relative;
+        border-radius: 4px;
+        margin-bottom: 40px;
+        .parent--all {
+          color: #0095EE;
+          &:hover{
+            cursor: auto;
+            color: #0095EE;
+          }
+        }
+      }
+      
+      .mini-title{
+        padding-top: 15px;
+        padding-bottom: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        height:34px;
+        box-sizing: border-box;
+      
+        
+      }
+      &--inner {
+        background-color: white;
+        border-radius: 4px;
+        margin-bottom: 40px;
+        box-sizing: inherit;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        }
+
+        .list__child-minititle {
+            color: #0095EE;
+            &:hover{
+              cursor: auto;
+              color: #0095EE;
+            }
+          }
+            
+
+            .list__child--box {
+              padding-left: 20px;
+              padding-right: 20px;
+              padding-bottom: 10px;
+              font-size: 16px;
+              margin-top: 8px;
+              margin-bottom: 8px;
+              a{
+                color: #0095EE;
+              &:hover{
+              cursor: auto;
+              color: #0095EE;
+            }
+          }
+            &__subtitle{
+              float: left;
+              width: 50%;
+              padding: 0 20px 0 0;
+              font-size: 16px;
+              margin-top: 8px;
+              margin-bottom: 8px;
+              color: #0095EE;
+              &:hover{
+              cursor: auto;
+              color: #0095EE;
+                }
+              }
+            }
+            .clearfix:after{
+              content: '';
+              display: block;
+              clear: both;
+            }
+              
+
+              .list__child--all {
+                font-size: 16px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                width: 50%;
+              }
+                .child--all {
+                  color: #0095EE;
+                  width: 50%;
+                  padding: 0 20px 0 0;  font-size: 16px;
+                  margin-top: 8px;
+                  margin-bottom: 8px;
+                  font-weight: normal;
+                  float: left;
+              }
+
+              .list__grandchild {
+                &--name {
+                  width: 50%;
+                  padding: 0 20px 0 0;
+                  margin-top: 8px;
+                  margin-bottom: 8px;
+                  font-weight: normal;
+                  float: left;
+                  .grandchild--name {
+                    font-size: 16px;
+                    color: #0095EE;
+                    width: 50%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      
+    

@@ -1,3 +1,10 @@
+// こちら実際の商品出品では使用していません。エラーが出るため削除予定のものでした
+// 実際はimage_upload.jsというファイルを使用しています。
+// 今後使用予定ございましたら修正お願いいたします。
+// 不要ということで敷いたら削除いただけますでしょうか。
+// よろしくお願いいたします。
+
+
 $(function() {
   $('.liked-items__sliders').slick({
     slidesToShow: 6,
@@ -40,23 +47,33 @@ $(document).on('turbolinks:load', ()=> {
     e.preventDefault();
   });
 
-  送信ボタンがおされたとき
-  $('form').on('submit', (e) => {
-    console.log("imtejs_form")
-    console.log(drop_file); // file オブジェクト
-    try {
-      const form_data = new FormData( $(e.target).get()[0] );
+  
+  // 下↓の部分、クレジットカード登録と削除の部分で、
+  // submitボタンを押すときに発火してしまい、
+  // 修正方法がすぐにはわからなかったので
+  // 取り急ぎコメントアウトさせていただきました。
+  // またご相談させてください。
+  
+  // ここから
+  // 送信ボタンがおされたとき
+  // $('form').on('submit', (e) => {
+  //   // console.log("imtejs_form")
+  //   // console.log(drop_file); // file オブジェクト
+  //   try {
+  //     const form_data = new FormData( $(e.target).get()[0] );
 
-      // ファイルが選択されてなかったらドロップファイルを送信
-      if(!$('[type="file"]').val()) {
-        $(e.target).find('[type="file"]').get()[0].files = e.originalEvent.dataTransfer.files;
-        form_data.append($(e).attr('name'), drop_file);
-      }
+  //     // ファイルが選択されてなかったらドロップファイルを送信
+  //     if(!$('[type="file"]').val()) {
+  //       $(e.target).find('[type="file"]').get()[0].files = e.originalEvent.dataTransfer.files;
+  //       form_data.append($(e).attr('name'), drop_file);
+  //     }
 
-      // ここでform_data を submit したい
-    } catch(e) {}
-    return false;
-  });
+  //     // ここでform_data を submit したい
+  //   } catch(e) {}
+  //   return false;
+  // });
+  // ここまで
+  
 // -# ここでドロップボックス終了
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {

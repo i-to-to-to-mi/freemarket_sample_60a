@@ -57,9 +57,8 @@
               .sell-main__form
                 = f.label :category, "カテゴリー", class: "sell-main__form__label"
                 %span.form-neccesary 必須
-                = f.select :category, ['レディース','メンズ', "ベビー・キッズ","インテリア・住まい・小物","本・音楽・ゲーム","おもちゃ・ホビー・グッズ","コスメ・香水・美容","家電・スマホ・カメラ","スポーツ・レジャー","ハンドメイド","チケット","自動車・オートバイ","その他"], {include_blank: '---'}, {class: 'sell-main__form__select', id: 'parent_category'}
-                -# カテゴリの設定をしていない為コメントアウト
-                -# = f.select :category, @category_parent_array, {}, {class: 'sell-main__form__select', id: 'parent_category'}
+              .product_category-select__box
+                = f.select :category, @category_parent_array, {include_blank: '---'}, {class: 'sell-main__form__select', id: 'parent_category'}
                 %i.fas.fa-chevron-down.sell-main__form__select__arrow
               .sell-main__form
                 = f.label :brand_id, "ブランド", class: "sell-main__form__label"
@@ -91,7 +90,7 @@
               .sell-main__form
                 = f.label :shipping_area, "発送元の地域", class: "sell-main__form__label"
                 %span.form-neccesary 必須
-                = f.collection_select :prefectures, Prefecture.all, :name, :name,prompt: "--"
+                = f.collection_select :prefectures, Prefecture.all, :name, :name,prompt: "---"
                 = icon('fas', 'chevron-down', alt: 'chevron-down',class: 'sell-main__form__select__arrow')
           
               .sell-main__form
