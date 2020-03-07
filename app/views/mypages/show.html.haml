@@ -1,17 +1,18 @@
-.mypage-main-container
-  = render 'items/header'
-  - breadcrumb :mypages
-  = render "layouts/breadcrumbs_white"
-  %main.mypage-container
-    = render 'content'
-    = render 'side-bar'
+.all-wrapper
+  .mypage-main-container
+    = render 'items/header'
+    - breadcrumb :mypages
+    = render "layouts/breadcrumbs_white"
+    %main.mypage-container
+      = render 'content'
+      = render 'side-bar'
 
-    .selling-item-box
-      = link_to "/", class: "selling-item-box__link" do
-        .selling-item-box__contents
-          .selling-item-box__contents__letter 出品
-            
-          = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
+      .selling-item-box
+        = link_to "/", class: "selling-item-box__link" do
+          .selling-item-box__contents
+            .selling-item-box__contents__letter 出品
+              
+            = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
 
-  = render 'items/footer'
-  
+    = render 'items/footer'
+    
