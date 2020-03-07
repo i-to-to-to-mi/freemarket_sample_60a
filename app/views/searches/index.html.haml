@@ -1,17 +1,21 @@
 = render 'items/header'
+- breadcrumb :search
+= render "layouts/breadcrumbs_white"
 
-.search
-  .search-container
+.search-container
+  .search
     .search-left
-      左側のカテゴリー検索欄
       = render 'search-zone'
     .search-right
       %section.items-box-container
         -if @search.present?
           %h2.search-result-head
-            検索結果
+            =@search
+            %span
+              の検索結果
           .search-result-number
             ="1-#{@ladies.count}件表示"
         -else
         .items-box-content
           = render "categories/ladies"
+= render 'items/footer'
