@@ -112,6 +112,8 @@
     -# = link_to '購入画面に進む','#',class: 'item-buy-button '
     -# = link_to '売り切れました','#',class: 'item-sold-button '
     -# 売り切れじに表示するボタン部分です。現在if文での条件分岐を行なっていないためコメントアウトしています
+    .t_edit
+      = link_to "商品の編集","/items/#{@item.id}/edit", method: :get,data: {"turbolinks"=>false}
     .t_delete 
       この商品を削除する  
     .t_overlay
