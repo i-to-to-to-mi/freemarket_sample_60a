@@ -44,13 +44,21 @@ end
     end
   end
   post "/", to: "purchase#pay"
-  resources :categories, only: [:index]
-  resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
-    collection do
+  resources :categories, only: :index do
+    member do
+      get 'searches'
+    end
+  end
+
+  namespace :items do
+    resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :items do
+    member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'image', defaults: { format: 'json' }
     end
   end
-
 end

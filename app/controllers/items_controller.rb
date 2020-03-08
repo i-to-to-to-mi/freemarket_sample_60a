@@ -49,8 +49,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     gon.item = @item
     gon.images = @item.images
+    
 
     require 'base64'
     require 'aws-sdk'
