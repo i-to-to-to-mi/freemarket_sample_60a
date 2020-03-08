@@ -35,7 +35,7 @@ class PurchaseController < ApplicationController
     if @item_buyer.save
     else
       redirect_to parchase_path
-      notice[:delete] = "なんかちげー"
+      notice[:delete] = "購入できませんでした"
     end
   end
 
