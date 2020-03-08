@@ -162,7 +162,6 @@ $(window).on("turbolinks:load", function() {
   // １段目の画像を新しく追加する場合
   $(dropzone).on('change', 'input[type= "file"].upload-image',function(event) {
     event.preventDefault();
-    console.log("ここまできてるか")
     var file = $(this).prop("files")[0];
     new_image_files.push(file)
     var reader = new FileReader();
@@ -180,7 +179,6 @@ $(window).on("turbolinks:load", function() {
     reader.readAsDataURL(file);
     images.push(img);
 
-    if(images.length <= 4) {
       console.log("追加：写真４枚以下")
       $('#preview').empty();
       $.each(images, function(index, image) {
@@ -193,7 +191,18 @@ $(window).on("turbolinks:load", function() {
       dropzone2.css({
         display: 'none'
       })
-    } 
+
+      if(images.length > 4) {
+        dropzone2.css({
+        display: 'block'
+        })
+        console.log("2段目dropzone生成")
+        dropzone.css({
+          display: 'none'
+        })
+        console.log("１段目dropzoneの削除")
+        return;
+      }
 
       if(images.length == 4) {
         console.log("追加：写真４x枚")
@@ -240,8 +249,23 @@ $(window).on("turbolinks:load", function() {
           return true;
         }
         preview.append(image);
+        if(images.length == 5) {
+        dropzone2.css({
+          width: `calc(100% - (100px * ${images.length - 5}))`
+        })
+        } else {
+        dropzone2.css({
+          width: `calc(100% - (100px * ${images.length - 5}))`
+        })
+        }
+    // if (target_image_num < registered_images_ids.length) {
+    //   registered_images_ids.slice(target_image_num, 1);
+    // } else {
+    //   new_image_files.slice((target_image_num - registered_images_ids.length), 1);
+    // }
         console.log(index+':'+ image);
         console.log("とりあえずdata-imageが正しく値が入るようになったし、１段目までは正しく値が入ってきた");
+
       })
       $('#preview2').empty();
       $.each(images, function(index, image) {
@@ -253,6 +277,8 @@ $(window).on("turbolinks:load", function() {
         console.log(index+':'+ image);
         console.log("２段目も正しく値が入ってきた");
       });
+
+
 
       if(images.length == 9) {
         console.log("追加：写真９枚")
