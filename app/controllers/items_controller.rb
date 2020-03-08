@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item = Item.new
       @item.images.new
-
       #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     else
@@ -123,7 +122,7 @@ class ItemsController < ApplicationController
       flash[:delete] = "商品を削除しました"
       redirect_to root_path
     else
-      render :new
+      redirect_back(fallback_location: item_path)
     end
   end
 
