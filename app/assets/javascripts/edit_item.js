@@ -38,6 +38,7 @@ $(window).on("turbolinks:load", function() {
 
     if(images.length <= 4) {
       console.log("写真４枚以下")
+      console.log(images.length)
       $('#preview').empty();
       $.each(images, function(index, image) {
         image.data('image', index);
@@ -51,6 +52,7 @@ $(window).on("turbolinks:load", function() {
       })
     } else if(images.length >= 6) {
       console.log("写真６⭐️枚以上")
+      console.log(images.length)
       // $("#preview").empty();
       dropzone2.css({
         'display': 'block'
@@ -59,7 +61,7 @@ $(window).on("turbolinks:load", function() {
         'display': 'none'
       })
       preview2.empty();
-      // 配列から６枚目以降の画像を抽出
+      // // 配列から６枚目以降の画像を抽出
       var pickup_images = images.slice(5);
       $.each(pickup_images, function(index, image) {
         image.data("image", index + 5);
@@ -68,6 +70,13 @@ $(window).on("turbolinks:load", function() {
           width: `calc(100% - (100px * ${images.length - 5}))`
         });
       });
+      // $.each(images, function(index, image) {
+      //   image.attr('data-image', index);
+      //   preview2.append(image);
+      //   dropzone2.css({
+      //     'width': `calc(100% - (20% * ${images.length - 5}))`
+      //   })
+      // })
       if(images.length == 9) {
         console.log("写真９枚")
         dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
@@ -86,18 +95,20 @@ $(window).on("turbolinks:load", function() {
         dropzone2.css({
           'display': 'block'
         })
+    }
+    if(images.length == 4) {
+      console.log("写真４x枚")
+      console.log(images)
+      console.log(images.length)
+      dropzone.find('p').replaceWith('<i class="fa fa-camera"></i>')
       }
-      if(images.length == 4) {
-        console.log("写真４x枚")
-        dropzone.find('p').replaceWith('<i class="fa fa-camera"></i>')
-      }
-      if(images.length == 10) {
-        console.log("写真１０枚")
-        dropzone2.css({
-          display: 'none'
-        })
-        return;
-      }
+    if(images.length == 10) {
+      console.log("写真１０枚")
+      dropzone2.css({
+        display: 'none'
+      })
+      return;
+    }
     
   // // 画像が５枚以上のとき
   // if(images.length >= 5) {
@@ -199,6 +210,13 @@ $(window).on("turbolinks:load", function() {
           width: `calc(100% - (100px * ${images.length - 5}))`
         });
       });
+      // $.each(images, function(index, image) {
+      //   image.attr('data-image', index);
+      //   preview2.append(image);
+      //   dropzone2.css({
+      //     'width': `calc(100% - (20% * ${images.length - 5}))`
+      //   })
+      // })
       if(images.length == 9) {
         console.log("追加：写真９枚")
         dropzone2.find('p').replaceWith('<i class="fa fa-camera"></i>')
