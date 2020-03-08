@@ -1,3 +1,4 @@
+
 .item-detail-first-container{
   background-color: #f5f5f5;
   overflow: hidden;
@@ -42,6 +43,26 @@ section {
       }
     }
   
+// sold
+.items__sold{
+  width: 0;
+  height: 0;
+  border-top: 60px solid #ea352d ;
+  border-right: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid #ea352d ;
+  z-index:100;
+  top:-252px;
+  float: left;
+  &__inner{
+    transform: rotate(-45deg);
+    font-size: 28px;
+    margin:-30px 0px 0px -55px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
 
   table{
     box-sizing: border-box;
