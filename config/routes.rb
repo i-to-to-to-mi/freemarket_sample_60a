@@ -31,6 +31,7 @@ end
   resources :mypages, only: [:show,:edit] do
     collection do
       get 'logout'
+      get 'status'
     end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
