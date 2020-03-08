@@ -118,7 +118,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
+    if user_signed_in?
+      @item.destroy
       flash[:delete] = "商品を削除しました"
       redirect_to root_path
     else
