@@ -65,15 +65,15 @@
                       変更する
                 %address.buy-user-info-text
                   %p
-                    =@user.address.postal_code
+                    =current_user.address.postal_code
                     %br/
-                    =@user.address.prefectures
-                    =@user.address.city
-                    =@user.address.address
-                    =@user.address.building
+                    =current_user.address.prefectures
+                    =current_user.address.city
+                    =current_user.address.address
+                    =current_user.address.building
                     %br/
-                    =@user.first_name 
-                    =@user.last_name
+                    =current_user.first_name 
+                    =current_user.last_name
             %section.buy-user__info
               = form_tag(action: :pay, method: :post, id:@item.id) do
 
