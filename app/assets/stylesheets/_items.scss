@@ -26,12 +26,13 @@ a {
     height: 40px;
     display: flex;
     box-pack: justify;
-    justify-content: space-between;
     
       &-contents  {
+        -webkit-box-align: center;
+        align-items: center;
         display: flex;
-        justify-content: space-between;
-        width: 100%;
+        height: 40px;
+        margin-right: 45px;
           &--freemarket-logo {
             width: 134px;
             box-align: center;
@@ -42,20 +43,6 @@ a {
     margin-top: 10px;
     width: 100%;
     position: relative;
-    &__label{
-      &--icon{
-        position:absolute;
-        top: 10px;
-        right: 10px;
-      }
-      &--btn{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        opacity: 0;
-        cursor: pointer;
-      }
-    }
         &--search-btn {
           width: 16px;
           height: 16px;
@@ -69,6 +56,45 @@ a {
       }
     }
   }
+.toppage__header-search{
+  width: 100%;
+}
+.header-search-btn{
+  background-color: transparent;
+  cursor: pointer;
+  height: 40px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 40px;
+  -webkit-appearance: none;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 0px 4px 4px 0px;
+  padding: 0px;
+  margin-right: 215px;
+  margin-top: 8px;
+
+}
+.header-search-form{
+  background-color: rgb(245, 245, 245);
+  font-size: 16px;
+  height: 40px;
+  line-height: 1.4em;
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 4px;
+  outline: none;
+  padding: 0px 50px 0px 10px;
+  transition: all 0.3s ease-out 0s;
+}
 
   .toppage__footer {
     display: flex;
