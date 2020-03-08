@@ -46,9 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.update(price: params[:price], profit_price: params[:profit_price], margin_price: params[:margin_price])
     brand_id = Brand.find_by(name: params[:item][:brand_id])
-    unless brand_id.present?
-      unless params[:item][:brand_id] == ""
-      brand_id = Brand.create(name: params[:item][:brand_id])
+    brand_id = Brand.create(name: params[:item][:brand_id]) unless brand_id.present? && params[:item][:brand_id] == ""
       end
     end
   
