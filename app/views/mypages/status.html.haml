@@ -1,0 +1,10 @@
+.all-wrapper
+  = render 'items/header'
+  - breadcrumb :status
+  = render "layouts/breadcrumbs_white"
+  %main.mypage-container
+    = render partial: "side-bar"
+    = render partial: "item-status"
+    
+
+  = render 'items/footer'

@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   // keyup:引数にobjectオブジェクトを設定することで、実行するfunctionにデータを渡す
   $("#price").keyup(function(){
     //WEBインスタンスの入力値を取得（numA）

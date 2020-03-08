@@ -22,15 +22,15 @@
           出品する
           = icon 'fas', 'chevron-right'
       %li
-        = link_to root_path, class: 'mypage-side-bar__list-item' do
+        = link_to status_mypages_path(aasm_state:"selling"), class: 'mypage-side-bar__list-item' do
           出品した商品 - 出品中
           = icon 'fas', 'chevron-right'
       %li
-        = link_to  root_path, class: 'mypage-side-bar__list-item' do
+        = link_to  status_mypages_path(aasm_state:"dealing"), class: 'mypage-side-bar__list-item' do
           出品した商品 - 取引中
           = icon 'fas', 'chevron-right'
       %li
-        = link_to  root_path, class: 'mypage-side-bar__list-item' do
+        = link_to  status_mypages_path, class: 'mypage-side-bar__list-item' do
           出品した商品 - 売却済み
           = icon 'fas', 'chevron-right'
       %li
@@ -58,7 +58,7 @@
           お問い合わせ
           = icon 'fas', 'chevron-right'
     %h3.mypage-side-bar__nav-head
-      メルペイ
+      Fmartペイ
     %ul.mypage-side-bar__list
       %li
         = link_to '#', class: 'mypage-side-bar__list-item' do
@@ -96,6 +96,6 @@
           電話番号の確認
           = icon 'fas', 'chevron-right'
       %li
-        = link_to users_path, class: 'mypage-side-bar__list-item' do
+        = link_to logout_mypages_path, class: 'mypage-side-bar__list-item' do
           ログアウト
           = icon 'fas', 'chevron-right'

@@ -9,7 +9,8 @@
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   .breadcrumbs-list{
     width: 1020px;
-    margin: 0 auto;
+    margin-left: 210px;
+    margin-right: 0;
     span{
       font-weight: bold;
     }
@@ -36,10 +37,11 @@
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
     .breadcrumbs-list{
       width: 1020px;
-      margin: 0 auto;
+      margin-left: 210px;
+      margin-right: 0;
       span{
         font-weight: bold;
-      }
+        }
       i.fas.fa-chevron-right{
         color: #ccc;
         margin: 0 8px;

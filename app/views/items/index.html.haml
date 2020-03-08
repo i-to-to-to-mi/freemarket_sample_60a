@@ -185,10 +185,11 @@
         = render "nike"
 
   .selling-item-box
-    .selling-item-box__contents
-      = link_to new_item_path ,class: "selling-item-box__contents__letter" do
+    = link_to new_item_path, class: "selling-item-box__link" do
+      .selling-item-box__contents
+        .selling-item-box__contents__letter 出品
         = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
-        %p.selling-item-box__contents__letter 出品
+
   .contents
 
 = render"footer"
