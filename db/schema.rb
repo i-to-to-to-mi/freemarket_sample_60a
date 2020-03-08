@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_101614) do
+ActiveRecord::Schema.define(version: 2020_03_04_144326) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -23,10 +23,14 @@ ActiveRecord::Schema.define(version: 2020_02_24_101614) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
-    t.string "card_id"
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,13 +60,14 @@ ActiveRecord::Schema.define(version: 2020_02_24_101614) do
     t.integer "price", null: false
     t.integer "profit_price", null: false
     t.integer "margin_price", null: false
-    t.string "brand"
     t.bigint "seller_id", null: false
     t.bigint "buyer_id"
     t.string "aasm_state"
     t.string "prefectures"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
+    t.integer "brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
@@ -98,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_101614) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
