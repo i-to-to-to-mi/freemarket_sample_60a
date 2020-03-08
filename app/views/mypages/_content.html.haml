@@ -4,8 +4,7 @@
       %figure
         = image_tag 'logo_gray', size: '60x60'
       %h2.mypage-content__user-name
-        佑子
-        -# = current_user.nickname
+        = current_user.nickname
       .mypage-content__status
         .mypage-content__reviews
           評価&nbsp
@@ -34,7 +33,7 @@
               = image_tag 'logo_red.svg', size: '48x48'
             .mypage-content__item-body
               .mypage-content__item-text
-                《メルペイはじめよう》クーポン配信中
+                《Fmartペイはじめよう》クーポン配信中
               %time
                 = icon 'far', 'clock'
                 %span
@@ -82,7 +81,7 @@
               = image_tag 'logo_red.svg', size: '48x48'
             .mypage-content__item-body
               .mypage-content__item-text
-                《3連休最終日！すすメルペイでP1,000ゲット
+                《3連休最終日！すすFmartペイでP1,000ゲット
                 %time
                   = icon 'far', 'clock'
                   %span
