@@ -8,4 +8,3 @@ class BrandsController < ApplicationController
     @items = @brand.items
   end
 end
-end
