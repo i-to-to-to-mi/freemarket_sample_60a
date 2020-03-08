@@ -249,22 +249,12 @@ $(window).on("turbolinks:load", function() {
           return true;
         }
         preview.append(image);
-        if(images.length == 5) {
         dropzone2.css({
           width: `calc(100% - (100px * ${images.length - 5}))`
         })
-        } else {
-        dropzone2.css({
-          width: `calc(100% - (100px * ${images.length - 5}))`
-        })
-        }
-    // if (target_image_num < registered_images_ids.length) {
-    //   registered_images_ids.slice(target_image_num, 1);
-    // } else {
-    //   new_image_files.slice((target_image_num - registered_images_ids.length), 1);
-    // }
+        console.log("１段目から、２段目に行った時のドロップボックスのサイズを変更した");
         console.log(index+':'+ image);
-        console.log("とりあえずdata-imageが正しく値が入るようになったし、１段目までは正しく値が入ってきた");
+        console.log("上に番号がふられてれば、とりあえずdata-imageが正しく値が入るようになったし、１段目までは正しく値が入ってきた");
 
       })
       $('#preview2').empty();
