@@ -154,6 +154,20 @@ section {
       text-decoration: none;
     }
   }
+  .t_edit{
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: red;
+    text-align: center;
+    cursor: pointer;
+    transition: .4s;
+    a{
+      color: #fff;
+    }
+  }
 
   .t_delete{
     margin-top: 10px;
