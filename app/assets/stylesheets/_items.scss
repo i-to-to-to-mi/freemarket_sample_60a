@@ -547,7 +547,7 @@ a {
 
 
 .category-items {
-  
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   width: 1020px;
@@ -580,7 +580,7 @@ a {
         height: 64px;
         font-size: 14px;
         padding: 12px 12px;
-        display: table-caption;
+        display: flex;
         caption-side: bottom;
         line-height: 1.4em;
       }
@@ -620,7 +620,7 @@ a {
         border-left: 60px solid #ea352d ;
         z-index:100;
         position: relative;
-        top:-190px;
+        top:-252px;
         &__inner{
           transform: rotate(-45deg);
           font-size: 28px;
