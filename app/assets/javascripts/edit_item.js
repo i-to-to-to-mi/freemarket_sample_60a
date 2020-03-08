@@ -2,7 +2,6 @@ $(window).on("turbolinks:load", function() {
 
   var dropzone = $(".dropzone-area");
   var dropzone2 = $(".dropzone-area2");
-  var appendzone = $(".dropzone-container2");
   var input_area = $(".input-area");
   var preview = $("#preview");
   var preview2 = $("#preview2");
@@ -41,6 +40,7 @@ $(window).on("turbolinks:load", function() {
       console.log(images.length)
       $('#preview').empty();
       $.each(images, function(index, image) {
+        image.attr('data-image', index);
         image.data('image', index);
         preview.append(image);
       })
@@ -64,7 +64,8 @@ $(window).on("turbolinks:load", function() {
       // // 配列から６枚目以降の画像を抽出
       var pickup_images = images.slice(5);
       $.each(pickup_images, function(index, image) {
-        image.data("image", index + 5);
+        // image.data("image", index + 5);
+        image.attr('data-image', index + 5);
         preview2.append(image);
         dropzone2.css({
           width: `calc(100% - (100px * ${images.length - 5}))`
@@ -295,7 +296,7 @@ $(window).on("turbolinks:load", function() {
   $(document).on('click', '.delete', function() {
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent().parent();
-
+    
     // 削除画像のdata-image番号を取得
     var target_image_num = target_image.data('image');
 
@@ -303,13 +304,13 @@ $(window).on("turbolinks:load", function() {
     target_image.remove();
 
     // 対象の画像を削除した新たな配列を生成
-    images.slice(target_image_num, 1);
+    images.splice(target_image_num, 1);
 
     // target_image_numが登録済画像の数以下の場合は登録済画像データの配列から削除、それより大きい場合は新たに追加した画像データの配列から削除
     if (target_image_num < registered_images_ids.length) {
-      registered_images_ids.slice(target_image_num, 1);
+      registered_images_ids.splice(target_image_num, 1);
     } else {
-      new_image_files.slice((target_image_num - registered_images_ids.length), 1);
+      new_image_files.splice((target_image_num - registered_images_ids.length), 1);
     }
 
     if(images.length == 0) {
