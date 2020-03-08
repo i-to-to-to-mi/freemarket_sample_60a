@@ -87,25 +87,27 @@
         (税込)
       %span.item-price-box.fee
         送料込み
-    -# = link_to '購入画面に進む','#',class: 'item-buy-button '
-    -# = link_to '売り切れました','#',class: 'item-sold-button '
-    -# 売り切れじに表示するボタン部分です。現在if文での条件分岐を行なっていないためコメントアウトしています
-    .t_delete 
-      この商品を削除する  
-    .t_overlay
-    .t_modalWindow
-      .t_modalWindow__content
-        %p
-        %span 確認 
-        %p 削除すると二度と復活できません。
-        %p 削除する代わりに停止することもできます。
-        %br
-        %p 本当に削除しますか？
-      .t_modalWindow__buttons
-        .t_modalWindow__buttons__btn--cxl
-          キャンセル
-        = link_to "削除する",item_path, method: :delete, class: "t_modalWindow__buttons__btn"
-        -# ルーティングは商品詳細に飛ぶ予定です。
+      -if @item.buyer_id.present?   
+        = link_to '売り切れました','#',class: 'item-sold-button '
+      -elsif @item.seller_id != current_user.id
+        = link_to '購入画面に進む', purchase_path(@item.id),class: 'item-buy-button '
+    -if @item.seller_id == current_user.id
+      .t_delete 
+        この商品を削除する  
+      .t_overlay
+      .t_modalWindow
+        .t_modalWindow__content
+          %p
+          %span 確認 
+          %p 削除すると二度と復活できません。
+          %p 削除する代わりに停止することもできます。
+          %br
+          %p 本当に削除しますか？
+        .t_modalWindow__buttons
+          .t_modalWindow__buttons__btn--cxl
+            キャンセル
+          = link_to "削除する",item_path, method: :delete, class: "t_modalWindow__buttons__btn"
+          -# ルーティングは商品詳細に飛ぶ予定です。
     .item-description-box
       %p.item-description-box__inner 
         = @item.description
