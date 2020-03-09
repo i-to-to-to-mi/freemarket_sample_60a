@@ -62,6 +62,8 @@ end
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'image', defaults: { format: 'json' }
+      get 'show_own'
+      get 'show_buyer'
     end
     member do
       get 'category_children', defaults: { format: 'json' }

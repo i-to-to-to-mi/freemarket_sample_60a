@@ -129,15 +129,31 @@ class ItemsController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+      if current_user.id == @item.seller.id
+        render :show_own
+      else
+        render :show_buyer
+      end
+    else
+      render :show_buyer
+    end
+  end
+
+  def show_own
+  end
+
+  def show_buyer
   end
 
   def destroy
     if user_signed_in?
       @item.destroy
-      flash[:delete] = "商品を削除しました"
       redirect_to root_path
+      flash[:delete] = "商品を削除しました"
     else
       redirect_back(fallback_location: item_path)
+      flash[:alert] = "商品を削除失敗しました"
     end
   end
 
