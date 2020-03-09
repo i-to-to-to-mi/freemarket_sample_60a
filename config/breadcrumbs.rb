@@ -23,6 +23,13 @@ crumb :logout do
   link "ログアウト", logout_mypages_path
 end
 
+# 検索画面
+crumb :search do |name|
+  @search = params[:search]
+  link @search, searches_path
+  parent :root
+end
+
 # ビューページを実装したらコメントアウトを外します
 # # プロフィール
 # crumb :profile do
