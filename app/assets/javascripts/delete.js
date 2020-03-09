@@ -1,13 +1,14 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.t_delete').on('click', function(){
     $('.t_overlay, .t_modalWindow').fadeIn();
-    locateCenter();
   });
 
   $('.t_modalWindow__buttons__btn--cxl').on('click', function(){
     $('.t_overlay, .t_modalWindow').fadeOut();
   });
 
+  locateCenter();
+  $(window).resize(locateCenter);
   function locateCenter(){
     let w = $(window).width();
     let h = $(window).height();

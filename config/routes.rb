@@ -27,10 +27,10 @@ devise_scope :user do
 
   # ここまで
 end
-  root "items#index"
   resources :mypages, only: [:show,:edit] do
     collection do
       get 'logout'
+      get 'status'
     end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
@@ -50,13 +50,23 @@ end
     end
   end
   post "/", to: "purchase#pay"
-  resources :categories, only: [:index]
+  resources :categories, only: :index do
+    member do
+      get 'searches'
+    end
+  end
+
+  root "items#index"
   resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'image', defaults: { format: 'json' }
     end
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+      get 'image', defaults: { format: 'json' }
+    end
   end
-
 end
