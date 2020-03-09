@@ -1,5 +1,8 @@
 .all-wrapper
-  = render 'items/header'
+-if user_signed_in?
+  =render "items/header"
+-else
+  =render "items/header-unlogin"
   - breadcrumb :status
   = render "layouts/breadcrumbs_white"
   %main.mypage-container

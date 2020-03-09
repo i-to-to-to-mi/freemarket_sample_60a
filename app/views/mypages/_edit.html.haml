@@ -6,7 +6,7 @@
     = render 'credit_card/info'
     = render 'mypages/side-bar'
     .selling-item-box
-      = link_to "new_item_path", class: "selling-item-box__link" do
+      = link_to new_item_path, class: "selling-item-box__link" do
         .selling-item-box__contents
           .selling-item-box__contents__letter 出品
           = icon('fas', 'camera', alt: 'camera',class: 'selling-item-box__contents__camera')
