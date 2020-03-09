@@ -183,5 +183,7 @@ class ItemsController < ApplicationController
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
   end
+
+
 end
 
