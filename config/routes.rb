@@ -27,7 +27,6 @@ devise_scope :user do
 
   # ここまで
 end
-  root "items#index"
   resources :mypages, only: [:show,:edit] do
     collection do
       get 'logout'
@@ -36,7 +35,14 @@ end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  resources :searches, only: [:index] 
+  resources :searches, only: [:index] do
+    collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+      get 'image', defaults: { format: 'json' }
+    end
+  end
+
   resources :purchase, only: [:show] do
     collection do
       post 'pay', to: 'purchase#pay'
@@ -50,11 +56,13 @@ end
     end
   end
 
-  namespace :items do
-    resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
-  end
-  
-  resources :items do
+  root "items#index"
+  resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+      get 'image', defaults: { format: 'json' }
+    end
     member do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }

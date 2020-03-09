@@ -5,4 +5,5 @@ class SearchesController < ApplicationController
     @search = params[:search]
   end
 
+
 end
