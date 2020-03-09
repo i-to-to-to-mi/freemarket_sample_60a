@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
     else
     @new_brand = Brand.new(name: params[:item][:brand_id])
       if Brand.where.not(name: @new_brand.name)
-      @new_brand.save if @brand.present?
+      @new_brand.save if @new_brand.present?
       @item.update(brand_id: @new_brand.id)
       else
       render :new
