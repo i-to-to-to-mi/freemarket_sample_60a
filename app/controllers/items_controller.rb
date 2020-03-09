@@ -45,9 +45,19 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.update(price: params[:price], profit_price: params[:profit_price], margin_price: params[:margin_price])
-    brand_id = Brand.find_by(name: params[:item][:brand_id])
-    brand_id = Brand.create(name: params[:item][:brand_id]) unless brand_id.present? && params[:item][:brand_id] == ""
-  
+    brand = Brand.find_by(name: params[:item][:brand_id])
+    if brand.present?
+      @item.update(brand_id: brand.id)
+    else
+    @new_brand = Brand.new(name: params[:item][:brand_id])
+      if Brand.where.not(name: @new_brand.name)
+      @new_brand.save if @brand.present?
+      @item.update(brand_id: @new_brand.id)
+      else
+      render :new
+      flash[:alert] = 'ブランドの登録に失敗しました'
+      end
+    end
     if @item.valid? && params[:item_images].present?
       @item.save
       params[:item_images][:image].each do |image|
@@ -55,8 +65,8 @@ class ItemsController < ApplicationController
       end
       redirect_to root_path, notice: '出品完了しました'
     else
-      flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
       render :new
+      flash[:alert] = '出品に失敗しました。必須項目を確認してください。'
     end
   end
 
@@ -117,12 +127,12 @@ class ItemsController < ApplicationController
         end
       end
 
-      flash[:notice] = '編集が完了しました'
       redirect_to item_path(@item), data: {turbolinks: false}
+      flash[:notice] = '編集が完了しました'
 
     else
-      flash[:alert] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
+      flash[:alert] = '未入力項目があります'
     end
 
   end
