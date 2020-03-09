@@ -49,9 +49,10 @@ class ItemsController < ApplicationController
     if brand.present?
       @item.update(brand_id: brand.id)
     else
-    new_brand_id = Brand.new(name: params[:item])
-      if Brand.not.where(name: new_brand_id.name)
-      @item.update(brand_id: new_brand_id.id)
+    @new_brand = Brand.new(name: params[:item][:brand_id])
+      if Brand.where.not(name: @new_brand.name)
+      @new_brand.save if @brand.present?
+      @item.update(brand_id: @new_brand.id)
       else
       render :new
       flash[:alert] = 'ブランドの登録に失敗しました'
