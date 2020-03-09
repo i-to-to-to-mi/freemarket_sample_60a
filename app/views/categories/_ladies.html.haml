@@ -1,7 +1,6 @@
 .category-items
   .category-items__item
-    - @item.each do |item|
-      -# @ladies.eachを@item.eachに変更しました。
+    - @ladies.each do |item|
       .category-items__item__link
         = link_to item_path(item.id) do
           %figure.category-items__item__figure

@@ -1,6 +1,6 @@
 .drop_downs
   %h3.large-word 詳細検索
-  = form_for("#") do |f|
+  = search_form_for(@q, url: searches_detail_search_path) do |f|
     .form_normal
       %i.fas.fa-plus
       キーワードを追加する
