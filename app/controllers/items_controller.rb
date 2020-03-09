@@ -127,12 +127,12 @@ class ItemsController < ApplicationController
         end
       end
 
-      flash[:notice] = '編集が完了しました'
       redirect_to item_path(@item), data: {turbolinks: false}
+      flash[:notice] = '編集が完了しました'
 
     else
-      flash[:alert] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
+      flash[:alert] = '未入力項目があります'
     end
 
   end
