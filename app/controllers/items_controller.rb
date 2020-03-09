@@ -50,6 +50,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def edit
     gon.item = @item
     gon.images = @item.images
@@ -77,6 +78,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  
   def update
     # 登録済画像のidの配列を生成
     ids = @item.images.map{|image| image.id }

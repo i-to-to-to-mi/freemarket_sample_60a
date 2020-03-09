@@ -3,8 +3,7 @@
 .search
   .search-container
     .search-left
-      -# = render ''
-      -# 左側のカテゴリー検索欄
+      = render 'searches/side_bar'
     .search-right
       %section.items-box-container
         -if @search.present?
@@ -13,9 +12,9 @@
             %span.search-result-head-text
               の検索結果
           .search-result-number
-            ="1-#{@ladies.count}件表示"
+            ="1-#{@item.count}件表示"
         -else
         .items-box-content
-          = render "items/ladies"
+          = render "categories/ladies"
 
 = render 'items/footer'
