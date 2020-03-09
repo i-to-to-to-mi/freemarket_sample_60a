@@ -135,6 +135,8 @@ class ItemsController < ApplicationController
       else
         render :show_buyer
       end
+    elsif @item.buyer_id.present?
+      render :show_buyer
     else
       render :show_buyer
     end
