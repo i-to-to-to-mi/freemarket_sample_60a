@@ -2,6 +2,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
   before_action :set_item, only: [:show, :pay, :done]
   before_action :set_card, only: [:show, :pay, :done]
+  before_action :anti_buy_my_own, only: [:pay]
 
   def show
     # @user = User.find(current_user.id)
@@ -26,6 +27,7 @@ class PurchaseController < ApplicationController
   )
   redirect_to done_purchase_index_path(id:@item.id) #完了画面に移動
   end
+
   def done
   # @user = User.find(current_user.id)
   customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -45,6 +47,14 @@ class PurchaseController < ApplicationController
 
   def set_card
     @card = Card.where(user_id: current_user.id).first
+  end
+
+  def anti_buy_my_own
+    @item = Item.find(params[:id])
+    if @item.seller_id == @current_user.id
+      redirect_to root_path
+      flash[:notice] = "自分で自分の買うとかないでしょ・・・"
+    end
   end
 
 end
