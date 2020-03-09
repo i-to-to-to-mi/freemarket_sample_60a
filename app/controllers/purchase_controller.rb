@@ -2,7 +2,8 @@ class PurchaseController < ApplicationController
   require 'payjp'
   before_action :set_item, only: [:show, :pay, :done]
   before_action :set_card, only: [:show, :pay, :done]
-  before_action :anti_buy_my_own, only: [:pay]
+  before_action :anti_buy_my_own, only: [:pay, :show]
+  before_action :anti_buy_sold_item, only: [:pay, :show]
 
   def show
     # @user = User.find(current_user.id)
@@ -56,5 +57,14 @@ class PurchaseController < ApplicationController
       flash[:notice] = "自分で自分の買うとかないでしょ・・・"
     end
   end
+
+  def anti_buy_sold_item
+    @item = Item.find(params[:id])
+    if @item.buyer_id.present?
+      redirect_to root_path
+      flash[:notice] = "売り切れだっつーの"
+    end
+  end
+
 
 end
