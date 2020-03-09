@@ -10,15 +10,15 @@
         .buy-content__item__inner
           .buy-item-box
             %h3.buy-item__image
-              = image_tag 'category-item.jpg'
+              = image_tag "#{@item.images[0].src}"
             .buy-item-detail
               %p.buy-item-detail__name
-                カーディガン ポンチタイトストレッチスカートベージュサイズ１
+                = @item.name
               %p.buy-item-detail__price
                 %span
-                  ¥6,000
+                  = @item.price
                 %span.item-shipping__fee
-                  （税込）送料込み
+                  円（税込）送料込み
       %section.buy-content__price
         .buy-content__price-inner
           .buy-form            
@@ -28,7 +28,8 @@
                   支払い金額
                 .buy-price__cell
                   %span.buy-pay
-                    ¥6,000  
+                    ¥
+                    = @item.price  
             %ul.buy-point__table
               %li.user-point
                 .buy-use-point
@@ -64,18 +65,20 @@
                       変更する
                 %address.buy-user-info-text
                   %p
-                    〒112-0012
+                    =current_user.address.postal_code
                     %br/
-                    東京都 **区
-                    ** *-**-**
+                    =current_user.address.prefectures
+                    =current_user.address.city
+                    =current_user.address.address
+                    =current_user.address.building
                     %br/
-                    斉藤 佑子
+                    =current_user.first_name 
+                    =current_user.last_name
             %section.buy-user__info
-              -# %button.confirm-btn{type: "submit"}
-              = form_tag(action: :pay, method: :post) do
+              = form_tag(action: :pay, method: :post, id:@item.id) do
+
                 %button 購入する
-              -# = form_tag(action: :pay, method: :post) do
-              -#   %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": "pk_test_139876f8f4b3de0fa3d6a167"}
+              
               
   %footer.buy-footer
     %nav

@@ -1,19 +1,26 @@
 class ItemsController < ApplicationController
-
   before_action :authenticate_user!, only: [:create, :new, :update, :edit]
   before_action :set_item, only: [:update, :edit, :show, :destroy]
   before_action :set_category, only: [:new,:index,:show]
   before_action :ensure_identical_user, only: [:edit, :destroy, :update]
 
   def index
+    @items= Item.includes(:images).order('created_at DESC') 
     @ladies = Item.where(category_id:14..211).order("created_at DESC").limit(10)
     @men = Item.where(category_id:212..356).order("created_at DESC").limit(10)
+    @electronics = Item.where(category: "家電・スマホ・カメラ").order("created_at DESC").limit(10)
+    @toys= Item.where(category: "おもちゃ・ホビー・グッズ").order("created_at DESC").limit(10)
+    @channel = Item.where(brand_id: 1).order("created_at DESC").limit(10)
+    @louisvuitton = Item.where(brand_id: 2).order("created_at DESC").limit(10)
+    @supreme= Item.where(brand_id: 3).order("created_at DESC").limit(10)
+    @nike= Item.where(brand_id: 4).order("created_at DESC").limit(10)
   end
 
   def new
     if user_signed_in?
       @item = Item.new
       @item.images.new
+      @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
 
       #データベースから、親カテゴリーのみ抽出し、配列化
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
@@ -39,6 +46,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.update(price: params[:price], profit_price: params[:profit_price], margin_price: params[:margin_price])
+    brand_id = Brand.find_by(name: params[:item][:brand_id])
+    brand_id = Brand.create(name: params[:item][:brand_id]) unless brand_id.present? && params[:item][:brand_id] == ""
+  
     if @item.valid? && params[:item_images].present?
       @item.save
       params[:item_images][:image].each do |image|
@@ -52,8 +62,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     gon.item = @item
     gon.images = @item.images
+    
 
     require 'base64'
     require 'aws-sdk'
@@ -120,11 +132,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
+    if user_signed_in?
+      @item.destroy
       flash[:delete] = "商品を削除しました"
       redirect_to root_path
     else
-      render :new
+      redirect_back(fallback_location: item_path)
     end
   end
 
@@ -147,6 +160,7 @@ class ItemsController < ApplicationController
       :margin_price, 
       :profit_price, 
       :seller_id,
+      :brand_id,
       :category_id, 
       images_attributes: [:src,:id])
       .merge(seller_id: current_user.id)

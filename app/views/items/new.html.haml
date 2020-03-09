@@ -61,6 +61,14 @@
                 = f.select :category, @category_parent_array, {include_blank: '---'}, {class: 'sell-main__form__select', id: 'parent_category'}
                 %i.fas.fa-chevron-down.sell-main__form__select__arrow
               .sell-main__form
+                = f.label :brand_id, "ブランド", class: "sell-main__form__label"
+                %span.form-optional 任意
+                = f.text_field :brand_id, class: 'sell-main__form__select', placeholder: '例）シャネル', autocomplete: 'off',value: "", id: "brand_search"
+                %div
+                  %ul#brand_result
+
+
+              .sell-main__form
                 = f.label :condition, "商品の状態", class: "sell-main__form__label"
                 %span.form-neccesary 必須
                 = f.select :condition, ['新品未使用', '未使用に近い', '目立った傷や汚れ無し', 'やや傷や汚れあり', '傷や汚れあり', '全体的に状態が悪い' ], {include_blank: '---'}, class: 'sell-main__form__select'

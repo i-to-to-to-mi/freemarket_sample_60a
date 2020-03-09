@@ -1,4 +1,6 @@
-
+.all-wrapper{
+  @include  background;
+}
 
 .mypage-container{
   margin: 24px auto 0;

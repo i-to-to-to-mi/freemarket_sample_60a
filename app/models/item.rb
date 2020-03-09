@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name:"User", foreign_key: 'seller_id'
   belongs_to :category
   has_many :images, dependent: :destroy
+  belongs_to :brand, optional: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
 
