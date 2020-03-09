@@ -11,3 +11,7 @@
               .category-items__item__thumbnail__price{aria: "", label: ""} 
                 = "¥#{item.price}"
               = image_tag "#{item.images[0].src}", alt: 'category-item',class: 'category-items__item__thumbnail__image'
+              -if item.buyer_id.present? 
+                .items-box_photo__sold
+                  .items-box_photo__sold__inner
+                    SOLD

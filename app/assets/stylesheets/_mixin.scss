@@ -105,3 +105,13 @@
     margin: 0 2px;
   }
 }
+
+// 画像詳細ページ
+@mixin item{
+  width: 60px;
+  height: 60px;
+  img{
+    width: 60px;
+    height: 60px;
+    }
+}

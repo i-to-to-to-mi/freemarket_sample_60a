@@ -5,6 +5,12 @@ end
 # マイページ
 crumb :mypages do
   link "マイページ", mypage_path(id: current_user.id)
+  parent :root
+end
+
+crumb :status do
+  link "出品した商品-出品中", status_mypages_path(aasm_state:"selling")
+  parent :mypages
 end
 
 # カテゴリー
@@ -15,6 +21,13 @@ end
 # ログアウト
 crumb :logout do
   link "ログアウト", logout_mypages_path
+end
+
+# 検索画面
+crumb :search do |name|
+  @search = params[:search]
+  link @search, searches_path
+  parent :root
 end
 
 # ビューページを実装したらコメントアウトを外します
