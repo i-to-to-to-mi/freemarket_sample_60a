@@ -130,6 +130,8 @@ class ItemsController < ApplicationController
   def show
   end
 
+
+
   def destroy
     if user_signed_in?
       @item.destroy

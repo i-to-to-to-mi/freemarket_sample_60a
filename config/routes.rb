@@ -35,7 +35,7 @@ end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  resources :searches, only: :index do
+  resources :searches, only: [:index] do
     collection do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
