@@ -98,7 +98,7 @@
     -if user_signed_in?
       = link_to '購入画面に進む', purchase_path,class: 'item-buy-button '
     -else
-      = link_to 'homeへ戻る',root_path,class: 'item-buy-button '
+      = link_to 'ユーザー登録してね',root_path,class: 'item-buy-button '
     - if user_signed_in? && current_user.id == @item.seller_id
       = link_to "編集する", edit_item_path(@item.id),class:"item-sold-button"
       .t_delete
@@ -117,7 +117,7 @@
             キャンセル
           .t_modalWindow__buttons__btn--cxl
             = link_to "この商品を削除する",item_path(@item.id), method: :delete, class: "t_modalWindow__buttons__btn"
-    -else @item.buyer_id.present?
+    -if @item.buyer_id.present? 
       = link_to '売り切れました','#',class: 'item-sold-button '
     .item-description-box
       %p.item-description-box__inner 
