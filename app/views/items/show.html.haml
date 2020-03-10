@@ -117,8 +117,11 @@
             = link_to "この商品を削除する",item_path(@item.id), method: :delete, class: "t_modalWindow__buttons__btn"
     - elsif @item.buyer_id.present?  
       = link_to '売り切れました','#',class: 'item-sold-button '
+    - elsif current_user.card_id.blank?  
+      = link_to '購入画面に進む', new_card_path(@item.id),class: 'item-buy-button '
     -else 
       = link_to '購入画面に進む', purchase_path,class: 'item-buy-button '
+      
     .item-description-box
       %p.item-description-box__inner 
         = @item.description

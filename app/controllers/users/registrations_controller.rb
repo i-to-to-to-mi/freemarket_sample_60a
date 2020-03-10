@@ -55,6 +55,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       customer = Payjp::Customer.create(card: params['payjp-token'])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
         if @card.save
+          @user = User.find(current_user.id)
+          @user.card_id = @card.card_id
           redirect_to action: "complete"
         else
           redirect_to action: "register_credit_card"
