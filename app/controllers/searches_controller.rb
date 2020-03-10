@@ -19,9 +19,10 @@ class SearchesController < ApplicationController
               :price_gteq, 
               :price_lteq, 
               :sorts,
-              {state_in: []}, 
-              {fee_payer_in: []}, 
-              {status_in: []})
+              # {state_in: []}, 
+              # {fee_payer_in: []}, 
+              # {status_in: []}
+            )
     end
 
     def set_ransack

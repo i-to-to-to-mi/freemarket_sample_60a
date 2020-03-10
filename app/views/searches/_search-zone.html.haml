@@ -7,9 +7,9 @@
       =f.text_field :name, class: "input-default", placeholder: "#{@search}"
     .form__slot
       %i.fas.fa-list
-      = f.label :karioki, "カテゴリーを選択する", class: "label-font"
+      = f.label :category, "カテゴリーを選択する", class: "label-font"
       %br
-      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { onchange: 'this.form.submit()'} )
       %i.fas.fa-chevron-down.arrow
     .form__slot
       -# %i.fas.fa-tag
@@ -17,13 +17,14 @@
       -# = f.text_field :karioki, class: "input-default", placeholder: "例）シャネル"
     .form__slot
       %i.fas.fa-square
-      = f.label :karioki, "サイズを指定する", class: "label-font"
-      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+      = f.label :size, "サイズを指定する", class: "label-font"
+      %br
+      = f.select( :sorts, { '並び替え': 'id desc', 'S': '1', 'M': '2', 'L': '3', 'XL': '4'} , { onchange: 'this.form.submit()'} )
       %i.fas.fa-chevron-down.arrow
     .form__slot
       %i.fas.fa-coins
-      = f.label :karioki, "価格", class: "label-font"
-      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+      = f.label :price, "価格", class: "label-font"
+      = f.select( :sorts, { '並び替え': 'id desc', '500~1000': 'price asc', '1000~100000': 'price desc'} , { onchange: 'this.form.submit()'} )
       %i.fas.fa-chevron-down.arrow
       = f.search_field :price_gteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Min"
       %p 〜
@@ -31,7 +32,7 @@
     .form__slot
       - rank = {全部: 0, 新品、未使用: 1, 未使用に近い: 2, 目立った傷や汚れなし: 3, やや汚れや傷あり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6}
       %i.fas.fa-star
-      = f.label :karioki, '商品の状態', class: "label-font"
+      = f.label :status, '商品の状態', class: "label-font"
       %p
       - rank.each do |key, value|
         .checkbox_default
@@ -40,7 +41,7 @@
     .form__slot
       - delivery = {すべて: 0, 着払い（購入者負担）: 1, 送料込み（出品者負担）: 2}
       %i.fas.fa-truck
-      = f.label :karioki, "配送料の負担", class: "label-font"
+      = f.label :delivery, "配送料の負担", class: "label-font"
       %p
       - delivery.each do |key, value|
         %p
