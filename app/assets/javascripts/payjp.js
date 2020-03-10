@@ -1,4 +1,4 @@
-document.addEventListener(
+$(document).on('turbolinks:load', ()=> {document.addEventListener(
   "DOMContentLoaded", e => {
     if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
       Payjp.setPublicKey("pk_test_139876f8f4b3de0fa3d6a167"); //ここに公開鍵を直書き
@@ -35,4 +35,4 @@ document.addEventListener(
     }
   },
   false
-);
+)});
