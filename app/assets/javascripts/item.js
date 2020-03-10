@@ -5,7 +5,7 @@
 // よろしくお願いいたします。
 
 
-(document).on('turbolinks:load', ()=>  {
+$(function() {
   $('.liked-items__sliders').slick({
     slidesToShow: 6,
     arrow: true,

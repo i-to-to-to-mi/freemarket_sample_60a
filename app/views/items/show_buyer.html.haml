@@ -96,8 +96,8 @@
         送料込み
     .itms-buybox
     -if @item.buyer_id.present?
-        .item-sold-button
-          売り切れました
+      .item-sold-button
+        売り切れました
     -elsif user_signed_in?
       = link_to '購入画面に進む', purchase_path(@item.id),class: 'item-buy-button '
     -else

@@ -95,10 +95,8 @@
       %span.item-price-box.fee
         送料込み
     .itms-buybox
-    -# -else
-    -#   = link_to 'ユーザー登録してね',root_path,class: 'item-buy-button '
     - if user_signed_in? && current_user.id == @item.seller_id
-      = link_to "編集する", edit_item_path(@item.id),class:"item-sold-button"
+      = link_to "編集する", edit_item_path(@item.id),class:"item-buy-button "
       .t_delete
         この商品を削除する
       .t_overlay
@@ -115,10 +113,8 @@
             キャンセル
           .t_modalWindow__buttons__btn--cxl
             = link_to "この商品を削除する",item_path(@item.id), method: :delete, class: "t_modalWindow__buttons__btn"
-    - elsif @item.buyer_id.present?  
+    - else @item.buyer_id.present?  
       = link_to '売り切れました','#',class: 'item-sold-button '
-    -else 
-      = link_to '購入画面に進む', purchase_path,class: 'item-buy-button '
     .item-description-box
       %p.item-description-box__inner 
         = @item.description
