@@ -118,7 +118,6 @@ $(window).on("turbolinks:load", function() {
     reader.readAsDataURL(file);
     images.push(img);
 
-      console.log("追加：写真４枚以下")
       $('#preview').empty();
       $.each(images, function(index, image) {
         image.data('image', index);
