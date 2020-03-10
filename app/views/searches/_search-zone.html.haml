@@ -4,30 +4,30 @@
     .form_normal
       %i.fas.fa-plus
       キーワードを追加する
-      =f.text_field :karioki, class: "input-default", placeholder: "#{@search}"
+      =f.text_field :name, class: "input-default", placeholder: "#{@search}"
     .form__slot
       %i.fas.fa-list
       = f.label :karioki, "カテゴリーを選択する", class: "label-font"
       %br
-      = f.select :karioki, [[ "01","01"], [ "02", "02" ], [ "03", "03" ]], {include_blank: 'すべて'},  class: 'search__box'
+      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
       %i.fas.fa-chevron-down.arrow
     .form__slot
-      %i.fas.fa-tag
-      = f.label :karioki, "ブランド名から探す", class: "label-font"
-      = f.text_field :karioki, class: "input-default", placeholder: "例）シャネル"
+      -# %i.fas.fa-tag
+      -# = f.label :karioki, "ブランド名から探す", class: "label-font"
+      -# = f.text_field :karioki, class: "input-default", placeholder: "例）シャネル"
     .form__slot
       %i.fas.fa-square
       = f.label :karioki, "サイズを指定する", class: "label-font"
-      = f.select :karioki, [[ "01","01"], [ "02", "02" ], [ "03", "03" ]], {include_blank: '洋服のサイズ'},  class: 'search__box'
+      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
       %i.fas.fa-chevron-down.arrow
     .form__slot
       %i.fas.fa-coins
       = f.label :karioki, "価格", class: "label-font"
-      = f.select :karioki, [[ "300 ~ 1000","01"], [ "1000 ~ 5000", "02" ], [ "5000 ~ 10000", "03" ], [ "10000 ~ 30000", "04" ], [ "30000 ~ 50000", "05" ]], {include_blank: '選択してください'},  class: 'search__box'
+      = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
       %i.fas.fa-chevron-down.arrow
-      = f.text_field :karioki, class: 'search__box-half', placeholder: "¥ Min"
-      %span ~
-      = f.text_field :karioki, class: 'search__box-half', placeholder: "¥ Max"
+      = f.search_field :price_gteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Min"
+      %p 〜
+      = f.search_field :price_lteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Max"
     .form__slot
       - rank = {全部: 0, 新品、未使用: 1, 未使用に近い: 2, 目立った傷や汚れなし: 3, やや汚れや傷あり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6}
       %i.fas.fa-star
@@ -44,7 +44,7 @@
       %p
       - delivery.each do |key, value|
         %p
-        = f.check_box :karioki, class: "checkbox_horizon"
+        = f.check_box :karioki, {checked: false, multiple: true, class: "checkbox_horizon"}
         = key
     .form__slot
       - status = {すべて: 0, 販売中: 1, 売り切れ: 2}
@@ -52,7 +52,7 @@
       = f.label :karioki, "販売状況", class: "label-font"
       %p
       - status.each do |key, value|      
-        = f.check_box :karioki, class: "checkbox_horizon"
+        = f.check_box :karioki, {checked: false, multiple: true, class: "checkbox_horizon"}
         = key
     .button-box
       = f.button "クリア", type: :reset, class: "button-clear"
