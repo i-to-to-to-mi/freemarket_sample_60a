@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :new, :update, :edit]
+  before_action :authenticate_user!, except: [:index, :show, :show_buyer]
   before_action :set_item, only: [:update, :edit, :show, :destroy]
   before_action :set_category, only: [:new,:index,:show]
 
@@ -140,6 +140,23 @@ class ItemsController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+      if current_user.id == @item.seller.id
+        render :show_own
+      else
+        render :show_buyer
+      end
+    elsif @item.buyer_id.present?
+      render :show_buyer
+    else
+      render :show_buyer
+    end
+  end
+
+  def show_own
+  end
+
+  def show_buyer
   end
 
 
@@ -147,10 +164,11 @@ class ItemsController < ApplicationController
   def destroy
     if user_signed_in?
       @item.destroy
-      flash[:delete] = "商品を削除しました"
       redirect_to root_path
+      flash[:delete] = "商品を削除しました"
     else
       redirect_back(fallback_location: item_path)
+      flash[:delete] = "削除に失敗しました"
     end
   end
 
@@ -196,6 +214,13 @@ class ItemsController < ApplicationController
 
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
+  end
+
+  def ensure_identical_user
+    if @item.seller_id != current_user.id
+      redirect_to item_path
+      flash[:delete] = "不正アクセスは許しません！！！"
+    end
   end
 
 
