@@ -1,6 +1,6 @@
 .drop_downs
   %h3.large-word 詳細検索
-  = search_form_for(@q, url: searches_detail_search_path) do |f|
+  = search_form_for(@q, url: "/categories") do |f|
     .form_normal
       %i.fas.fa-plus
       キーワードを追加する
@@ -57,5 +57,3 @@
     .button-box
       = f.button "クリア", type: :reset, class: "button-clear"
       = f.submit "完了", class: "button-submit"
-
-
