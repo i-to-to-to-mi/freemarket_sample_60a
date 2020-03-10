@@ -142,6 +142,8 @@ class ItemsController < ApplicationController
   def show
   end
 
+
+
   def destroy
     if user_signed_in?
       @item.destroy
@@ -195,5 +197,7 @@ class ItemsController < ApplicationController
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
   end
+
+
 end
 

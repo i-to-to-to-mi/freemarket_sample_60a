@@ -547,7 +547,7 @@ a {
 
 
 .category-items {
-  
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   width: 1020px;
@@ -580,7 +580,7 @@ a {
         height: 64px;
         font-size: 14px;
         padding: 12px 12px;
-        display: table-caption;
+        display: flex;
         caption-side: bottom;
         line-height: 1.4em;
       }
@@ -620,7 +620,7 @@ a {
         border-left: 60px solid #ea352d ;
         z-index:100;
         position: relative;
-        top:-190px;
+        top:-252px;
         &__inner{
           transform: rotate(-45deg);
           font-size: 28px;
@@ -928,6 +928,7 @@ i.fas.fa-camera {
       color: white;
       padding-left: 15px;
       width: 75%;
+      margin-left:30%;
     }
   }
 }
@@ -937,7 +938,6 @@ i.fas.fa-camera {
 .sell-wrapper {
   background-color: rgb(245, 245, 245);
   font-size: 14px;
-  // line-height: 1;
   color: rgb(51, 51, 51);
 }
 
@@ -1015,7 +1015,6 @@ i.fas.fa-camera {
     padding-right: 40px;
   }
   &__form-box{
-    // float: right;
     width: 400px;
     margin: 0;
       }
@@ -1078,7 +1077,7 @@ i.fas.fa-camera {
   font-weight: bold;
 }
 
-      // ドロップボックス
+// ドロップボックス
 .drop-box{
   position: relative;
 
@@ -1116,9 +1115,7 @@ i.fas.fa-camera {
   }
 }
 
-.js-label {
-  
-}
+
 
 .js-file {
   display: none;
@@ -1332,14 +1329,14 @@ ul.sell-footer__links{
     }
   }
 }
+.footer-group{
+  width: 1020px;
+  margin: 30px auto 20px;
+}
 
-.sell-footer__merucari-bar__banner{
-  margin:0 auto;
-  width: 80px;
-  height: 65px;
-  margin: 40px auto 0;
+.footer__mercari-bar__banner__image{
+  color: white;
+  font-size:30px;
+  text-decoration: none;
 }
-img{
-width: 80px;
-height: 65px;
-}
+

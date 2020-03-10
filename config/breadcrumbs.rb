@@ -13,15 +13,17 @@ crumb :status do
   parent :mypages
 end
 
+# ログアウト
+crumb :logout do
+  link "ログアウト", logout_mypages_path
+  parent :mypages
+end
+
 # カテゴリー
 crumb :categories do
   link "カテゴリー", categories_path
 end
 
-# ログアウト
-crumb :logout do
-  link "ログアウト", logout_mypages_path
-end
 
 # 検索画面
 crumb :search do |name|
