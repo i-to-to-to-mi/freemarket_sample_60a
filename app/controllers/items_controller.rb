@@ -112,7 +112,7 @@ class ItemsController < ApplicationController
     exist_ids.clear if exist_ids[0] == 0
     
     if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
-
+      @item.update(price: params[:price], profit_price: params[:profit_price], margin_price: params[:margin_price])
       # 登録済画像のうち削除ボタンをおした画像を削除
       unless ids.length == exist_ids.length
       # 削除する画像のidの配列を生成
