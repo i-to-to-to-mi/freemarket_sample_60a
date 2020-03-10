@@ -51,14 +51,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     Payjp.api_key = 'sk_test_a0029dc5466705b77c5d7bab'
     if params['payjp-token'].blank?
       redirect_to action: "new"
+      flash[:delete] = "データ更新に失敗しました"
     else
       customer = Payjp::Customer.create(card: params['payjp-token'])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
         if @card.save
+          # ここでUserのcard_idを更新
+          current_user.update(card_id: @card.id)
           redirect_to action: "complete"
         else
           redirect_to action: "register_credit_card"
-          notice[:delete] = "なんかちげー"
+          flash[:delete] = "クレジットカード登録に失敗しました"
         end
     end
   end
