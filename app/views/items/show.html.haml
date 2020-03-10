@@ -8,12 +8,12 @@
     %h1.item-name-box 
       = @item.name
     .item-main-box
+      -if @item.buyer_id.present? 
+        .items__sold
+          .items__sold__inner
+            SOLD
       .box-photo
         .box-photo__photo
-          -# -if @item.buyer_id.present? 
-          -#   .items__sold
-          -#     .items__sold__inner
-          -#       SOLD
           - @item.images.each_with_index do |image, i|
             = image_tag "#{image.src}"
         
