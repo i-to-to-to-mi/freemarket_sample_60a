@@ -51,9 +51,6 @@ end
   end
   post "/", to: "purchase#pay"
   resources :categories, only: :index do
-    member do
-      get 'searches'
-    end
   end
 
   root "items#index"
