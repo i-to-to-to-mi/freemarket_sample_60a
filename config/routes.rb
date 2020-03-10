@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # カード登録ルーティング
-  resources :card, only: [:new, :show, :edit] do
+  resources :card, only: [:new, :show, :edit, :create] do
   collection do
     post 'pay', to: 'card#pay'
     post 'delete', to: 'card#delete'
