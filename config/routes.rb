@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get '/searches/detail_search', to: 'searches#detail_search'
-
   # カード登録ルーティング
   resources :card, only: [:new, :show, :edit] do
   collection do
@@ -43,6 +41,7 @@ end
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'image', defaults: { format: 'json' }
+      get '/searches/detail_search', to: 'searches#detail_search'
     end
   end
 
