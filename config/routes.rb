@@ -53,9 +53,6 @@ end
   end
   post "/", to: "purchase#pay"
   resources :categories, only: :index do
-    member do
-      get 'searches'
-    end
   end
 
   root "items#index"
@@ -64,6 +61,8 @@ end
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'image', defaults: { format: 'json' }
+      get 'show_own'
+      get 'show_buyer'
     end
     member do
       get 'category_children', defaults: { format: 'json' }

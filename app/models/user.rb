@@ -4,10 +4,10 @@ class User < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
   # バリデーション
-  validates :nickname, :first_name, :last_name, :birth_year, :birth_month, :birth_day, presence: true
+  validates :nickname, :first_name, :last_name, :birth_year, :birth_month, :birth_day, presence: true, on: :sign_up
   validates :password, presence: true, length: { minimum: 7 }, 
             # 英数字のみ可
-            format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数字７文字以上で入力してください" }
+            format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数字７文字以上で入力してください" }, on: :sign_up
   validates :email, presence: true, 
             # 重複不可
             uniqueness: { case_sensitive: false }, 

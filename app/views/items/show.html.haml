@@ -1,183 +1,197 @@
-= render "header"
-.item-detail-first-container
-  -# アイテム詳細ボックス
-  %section.item-box-container
-    %h1.item-name-box 
-      = @item.name
-    .item-main-box
-      .box-photo
-        .box-photo__photo
-          - @item.images.each_with_index do |image, i|
-            = image_tag "#{image.src}"
+-# showを分岐させましたので、このファイルは読まれません。
+
+
+-# -if user_signed_in?
+-#   =render "header"
+-# -else
+-#   =render "header-unlogin"
+-# .item-detail-first-container
+-#   -# アイテム詳細ボックス
+-#   %section.item-box-container
+-#     %h1.item-name-box 
+-#       = @item.name
+-#     .item-main-box
+-#       -if @item.buyer_id.present? 
+-#         .items__sold
+-#           .items__sold__inner
+-#             SOLD
+-#       .box-photo
+-#         .box-photo__photo
+-#           - @item.images.each_with_index do |image, i|
+-#             = image_tag "#{image.src}"
         
-      %table.box__detail-table
-        %tbody
-          %tr
-            %th
-              出品者
-            %td
-              = link_to do
-                = @item.seller.nickname
-              %div
-                .user-ratings
-                  %i.icon-good
-                    = icon('fas', 'kiss-wink-heart')
-                  %span
-                  11
-                .user-ratings
-                  %i.icon-nomal
-                    = icon('fas', 'meh')
-                  %span
-                  14
-                .user-ratings
-                  %i.icon-bad 
-                    = icon('fas', 'dizzy')
-                  %span
-                  1
-          %tr
-            %th
-              カテゴリ
-            %td
-              = link_to do
-                = @parent.name
-              = link_to do
-                .sub-category
-                  = icon('fas', 'chevron-right')
-                  = @child.name
-              = link_to do
-                .sub-sub-category
-                  = icon('fas', 'chevron-right')
-                  = @grandchild.name
-          %tr
-            %th
-              ブランド
-            %td
-              = link_to do
-                コーチ
-          %tr
-            %th
-              商品の状態
-            %td
-              = @item.condition
-          %tr
-            %th
-              配送料の負担
-            %td
-              = @item.cover_postage
-          %tr
-            %th
-              配送の方法
-            %td
-              らくらくFmart便
-          %tr
-            %th
-              配送元地域
-            %td
-              = link_to do
-                = @item.prefectures
-          %tr
-            %th
-              発送日の目安
-            %td
-              = @item.shipping_date
-    .item-price-box
-      %span.item-price-box.bold
-        = "¥#{@item.price}"
-      %span.item-price-box.tax
-        (税込)
-      %span.item-price-box.fee
-        送料込み
-      -if @item.buyer_id.present?   
-        = link_to '売り切れました','#',class: 'item-sold-button '
-      -elsif @item.seller_id != current_user.id
-        = link_to '購入画面に進む', purchase_path(@item.id),class: 'item-buy-button '
-    -if @item.seller_id == current_user.id
-      .t_delete 
-        この商品を削除する  
-      .t_overlay
-      .t_modalWindow
-        .t_modalWindow__content
-          %p
-          %span 確認 
-          %p 削除すると二度と復活できません。
-          %p 削除する代わりに停止することもできます。
-          %br
-          %p 本当に削除しますか？
-        .t_modalWindow__buttons
-          .t_modalWindow__buttons__btn--cxl
-            キャンセル
-          = link_to "削除する",item_path, method: :delete, class: "t_modalWindow__buttons__btn"
-          -# ルーティングは商品詳細に飛ぶ予定です。
-    .item-description-box
-      %p.item-description-box__inner 
-        = @item.description
-    .item-button-box
-      .item-button-box-left
-        .item-button-box-left__like.item-botton
-          = icon('far', 'heart')
-          いいね
-          ２５
-        .item-button-box-left__report.item-botton
-          = link_to do
-            = icon('far', 'flag')
-            %span 不適切な商品の報告
-      .item-button-box-right
-        = link_to do
-          = icon('fas', 'lock')
-          %span あんしん・あんぜんへの取り組み
+-#       %table.box__detail-table
+-#         %tbody
+-#           %tr
+-#             %th
+-#               出品者
+-#             %td
+-#               = link_to do
+-#                 = @item.seller.nickname
+-#               %div
+-#                 .user-ratings
+-#                   %i.icon-good
+-#                     = icon('fas', 'kiss-wink-heart')
+-#                   %span
+-#                   11
+-#                 .user-ratings
+-#                   %i.icon-nomal
+-#                     = icon('fas', 'meh')
+-#                   %span
+-#                   14
+-#                 .user-ratings
+-#                   %i.icon-bad 
+-#                     = icon('fas', 'dizzy')
+-#                   %span
+-#                   1
+-#           %tr
+-#             %th
+-#               カテゴリ
+-#             %td
+-#               = link_to do
+-#                 = @parent.name
+-#               = link_to do
+-#                 .sub-category
+-#                   = icon('fas', 'chevron-right')
+-#                   = @child.name
+-#               = link_to do
+-#                 .sub-sub-category
+-#                   = icon('fas', 'chevron-right')
+-#                   = @grandchild.name
+-#           %tr
+-#             %th
+-#               ブランド
+-#             %td
+-#               = link_to do
+-#                 コーチ
+-#           %tr
+-#             %th
+-#               商品の状態
+-#             %td
+-#               = @item.condition
+-#           %tr
+-#             %th
+-#               配送料の負担
+-#             %td
+-#               = @item.cover_postage
+-#           %tr
+-#             %th
+-#               配送の方法
+-#             %td
+-#               らくらくFmart便
+-#           %tr
+-#             %th
+-#               配送元地域
+-#             %td
+-#               = link_to do
+-#                 = @item.prefectures
+-#           %tr
+-#             %th
+-#               発送日の目安
+-#             %td
+-#               = @item.shipping_date
+-#     .item-price-box
+-#       %span.item-price-box.bold
+-#         = "¥#{@item.price}"
+-#       %span.item-price-box.tax
+-#         (税込)
+-#       %span.item-price-box.fee
+-#         送料込み
+-#     .itms-buybox
+-#     -# -else
+-#     -#   = link_to 'ユーザー登録してね',root_path,class: 'item-buy-button '
+-#     - if user_signed_in? && current_user.id == @item.seller_id
+-#       = link_to "編集する", edit_item_path(@item.id),class:"item-sold-button"
+-#       .t_delete
+-#         この商品を削除する
+-#       .t_overlay
+-#       .t_modalWindow
+-#         .t_modalWindow__content
+-#           %p
+-#           %span 確認 
+-#           %p 削除すると二度と復活できません。
+-#           %p 削除する代わりに停止することもできます。
+-#           %br
+-#           %p 本当に削除しますか？
+-#         .t_modalWindow__buttons
+-#           .t_modalWindow__buttons__btn--cxl
+-#             キャンセル
+-#           .t_modalWindow__buttons__btn--cxl
+-#             = link_to "この商品を削除する",item_path(@item.id), method: :delete, class: "t_modalWindow__buttons__btn"
+-#     - elsif @item.buyer_id.present?  
+-#       = link_to '売り切れました','#',class: 'item-sold-button '
+-#     -else 
+-#       = link_to '購入画面に進む', purchase_path,class: 'item-buy-button '
+-#     .item-description-box
+-#       %p.item-description-box__inner 
+-#         = @item.description
+-#     .item-button-box
+-#       .item-button-box-left
+-#         .item-button-box-left__like.item-botton
+-#           = icon('far', 'heart')
+-#           いいね
+-#           ２５
+-#         .item-button-box-left__report.item-botton
+-#           = link_to do
+-#             = icon('far', 'flag')
+-#             %span 不適切な商品の報告
+-#       .item-button-box-right
+-#         = link_to do
+-#           = icon('fas', 'lock')
+-#           %span あんしん・あんぜんへの取り組み
 
-  -# コメントボックス
-  .item-detail-comment
-    .comment-content
-      %ul.message-items
-        = render "detail/comment"
-    .comment-content
-      .message-form
-        = form_with model:@user,local: true do |form|
-          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = form.text_area :nickname, class: "textarea-default"
-          = form.submit "コメントする", class: "submit-detail"
+-#   -# コメントボックス
+-#   .item-detail-comment
+-#     .comment-content
+-#       %ul.message-items
+-#         = render "detail/comment"
+-#     .comment-content
+-#       .message-form
+-#         = form_with model:@user,local: true do |form|
+-#           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+-#           = form.text_area :nickname, class: "textarea-default"
+-#           = form.submit "コメントする", class: "submit-detail"
 
-  -# ナビバー
-  %ul.nav-item-link
-    .nav-item-link__previous
-      = link_to do
-        = icon('fas', 'chevron-left')
-        前の商品名
-    .nav-item-link__next
-      = link_to do
-        次の商品名
-        = icon('fas', 'chevron-right')
+-#   -# ナビバー
+-#   %ul.nav-item-link
+-#     .nav-item-link__previous
+-#       = link_to do
+-#         = icon('fas', 'chevron-left')
+-#         前の商品名
+-#     .nav-item-link__next
+-#       = link_to do
+-#         次の商品名
+-#         = icon('fas', 'chevron-right')
 
-  -# SNSロゴ
-  .sns-logo-container
-    %ul.sns-logo-box
-      %li
-        = link_to "#", class:"btn" do
-          = icon('fab', 'facebook', class:'fa-3x')
-      %li
-        = link_to "#", class:"btn" do
-          = icon('fab', 'twitter',class:'fa-3x')
-      %li.hidden-item
-        = link_to "#", class:"btn" do
-          = icon('fab', 'line',class:'fa-3x')
-      %li
-        = link_to "#", class:"btn" do
-          = icon('fab', 'pinterest',class:'fa-3x')
+-#   -# SNSロゴ
+-#   .sns-logo-container
+-#     %ul.sns-logo-box
+-#       %li
+-#         = link_to "#", class:"btn" do
+-#           = icon('fab', 'facebook', class:'fa-3x')
+-#       %li
+-#         = link_to "#", class:"btn" do
+-#           = icon('fab', 'twitter',class:'fa-3x')
+-#       %li.hidden-item
+-#         = link_to "#", class:"btn" do
+-#           = icon('fab', 'line',class:'fa-3x')
+-#       %li
+-#         = link_to "#", class:"btn" do
+-#           = icon('fab', 'pinterest',class:'fa-3x')
 
-  -# ユーザーのその他出品一覧
-  .other-items-in-user
-    %section
-      %h2.itembox-head
-        = link_to "#",class:"items-in-box" do
-          まりこさんのその他の出品
-        = render "detail/itembox"
-    %section
-      %h2.itembox-head
-        = link_to "#",class:"items-in-box" do
-          コーチのショルダーバッグ  その他の商品
-        = render "detail/itembox"
+-#   -# ユーザーのその他出品一覧
+-#   .other-items-in-user
+-#     %section
+-#       %h2.itembox-head
+-#         = link_to "#",class:"items-in-box" do
+-#           まりこさんのその他の出品
+-#         = render "detail/itembox"
+-#     %section
+-#       %h2.itembox-head
+-#         = link_to "#",class:"items-in-box" do
+-#           コーチのショルダーバッグ  その他の商品
+-#         = render "detail/itembox"
 
-  - breadcrumb :item,@item
-  = render "layouts/breadcrumbs"
-= render "footer"
+-#   - breadcrumb :item,@item
+-#   = render "layouts/breadcrumbs"
+-# = render "footer"

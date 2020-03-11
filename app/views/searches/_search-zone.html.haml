@@ -5,12 +5,12 @@
       %i.fas.fa-plus
       キーワードを追加する
       =f.text_field :name, class: "input-default", placeholder: "#{@search}"
-    -# .form__slot
-    -#   %i.fas.fa-list
-    -#   = f.label :karioki, "カテゴリーを選択する", class: "label-font"
-    -#   %br
-    -#   = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { onchange: 'this.form.submit()'} )
-    -#   %i.fas.fa-chevron-down.arrow
+    .form__slot
+      %i.fas.fa-list
+      = f.label :category, "カテゴリーを選択する", class: "label-font"
+      %br
+      = f.select :category, @category_parent_array, {include_blank: '全て'}, {class: 'search__box', id: 'parent_category'}
+      %i.fas.fa-chevron-down.arrow
     .form__slot
       %i.fas.fa-tag
       = f.label :karioki, "ブランド名から探す", class: "label-font"

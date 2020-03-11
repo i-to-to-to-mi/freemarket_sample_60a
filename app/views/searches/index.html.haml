@@ -1,6 +1,4 @@
 = render 'items/header'
-- breadcrumb :search
-= render "layouts/breadcrumbs_white"
 
 .search-container
   .search
@@ -16,5 +14,7 @@
           ="1-#{@item.count}件表示"
         .items-box-content
           = render "search_item"
+        -# .items-box-content
+        -#   = render @images
 
 = render 'items/footer'
