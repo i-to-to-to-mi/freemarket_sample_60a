@@ -14,9 +14,9 @@
             %span
               の検索結果
           .search-result-number
-            ="1-#{@ladies.count}件表示"
+            ="1-#{@items.count}件表示"
         -else
         .items-box-content
-          = render "categories/ladies"
+          = render "searches"
 
 = render 'items/footer'
