@@ -2,8 +2,8 @@ class SearchesController < ApplicationController
   before_action :set_ransack
   
   def index
-    @item = Item.search(params[:search]).limit(132)
-    @search = params[:search]
+    @all_items = Item.all
+    @items = @all_items.where('name LIKE ?', "%#{params[:search]}%").limit(132) if params[:search].present?
   end
 
   def detail_search
