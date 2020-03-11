@@ -45,6 +45,24 @@ input[type=checkbox] {
         .label-font {
           font-weight: 600;
         }
+
+        // .form_sort {
+        //   midth: 100%;
+        //   -webkit-appearance: none;
+        //   -moz-appearance: none;
+        //   appearance: none;
+        //   position: relative;
+        //   z-index: 2;
+        //   height: 48px;
+        //   padding: 0 16px;
+        //   border-radius: 4px;
+        //   border: 1px solid #ccc;
+        //   background: 0;
+        //   font-size: 16px;
+        //   line-height: 1.5;
+        //   cursor: pointer;
+        // }
+
         .form-normal {
           margin: 24px 0 0;
         }
@@ -123,6 +141,9 @@ input[type=checkbox] {
       .search-result-head {
         font-size: 22px;
         margin: 0 0 8px;
+      }
+      .search-result-number {
+        font-size: 12px;
       }
     }
 }

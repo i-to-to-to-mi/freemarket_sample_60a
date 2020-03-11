@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/searches/detail_search', to: 'searches#detail_search'
+
   # カード登録ルーティング
   resources :card, only: [:new, :show, :edit] do
   collection do
