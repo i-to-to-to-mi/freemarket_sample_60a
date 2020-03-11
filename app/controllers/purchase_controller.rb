@@ -33,6 +33,7 @@ class PurchaseController < ApplicationController
   @item_buyer= Item.find(params[:id])
   @item_buyer.update( buyer_id: current_user.id)
     if @item_buyer.save
+      @item.sold!
     else
       redirect_to parchase_path
       notice[:delete] = "購入できませんでした"
