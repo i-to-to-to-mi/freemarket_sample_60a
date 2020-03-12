@@ -11,7 +11,11 @@
           %span.search-result-head-text
           の検索結果
         .search-result-number
-          ="1-#{@items.count}件表示"
+          1-
+          %span 
+          = @count 
+          %span
+          件表示
         .items-box-content
           = render "search_item"
 
