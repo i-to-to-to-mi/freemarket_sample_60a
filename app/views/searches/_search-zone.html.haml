@@ -1,10 +1,10 @@
 .drop_downs
   %h3.large-word 詳細検索
-  = form_for "#"do |f|
+  = form_for "#" do |f|
     .form_normal
       %i.fas.fa-plus
       キーワードを追加する
-      =f.text_field :name, class: "input-default", placeholder: "#{@search}"
+      =f.text_field :name, class: "input-default"
     -# .form__slot
     -#   %i.fas.fa-list
     -#   = f.label :category, "カテゴリーを選択する", class: "label-font"

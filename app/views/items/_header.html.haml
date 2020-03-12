@@ -7,8 +7,8 @@
           class: 'toppage__header-contents--freemarket-logo'
 
       .toppage__header-search
-        = form_with url:'/searches', method: :get, local: true do |f|
-          = f.text_field :search, class:'header-search-form', placeholder: '何かお探しですか？'
+        = form_with(url:'/searches', method: :get, skip_enforcing_utf8: true, local: true) do |f|
+          = f.text_field :name, class:'header-search-form', placeholder: '何かお探しですか？'
           = button_tag type:'submit',class:'header-search-btn' do
             = icon('fas', 'search', alt: 'search-icon',class: 'toppage__header-search--search-btn')
 
