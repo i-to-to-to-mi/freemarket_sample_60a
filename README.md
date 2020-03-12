@@ -23,24 +23,25 @@
 - has_one :phone,dependent: :destroy
 - has_one :address,dependent: :destroy
 
-## Phoneテーブル
-|Column|Type|Options|
-|---------|------|---------|
-|phone_number|integer|null: false, unique: true|
-|authentication_num|integer|null: false|
-### Association
-- belongs_to :user
 
 ## Addressテーブル
 |Column|Type|Options|
 |---------|------|---------|
 |postal_code|integer|null: false|
-|Prefectures|string|null: false|
+|prefectures|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
 |phone_number|string||
 |user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+## sns_credentialsテーブル
+|---------|------|---------|
+|provider|string||
+|uid|string||
+|user_id|integer||
 ### Association
 - belongs_to :user
 
@@ -58,6 +59,7 @@
 |price|integer|null: false|
 |margin|integer|null: false|
 |profit|integer|null: false|
+|prefectures|string|null: false|
 |category_id|integer|foreign_key: true|
 |item_id|integer|null: false, primary_key: true, index: true|
 |buyer_id|integer|foreign_key: true|
@@ -81,17 +83,6 @@
 ### Association
 - belongs_to: item
 
-## likesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, uniqueness: {scope: :item_id}|
-|item_id|integer|null: false|
-|created_at|integer|null: false|
-
-### Association
-- belongs_to: user
-- belongs_to: item
-
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -99,22 +90,6 @@
 ### Association
 - has_many :items
 - has_many :groups, through: :brand_groups
-
-## brand_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|brand_id|integer|null: false, index: true|
-|group_id|integer|null: false, |
-### Association
-- has_many :brands
-- has_many :groups
-
-## groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :brands, through: :brand_groups
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -135,23 +110,3 @@
 - belongs_to :user
 - belongs_to :customer
 - belongs_to :card
-
-
-## user_itemsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :item
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|body|text|null: false|
-|user_id|integer|null: false, foreign_key: true, index: true|
-|item_id|integer|null: false, foreign_key: true, index: true|
-### Association
-- belongs_to :user
-- belongs_to :item
