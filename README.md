@@ -4,6 +4,7 @@
 |Column|Type|Options|
 |---------|------|---------|
 |nickname|string|null: false| 
+|card_id|string|| 
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |first_name|string|null: false|
@@ -16,12 +17,10 @@
 |introduction|text||
 |avatar|string||
 ### Association
-- has_one :card,dependent: :destroy
-- has_one :buyer,dependent: :destroy
-- has_one :comment,dependent: :destroy
-- has_many :likes,dependent: :destroy
-- has_one :phone,dependent: :destroy
-- has_one :address,dependent: :destroy
+- has_many :cards
+- has_one :address
+- has_many :items
+- has_many :sns_credentials
 
 
 ## Addressテーブル
@@ -35,13 +34,16 @@
 |phone_number|string||
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
+- belongs_to_active_hash :prefecture
 
 ## sns_credentialsテーブル
 |---------|------|---------|
 |provider|string||
 |uid|string||
 |user_id|integer||
+|created_at|integer|null: false|
+|updated_at|integer|null: false|
 ### Association
 - belongs_to :user
 
@@ -67,18 +69,19 @@
 |brand_id|integer|null: false, foreign_key: true, index: true|
 
 ### Association
-- has_many :buyer
+- belongs_to_active_hash :prefecture
+- belongs_to :seller, class_name:"User", foreign_key: 'seller_id'
 - has_one :category
 - has_one :brand
-- has_many :comments
-- has_many: likes,dependent: :destroy
 - has_many :images,dependent: :destroy
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
+|src|string||
 |item_id|integer|null: false,foreign_key: true|
+- belongs_to :item, optional: true
 
 ### Association
 - belongs_to: item
@@ -89,7 +92,6 @@
 |name|string|null: false|
 ### Association
 - has_many :items
-- has_many :groups, through: :brand_groups
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -108,5 +110,3 @@
 |card_id|string|null: false|
 ### Association
 - belongs_to :user
-- belongs_to :customer
-- belongs_to :card
