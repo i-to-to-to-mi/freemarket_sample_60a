@@ -2,13 +2,18 @@ class SearchesController < ApplicationController
   # before_action :set_ransack
   
   def index
+    @keyword = params[:name]
     @all_items = Item.all
-    @keyword = params[:keyword]
 
-    if @keyword.present?
-    @items = @all_items.where('name LIKE ?', "%#{@keyword}%").limit(132)
+    if @keyword.blank?
+      @items = @all_items
     else
-    @items = ""
+      @items = @all_items.where('name LIKE ?', "%#{@keyword}%").limit(132)
+        if @items.present?
+          @exist_items = @items
+        else
+          @not_found = "検索結果はありません"
+        end    
     end
     
     if @items.present?
