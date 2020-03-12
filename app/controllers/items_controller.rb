@@ -72,6 +72,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def edit
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     gon.item = @item
@@ -101,6 +102,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  
   def update
     # 登録済画像のidの配列を生成
     ids = @item.images.map{|image| image.id }
