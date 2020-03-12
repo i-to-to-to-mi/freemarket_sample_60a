@@ -5,28 +5,9 @@
       %i.fas.fa-plus
       キーワードを追加する
       = f.search_field :name_cont_any, class: "input-default", placeholder: "#{@items.name}"
-    -# .form__slot
-    -#   %i.fas.fa-list
-      -# = f.label :category, "カテゴリーを選択する", class: "label-font"
-      -# %br
-      -# = f.select :category, @category_parent_array, {include_blank: '全て'}, {class: 'search__box', id: 'parent_category'}
-      -# %i.fas.fa-chevron-down.arrow
-    -# .form__slot
-    -#   %i.fas.fa-tag
-    -#   = f.label :karioki, "ブランド名から探す", class: "label-font"
-    -#   = f.text_field :karioki, class: "input-default", placeholder: "例）シャネル"
-    -# サイズはもともとないので省きます
-    -# .form__slot
-    -#   %i.fas.fa-square
-    -#   = f.label :karioki, "サイズを指定する", class: "label-font"
-    -#   = f.select :karioki, [[ "01","01"], [ "02", "02" ], [ "03", "03" ]], {include_blank: '洋服のサイズ'},  class: 'search__box'
-    -#   %i.fas.fa-chevron-down.arrow
     .form__slot
       %i.fas.fa-coins
       = f.label :karioki, "価格", class: "label-font"
-      -# = search_form_for @search, url: search_items_path ,html: { method: :post } do |f|
-      -# = f.selec( :sorts, {"300 ~ 1000":"01", "1000 ~ 5000":"02", "5000 ~ 10000":"03" , "10000 ~ 30000":"04" , "30000 ~ 50000":"05" }, class: 'search__box'
-      -# %i.fas.fa-chevron-down.arrow
       = f.search_field :price_gteq,class: 'search__box-half', placeholder: "¥ Min"
       %span ~
       = f.search_field :price_lteq,class: 'search__box-half', placeholder: "¥ Max"
@@ -40,22 +21,6 @@
           = f.check_box :karioki, {checked: false, multiple: true, class: "checkbox_space"}
           = key
     .form__slot
-    -#   - delivery = {すべて: 0, 着払い（購入者負担）: 1, 送料込み（出品者負担）: 2}
-    -#   %i.fas.fa-truck
-    -#   = f.label :karioki, "配送料の負担", class: "label-font"
-    -#   %p
-    -#   - delivery.each do |key, value|
-    -#     %p
-    -#     = f.check_box :karioki, class: "checkbox_horizon"
-    -#     = key
-    -# .form__slot
-    -#   - status = {すべて: 0, 販売中: 1, 売り切れ: 2}
-    -#   %i.fas.fa-shopping-cart
-    -#   = f.label :karioki, "販売状況", class: "label-font"
-    -#   %p
-    -#   - status.each do |key, value|      
-    -#     = f.check_box :karioki, class: "checkbox_horizon"
-    -#     = key
     .button-box
       = f.button "クリア", type: :reset, class: "button-clear"
       = f.submit "完了", class: "button-submit"
