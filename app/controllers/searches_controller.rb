@@ -3,7 +3,14 @@ class SearchesController < ApplicationController
   
   def index
     @all_items = Item.all
-    @items = @all_items.where('name LIKE ?', "%#{params[:search]}%").limit(132) if params[:search].present?
+    @items = @all_items.where('name LIKE ?', "%#{params[:search]}%").limit(132)
+    if @items.present?
+      @count = @items.count
+    elsif @items.blank?
+      @count = "0"
+    else
+      @count = @all_items.count
+    end
   end
 
   def detail_search
