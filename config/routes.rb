@@ -41,9 +41,9 @@ end
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
       get 'image', defaults: { format: 'json' }
-      get '/searches/detail_search', to: 'searches#detail_search'
     end
   end
+  get '/searches/detail_search', to: 'searches#detail_search'
 
   resources :purchase, only: [:show] do
     collection do
