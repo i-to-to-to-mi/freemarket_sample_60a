@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999}
   validates :category_id, numericality: { only_integer: true }
 
+
   include AASM
 
   aasm do
@@ -48,11 +49,6 @@ class Item < ApplicationRecord
     event :closing do
       transitions :from => :dealing, :to => :completed
     end
-  end
-
-  def self.search(search)
-    return Item.all unless search
-    Item.where(['name LIKE ?', "%#{search}%"])
   end
 end
 

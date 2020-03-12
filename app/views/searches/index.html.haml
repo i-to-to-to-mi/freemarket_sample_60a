@@ -9,7 +9,8 @@
       %section.items-box-container
         -if @search.present?
           %h2.search-result-head
-            = @search
+          - @items.each do |item|
+            = item.name
             %span.search-result-head-text
               の検索結果
           .search-result-number
@@ -19,8 +20,7 @@
             検索結果
           .search-result-number
             ="1-#{@items.count}件表示"
-          .items-box-content
-            = render @items
-
+        .items-box-content
+          = render "categories/search"
 
 = render 'items/footer'

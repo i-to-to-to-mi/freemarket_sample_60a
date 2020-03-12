@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_163425) do
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
-    t.string "card_id"
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,10 +64,13 @@ ActiveRecord::Schema.define(version: 2020_03_10_163425) do
     t.bigint "buyer_id"
     t.string "aasm_state"
     t.string "prefectures"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
+    t.bigint "image_id"
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["image_id"], name: "index_items_on_image_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
@@ -105,6 +108,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_163425) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "images"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "sns_credentials", "users"
