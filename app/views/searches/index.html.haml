@@ -1,20 +1,26 @@
 = render 'items/header'
 
-.search-container
-  .search
+
+.search
+  .search-container
     .search-left
       = render 'search-zone'
     .search-right
       %section.items-box-container
         -if @search.present?
           %h2.search-result-head
-            =@search
-            %span
+            = @search
+            %span.search-result-head-text
               の検索結果
           .search-result-number
             ="1-#{@items.count}件表示"
         -else
-        .items-box-content
-          = render @images
+          %h2.search-result-nil
+            検索結果
+          .search-result-number
+            ="1-#{@items.count}件表示"
+          .items-box-content
+            = render @items
+
 
 = render 'items/footer'

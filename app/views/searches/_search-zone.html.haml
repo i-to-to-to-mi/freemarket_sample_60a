@@ -7,10 +7,10 @@
       =f.text_field :karioki, class: "input-default", placeholder: "#{@search}"
     .form__slot
       %i.fas.fa-list
-      = f.label :category, "カテゴリーを選択する", class: "label-font"
-      %br
-      = f.select :category, @category_parent_array, {include_blank: '全て'}, {class: 'search__box', id: 'parent_category'}
-      %i.fas.fa-chevron-down.arrow
+      -# = f.label :category, "カテゴリーを選択する", class: "label-font"
+      -# %br
+      -# = f.select :category, @category_parent_array, {include_blank: '全て'}, {class: 'search__box', id: 'parent_category'}
+      -# %i.fas.fa-chevron-down.arrow
     .form__slot
       %i.fas.fa-tag
       = f.label :karioki, "ブランド名から探す", class: "label-font"

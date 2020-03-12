@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :show_buyer]
   before_action :set_item, only: [:update, :edit, :show, :destroy]
   before_action :set_category, only: [:new,:index,:show]
-
+  before_action :set_ransack
   def index
     @items= Item.includes(:images).order('created_at DESC') 
     @ladies = Item.where(category_id:14..211).order("created_at DESC").limit(10)
@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
     @louisvuitton = Item.where(brand_id: 2).order("created_at DESC").limit(10)
     @supreme= Item.where(brand_id: 3).order("created_at DESC").limit(10)
     @nike= Item.where(brand_id: 4).order("created_at DESC").limit(10)
+    @search = Item.ransack(params[:q]) 
+    @items = @search.result.page(params[:page])
   end
 
   def new
@@ -214,6 +216,10 @@ class ItemsController < ApplicationController
 
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
   end
 
   def ensure_identical_user
