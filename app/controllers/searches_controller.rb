@@ -4,10 +4,11 @@ class SearchesController < ApplicationController
   def index
     @all_items = Item.all
     @keyword = params[:keyword]
-    if params[:keyword].present?
-    @items = @all_items.where('name LIKE ?', "%#{params[:keyword]}%").limit(132)
+
+    if @keyword.present?
+    @items = @all_items.where('name LIKE ?', "%#{@keyword}%").limit(132)
     else
-    @items = @all_items
+    @items = ""
     end
     
     if @items.present?
