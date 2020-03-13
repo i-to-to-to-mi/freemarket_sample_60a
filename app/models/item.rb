@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999}
   validates :category_id, numericality: { only_integer: true }
   validates :src, presence: true
+
   include AASM
 
   aasm do
@@ -49,7 +50,6 @@ class Item < ApplicationRecord
       transitions :from => :dealing, :to => :completed
     end
   end
-
 
 end
 

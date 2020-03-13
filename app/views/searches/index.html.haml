@@ -1,22 +1,25 @@
 = render 'items/header'
 
-.search-container
-  .search
+
+.search
+  .search-container
     .search-left
       = render 'search-zone'
     .search-right
       %section.items-box-container
-        %h2.search-result-head
-          = @item
-          %span.search-result-head-text
-          の検索結果
-        .search-result-number
-          1-
-          %span 
-          = @count 
-          %span
-          件表示
+        -if @search.present?
+          %h2.search-result-head
+          - @items.each do |item|
+            = item.name
+            %span.search-result-head-text
+              の検索結果
+          .search-result-number
+            ="1-#{@items.count}件表示"
+        -else
+          %h2.search-result-nil
+            検索結果
+          .search-result-number
+            ="1-#{@items.count}件表示"
         .items-box-content
-          = render "search_item"
-
+          = render "categories/search"
 = render 'items/footer'
