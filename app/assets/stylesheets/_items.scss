@@ -342,45 +342,6 @@ img{
   background-color: rgb(245, 245, 245);
 }
 
-
-.topview {
-  padding: 20px 40px;
-  margin: 0 auto;
-  background-image: image-url("top_slide1.jpg");
-  background-size: cover;
-}
-
-
-.top-view {
-  width: 780px;
-  height: 390px;
-  margin: 0 auto;
-    &__title {
-      display: block;
-      font-size: 60px;
-      color: #333333;
-      width: 780px;
-      height: 168px;
-      margin-bottom: 16px;
-      line-height: 1.4;
-    }
-
-    &__description {
-      font-size: 18px;
-      color: #333333;
-      margin-bottom: 24px;
-      line-height: 28px;
-    }
-    &__buttons {
-      &__apple {
-        display: inline-block;
-      }
-      &__google {
-        display: inline-block;
-      }
-    }
-}
-
 .liked-items {
   width: 1020px;
   margin: 32px auto;
