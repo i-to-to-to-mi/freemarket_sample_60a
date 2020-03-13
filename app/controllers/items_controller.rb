@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :edit, :show, :destroy]
   before_action :set_category, only: [:new,:index,:show]
   before_action :set_ransack, only: [:index,:show]
+
   
   def index
     @items= Item.includes(:images).order('created_at DESC') 
@@ -225,12 +226,6 @@ class ItemsController < ApplicationController
     @items = @search.result
   end
 
-  def ensure_identical_user
-    if @item.seller_id != current_user.id
-      redirect_to item_path
-      flash[:delete] = "不正アクセスは許しません！！！"
-    end
-  end
 
 
 end
