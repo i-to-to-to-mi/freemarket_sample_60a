@@ -1,0 +1,18 @@
+= render 'items/header'
+
+.search-container
+  .search
+    .search-left
+      = render 'search-zone'
+    .search-right
+      %section.items-box-container
+        %h2.search-result-head
+          =params[:search]
+          %span.search-result-head-text
+          の検索結果
+        .search-result-number
+          ="1-#{@items.count}件表示"
+        .items-box-content
+          = render "search_item"
+
+= render 'items/footer'

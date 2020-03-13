@@ -1,0 +1,27 @@
+.category-items
+  .category-items__item
+    -if @keyword.blank?
+      - @items.each do |item|
+        .category-items__item__link
+          = link_to item_path(item.id) do
+            %figure.category-items__item__figure
+              .category-items__item__thumbnail
+                .category-items__item__thumbnail__price{aria: "", label: ""} 
+                  = "¥#{item.price}"
+                = image_tag "#{item.images[0].src}", alt: 'category-item',class: 'category-items__item__thumbnail__image'
+                %figcaption.category-items__item__figure__caption 
+                  = item.name
+    -else
+      -if @items.present? 
+        - @exist_items.each do |exist_item|
+          .category-items__item__link
+            = link_to item_path(exist_item.id) do
+              %figure.category-items__item__figure
+                .category-items__item__thumbnail
+                  .category-items__item__thumbnail__price{aria: "", label: ""} 
+                    = "¥#{exist_item.price}"
+                  = image_tag "#{exist_item.images[0].src}", alt: 'category-item',class: 'category-items__item__thumbnail__image'
+                  %figcaption.category-items__item__figure__caption 
+                    = exist_item.name
+      -else
+        = @not_found

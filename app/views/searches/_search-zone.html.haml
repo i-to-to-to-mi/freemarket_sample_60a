@@ -1,5 +1,6 @@
 .drop_downs
   %h3.large-word 詳細検索
+
   = search_form_for@search,url: searches_path do |f|
     .form_normal
       %i.fas.fa-plus
@@ -14,7 +15,7 @@
     .form__slot
       - rank = {全部: 0, 新品、未使用: 1, 未使用に近い: 2, 目立った傷や汚れなし: 3, やや汚れや傷あり: 4, 傷や汚れあり: 5, 全体的に状態が悪い: 6}
       %i.fas.fa-star
-      = f.label :karioki, '商品の状態', class: "label-font"
+      = f.label :condition_in, '商品の状態', class: "label-font"
       %p
       - rank.each do |key, value|
         .checkbox_default
