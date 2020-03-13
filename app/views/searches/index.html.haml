@@ -1,6 +1,7 @@
-= render 'items/header'
-
-
+-if user_signed_in?
+  =render "items/header"
+-else
+  =render "items/header-unlogin"
 .search
   .search-container
     .search-left

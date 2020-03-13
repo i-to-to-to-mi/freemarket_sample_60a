@@ -36,11 +36,7 @@ end
   end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
-  resources :searches, only: [:index] do
-    collection do
-      get 'logout_top', to:'searches#logout_top'
-    end
-  end
+  resources :searches, only: [:index]
   # get '/searches/detail_search', to: 'searches#detail_search'
 
   resources :purchase, only: [:show] do
