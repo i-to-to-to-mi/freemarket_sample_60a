@@ -1,0 +1,24 @@
+= render 'items/header-unlogin'
+
+.search
+  .search-container
+    .search-left
+      = render 'search-zone'
+    .search-right
+      %section.items-box-container
+        -if @search.present?
+          %h2.search-result-head
+          - @items.each do |item|
+            = item.name
+            %span.search-result-head-text
+              の検索結果
+          .search-result-number
+            ="1-#{@items.count}件表示"
+        -else
+          %h2.search-result-nil
+            検索結果
+          .search-result-number
+            ="1-#{@items.count}件表示"
+        .items-box-content
+          = render "categories/search"
+= render 'items/footer'

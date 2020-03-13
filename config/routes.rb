@@ -37,13 +37,11 @@ end
   resources :users, only: [:index,:new, :show, :edit, :update]
   resources :addresses, only: [:new, :create]
   resources :searches, only: [:index] do
-    member do
-      get 'category_children', defaults: { format: 'json' }
-      get 'category_grandchildren', defaults: { format: 'json' }
-      get 'image', defaults: { format: 'json' }
+    collection do
+      get 'logout_top', to:'searches#logout_top'
     end
   end
-  get '/searches/detail_search', to: 'searches#detail_search'
+  # get '/searches/detail_search', to: 'searches#detail_search'
 
   resources :purchase, only: [:show] do
     collection do

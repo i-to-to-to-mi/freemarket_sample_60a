@@ -3,23 +3,13 @@
     .toppage__header
       .toppage__header-contents
         = link_to root_path do
-          = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',
-          class: 'toppage__header-contents--freemarket-logo'
+          = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',class: 'toppage__header-contents--freemarket-logo'
 
       .toppage__header-search
-        = search_form_for @search,url: searches_path do |f|
+        = search_form_for @search,url: logout_top_searches_path do |f|
           = f.search_field :name_cont,class:'header-search-form',placeholder: '何かお探しですか？'
           = button_tag type:'submit',class:'header-search-btn' do
             = image_tag"search-solid.svg",class: 'header-search-btn'
-
-      -# .toppage__header-search
-      -#   = form_with url:'/searches', method: :get, local: true do |f|
-      -#     = f.text_field :name, class:'header-search-form', placeholder: '何かお探しですか？'
-      -#     .search-box
-      -#     = button_tag type:'submit',class:'header-search-btn' do
-      -#       = icon('fas', 'search', alt: 'search-icon',class: 'toppage__header-search--search-btn')
-
-
 
     .toppage__footer
       %nav.toppage__footer-nav
