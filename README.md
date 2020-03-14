@@ -1,6 +1,7 @@
 ## アプリ名「きまぐれカエルのスーパーマーケット」
 
 ## 説明「ユーザーが商品を出品したり買ったりできます」
+***購入用の仮装クレカ[番号：4242424242424242, 有効期限 02/24, Security 123]***
 
 ## Usage
 `$ git clone https://github.com/i-to-to-to-mi/freemarket_sample_60a.git`
