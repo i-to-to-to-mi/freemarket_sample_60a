@@ -2,9 +2,8 @@
   .header-wrapper
     .toppage__header
       .toppage__header-contents
-        = link_to root_path do
-          = image_tag 'fmarket_logo_red.svg', alt: 'freemarket-logo',class: 'toppage__header-contents--freemarket-logo'
-
+        = link_to image_tag("_c_choju47_0031_s64_choju47_0031_11.png",width:"40",height:"36"), root_path,{class:'toppage__header-contents--freemarket-logo'}
+        気まぐれカエルのスーパーマーケット
       .toppage__header-search
         = search_form_for @search,url: searches_path do |f|
           = f.search_field :name_cont,class:'header-search-form',placeholder: '何かお探しですか？'

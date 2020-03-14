@@ -1,8 +1,9 @@
 .topview {
-  padding: 20px 40px;
+  padding: 60px 40px;
   margin: 0 auto;
-  background-image: image-url("p8134.jpg");
+  background-image: image-url("hello-i-m-nik-1GTUDEPo-vA-unsplash.jpg");
   background-size: cover;
+  height: 660px;
 }
 
 
@@ -13,18 +14,20 @@
     &__title {
       display: block;
       font-size: 60px;
-      color: #333333;
+      color: #fff;
       width: 780px;
       height: 168px;
       margin-bottom: 16px;
       line-height: 1.4;
+      font-weight: bold;
     }
 
     &__description {
       font-size: 18px;
-      color: #333333;
+      color: #fff;
       margin-bottom: 24px;
       line-height: 28px;
+      font-weight: bold;
     }
     &__buttons {
       &__apple {

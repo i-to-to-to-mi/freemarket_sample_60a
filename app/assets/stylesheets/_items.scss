@@ -28,15 +28,14 @@ a {
     box-pack: justify;
     
       &-contents  {
+        width: 420px;
         -webkit-box-align: center;
         align-items: center;
         display: flex;
         height: 40px;
         margin-right: 45px;
           &--freemarket-logo {
-            width: 134px;
             box-align: center;
-            margin-right: 45px;
             height: 36px;
           }
     .fuzzy_search{
