@@ -1,4 +1,14 @@
-# DB設計
+## アプリ名「きまぐれカエルのスーパーマーケット」
+
+## 説明「ユーザーが商品を出品したり買ったりできます」
+
+## Usage
+`$ git clone https://github.com/i-to-to-to-mi/freemarket_sample_60a.git`
+
+## index
+<img width="1437" alt="スクリーンショット 2020-03-14 9 37 34" src="https://user-images.githubusercontent.com/57339536/76671359-3a618680-65d9-11ea-891a-b6de32549e11.png">
+
+## DB設計
 
 ## usersテーブル
 |Column|Type|Options|
