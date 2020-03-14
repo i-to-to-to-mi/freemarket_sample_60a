@@ -28,15 +28,14 @@ a {
     box-pack: justify;
     
       &-contents  {
+        width: 420px;
         -webkit-box-align: center;
         align-items: center;
         display: flex;
         height: 40px;
         margin-right: 45px;
           &--freemarket-logo {
-            width: 134px;
             box-align: center;
-            margin-right: 45px;
             height: 36px;
           }
     .fuzzy_search{
@@ -340,45 +339,6 @@ img{
   margin: 0;
   padding: 0;
   background-color: rgb(245, 245, 245);
-}
-
-
-.topview {
-  padding: 20px 40px;
-  margin: 0 auto;
-  background-image: image-url("top_slide1.jpg");
-  background-size: cover;
-}
-
-
-.top-view {
-  width: 780px;
-  height: 390px;
-  margin: 0 auto;
-    &__title {
-      display: block;
-      font-size: 60px;
-      color: #333333;
-      width: 780px;
-      height: 168px;
-      margin-bottom: 16px;
-      line-height: 1.4;
-    }
-
-    &__description {
-      font-size: 18px;
-      color: #333333;
-      margin-bottom: 24px;
-      line-height: 28px;
-    }
-    &__buttons {
-      &__apple {
-        display: inline-block;
-      }
-      &__google {
-        display: inline-block;
-      }
-    }
 }
 
 .liked-items {

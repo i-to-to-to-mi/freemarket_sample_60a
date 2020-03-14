@@ -1,0 +1,40 @@
+.topview {
+  padding: 60px 40px;
+  margin: 0 auto;
+  background-image: image-url("hello-i-m-nik-1GTUDEPo-vA-unsplash.jpg");
+  background-size: cover;
+  height: 660px;
+}
+
+
+.top-view {
+  width: 780px;
+  height: 390px;
+  margin: 0 auto;
+    &__title {
+      display: block;
+      font-size: 60px;
+      color: #fff;
+      width: 780px;
+      height: 168px;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+
+    &__description {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 24px;
+      line-height: 28px;
+      font-weight: bold;
+    }
+    &__buttons {
+      &__apple {
+        display: inline-block;
+      }
+      &__google {
+        display: inline-block;
+      }
+    }
+}
