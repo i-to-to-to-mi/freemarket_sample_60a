@@ -49,7 +49,8 @@
 - belongs_to_active_hash :prefecture
 
 ## sns_credentialsテーブル
-|---------|------|---------|
+|Column|Type|Options|
+|------|----|-------|
 |provider|string||
 |uid|string||
 |user_id|integer||
