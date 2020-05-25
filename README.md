@@ -38,6 +38,9 @@ ER図作成,
 ## index
 <img width="1437" alt="スクリーンショット 2020-03-14 9 37 34" src="https://user-images.githubusercontent.com/57339536/76671359-3a618680-65d9-11ea-891a-b6de32549e11.png">
 
+## ER図
+![image](https://user-images.githubusercontent.com/57339536/82786254-3ab2b380-9e9f-11ea-8153-a112073281b8.png)
+
 ## DB設計
 
 ## usersテーブル
